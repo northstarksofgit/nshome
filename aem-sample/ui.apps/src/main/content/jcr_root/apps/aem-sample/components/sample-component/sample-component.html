@@ -1,0 +1,44 @@
+
+<sly data-sly-use.data="com.nsc.aem_sample.core.models.SampleComponent"></sly>
+
+<!-- 명령어.알리아스 
+	 해당 알리아스로 class의 data에 접근할 수 있다.
+-->
+
+ 
+
+<!-- 이 템플린은 고정 -->
+<sly data-sly-use.clientlibs="/libs/granite/sightly/templates/clientlib.html" />
+
+
+<!-- 
+	알리아스.~~~ => all/js/css 중에 선택
+	all: css와 js 모두 clientlibs 것을 가져옴
+	css:css만 clientlibs 것을 가져옴
+	js: js만 clientlibs 것을 가져옴-->
+<!-- 위의 템플릿에 매개변수로 clientlibs의 categories properties의 value를 넘겨준다 -->
+<sly data-sly-call="${clientlibs.all @ categories='practice,clientlibs,sample'}" />
+
+<p class="test" onclick="test()">this is sample component</p>
+<br><br>
+<!-- 알리아스 뒤에 온 property는 class 내의 필드 이름이다.
+	jstl을 이용해서 객체에 접근하는 것과 동일한 방식이라고 이해하면 된다.
+
+ -->
+<p>properties.text : ${properties.text}</p>
+
+<p>Helper Class Request Parameter Value : ${data.regParam}</p>
+<p>Helper Class Request nodeData Value : ${data.nodeData}</p>
+<p>Helper Class HardCode Value : ${data.hardCode}</p>
+
+<p>Helper Class list Property Value: </p>
+<ul data-sly-list="${data.listDatas}">
+<!-- 	alias를 주지 않으면 기본이 item -->
+	<li>${item}</li>
+</ul>
+
+
+<!-- <sly data-sly-resource="${ './title' @ resourceType='core/wcm/components/title/v2/title' }"></sly> -->
+
+
+

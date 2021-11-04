@@ -1,0 +1,20 @@
+
+<div>
+
+	<sly data-sly-use.data="com.nsc.aem_sample.core.models.NscComponent2"></sly>
+
+	<p class="componentTitle">${data.title}</p>
+	<p class="componentDesc">${data.desc}</p>
+
+
+	<div class="coworkerLogoBox">
+		<ul data-sly-list.coworker="${data.coworkerList}">
+			<li> 
+				<a href="${coworker.link}">
+					<img class="coworkerLogo" src="${coworker.fileReference}">
+				</a>			
+			</li>					
+		</ul>
+	</div>
+	
+</div>

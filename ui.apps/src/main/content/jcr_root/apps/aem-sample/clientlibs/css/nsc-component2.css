@@ -1,0 +1,33 @@
+@charset "UTF-8";
+
+.componentTitle{
+	font-weight: bold;
+	font-size:50px;
+	text-align: center;
+    margin: 40px 0px 20px 0px;
+}
+
+.componentDesc{
+	text-align: center;
+    font-size: 17px;
+    margin-bottom:15px;
+}
+
+.coworkerLogoBox ul{
+	list-style:none;
+}
+
+.coworkerLogo{
+	width:150px;
+	border:0px;
+}
+
+.coworkerLogoBox ul li{
+	vertical-align: middle;
+   	display: inline-block;
+}
+
+.coworkerLogoBox{ 
+	max-width: 929px; 
+	margin: 0px auto 40px;
+} 

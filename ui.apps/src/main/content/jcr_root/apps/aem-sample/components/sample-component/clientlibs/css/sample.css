@@ -1,0 +1,17 @@
+.test{
+	color:blue;
+	font-weight: bold;
+	font-size: 100px;
+}
+
+.title--red{
+	color:red;
+}
+
+.title--blue {
+	color:blue;
+}
+
+.title--pink{
+	color:pink;
+}

@@ -1,0 +1,24 @@
+
+li {
+    color : blue
+}
+
+.component-1 {
+    font-weight :bold
+}
+
+.component-2 p {
+    color : red
+}
+
+.component-3 p {
+    color : gray
+}
+
+.component-4 ul {
+    font-weight: bold
+}
+
+.component-5 p {
+    font-weight: 900
+}

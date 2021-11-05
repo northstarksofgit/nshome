@@ -1,5 +1,0 @@
-#base=css
-
-style.css
-sub.css
-nsc-component2.css

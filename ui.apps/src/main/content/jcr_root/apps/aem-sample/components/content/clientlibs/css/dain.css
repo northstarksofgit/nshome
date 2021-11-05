@@ -1,0 +1,45 @@
+@charset "UTF-8";
+.all{
+    width: 90%;
+    height: 500px;
+    background-color: #F2F2F2;
+    margin: 30px;
+    padding: 30px;
+    margin-left: 3%;
+    text-align:center;
+}
+
+.title {
+    font-weight: bold;
+    font-size: 40px;
+    text-align: center;
+    margin: 20px;
+}
+
+.description {
+    font-size: 15px;
+    text-align: center;
+}
+
+.consultingBox .conDes {
+    width: 200px;
+    height: 50px;
+    margin-top: 10%;
+    margin-left: 10%;
+    font-size: 15px;
+}
+
+.cunsultionImg {
+    width: 100px;
+    height: 100px;
+}
+
+.consultingBox {
+    background-color: white;
+    width: 250px;
+    height: 250px;
+    display: inline-block;
+    margin: 20px;
+    
+}
+

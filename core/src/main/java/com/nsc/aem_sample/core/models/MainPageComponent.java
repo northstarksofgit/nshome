@@ -9,7 +9,6 @@ import javax.inject.Inject;
 
 import org.apache.sling.api.SlingHttpServletRequest;
 import org.apache.sling.api.resource.Resource;
-import org.apache.sling.api.resource.ValueMap;
 import org.apache.sling.models.annotations.DefaultInjectionStrategy;
 import org.apache.sling.models.annotations.Model;
 import org.slf4j.Logger;
@@ -42,6 +41,7 @@ public class MainPageComponent {
 	 	   while(resourceIterator.hasNext()) {
 	 		   Resource childResource = resourceIterator.next();
 	 		   MainPageVO mpVO = childResource.adaptTo(MainPageVO.class);
+	 		   System.out.println(mpVO);
 	 		   listDatas.add(mpVO);
 	 		   
 //	 		   ItemExam itemExam = childResource.adaptTo(ItemExam.class);

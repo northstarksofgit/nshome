@@ -50,7 +50,7 @@ public class NscPractice2{
         Resource consultingList = resource.getChild("consultingList");
         
         if (consultingList != null && consultingList.hasChildren()) {
-
+        	
             Iterator<Resource> resourceIterator = consultingList.listChildren();
             
             while(resourceIterator.hasNext()) {

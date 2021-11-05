@@ -17,7 +17,7 @@ import org.slf4j.LoggerFactory;
 
 
 @Model(adaptables = { SlingHttpServletRequest.class }, defaultInjectionStrategy = DefaultInjectionStrategy.OPTIONAL)
-public class NscComponent2{
+public class DwComponent{
 
 
 	@Inject

@@ -1,44 +1,61 @@
+<sly data-sly-use.data="com.nsc.aem_sample.core.models.MainPageComponent"></sly>
 
-<sly data-sly-use.data="com.nsc.aem_sample.core.models.SampleComponent"></sly>
-
-<!-- 명령어.알리아스 
-	 해당 알리아스로 class의 data에 접근할 수 있다.
--->
-
- 
-
-<!-- 이 템플린은 고정 -->
-<sly data-sly-use.clientlibs="/libs/granite/sightly/templates/clientlib.html" />
+<div>
+	<div class="main-title">
+    	${data.mainTitle}
+    </div>
+    <div class="main-desc">
+    	${data.mainDesc}
+    </div>
+</div>
 
 
+<!--<sly data-sly-use.data="com.nsc.aem_sample.core.models.SampleComponent"></sly>-->
 <!-- 
-	알리아스.~~~ => all/js/css 중에 선택
-	all: css와 js 모두 clientlibs 것을 가져옴
-	css:css만 clientlibs 것을 가져옴
-	js: js만 clientlibs 것을 가져옴-->
-<!-- 위의 템플릿에 매개변수로 clientlibs의 categories properties의 value를 넘겨준다 -->
-<sly data-sly-call="${clientlibs.all @ categories='practice,clientlibs,sample'}" />
+<sly data-sly-use.data="com.nsc.aem_sample.core.models.SampleComponent"></sly>
+<sly data-sly-use.data2="com.nsc.aem_sample.core.models.SampleComponent2"></sly>
+<sly data-sly-use.clientlibs="/libs/granite/sightly/templates/clientlib.html"></sly>
+<sly data-sly-call="${clientlibs.all @ categories='practice.clientlibs.sample'}" />
 
-<p class="test" onclick="test()">this is sample component</p>
-<br><br>
-<!-- 알리아스 뒤에 온 property는 class 내의 필드 이름이다.
-	jstl을 이용해서 객체에 접근하는 것과 동일한 방식이라고 이해하면 된다.
+<div class="component-1">
+	<p>this is sample component</p>
+	<br><hr>
+</div>
 
- -->
-<p>properties.text : ${properties.text}</p>
+<div class="component-2">
+	<p>properties.text : ${properties.text}</p>
+	<p>test_textField : ${properties.text1}</p>
+</div>
+<br><hr>
 
-<p>Helper Class Request Parameter Value : ${data.regParam}</p>
-<p>Helper Class Request nodeData Value : ${data.nodeData}</p>
+<div class="component-3">
+    <p>List Test</p>
+    <p>HardCode : ${data.hardCode}</p>
+    <p>NodeData : ${data.nodeData}</p>
+    <p>ReqParam : ${data.reqParam}</p>
+</div>
+
+<div class="component-4">
+    <ul data-sly-list="${data.listDatas}">
+       <li>${item}</li>
+    </ul>
+</div>
+<br><hr>
+
+<div class="component-5">
+    <p>Extends WCMUse Pojo</p>
+    <p>Static Value : ${data2.staticValue}</p>
+    <p>Dynamic Value : ${data2.dynamicValue}</p>
+    <p>Request Value : ${data2.reqValue}</p>
+</div>
+<br><hr>
+
+<div class="component-6">
+    <sly data-sly-resource="${'./breadcrumb' @ resourceType='core/wcm/components/breadcrumb/v2/breadcrumb'}"></sly>
+</div>
+<br><hr>
+
 <p>Helper Class HardCode Value : ${data.hardCode}</p>
-
-<p>Helper Class list Property Value: </p>
-<ul data-sly-list="${data.listDatas}">
-<!-- 	alias를 주지 않으면 기본이 item -->
-	<li>${item}</li>
-</ul>
-
-
-<!-- <sly data-sly-resource="${ './title' @ resourceType='core/wcm/components/title/v2/title' }"></sly> -->
-
-
-
+<p>Helper Class Property Value : ${data.nodeData}</p>
+<p>Helper Class Request Parameter Value : ${data.regParam}</p>
+-->

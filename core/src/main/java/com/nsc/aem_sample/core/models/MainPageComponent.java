@@ -9,6 +9,7 @@ import javax.inject.Inject;
 
 import org.apache.sling.api.SlingHttpServletRequest;
 import org.apache.sling.api.resource.Resource;
+import org.apache.sling.api.resource.ValueMap;
 import org.apache.sling.models.annotations.DefaultInjectionStrategy;
 import org.apache.sling.models.annotations.Model;
 import org.slf4j.Logger;
@@ -32,6 +33,11 @@ public class MainPageComponent {
 	
 	@PostConstruct
 	public void activate() throws Exception {
+		
+		ValueMap valueMap = resource.getValueMap();
+		mainTitle = (String)valueMap.getOrDefault("mainTitle", "Input Title");
+        mainDesc= (String)valueMap.getOrDefault("mainDesc", "Input Description");
+		
 		listDatas = new ArrayList<>();
 	    Resource myList = resource.getChild("imageList");
 

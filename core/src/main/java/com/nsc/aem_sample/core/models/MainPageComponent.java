@@ -14,22 +14,22 @@ import org.apache.sling.models.annotations.Model;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import com.adobe.cq.sightly.WCMUsePojo;
 import com.nsc.aem_sample.core.vo.MainPageVO;
 
 @Model(adaptables = { SlingHttpServletRequest.class }, defaultInjectionStrategy = DefaultInjectionStrategy.OPTIONAL)
 public class MainPageComponent {
-	private final static Logger LOG = LoggerFactory.getLogger(SampleComponent.class);
-	   
+	private final static Logger LOG = LoggerFactory.getLogger(MainPageComponent.class);
+
+	@Inject
+	private Resource resource;
+	
 	private String mainTitle;
 	private String mainDesc;
 	
-	@Inject
-	private Resource resource;
-	@Inject
-	private WCMUsePojo wcmUse;
-	private List<MainPageVO> listDatas;   
-	MainPageVO mpVO = new MainPageVO();
+	private List<MainPageVO> listDatas;
+	
+	MainPageVO mpVO = null;
+	
 	@PostConstruct
 	public void activate() throws Exception {
 		listDatas = new ArrayList<>();
@@ -40,26 +40,11 @@ public class MainPageComponent {
 	       
 	 	   while(resourceIterator.hasNext()) {
 	 		   Resource childResource = resourceIterator.next();
-	 		   MainPageVO mpVO = childResource.adaptTo(MainPageVO.class);
-	 		   System.out.println(mpVO);
+	 		   mpVO = childResource.adaptTo(MainPageVO.class);
+
 	 		   listDatas.add(mpVO);
-	 		   
-//	 		   ItemExam itemExam = childResource.adaptTo(ItemExam.class);
-//	 		   listDatas.add(itemExam.getDesc());
 	 	   }
 	    }
-		System.out.println(listDatas);
-		
-//		if(list != null && list.hasChildren()) {
-//			Iterator<Resource> resourceIterator = list.listChildren();
-//			
-//			while(resourceIterator.hasNext()) {
-//				Resource childResource = resourceIterator.next();
-//				MainPageVO mpVO = childResource.adaptTo(MainPageVO.class);
-//				listDatas.add(mpVO.getMainTitle());
-//				listDatas.add(mpVO.getMainDesc());
-//			}
-//		}
 	}
 
 	public String getMainTitle() {
@@ -68,10 +53,6 @@ public class MainPageComponent {
 
 	public String getMainDesc() {
 		return mainDesc;
-	}
-	
-	public List<MainPageVO> getListDatas() {
-	   return listDatas;
 	}
 	
 }

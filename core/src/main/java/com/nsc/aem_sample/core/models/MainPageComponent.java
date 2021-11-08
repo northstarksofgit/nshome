@@ -47,10 +47,11 @@ public class MainPageComponent {
 	 	   while(resourceIterator.hasNext()) {
 	 		   Resource childResource = resourceIterator.next();
 	 		   mpVO = childResource.adaptTo(MainPageVO.class);
-
+	 		  System.out.println(mpVO);
 	 		   listDatas.add(mpVO);
 	 	   }
 	    }
+	    
 	}
 
 	public String getMainTitle() {
@@ -59,6 +60,10 @@ public class MainPageComponent {
 
 	public String getMainDesc() {
 		return mainDesc;
+	}
+	
+	public List<MainPageVO> getListDatas() {
+		return listDatas;
 	}
 	
 }

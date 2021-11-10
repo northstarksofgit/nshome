@@ -9,8 +9,9 @@
 	<div class="solution-wrap" sly data-sly-list.list="${data.listDatas}">
 		<div class="box-list-ckh">
 			<img class="img-mb" src="${list.fileReference}">
-			<p class="box-txt">${list.listDesc}</p>
-			<a class="link" href="${list.path}">상세보기   ></a>
+			<div class="box-title-ckh">${list.midTitle}</div>
+            <div class="box-txt-ckh">${list.listDesc}</div>
+			<a class="link" href="${list.path}"> 상세보기   ></a>
 		</div>
 	</div>
 </div>

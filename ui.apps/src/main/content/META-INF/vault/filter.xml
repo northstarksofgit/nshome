@@ -4,5 +4,4 @@
     <filter root="/apps/aem-sample/components"/>
     <filter root="/apps/aem-sample/i18n"/>
     <filter root="/apps/msm/aem-sample_blueprint" mode="merge"/>
-    <filter root="/conf/aem-sample"/>
 </workspaceFilter>

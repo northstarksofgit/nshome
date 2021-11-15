@@ -3,7 +3,5 @@
     jcr:primaryType="cq:Page">
     <jcr:content
         jcr:primaryType="cq:PageContent"
-        sling:resourceType="cq/contexthub/components/segments-listing-page"/>
-    <summer/>
-    <winter/>
+        sling:resourceType="wcm/core/components/policies/mappings"/>
 </jcr:root>

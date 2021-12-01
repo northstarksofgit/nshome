@@ -1,2 +1,56 @@
+<script type="text/javascript" src="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
+<script>
+
+	$(".btn_show").on('click', function () {
+		$(".show-mo").toggleClass("active");
+		if ($(".show-mo").hasClass("active")) {
+			$(".btn_show").html("접기");
+		} else {
+			$(".btn_show").html("더보기");
+		}
+	})
+
+
+	$(function () {
+		var $slider = $('.business-slide');
+		var $progressBar = $('.progress');
+		var $progressBarLabel = $('.slider__label');
+		$slider.on('beforeChange', function (event, slick, currentSlide, nextSlide) {
+			var calc = ((nextSlide + 1) / (slick.slideCount)) * 100;
+
+			$progressBar
+				.css('background-size', calc + '% 100%')
+				.attr('aria-valuenow', calc);
+
+			$progressBarLabel.text(calc + '% completed');
+			$('.now').text('0' + (currentSlide + 2));
+			if ($('.now').text() == '05') {
+				$('.now').text('01');
+			}
+
+		});
+
+		$slider.slick({
+			autoplay: true,
+			autoplaySpeed: 200000000,
+			responsive: [
+				{
+					breakpoint: 1450,
+					settings: {
+						arrows: false,
+						centerMode: true,
+						slidesToShow: 1,
+					}
+
+				}
+			]
+		});
+		$('.slick-slide').click(function () {
+			var slideNo = $(this).index() - 1;
+			$slider.slick('slickGoTo', slideNo);
+		});
+	})
+
+</script>
 <!--/* Include the site client libraries (loading only the JS in the footer, CSS was loaded in the header) */-->
-<sly data-sly-use.clientLib="/libs/granite/sightly/templates/clientlib.html" data-sly-call="${clientLib.js @ categories='nsc.pracitce'}"/>
+<!--/* <sly data-sly-use.clientLib="/libs/granite/sightly/templates/clientlib.html" data-sly-call="${clientLib.all @ categories='nsc.pracitce'}" /> */-->

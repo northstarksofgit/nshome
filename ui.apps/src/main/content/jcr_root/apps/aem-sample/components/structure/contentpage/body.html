@@ -1,7 +1,69 @@
-<div data-sly-include="header.html"></div>
+<div class="wrap">
+
+    <div data-sly-include="header.html"></div>
 
 
-<div data-sly-resource="${'responsegrid' @ resourceType='/libs/wcm/foundation/components/responsivegrid'}"></div>
-<a href="#" class="scrollup" style="display: block;"><i class="fa fa-angle-up active"></i></a>
+    <div class="full-page-wrap">
+		<div class="full-page">
 
-<div data-sly-include="footer.html"></div>
+            <div data-sly-resource="${'responsegrid' @ resourceType='/libs/wcm/foundation/components/responsivegrid'}"></div>
+            <a href="#" class="scrollup" style="display: block;"><i class="fa fa-angle-up active"></i></a>
+
+            <div data-sly-include="footer.html"></div>
+
+		</div>
+	</div>
+    <span id="moveTop"></span>
+</div>
+
+
+<!-- 사업부 popup-->
+<div class="popup big-pop">  <!-- .show 여부에 따라 팝업이 보여짐/ data-pop과 일치하는 class의 팝업을 띄움 -->
+	<div class="pop-wrap">
+		<span class="btn-close pop-close"></span>
+		<div class="layer__section">
+			<div class="layer__header">
+				<span>사업부 안내</span>
+			</div>
+			<div class="layer_contet">
+				<div class="dept_inner">
+					<div>
+						<h6>솔루션 사업부</h6>
+						<p><span>E.</span> 00000@northstar.co.kr</p>
+						<p><span>T.</span> 02-552-0205 내)200</p>
+					</div>
+					<div>
+						<h6>BI 사업 문의</h6>
+						<p><span>E.</span> 00000@northstar.co.kr</p>
+						<p><span>T.</span> 02-552-0205 내)200</p>
+					</div>
+					<div>
+						<h6>사업개발 문의</h6>
+						<p><span>E.</span> 00000@northstar.co.kr</p>
+						<p><span>T.</span> 02-552-0205 내)200</p>
+					</div>
+					<div>
+						<h6>기술상담</h6>
+						<p><span>E.</span> 00000@northstar.co.kr</p>
+						<p><span>T.</span> 02-552-0205 내)200</p>
+					</div>
+					<div>
+						<h6>경영지원 문의</h6>
+						<p><span>E.</span> 00000@northstar.co.kr</p>
+						<p><span>T.</span> 02-552-0205 내)200</p>
+					</div>
+					<div>
+						<h6>제휴 및 파트너 문의</h6>
+						<p><span>E.</span> 00000@northstar.co.kr</p>
+						<p><span>T.</span> 02-552-0205 내)200</p>
+					</div>
+				</div>
+			</div>
+		</div>
+
+	</div>
+</div>
+<!-- //popup -->
+<div id="fp-nav" class="right" style="margin-top: -118px;"><ul><li><a href="#" class="active"><span></span></a></li><li><a href="#" class=""><span></span></a></li><li><a href="#" class=""><span></span></a></li><li><a href="#" class=""><span></span></a></li><li><a href="#" class=""><span></span></a></li><li><a href="#" class=""><span></span></a></li><li><a href="#" class=""><span></span></a></li><li><a href="#" class=""><span></span></a></li></ul></div>
+<style>.tb_button {padding:1px;cursor:pointer;border-right: 1px solid #8b8b8b;border-left: 1px solid #FFF;border-bottom: 1px solid #fff;}.tb_button.hover {borer:2px outset #def; background-color: #f8f8f8 !important;}.ws_toolbar {z-index:100000} .ws_toolbar .ws_tb_btn {cursor:pointer;border:1px solid #555;padding:3px}   .tb_highlight{background-color:yellow} .tb_hide {visibility:hidden} .ws_toolbar img {padding:2px;margin:0px}</style>
+

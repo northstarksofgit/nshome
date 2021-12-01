@@ -3,5 +3,5 @@
     jcr:description="This is the nsc Contentpage"
     jcr:primaryType="cq:Component"
     jcr:title="nsc contentPage"
-    sling:resourceSuperType="wcm/foundation/components/page"
+    sling:resourceSuperType="core/wcm/components/page/v2/page"
     componentGroup="nsc"/>

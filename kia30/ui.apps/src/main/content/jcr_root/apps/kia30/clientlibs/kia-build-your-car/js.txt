@@ -1,0 +1,7 @@
+#base=/apps/kia30/clientlibs/kia-build-your-car
+
+#KMUK Online Sales components (Buy My Kia)
+
+js/lib.js
+js/clientlib.min.js
+js/default_script.min.js

@@ -1,0 +1,8 @@
+#base=/apps/kia30/clientlibs/clientlib-site
+
+site.js
+
+js/lib.js
+js/clientlib.min.js
+js/common.js
+js/default_script.min.js

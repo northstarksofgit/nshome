@@ -444,7 +444,7 @@ body.total_fixed {overflow:hidden;}
 .estimate_online_wrap .build_car .model, .estimate_online_wrap .build_car .trans {position:relative; padding-left:100px; margin-bottom:3%;}
 .estimate_online_wrap .build_car .model h5, .estimate_online_wrap .build_car .trans h5 {position:absolute; top:0; left:0;}
 .estimate_online_wrap .build_car .model span, .estimate_online_wrap .build_car .trans span {width:150px; height:40px; margin:0 4px 7px 0;}
-.estimate_online_wrap .build_graph .graph {width:184px; height:184px; margin:17% 14%; background: url(/content/dam/kwcms/kr/ko/images/shopping-tools/estimate-online/bg_preferences_circle_v1.png) 0 0 no-repeat;}
+.estimate_online_wrap .build_graph .graph {width:184px; height:184px; margin:17% 14%; background: url(/content/dam/kia30/build-a-car/bg_preferences_circle_v1.png) 0 0 no-repeat;}
 .estimate_online_wrap .build_graph .graph .rate {font-size:28px; font-family:kiaB;}
 .estimate_online_wrap .build_graph .graph .rate .num {font-size:40px;}
 .estimate_online_wrap .build_preview .build_graph .rank {position:relative; left:inherit;}
@@ -475,16 +475,16 @@ body.total_fixed {overflow:hidden;}
 /*.estimate_online_wrap .build_area .slide_box .box_l a:hover .box.rec .price:before */
 
 .estimate_online_wrap .build_area .slide_box .box_l .view_option {display:block; position:absolute; top:8px; right:7px; width:40px; height:40px; z-index:9; text-indent:-9999px;}
-.estimate_online_wrap .build_area .slide_box .box_l .view_option:after {display:block; position:absolute; top:9px; left:9px; width:21px; height:21px; background:#05141f url(/content/dam/kwcms/kr/ko/images/shopping-tools/estimate-online/ic_opt.png) 7px 5px no-repeat; border-radius:20px; content:''}
+.estimate_online_wrap .build_area .slide_box .box_l .view_option:after {display:block; position:absolute; top:9px; left:9px; width:21px; height:21px; background:#05141f url(/content/dam/kia30/build-a-car/ic_opt.webp) 7px 5px no-repeat; border-radius:20px; content:''}
 
 .estimate_online_wrap .build_area .slide_box .box_l .view_tuon {display:block; position:absolute; top:8px; right:7px; width:40px; height:40px; z-index:9; text-indent:-9999px;}
-.estimate_online_wrap .build_area .slide_box .box_l .view_tuon:after {display:block; position:absolute; top:9px; left:9px; width:21px; height:21px; background:#666 url(/content/dam/kwcms/kr/ko/images/shopping-tools/estimate-online/ic_opt.png) 7px 5px no-repeat; border-radius:20px; content:''}
+.estimate_online_wrap .build_area .slide_box .box_l .view_tuon:after {display:block; position:absolute; top:9px; left:9px; width:21px; height:21px; background:#666 url(/content/dam/kia30/build-a-car/ic_opt.webp) 7px 5px no-repeat; border-radius:20px; content:''}
 
 .estimate_online_wrap .build_area .slide_box.multi .box_l.on .box {font-family:YoonPro740; }
 .estimate_online_wrap .build_area .slide_box.multi .box_l.on .box .price {font-size:18px; right:20px;}
 
 .estimate_online_wrap .build_area .slide_box .box_l.on .view_option {}
-.estimate_online_wrap .build_area .slide_box .box_l.on .view_option:after {background:#fff url(/content/dam/kwcms/kr/ko/images/shopping-tools/estimate-online/ic_opt_on.png) 7px 5px no-repeat;}
+.estimate_online_wrap .build_area .slide_box .box_l.on .view_option:after {background:#fff url(/content/dam/kia30/build-a-car/ic_opt_on.webp) 7px 5px no-repeat;}
 
 @media (max-width: 1024px){
 .estimate_online_wrap .step_wrap ul {width:100%;}

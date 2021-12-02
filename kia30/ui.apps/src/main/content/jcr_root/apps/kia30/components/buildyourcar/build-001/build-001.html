@@ -5,6 +5,15 @@
 <sly data-sly-call="${clientlibs.all @ categories='kia30.site'}" />
 
 
+<style>
+
+/* 	헤더가 없어서 스크롤시 카테고리가 화면 중간즈음에 위치되는 현상이 생김. */
+/* 	이에 최상단으로 붙이는 css를 추가함 */
+	.estimate_online_wrap.list .category.fixed{
+		top:0px;
+	}	
+</style>
+
 
 
 

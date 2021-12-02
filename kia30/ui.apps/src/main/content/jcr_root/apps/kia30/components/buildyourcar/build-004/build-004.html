@@ -85,6 +85,7 @@
         <div class="build_option">
             <div class="trimselector slide_box multi">
                 <ul class="box_u">
+                	<!-- 반복문 start -->
                     <li class="box_l" price="3000000" conflict="ZZZ" opt="4WD" optionname="듀얼 모터 4WD" tuonconflict="">
                         <a href="#" class="box_a">
                             <div class="box" option_and_tuon="4WD">
@@ -113,6 +114,7 @@
                         </a>
                         <button type="button" class="view_option">옵션 자세히 보기</button>
                     </li>
+                    <!-- 반복문 end -->
                 </ul>
             </div>
         </div>
@@ -123,29 +125,31 @@
         <h3 class="pop_tit">옵션 안내</h3>
         <div class="pop_con">
             <ul class="bbs_type1 pop_guide_list">
+            	<!-- 반복문 start -->
                 <li class="bbs_li" opt="DWP">
                     <button type="button" href="#none" class="bbs_head bbs_a">
-                        드라이브 와이즈
+                    	드라이브 와이즈
                         <span data-on-text="옵션 설명 접기" data-off-text="옵션 설명 펄침">
                             <em class="ico_pop_down">옵션 설명 펄침</em>
                         </span>
                     </button>
                     <div class="bbs_body">
-                        전방 충돌방지 보조(교차 차량, 추월 시 대향차, 측방 접근차, 회피 조향 보조 기능 포함), 후측방 충돌방지 보조, 후방 교차 충돌방지 보조, 내비게이션 기반 스마트 크루즈 컨트롤(진출입로), 고속도로 주행 보조 2(차로 변경 보조 기능 포함), 안전 하차 보조, 전자식 차일드락
+						전방 충돌방지 보조(교차 차량, 추월 시 대향차, 측방 접근차, 회피 조향 보조 기능 포함), 후측방 충돌방지 보조, 후방 교차 충돌방지 보조, 내비게이션 기반 스마트 크루즈 컨트롤(진출입로), 고속도로 주행 보조 2(차로 변경 보조 기능 포함), 안전 하차 보조, 전자식 차일드락
                     </div>
                 </li>
 
                 <li class="bbs_li" opt="CVN">
                     <button type="button" href="#none" class="bbs_head bbs_a">
-                        컨비니언스
+                    	컨비니언스
                         <span data-on-text="옵션 설명 접기" data-off-text="옵션 설명 펄침">
                             <em class="ico_pop_down">옵션 설명 펄침</em>
                         </span>
                     </button>
                     <div class="bbs_body">
-                        전자식 룸미러(ECM), 러기지 보드, 하이패스 자동결제 시스템, 러기지 파워아웃렛, 스마트폰 무선충전 시스템, 기아 디지털 키, 레인센서
+						전자식 룸미러(ECM), 러기지 보드, 하이패스 자동결제 시스템, 러기지 파워아웃렛, 스마트폰 무선충전 시스템, 기아 디지털 키, 레인센서
                     </div>
                 </li>
+                <!-- 반복문 end -->
             </ul>
         </div>
         <a href="#" class="closeBtn"><span>닫기</span></a>
@@ -172,98 +176,100 @@
     <!-- s:튜온 안내 팝업 end-->
 
 
-    <div class="build_car">
-        <div class="byoTotal">
-            <div class="btn_area">
-                <a href="vehicle-lineup.color.car=EV6-SEV.trim=CVJJ5VH31-A.ext=SWP.int=IN_EV6_BL.html" class="btnPrev"><span class="ico_prev">이전</span></a>
-                <a href="javascript:nextStep();" class="btnNext btnActMove on"><span class="ico_next">다음</span></a><!-- javascript:nextStep() -->
-            </div>
+<!--     <div class="build_car"> -->
+<!--         <div class="byoTotal"> -->
+<!--             <div class="btn_area"> -->
+<!--                 <a href="vehicle-lineup.color.car=EV6-SEV.trim=CVJJ5VH31-A.ext=SWP.int=IN_EV6_BL.html" class="btnPrev"><span class="ico_prev">이전</span></a> -->
+<!--                 <a href="javascript:nextStep();" class="btnNext btnActMove on"><span class="ico_next">다음</span></a>javascript:nextStep() -->
+<!--             </div> -->
 
-            <div class="totalBar">
-                <a href="#" class="btn_totalCon_open" title="상세견적 선택 내용 열기">
-                    <span class="txt">Total</span> 
-                    <span class="price" title="상세견적 총 금액">49,310,000</span><em class="won">원</em>
-                </a>
-            </div>
-            <div class="totalCon" style="display: none;">
-                <div class="totalCon_wrap">
-                    <div class="totalCon_inner">
-                        <strong class="hidden">상세견적 전체 선택 내용보기</strong>
-                        <ul class="totalList">
-                            <li class="list01">
-                                <div class="list_in">
-                                    <strong>모델</strong>
-                                    <p style="display:none;">차량을 선택해 주세요.</p>
-                                    <div class="con" price="49310000">
-                                        <span class="fixed conTitle">EV6 스탠다드 라이트(Light)</span>
-                                        <span class="fixed carImg"><img src="https://www.kia.com/content/dam/kwcms/kr/ko/images/byo/car_ev6_standard_swp.png" alt="EV6 스탠다드 라이트(Light)"></span>
-                                        <span class="fixed conPrice">49,310,000<em>원</em></span>
-                                    </div>
-                                </div>
-                            </li>
+<!--             <div class="totalBar"> -->
+<!--                 <a href="#" class="btn_totalCon_open" title="상세견적 선택 내용 열기"> -->
+<!--                     <span class="txt">Total</span>  -->
+<!--                     <span class="price" title="상세견적 총 금액">49,310,000</span><em class="won">원</em> -->
+<!--                 </a> -->
+<!--             </div> -->
+<!--             <div class="totalCon" style="display: none;"> -->
+<!--                 <div class="totalCon_wrap"> -->
+<!--                     <div class="totalCon_inner"> -->
+<!--                         <strong class="hidden">상세견적 전체 선택 내용보기</strong> -->
+<!--                         <ul class="totalList"> -->
+<!--                             <li class="list01"> -->
+<!--                                 <div class="list_in"> -->
+<!--                                     <strong>모델</strong> -->
+<!--                                     <p style="display:none;">차량을 선택해 주세요.</p> -->
+<!--                                     <div class="con" price="49310000"> -->
+<!--                                         <span class="fixed conTitle">EV6 스탠다드 라이트(Light)</span> -->
+<!--                                         <span class="fixed carImg"><img src="https://www.kia.com/content/dam/kwcms/kr/ko/images/byo/car_ev6_standard_swp.png" alt="EV6 스탠다드 라이트(Light)"></span> -->
+<!--                                         <span class="fixed conPrice">49,310,000<em>원</em></span> -->
+<!--                                     </div> -->
+<!--                                 </div> -->
+<!--                             </li> -->
 
-                            <li class="list02">
-                                <div class="list_in">
-                                    <strong>외장컬러</strong>
-                                    <p style="display:none;">선택정보가 없습니다.</p>
-                                    <div class="con con_exterior" price1="0">
-                                        <span>
-                                            <span class="colorArea"><img src="https://www.kia.com/content/dam/kwcms/kr/ko/images/byo/color/swp.jpg" alt="스노우 화이트 펄" class="colorImg"></span>
-                                            <em class="conTitle">스노우 화이트 펄</em>
-                                        </span>
+<!--                             <li class="list02"> -->
+<!-- 								반복문 start -->
+<!--                                 <div class="list_in"> -->
+<!--                                     <strong>외장컬러</strong> -->
+<!--                                     <p style="display:none;">선택정보가 없습니다.</p> -->
+<!--                                     <div class="con con_exterior" price1="0"> -->
+<!--                                         <span> -->
+<!--                                             <span class="colorArea"><img src="https://www.kia.com/content/dam/kwcms/kr/ko/images/byo/color/swp.jpg" alt="스노우 화이트 펄" class="colorImg"></span> -->
+<!--                                             <em class="conTitle">스노우 화이트 펄</em> -->
+<!--                                         </span> -->
 
-                                        <span class="conPrice">0<em>원</em></span>
-                                    </div>
-                                </div>
+<!--                                         <span class="conPrice">0<em>원</em></span> -->
+<!--                                     </div> -->
+<!--                                 </div> -->
 
-                                <div class="list_in">
-                                    <strong>내장컬러</strong>
-                                    <p style="display:none;">선택정보가 없습니다.</p>
-                                    <div class="con con_interior" price2="0">
-                                        <span>
-                                            <span class="colorArea"><img src="https://www.kia.com/content/dam/kwcms/kr/ko/images/byo/color/in_ev6_bl.jpg" alt="블랙 인테리어" class="colorImg"></span>
-                                            <em class="conTitle">블랙 인테리어</em>
-                                        </span>
+<!--                                 <div class="list_in"> -->
+<!--                                     <strong>내장컬러</strong> -->
+<!--                                     <p style="display:none;">선택정보가 없습니다.</p> -->
+<!--                                     <div class="con con_interior" price2="0"> -->
+<!--                                         <span> -->
+<!--                                             <span class="colorArea"><img src="https://www.kia.com/content/dam/kwcms/kr/ko/images/byo/color/in_ev6_bl.jpg" alt="블랙 인테리어" class="colorImg"></span> -->
+<!--                                             <em class="conTitle">블랙 인테리어</em> -->
+<!--                                         </span> -->
 
-                                        <span class="conPrice">0<em>원</em></span>
-                                    </div>
-                                </div>
-                            </li>
+<!--                                         <span class="conPrice">0<em>원</em></span> -->
+<!--                                     </div> -->
+<!--                                 </div> -->
+<!--                                 반복문 end -->
+<!--                             </li> -->
 
-                            <li class="list03">
-                                <div class="list_in">
-                                    <strong>선택옵션</strong>
-                                    <p style="display:none;">선택정보가 없습니다.</p>
-                                    <div>
-                                        <div class="con">
+<!--                             <li class="list03"> -->
+<!--                                 <div class="list_in"> -->
+<!--                                     <strong>선택옵션</strong> -->
+<!--                                     <p style="display:none;">선택정보가 없습니다.</p> -->
+<!--                                     <div> -->
+<!--                                         <div class="con"> -->
                                             
-                                        </div>
-                                    </div>
-                                </div>
-                            </li>
+<!--                                         </div> -->
+<!--                                     </div> -->
+<!--                                 </div> -->
+<!--                             </li> -->
 
-                            <li class="list04">
-                                <div class="list_in">
-                                    <strong>구매방법</strong>
-                                    <p>선택정보가 없습니다.</p>
-                                    <div class="con_pay" style="display:none;">
-                                        <span><em class="tit">지불방법</em><em class="txt">현금구입</em></span>
-                                    </div>
-                                </div>
-                                <div class="list_in">
-                                    <strong><em>할인내역 / </em><em>기타비용</em></strong>
-                                    <p>선택정보가 없습니다.</p>
-                                    <div class="con_etc" style="display:none;">
-                                    </div>
-                                </div>
-                            </li>
-                        </ul>
-                    </div>
-                    <button class="btn_totalCon_close"><span>상세견적 선택 내용 닫기</span></button>
-                </div>
-            </div>
-        </div>
-    </div>
+<!--                             <li class="list04"> -->
+<!--                                 <div class="list_in"> -->
+<!--                                     <strong>구매방법</strong> -->
+<!--                                     <p>선택정보가 없습니다.</p> -->
+<!--                                     <div class="con_pay" style="display:none;"> -->
+<!--                                         <span><em class="tit">지불방법</em><em class="txt">현금구입</em></span> -->
+<!--                                     </div> -->
+<!--                                 </div> -->
+<!--                                 <div class="list_in"> -->
+<!--                                     <strong><em>할인내역 / </em><em>기타비용</em></strong> -->
+<!--                                     <p>선택정보가 없습니다.</p> -->
+<!--                                     <div class="con_etc" style="display:none;"> -->
+<!--                                     </div> -->
+<!--                                 </div> -->
+<!--                             </li> -->
+<!--                         </ul> -->
+<!--                     </div> -->
+<!--                     <button class="btn_totalCon_close"><span>상세견적 선택 내용 닫기</span></button> -->
+<!--                 </div> -->
+<!--             </div> -->
+<!--         </div> -->
+<!--     </div> -->
 </div>
 
 

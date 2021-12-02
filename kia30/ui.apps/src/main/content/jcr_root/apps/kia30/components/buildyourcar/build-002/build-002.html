@@ -1,0 +1,730 @@
+
+
+<sly data-sly-use.clientlibs="/libs/granite/sightly/templates/clientlib.html"/>
+<sly data-sly-call="${clientlibs.all @ categories='kia30.site'}" />
+
+
+    <div class="estimate_online_wrap">
+
+        <!-- step 시작 -->
+        <div class="step_wrap">
+            <ul>
+                <li class="step1">
+                    <a href="/kr/shopping-tools/build-your-car/vehicle-lineup.html">
+                        <span>처음으로</span>
+                    </a>
+                </li>
+                
+                <li class="step2 on">
+                        
+                        <span class="basic">상세차종 선택</span>
+                    
+                </li>
+                <li class="step3 ">
+                    
+                        <span class="basic">컬러 선택</span>
+                    
+                </li>
+                <li class="step4 ">
+                    
+                        <span class="basic">옵션 선택</span>
+                        
+                </li>
+                <li class="step5 ">
+                        
+                        <span class="basic">구매 방법</span>
+                        <span class="result"></span>
+                    
+                </li>
+                <li class="step6 ">
+                    <span class="basic">견적완료</span>
+                </li>
+            </ul>
+        </div><!-- // byoTab -->
+        <!-- // step 끝 -->
+
+    <div class="inner build_car">
+    <div class="build_preview">
+    <div class="preview">
+    <h4 class="hidden">STEP 1 상세차종선택</h4>
+    <div class="car_name">
+        <strong class="name">EV6</strong>
+            <button type="button" class="btn_car" onclick="fnOpenSelectCarPop()">다른 차량 선택</button>
+        </div>
+    <div class="car_img">
+        <img src="https://www.kia.com/content/dam/kwcms/kr/ko/images/byo/car_ev6_standard.png" alt="EV6">
+        <p class="car_desc">※ 본 차량의 이미지는 실제와 다를 수 있습니다.</p>
+    </div>
+    </div>
+    <div class="model sel caroption">
+    <h5 class="tit">모델 <em class="hidden">선택</em></h5>
+
+        <span class="form_chk">
+            <input type="radio" prefer="client" car="EV6-LEV" carimage="https://www.kia.com/content/dam/kwcms/kr/ko/images/byo/car_ev6_standard.png" value="EV6-LEV" name="sample1" id="sample1_1" checked="">
+            <label for="sample1_1" class="form_spr radio_box r_on">롱 레인지</label>
+        </span>
+
+        <span class="form_chk">
+            <input type="radio" prefer="client" car="EV6-GEV" carimage="https://www.kia.com/content/dam/kwcms/kr/ko/images/byo/car_ev6_gt_klm.png" value="EV6-GEV" name="sample1" id="sample1_2">
+            <label for="sample1_2" class="form_spr radio_box">롱 레인지 GT-Line</label>
+        </span>
+
+        <span class="form_chk">
+            <input type="radio" prefer="client" car="EV6-SEV" carimage="https://www.kia.com/content/dam/kwcms/kr/ko/images/byo/car_ev6_standard.png" value="EV6-SEV" name="sample1" id="sample1_3">
+            <label for="sample1_3" class="form_spr radio_box">스탠다드</label>
+        </span>
+
+    </div>
+
+    <div class="trans sel transmission">
+    <h5 class="tit">변속기 <em class="hidden">선택</em></h5>
+    <span class="form_chk"><input type="radio" name="sample2" id="sample2_1" value="auto" checked=""><label for="sample2_1" class="form_spr radio_box r_on">자동</label></span>
+    <span class="form_chk" style="display: none;"><input type="radio" name="sample2" id="sample2_2" value="manual"><label for="sample2_2" class="form_spr radio_box">수동</label></span>
+    </div>
+    <div class="build_graph hide">
+    <h5 class="tit">고객 선호 차종</h5>
+    <div class="graph" style="background-position: 0px -10488px;">
+        <span class="rate"><em class="num">57</em>%</span>
+    </div>
+    <ol class="rank">
+        <li><em class="num">1위</em>EV6 롱 레인지 어스(Earth)</li>
+        <li><em class="num">2위</em>EV6 롱 레인지 에어(Air)</li>
+        <li><em class="num">3위</em>EV6 롱 레인지 GT-Line</li>
+    </ol>
+    </div>
+    </div>     
+    </div>
+    <p class="line_wrap"></p>
+    <div class="inner build_car build_area build_trim">
+    <h5 class="tit">상세 차종 선택</h5>
+
+    <div class="trimselector slide_box" hid="true" car="EV6-LEV" transmission="manual" style="display: none;">
+    <ul class="box_u" car="EV6-LEV">
+
+    </ul>
+    </div>
+    <div class="trimselector slide_box" car="EV6-LEV" transmission="auto" hid="false" style="display: block;">
+    <ul class="box_u" car="EV6-LEV">
+
+    <li class="box_l on" price="53460000" aimg="https://www.kia.com/content/dam/kwcms/kr/ko/images/byo/car_ev6_standard.png" trim="CVJJ5VI31-A" car="EV6-LEV" tmp="off">
+        <a href="#" class="box_a">
+        
+            <div class="box">
+        
+                <span class="h">EV6 롱 레인지 라이트(Light)</span> 
+                <span class="price">53,460,000<em>원</em></span>
+            </div>
+        </a>
+    </li>
+
+    <li class="box_l" price="54530000" aimg="https://www.kia.com/content/dam/kwcms/kr/ko/images/byo/car_ev6_cr5.png" trim="CVJJ5VD31-A" car="EV6-LEV" tmp="off">
+        <a href="#" class="box_a">
+        
+            <div class="box">
+        
+                <span class="h">EV6 롱 레인지 에어(Air)</span> 
+                
+                <span class="price">54,530,000<em>원</em></span>
+            </div>
+        </a>
+    </li>
+
+    <li class="box_l" price="59590000" aimg="https://www.kia.com/content/dam/kwcms/kr/ko/images/byo/car_ev6_cr5.png" trim="CVJJ5VE31-A" car="EV6-LEV" tmp="off">
+        <a href="#" class="box_a">
+        
+            <div class="box">
+        
+                <span class="h">EV6 롱 레인지 어스(Earth)</span> 
+                <span class="price">59,590,000<em>원</em></span>
+            </div>
+        </a>
+    </li>
+
+    </ul>
+    </div>
+
+    <div class="trimselector slide_box" hid="true" car="EV6-GEV" transmission="manual" style="display: none;">
+    <ul class="box_u" car="EV6-GEV">
+
+    </ul>
+    </div>
+    <div class="trimselector slide_box" style="display:none;" hid="true" car="EV6-GEV" transmission="auto">
+    <ul class="box_u" car="EV6-GEV">
+
+    <li class="box_l" price="60490000" aimg="https://www.kia.com/content/dam/kwcms/kr/ko/images/byo/car_ev6_gt_klm.png" trim="CVJJ5VF31-A" car="EV6-GEV" tmp="off">
+        <a href="#" class="box_a">
+        
+            <div class="box">
+        
+                <span class="h">EV6 롱 레인지 GT-Line</span> 
+                <span class="price">60,490,000<em>원</em></span>
+            </div>
+        </a>
+    </li>
+
+    </ul>
+    </div>
+
+    <div class="trimselector slide_box" hid="true" car="EV6-SEV" transmission="manual" style="display: none;">
+    <ul class="box_u" car="EV6-SEV">
+
+    </ul>
+    </div>
+    <div class="trimselector slide_box" style="display:none;" hid="true" car="EV6-SEV" transmission="auto">
+    <ul class="box_u" car="EV6-SEV">
+
+    <li class="box_l" price="49310000" aimg="https://www.kia.com/content/dam/kwcms/kr/ko/images/byo/car_ev6_standard.png" trim="CVJJ5VH31-A" car="EV6-SEV" tmp="off">
+        <a href="#" class="box_a">
+        
+            <div class="box">
+        
+                <span class="h">EV6 스탠다드 라이트(Light)</span> 
+                <span class="price">49,310,000<em>원</em></span>
+            </div>
+        </a>
+    </li>
+
+    <li class="box_l" price="50370000" aimg="https://www.kia.com/content/dam/kwcms/kr/ko/images/byo/car_ev6_standard.png" trim="CVJJ5VB31-A" car="EV6-SEV" tmp="off">
+        <a href="#" class="box_a">
+        
+            <div class="box">
+        
+                <span class="h">EV6 스탠다드 에어(Air)</span> 
+                <span class="price">50,370,000<em>원</em></span>
+            </div>
+        </a>
+    </li>
+
+    <li class="box_l" price="54900000" aimg="https://www.kia.com/content/dam/kwcms/kr/ko/images/byo/car_ev6_standard.png" trim="CVJJ5VC31-A" car="EV6-SEV" tmp="off">
+        <a href="#" class="box_a">
+        
+            <div class="box">
+        
+                <span class="h">EV6 스탠다드 어스(Earth)</span> 
+                <span class="price">54,900,000<em>원</em></span>
+            </div>
+        </a>
+    </li>
+
+    </ul>
+    </div>
+
+
+    </div>
+
+
+
+
+
+    <div class="build_car">
+    <div class="byoTotal">
+    <div class="btn_area">
+    <a href="vehicle-lineup.car=EV6.dpcd=N.html" class="btnPrev"><span class="ico_prev">이전</span></a>
+    <a href="javascript:nextStep();" class="btnNext btnActMove on"><span class="ico_next">다음</span></a><!-- javascript:nextStep() -->
+    </div>
+    <div class="totalBar">
+    <a href="#" class="btn_totalCon_open" title="상세견적 선택 내용 열기">
+    <span class="txt">Total</span> 
+    <span class="price" title="상세견적 총 금액">53,460,000</span><em class="won">원</em>
+    </a>
+    </div>
+    <div class="totalCon" style="display: none; top: auto">
+    <div class="totalCon_wrap">
+    <div class="totalCon_inner">
+        <strong class="hidden">상세견적 전체 선택 내용보기</strong>
+        <ul class="totalList">
+            <li class="list01">
+                <div class="list_in">
+                    <strong>모델</strong>
+                    <p style="display:none;">차량을 선택해 주세요.</p>
+                    <div class="con" price="53460000">
+                        <span class="fixed conTitle">EV6 롱 레인지 라이트(Light)</span>
+                        <span class="fixed carImg"><img src="https://www.kia.com/content/dam/kwcms/kr/ko/images/byo/car_ev6_gt_klm.png" alt=""></span>
+                        <span class="fixed conPrice">53,460,000<em>원</em></span>
+                    </div>
+                </div>
+            </li>
+            <li class="list02">
+                <div class="list_in">
+                    <strong>외장컬러</strong>
+                    <p>선택정보가 없습니다.</p>
+                    <div class="con con_exterior" price1="0" style="display:none;">
+                        <span>
+                            <span class="colorArea"><img src="" alt="" class="colorImg"></span>
+                            <em class="conTitle"></em>
+                        </span>
+                        <span class="conPrice">0<em>원</em></span>
+                    </div>
+                </div>
+                <div class="list_in">
+                    <strong>내장컬러</strong>
+                    <p>선택정보가 없습니다.</p>
+                    <div class="con con_interior" price2="0" style="display:none;">
+                        <span>
+                            <span class="colorArea"><img src="" alt="" class="colorImg"></span>
+                            <em class="conTitle"></em>
+                        </span>
+                        <span class="conPrice">0<em>원</em></span>
+                    </div>
+                </div>
+            </li>
+            <li class="list03">
+                <div class="list_in">
+                    <strong>선택옵션</strong>
+                    <p>선택정보가 없습니다.</p>
+                    <div style="display:none;">
+                    <div class="con">
+                        
+                        
+                    </div>
+                </div>
+            </div>
+            </li>
+            <li class="list04">
+                <div class="list_in">
+                    <strong>구매방법</strong>
+                    <p>선택정보가 없습니다.</p>
+                    <div class="con_pay" style="display:none;">
+                        <span><em class="tit">지불방법</em><em class="txt">현금구입</em></span>
+                        
+                    </div>
+                </div>
+                <div class="list_in">
+                    <strong><em>할인내역 / </em><em>기타비용</em></strong>
+                    <p>선택정보가 없습니다.</p>
+                    <div class="con_etc" style="display:none;">
+                    </div>
+                </div>
+            </li>
+        </ul>
+    </div>
+    <button class="btn_totalCon_close"><span>상세견적 선택 내용 닫기</span></button>
+    </div>
+    </div>
+    </div>
+    </div>
+    <div id="selectCar" class="popup_wrap popup new_popup" style="max-width: 950px; position: absolute; display: none; width: 1405px; left: 219px;">
+    <h3 class="pop_tit">다른 차량 선택</h3>
+    <div class="inbox">
+    <div class="category">
+    <a href="#popTab1" class=""><span>EV</span></a>
+    <a href="#popTab2" class=""><span>승용</span></a>
+    <a href="#popTab3" class=""><span>RV</span></a>
+    <a href="#popTab4" class=""><span>상용/택시</span></a>
+    <a href="#popTab5" class="on"><span>장애인/렌트</span></a>
+    </div>
+    <div class="pop_con select_list_p">
+    <div id="popTab1" class="car_list">
+        <h5 class="hidden">EV</h5>
+        <ul class="car_u">
+            
+            <li class="car_l on" car="EV6">
+                <div class="car_box">
+                    <a href="vehicle-lineup.trim.car=EV6.dpcd=N.html" class="car_a" title="Select">
+                        <span class="car_img">
+                            <img src="/content/dam/kwcms/kr/ko/images/byo/car_ev6.png" alt="EV6">
+                        </span>
+                        <strong class="car_name">EV6</strong>
+                    </a>
+                </div>
+            </li>
+            
+            <li class="car_l" car="EDE">
+                <div class="car_box">
+                    <a href="vehicle-lineup.trim.car=EDE.dpcd=N.html" class="car_a" title="Select">
+                        <span class="car_img">
+                            <img src="/content/dam/kwcms/kr/ko/images/byo/car_niro-ev_swp.png" alt="니로 EV">
+                        </span>
+                        <strong class="car_name">니로 EV</strong>
+                    </a>
+                </div>
+            </li>
+            
+            <li class="car_l" car="YFE">
+                <div class="car_box">
+                    <a href="vehicle-lineup.trim.car=YFE.dpcd=N.html" class="car_a" title="Select">
+                        <span class="car_img">
+                            <img src="/content/dam/kwcms/kr/ko/images/byo/img_bongo3-ev_ud.png" alt="봉고III EV ">
+                        </span>
+                        <strong class="car_name">봉고III EV </strong>
+                    </a>
+                </div>
+            </li>
+            
+            <li class="car_l" car="Z5E">
+                <div class="car_box">
+                    <a href="vehicle-lineup.trim.car=Z5E.dpcd=N.html" class="car_a" title="Select">
+                        <span class="car_img">
+                            <img src="/content/dam/kwcms/kr/ko/images/byo/car_bongo3_builttapcha-ev.png" alt="탑차 EV">
+                        </span>
+                        <strong class="car_name">탑차 EV</strong>
+                    </a>
+                </div>
+            </li>
+            
+            <li class="car_l" car="Z7E">
+                <div class="car_box">
+                    <a href="vehicle-lineup.trim.car=Z7E.dpcd=N.html" class="car_a" title="Select">
+                        <span class="car_img">
+                            <img src="/content/dam/kwcms/kr/ko/images/byo/car_bongo3powergate-ev.png" alt="성력 EV">
+                        </span>
+                        <strong class="car_name">성력 EV</strong>
+                    </a>
+                </div>
+            </li>
+            
+        </ul>
+    </div>
+    <div id="popTab2" class="car_list on">
+        <h5 class="hidden">승용</h5>
+        <ul class="car_u">
+            
+            <li class="car_l" car="XJA">
+                <div class="car_box">
+                    <a href="vehicle-lineup.trim.car=XJA.dpcd=N.html" class="car_a" title="Select">
+                        <span class="car_img">
+                            <img src="/content/dam/kwcms/kr/ko/images/byo/car_morning_b2y.png" alt="모닝">
+                        </span>
+                        <strong class="car_name">모닝</strong>
+                    </a>
+                </div>
+            </li>
+            
+            <li class="car_l" car="XTM">
+                <div class="car_box">
+                    <a href="vehicle-lineup.trim.car=XTM.dpcd=N.html" class="car_a" title="Select">
+                        <span class="car_img">
+                            <img src="/content/dam/kwcms/kr/ko/images/byo/car_ray_m9y.png" alt="레이">
+                        </span>
+                        <strong class="car_name">레이</strong>
+                    </a>
+                </div>
+            </li>
+            
+            <li class="car_l" car="XDB">
+                <div class="car_box">
+                    <a href="vehicle-lineup.trim.car=XDB.dpcd=N.html" class="car_a" title="Select">
+                        <span class="car_img">
+                            <img src="/content/dam/kwcms/kr/ko/images/byo/car_k3_the_new.png" alt="K3">
+                        </span>
+                        <strong class="car_name">K3</strong>
+                    </a>
+                </div>
+            </li>
+            
+            <li class="car_l" car="XDT">
+                <div class="car_box">
+                    <a href="vehicle-lineup.trim.car=XDT.dpcd=N.html" class="car_a" title="Select">
+                        <span class="car_img">
+                            <img src="/content/dam/kwcms/kr/ko/images/byo/car_k3gt_the_new.png" alt="K3 GT">
+                        </span>
+                        <strong class="car_name">K3 GT</strong>
+                    </a>
+                </div>
+            </li>
+            
+            <li class="car_l" car="XJF">
+                <div class="car_box">
+                    <a href="vehicle-lineup.trim.car=XJF.dpcd=N.html" class="car_a" title="Select">
+                        <span class="car_img">
+                            <img src="/content/dam/kwcms/kr/ko/images/byo/car_newk5_agt.png" alt="K5">
+                        </span>
+                        <strong class="car_name">K5</strong>
+                    </a>
+                </div>
+            </li>
+            
+            <li class="car_l" car="XTZ">
+                <div class="car_box">
+                    <a href="vehicle-lineup.trim.car=XTZ.dpcd=N.html" class="car_a" title="Select">
+                        <span class="car_img">
+                            <img src="/content/dam/kwcms/kr/ko/images/byo/car_k5_hyb_klg.png" alt="K5 하이브리드">
+                        </span>
+                        <strong class="car_name">K5 하이브리드</strong>
+                    </a>
+                </div>
+            </li>
+            
+            <li class="car_l" car="XCK">
+                <div class="car_box">
+                    <a href="vehicle-lineup.trim.car=XCK.dpcd=N.html" class="car_a" title="Select">
+                        <span class="car_img">
+                            <img src="/content/dam/kwcms/kr/ko/images/byo/car_stinger_meister.png" alt="스팅어">
+                        </span>
+                        <strong class="car_name">스팅어</strong>
+                    </a>
+                </div>
+            </li>
+            
+            <li class="car_l" car="GL3">
+                <div class="car_box">
+                    <a href="vehicle-lineup.trim.car=GL3.dpcd=N.html" class="car_a" title="Select">
+                        <span class="car_img">
+                            <img src="/content/dam/kwcms/kr/ko/images/byo/img_k8.png" alt="K8">
+                        </span>
+                        <strong class="car_name">K8</strong>
+                    </a>
+                </div>
+            </li>
+            
+            <li class="car_l" car="HGL">
+                <div class="car_box">
+                    <a href="vehicle-lineup.trim.car=HGL.dpcd=N.html" class="car_a" title="Select">
+                        <span class="car_img">
+                            <img src="/content/dam/kwcms/kr/ko/images/byo/img_k8hev.png" alt="K8 하이브리드">
+                        </span>
+                        <strong class="car_name">K8 하이브리드</strong>
+                    </a>
+                </div>
+            </li>
+            
+            <li class="car_l" car="XRJ">
+                <div class="car_box">
+                    <a href="vehicle-lineup.trim.car=XRJ.dpcd=N.html" class="car_a" title="Select">
+                        <span class="car_img">
+                            <img src="/content/dam/kwcms/kr/ko/images/byo/new_k9.png" alt="K9">
+                        </span>
+                        <strong class="car_name">K9</strong>
+                    </a>
+                </div>
+            </li>
+            
+        </ul>
+    </div>
+    <div id="popTab3" class="car_list">
+        <h5 class="hidden">RV</h5>
+        <ul class="car_u">
+            
+            <li class="car_l" car="XDE">
+                <div class="car_box">
+                    <a href="vehicle-lineup.trim.car=XDE.dpcd=N.html" class="car_a" title="Select">
+                        <span class="car_img">
+                            <img src="/content/dam/kwcms/kr/ko/images/byo/car_niro_hev_b4u.png" alt="니로">
+                        </span>
+                        <strong class="car_name">니로</strong>
+                    </a>
+                </div>
+            </li>
+            
+            <li class="car_l" car="GDE">
+                <div class="car_box">
+                    <a href="vehicle-lineup.trim.car=GDE.dpcd=N.html" class="car_a" title="Select">
+                        <span class="car_img">
+                            <img src="/content/dam/kwcms/kr/ko/images/vehicles/img_niro-phev.png" alt="니로 플러그인 하이브리드">
+                        </span>
+                        <strong class="car_name">니로 플러그인 하이브리드</strong>
+                    </a>
+                </div>
+            </li>
+            
+            <li class="car_l" car="SUJ">
+                <div class="car_box">
+                    <a href="vehicle-lineup.trim.car=SUJ.dpcd=N.html" class="car_a" title="Select">
+                        <span class="car_img">
+                            <img src="/content/dam/kwcms/kr/ko/images/byo/car_seltos_swp.png" alt="셀토스">
+                        </span>
+                        <strong class="car_name">셀토스</strong>
+                    </a>
+                </div>
+            </li>
+            
+            <li class="car_l" car="NQL">
+                <div class="car_box">
+                    <a href="vehicle-lineup.trim.car=NQL.dpcd=N.html" class="car_a" title="Select">
+                        <span class="car_img">
+                            <img src="/content/dam/kwcms/kr/ko/images/byo/car_nq_sportage.png" alt="스포티지">
+                        </span>
+                        <strong class="car_name">스포티지</strong>
+                    </a>
+                </div>
+            </li>
+            
+            <li class="car_l" car="NQH">
+                <div class="car_box">
+                    <a href="vehicle-lineup.trim.car=NQH.dpcd=N.html" class="car_a" title="Select">
+                        <span class="car_img">
+                            <img src="/content/dam/kwcms/kr/ko/images/byo/car_nq_sportage_hev.png" alt="스포티지 하이브리드">
+                        </span>
+                        <strong class="car_name">스포티지 하이브리드</strong>
+                    </a>
+                </div>
+            </li>
+            
+            <li class="car_l" car="JMQ">
+                <div class="car_box">
+                    <a href="vehicle-lineup.trim.car=JMQ.dpcd=N.html" class="car_a" title="Select">
+                        <span class="car_img">
+                            <img src="/content/dam/kwcms/kr/ko/images/byo/car_sorento.png" alt="쏘렌토">
+                        </span>
+                        <strong class="car_name">쏘렌토</strong>
+                    </a>
+                </div>
+            </li>
+            
+            <li class="car_l" car="HMQ">
+                <div class="car_box">
+                    <a href="vehicle-lineup.trim.car=HMQ.dpcd=N.html" class="car_a" title="Select">
+                        <span class="car_img">
+                            <img src="/content/dam/kwcms/kr/ko/images/byo/car_sorento_hev_cr5.png" alt="쏘렌토 하이브리드">
+                        </span>
+                        <strong class="car_name">쏘렌토 하이브리드</strong>
+                    </a>
+                </div>
+            </li>
+            
+            <li class="car_l" car="NJS">
+                <div class="car_box">
+                    <a href="vehicle-lineup.trim.car=NJS.dpcd=N.html" class="car_a" title="Select">
+                        <span class="car_img">
+                            <img src="/content/dam/kwcms/kr/ko/images/byo/car_mohave_master_abp.png" alt="모하비">
+                        </span>
+                        <strong class="car_name">모하비</strong>
+                    </a>
+                </div>
+            </li>
+            
+            <li class="car_l" car="RKA">
+                <div class="car_box">
+                    <a href="vehicle-lineup.trim.car=RKA.dpcd=N.html" class="car_a" title="Select">
+                        <span class="car_img">
+                            <img src="/content/dam/kwcms/kr/ko/images/byo/car_4thcarnival.png" alt="카니발">
+                        </span>
+                        <strong class="car_name">카니발</strong>
+                    </a>
+                </div>
+            </li>
+            
+            <li class="car_l" car="Z13">
+                <div class="car_box">
+                    <a href="vehicle-lineup.trim.car=Z13.dpcd=N.html" class="car_a" title="Select">
+                        <span class="car_img">
+                            <img src="/content/dam/kwcms/kr/ko/images/byo/car_carnival_hi_limousine.png" alt="카니발 하이리무진">
+                        </span>
+                        <strong class="car_name">카니발 하이리무진</strong>
+                    </a>
+                </div>
+            </li>
+            
+        </ul>
+    </div>	
+        
+    <div id="popTab4" class="car_list">
+        <h5 class="hidden">상용/택시</h5>
+        <ul class="car_u">
+            
+            <li class="car_l" car="8GL">
+                <div class="car_box">
+                    <a href="vehicle-lineup.trim.car=8GL.dpcd=N.html" class="car_a" title="Select">
+                        <span class="car_img">
+                            <img src="/content/dam/kwcms/kr/ko/images/byo/car_k8_taxi.png" alt="K8 택시">
+                        </span>
+                        <strong class="car_name">K8 택시</strong>
+                    </a>
+                </div>
+            </li>
+            
+            <li class="car_l" car="YF8">
+                <div class="car_box">
+                    <a href="vehicle-lineup.trim.car=YF8.dpcd=N.html" class="car_a" title="Select">
+                        <span class="car_img">
+                            <img src="/content/dam/kwcms/kr/ko/images/byo/2020_bongo_basiccap_bpy.png" alt="봉고III 트럭">
+                        </span>
+                        <strong class="car_name">봉고III 트럭</strong>
+                    </a>
+                </div>
+            </li>
+            
+            <li class="car_l" car="Z05">
+                <div class="car_box">
+                    <a href="vehicle-lineup.trim.car=Z05.dpcd=N.html" class="car_a" title="Select">
+                        <span class="car_img">
+                            <img src="/content/dam/kwcms/kr/ko/images/byo/car_bongo3freeze.png" alt="탑차">
+                        </span>
+                        <strong class="car_name">탑차</strong>
+                    </a>
+                </div>
+            </li>
+            
+            <li class="car_l" car="Z06">
+                <div class="car_box">
+                    <a href="vehicle-lineup.trim.car=Z06.dpcd=N.html" class="car_a" title="Select">
+                        <span class="car_img">
+                            <img src="/content/dam/kwcms/kr/ko/images/byo/car_bongo3generaltruck.png" alt="건설">
+                        </span>
+                        <strong class="car_name">건설</strong>
+                    </a>
+                </div>
+            </li>
+            
+            <li class="car_l" car="Z07">
+                <div class="car_box">
+                    <a href="vehicle-lineup.trim.car=Z07.dpcd=N.html" class="car_a" title="Select">
+                        <span class="car_img">
+                            <img src="/content/dam/kwcms/kr/ko/images/byo/car_bongo3powergate.png" alt="성력">
+                        </span>
+                        <strong class="car_name">성력</strong>
+                    </a>
+                </div>
+            </li>
+            
+            <li class="car_l" car="Z08">
+                <div class="car_box">
+                    <a href="vehicle-lineup.trim.car=Z08.dpcd=N.html" class="car_a" title="Select">
+                        <span class="car_img">
+                            <img src="/content/dam/kwcms/kr/ko/images/byo/car_bongo3_pwidetruck.png" alt="수송">
+                        </span>
+                        <strong class="car_name">수송</strong>
+                    </a>
+                </div>
+            </li>
+            
+        </ul>
+    </div>	
+        
+    <div id="popTab5" class="car_list" style="display: none;">
+        <h5 class="hidden">장애인/렌트</h5>
+        <ul class="car_u">
+            
+            <li class="car_l" car="OTH">
+                <div class="car_box">
+                    <a href="vehicle-lineup.trim.car=OTH.dpcd=N.html" class="car_a" title="Select">
+                        <span class="car_img">
+                            <img src="/content/dam/kwcms/kr/ko/images/byo/img_dl3k5.png" alt="K5 [장애인전용]">
+                        </span>
+                        <strong class="car_name">K5 [장애인전용]</strong>
+                    </a>
+                </div>
+            </li>
+            
+            <li class="car_l" car="OTR">
+                <div class="car_box">
+                    <a href="vehicle-lineup.trim.car=OTR.dpcd=N.html" class="car_a" title="Select">
+                        <span class="car_img">
+                            <img src="/content/dam/kwcms/kr/ko/images/byo/car_newk5_agt.png" alt="K5 [렌트]">
+                        </span>
+                        <strong class="car_name">K5 [렌트]</strong>
+                    </a>
+                </div>
+            </li>
+            
+            <li class="car_l" car="RGL">
+                <div class="car_box">
+                    <a href="vehicle-lineup.trim.car=RGL.dpcd=N.html" class="car_a" title="Select">
+                        <span class="car_img">
+                            <img src="/content/dam/kwcms/kr/ko/images/byo/car_k8.png" alt="K8 [렌트]">
+                        </span>
+                        <strong class="car_name">K8 [렌트]</strong>
+                    </a>
+                </div>
+            </li>
+            
+        </ul>
+    </div>
+    </div>
+    </div>
+    <a href="javascript:;" class="closeBtn"><span>닫기</span></a>
+    </div>
+    <div class="dimmed_outClick" style="position:fixed; display:none;"></div>
+    </div>
+
+

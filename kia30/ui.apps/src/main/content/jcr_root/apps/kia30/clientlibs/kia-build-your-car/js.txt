@@ -5,4 +5,3 @@
 js/lib.js
 js/clientlib.min.js
 js/default_script.min.js
-js/common.js

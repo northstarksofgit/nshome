@@ -228,7 +228,7 @@ body.total_fixed {overflow:hidden;}
 .estimate_online_wrap .byoTotal .totalBar .btn_totalCon_open .price {float:none;margin:0;font-size:26px;font-family:kiaB;letter-spacing:-1px}
 .estimate_online_wrap .byoTotal .totalBar .btn_totalCon_open .won {padding-left:4px;font-size:16px;color:rgba(255,255,255,0.6);vertical-align:top}
 .estimate_online_wrap .byoTotal .totalBar .btn_totalCon_open:before {position:absolute;left:50%;top:-12px;width:48px;height:12px;margin-left:-24px;background-image:url(/content/dam/kia30/build-a-car/bg_total_view.webp); content:'';}
-.estimate_online_wrap .byoTotal .totalBar .btn_totalCon_open:after {position:absolute;left:50%;top:-6px;width:11px;height:5px;margin-left:-5px;background-image:url(content/dam/kia30/build-a-car/bg_total_view_down.webp); content:'';}
+.estimate_online_wrap .byoTotal .totalBar .btn_totalCon_open:after {position:absolute;left:50%;top:-6px;width:11px;height:5px;margin-left:-5px;background-image:url(/content/dam/kia30/build-a-car/bg_total_arrow.webp); content:'';}
 .estimate_online_wrap .byoTotal .totalBar .btn_totalCon_open:hover, .estimate_online_wrap .byoTotal .totalBar .btn_totalCon_open:active, .estimate_online_wrap .byoTotal .totalBar .btn_totalCon_open:focus {text-decoration:none;}
 
 .estimate_online_wrap .byoTotal .totalCon {top:auto;bottom:60px;padding-top:12px;background:none}

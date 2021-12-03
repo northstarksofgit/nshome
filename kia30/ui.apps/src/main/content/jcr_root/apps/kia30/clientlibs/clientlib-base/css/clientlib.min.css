@@ -1819,7 +1819,8 @@ dl.bl_type_note{margin-top:15px}
 }
 .build_graph{vertical-align:top;position:relative}
 .build_graph .graph{display:block;width:140px;height:140px;margin:15px auto;overflow:hidden;position:relative;background:url(../../../content/dam/kwcms/kr/ko/images/shopping-tools/bg_preferences_circle.png) 0 0 no-repeat}
-.build_graph .graph .rate{width:100%;text-align:center;margin-top:-10px;position:absolute;top:50%;left:4px;font-size:20px;font-family:kiaB;color:#05141f}
+/* .build_graph .graph .rate{width:100%;text-align:center;margin-top:-10px;position:absolute;top:50%;left:4px;font-size:20px;font-family:kiaB;color:#05141f} */
+.build_graph .graph .rate{width:100%;text-align:center;margin-top:-30px;position:absolute;top:50%;left:4px;font-size:20px;font-family:kiaB;color:#05141f}
 .build_graph .graph .rate .num{font-size:30px}
 .build_graph .rank{margin-left:-10px}
 .build_graph .rank li{width:260px;height:19px;margin:10px 0 0 10px;padding-left:44px;font-size:12px;color:rgba(5,20,31,0.8);position:relative;overflow:hidden;white-space:nowrap;text-overflow:ellipsis}

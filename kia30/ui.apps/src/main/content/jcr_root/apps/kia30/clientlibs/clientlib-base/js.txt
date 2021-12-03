@@ -13,3 +13,10 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 ###############################################################################
+
+#base=/apps/kia30/clientlibs/clientlib-base
+
+js/lib.js
+js/clientlib.min.js
+js/common.js
+js/default_script.min.js

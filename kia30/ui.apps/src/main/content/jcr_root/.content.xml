@@ -3,5 +3,4 @@
     jcr:mixinTypes="[rep:AccessControllable,rep:RepoAccessControllable]"
     jcr:primaryType="rep:root"
     sling:resourceType="sling:redirect"
-    sling:target="/index.html"
-    fileName="logo_ssangyongmotor.png"/>
+    sling:target="/index.html"/>

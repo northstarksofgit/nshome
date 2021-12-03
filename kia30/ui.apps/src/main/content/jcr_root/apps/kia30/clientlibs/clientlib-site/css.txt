@@ -1,6 +1,3 @@
-#base=/apps/kia30/clientlibs/clientlib-site
+#base=css
 
 site.css
-
-css/clientlib.min.css
-css/estimate_online.css

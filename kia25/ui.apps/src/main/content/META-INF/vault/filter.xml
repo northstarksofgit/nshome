@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<workspaceFilter version="1.0">
+    <filter root="/apps/kia25/clientlibs"/>
+    <filter root="/apps/kia25/components"/>
+    <filter root="/apps/kia25/i18n"/>
+    <filter root="/apps/msm/kia25_blueprint" mode="merge"/>
+</workspaceFilter>

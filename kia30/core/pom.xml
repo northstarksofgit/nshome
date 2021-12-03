@@ -43,7 +43,8 @@
                         </goals>
                         <configuration>
                             <bnd><![CDATA[
-Import-Package: javax.annotation;version=0.0.0,*
+Import-Package: javax.annotation;version=0.0.0,
+org.apache.sling.api.servlets;version="[2.5,3)",*
                                 ]]></bnd>
                         </configuration>
                     </execution>

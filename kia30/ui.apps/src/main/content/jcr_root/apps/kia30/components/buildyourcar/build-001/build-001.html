@@ -1,6 +1,6 @@
 
 
-<!-- <sly data-sly-use.data="com.kia30.core.models.Build001"></sly> -->
+<sly data-sly-use.helper="com.kia30.core.buildacar.Build001Helper"></sly>
 
 <sly data-sly-use.clientlibs="/libs/granite/sightly/templates/clientlib.html" />
 <sly data-sly-call="${clientlibs.all @ categories='kia30.base'}" />
@@ -17,7 +17,7 @@
 
 
 
-
+${helper.harcodeData}
 <div id="container">
 
     <div id="content" class="subContents">

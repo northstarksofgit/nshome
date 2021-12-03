@@ -9,9 +9,10 @@ import org.slf4j.LoggerFactory;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.kia25.core.rest.client.dto.CategoryListDto;
 import com.kia25.core.rest.client.dto.CategoryListDtoResults;
+import com.kia25.core.rest.client.service.BuildYourCarService;
 import com.kia25.core.rest.client.service.CommonRestApiService;
 
-public class BuildYourCarServiceImpl {
+public class BuildYourCarServiceImpl implements BuildYourCarService {
 
 	private String endPointUrl = "http://localhost:3000";
 	private static final Logger LOG = LoggerFactory.getLogger(BuildYourCarServiceImpl.class);

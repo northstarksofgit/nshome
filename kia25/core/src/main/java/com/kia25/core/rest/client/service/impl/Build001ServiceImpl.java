@@ -20,7 +20,7 @@ public class Build001ServiceImpl implements Build001Service {
 	
 	//실질적으로 요청을 보내고 응답을 받아오는 역할을 수행하는 interface(Impl)
 	@OSGiService
-	private CommonRestApiService service;
+	private CommonRestApiService service = new CommonRestApiServiceImpl();
 	
 	//data를 요청할 url. 
 	//각 요청별 공통된 url을 endPointUrl로 선언

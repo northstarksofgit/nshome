@@ -3,4 +3,4 @@
     jcr:description="가격정보"
     jcr:primaryType="cq:Component"
     jcr:title="navi"
-    componentGroup="kia 3.0 - Build Your Car"/>
+    componentGroup="kia 2.5 - Build Your Car"/>

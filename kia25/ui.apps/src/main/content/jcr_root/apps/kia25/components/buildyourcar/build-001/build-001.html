@@ -240,17 +240,33 @@
                     <p class="price_view"><a href="/kr/shopping-tools/catalog-price.html"
                             target="_blank">가격표<em>보기</em></a></p>
 
+
+					<!-- car tab 수정 : 2021. 12. 06 -->
+					<!-- a 태그 사이에 sly 태그 삽입이 불가하여 다른 라인으로 분리함-->
+					
                     <h4 class="hidden">차종 선택</h4>
                     <div class="category">
                         <div class="inbox">
-                            <a href="#carTab1" class="on"><span>EV</span></a>
-                            <a href="#carTab2" class=""><span>승용</span></a>
-                            <a href="#carTab3" class=""><span>RV</span></a>
-                            <a href="#carTab4" class=""><span>상용/택시</span></a>
-                            <a href="#carTab5" class=""><span>장애인/렌트</span></a>
+                        
+                        	
+                        	<sly data-sly-list="${data.categoryList.categoryList}">
+	                               
+                              <sly data-sly-test="${itemList.count == 1}">
+	                            	<a href="#carTab${itemList.count}" class="on"><span>${item.categoryName}</span></a>
+                              </sly>
+                              
+                              <sly data-sly-test="${itemList.count > 1}">
+                              		<a href="#carTab${itemList.count}"><span>${item.categoryName}</span></a>
+                              </sly> 
+                        
+                            <sly>
+                            
                         </div>
                     </div>
 
+
+
+					
                     <div class="inner">
 
                         <div id="carTab1" class="car_list on">

@@ -1,4 +1,4 @@
-package com.kia25.core.models.buildyourcar;
+package com.kia25.core.models;
 
 import java.io.IOException;
 

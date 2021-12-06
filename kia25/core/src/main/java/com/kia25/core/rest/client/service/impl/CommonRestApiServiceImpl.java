@@ -2,6 +2,12 @@ package com.kia25.core.rest.client.service.impl;
 
 import java.io.IOException;
 
+import org.apache.felix.scr.annotations.Activate;
+import org.apache.felix.scr.annotations.Component;
+import org.apache.felix.scr.annotations.Properties;
+import org.apache.felix.scr.annotations.Property;
+import org.apache.felix.scr.annotations.Service;
+
 import org.apache.http.HttpEntity;
 import org.apache.http.client.methods.CloseableHttpResponse;
 import org.apache.http.client.methods.HttpGet;
@@ -13,7 +19,7 @@ import org.slf4j.LoggerFactory;
 
 import com.kia25.core.rest.client.service.CommonRestApiService;
 
-
+@Service(value = CommonRestApiService.class)
 public class CommonRestApiServiceImpl implements CommonRestApiService {
 
 	private static final Logger LOG = LoggerFactory.getLogger(CommonRestApiServiceImpl.class);

@@ -3,6 +3,7 @@ package com.kia25.core.rest.client.service.impl;
 import java.io.IOException;
 
 import org.apache.sling.models.annotations.injectorspecific.OSGiService;
+import org.osgi.service.component.annotations.Component;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 

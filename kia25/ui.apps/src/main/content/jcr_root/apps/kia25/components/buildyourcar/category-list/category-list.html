@@ -1,5 +1,7 @@
-<div data-sly-use.model="com.kia25.core.models.CategoryListModel" data-sly-test="${model.categoryList}">
-	<ul data-sly-list="${model.categoryList}">
+<p>카테고리 component</p>
+<div data-sly-use.model="com.kia25.core.models.CategoryListModel">
+	<p>리스트 ${model.categoryList.size}</p>
+	<ul data-sly-list="${model.categoryList}" data-sly-test="${model.categoryList}">
 		<li> category Code : ${item.categoryCode}</li>
 		<li> category Name : ${item.categoryName}</li>
     </ul>

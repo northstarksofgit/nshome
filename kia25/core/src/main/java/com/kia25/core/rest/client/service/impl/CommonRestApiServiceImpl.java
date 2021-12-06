@@ -30,21 +30,21 @@ public class CommonRestApiServiceImpl implements CommonRestApiService {
 
 	private static final Logger LOG = LoggerFactory.getLogger(CommonRestApiServiceImpl.class);
 
-    @Property(label = "Service endpoint URL", description = "URL of the API service endpoint, e.g. http://hostname/. Must end with '/'.", value = "http://localhost:3000")
+    @Property(label = "Service endpoint URL", description = "URL of the API service endpoint, e.g. http://hostname/. Must end with '/'.", value = "http://localhost:3000/")
     private static final String PROP_ENDPOINT_URL = "endpoint.url";
 	
-	private String endPointUrl = "http://localhost:3000";
+	private String endPointUrl = "http://localhost:3000/";
 
     @Activate
     private void activate(ComponentContext ctx) {
         Dictionary<String, Object> props = ctx.getProperties();
         endPointUrl = (String) props.get(PROP_ENDPOINT_URL);
-        LOG.debug("KME Endpoint URL = '{}'.", endPointUrl);
+        LOG.debug("Endpoint URL = '{}'.", endPointUrl);
 
     }
     
 	public String getRequest(final String url) throws IOException {
-        LOG.debug("Getting '{}'.", url);
+        LOG.debug("Getting '{}'.", endPointUrl + url);
         long startTime = System.currentTimeMillis();
         try (CloseableHttpClient httpClient = HttpClients.createDefault()) {
             HttpGet request = new HttpGet(endPointUrl + url);

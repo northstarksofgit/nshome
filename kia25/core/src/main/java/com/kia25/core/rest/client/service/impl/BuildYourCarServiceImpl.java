@@ -16,6 +16,7 @@ import com.kia25.core.rest.client.dto.CategoryListDtoResults;
 import com.kia25.core.rest.client.service.BuildYourCarService;
 import com.kia25.core.rest.client.service.CommonRestApiService;
 
+@Component(immediate = true)
 @Service(value = BuildYourCarService.class)
 public class BuildYourCarServiceImpl implements BuildYourCarService {
 
@@ -24,10 +25,11 @@ public class BuildYourCarServiceImpl implements BuildYourCarService {
 	@OSGiService
 	private CommonRestApiService service = new CommonRestApiServiceImpl();
 	
-	public CategoryListDto getCategoryList() {
+	public CategoryListDto getCategoryAPI() {
 		
 		try {
-			String response = service.getRequest("/category-list");
+			String response = service.getRequest("category-list");
+			LOG.debug("response={}", response);
 			ObjectMapper mapper = new ObjectMapper();
 			
 			CategoryListDtoResults results = mapper.readValue(response,  CategoryListDtoResults.class);

@@ -4,6 +4,6 @@ import com.kia25.core.rest.client.dto.CategoryListDto;
 
 public interface BuildYourCarService {
 
-	CategoryListDto getCategoryList();
+	CategoryListDto getCategoryAPI();
 	
 }

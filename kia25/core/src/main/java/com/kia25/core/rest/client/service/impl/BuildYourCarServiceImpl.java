@@ -2,6 +2,9 @@ package com.kia25.core.rest.client.service.impl;
 
 import java.io.IOException;
 
+import javax.annotation.Resource;
+
+import org.apache.felix.scr.annotations.Service;
 import org.apache.sling.models.annotations.injectorspecific.OSGiService;
 import org.osgi.service.component.annotations.Component;
 import org.slf4j.Logger;
@@ -13,18 +16,18 @@ import com.kia25.core.rest.client.dto.CategoryListDtoResults;
 import com.kia25.core.rest.client.service.BuildYourCarService;
 import com.kia25.core.rest.client.service.CommonRestApiService;
 
+@Service(value = BuildYourCarService.class)
 public class BuildYourCarServiceImpl implements BuildYourCarService {
 
-	private String endPointUrl = "http://localhost:3000";
 	private static final Logger LOG = LoggerFactory.getLogger(BuildYourCarServiceImpl.class);
 	
 	@OSGiService
-	private CommonRestApiService service;
+	private CommonRestApiService service = new CommonRestApiServiceImpl();
 	
 	public CategoryListDto getCategoryList() {
 		
 		try {
-			String response = service.getRequest(endPointUrl + "/category-list");
+			String response = service.getRequest("/category-list");
 			ObjectMapper mapper = new ObjectMapper();
 			
 			CategoryListDtoResults results = mapper.readValue(response,  CategoryListDtoResults.class);

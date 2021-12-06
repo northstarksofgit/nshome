@@ -1,6 +1,7 @@
 package com.kia25.core.rest.client.service.impl;
 
 import java.io.IOException;
+import java.util.Dictionary;
 
 import org.apache.felix.scr.annotations.Activate;
 import org.apache.felix.scr.annotations.Component;
@@ -14,21 +15,39 @@ import org.apache.http.client.methods.HttpGet;
 import org.apache.http.impl.client.CloseableHttpClient;
 import org.apache.http.impl.client.HttpClients;
 import org.apache.http.util.EntityUtils;
+import org.osgi.service.component.ComponentContext;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import com.kia25.core.rest.client.service.CommonRestApiService;
 
+@Component(metatype = true, label = "Northstar API", description ="Northstar API Service using the REST API")
 @Service(value = CommonRestApiService.class)
+@Properties({
+    @Property(name = "service.ranking", intValue = 100),
+})
 public class CommonRestApiServiceImpl implements CommonRestApiService {
 
 	private static final Logger LOG = LoggerFactory.getLogger(CommonRestApiServiceImpl.class);
 
+    @Property(label = "Service endpoint URL", description = "URL of the API service endpoint, e.g. http://hostname/. Must end with '/'.", value = "http://localhost:3000")
+    private static final String PROP_ENDPOINT_URL = "endpoint.url";
+	
+	private String endPointUrl = "http://localhost:3000";
+
+    @Activate
+    private void activate(ComponentContext ctx) {
+        Dictionary<String, Object> props = ctx.getProperties();
+        endPointUrl = (String) props.get(PROP_ENDPOINT_URL);
+        LOG.debug("KME Endpoint URL = '{}'.", endPointUrl);
+
+    }
+    
 	public String getRequest(final String url) throws IOException {
         LOG.debug("Getting '{}'.", url);
         long startTime = System.currentTimeMillis();
         try (CloseableHttpClient httpClient = HttpClients.createDefault()) {
-            HttpGet request = new HttpGet(url);
+            HttpGet request = new HttpGet(endPointUrl + url);
             
             /* add header
             request.addHeader(new BasicScheme().authenticate(credentials, request, null));

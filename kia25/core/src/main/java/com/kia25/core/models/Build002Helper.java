@@ -19,6 +19,7 @@ import com.kia25.core.rest.client.service.Build002Service;
 import com.kia25.core.rest.client.service.BuildYourCarService;
 import com.kia25.core.rest.client.service.impl.Build002ServiceImpl;
 import com.kia25.core.rest.client.service.impl.BuildYourCarServiceImpl;
+import com.adobe.cq.sightly.WCMUsePojo;
 
 @Model(adaptables = { SlingHttpServletRequest.class }, defaultInjectionStrategy = DefaultInjectionStrategy.OPTIONAL)
 public class Build002Helper {
@@ -31,11 +32,17 @@ public class Build002Helper {
 	private Resource resource;
 	
 	private List<ModelDto> modelList;
+	private WCMUsePojo a; 
 	
 	@PostConstruct
 	public void activate() throws Exception{
 		modelList = buildYourCarService.getModelListAPI().getModelList();
 		log.info("getModelList :::: {}", modelList);
+		
+		
+		String reqParam = (String) a.getSlingScriptHelper().getRequest().getParameter("modelId");
+		log.info("getReqParam :::: {}", reqParam);
+				
 	}
 	
 	

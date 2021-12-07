@@ -11,7 +11,7 @@ public class ModelDetailDto {
 	//모델 상세 명
 	private String modelDetailName;
 	
-	//기어 변속?
+	//변속기
 	private String trmsn;
 	
 	//트림

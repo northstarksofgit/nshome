@@ -9,18 +9,13 @@ public class ModelListDto {
 
 	
 	//차량 모델 list
-	private List<ModelDto> modelDto;
+	private List<ModelDto> modelList;
 
-	
-	
-	public List<ModelDto> getModelDto() {
-		return modelDto;
+	public List<ModelDto> getModelList() {
+		return modelList;
 	}
 
-	public void setModelDto(List<ModelDto> modelDto) {
-		this.modelDto = modelDto;
+	public void setModelList(List<ModelDto> modelList) {
+		this.modelList = modelList;
 	}
-	
-	
-	
 }

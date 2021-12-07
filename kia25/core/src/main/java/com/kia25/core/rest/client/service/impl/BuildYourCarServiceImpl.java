@@ -13,6 +13,8 @@ import org.slf4j.LoggerFactory;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.kia25.core.rest.client.dto.CategoryListDto;
 import com.kia25.core.rest.client.dto.CategoryListDtoResults;
+import com.kia25.core.rest.client.dto.ModelListDto;
+import com.kia25.core.rest.client.dto.ModelListDtoResults;
 import com.kia25.core.rest.client.service.BuildYourCarService;
 import com.kia25.core.rest.client.service.CommonRestApiService;
 
@@ -25,6 +27,7 @@ public class BuildYourCarServiceImpl implements BuildYourCarService {
 	@OSGiService
 	private CommonRestApiService service = new CommonRestApiServiceImpl();
 	
+	//get Category
 	public CategoryListDto getCategoryAPI() {
 		
 		try {
@@ -43,4 +46,22 @@ public class BuildYourCarServiceImpl implements BuildYourCarService {
 		return null;
 	}
 	
+	//get Model List
+	public ModelListDto getModelListAPI() {
+		
+		try {
+			String response = service.getRequest("model-list");
+			LOG.debug("response={}", response);
+			ObjectMapper mapper = new ObjectMapper();
+			
+			ModelListDtoResults results = mapper.readValue(response,  ModelListDtoResults.class);
+            return results.getData();
+            
+		} catch (IOException e) {
+			LOG.error("Error parsing JSON API response.", e);
+			e.printStackTrace();
+		}
+		
+		return null;
+	}
 }

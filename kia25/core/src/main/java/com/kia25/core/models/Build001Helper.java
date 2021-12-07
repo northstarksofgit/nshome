@@ -43,38 +43,22 @@ public class Build001Helper {
 		
 		
 		//카테고리 리스트를 가져옵니다.
-		categoryList = service.getCategoryList();
+		categoryList = service.getCategoryAPI();
 		
 		
 		//모델 리스트를 가져옵니다.
-		modelList = service.getModelList();
+		modelList = service.getModelAPI();
 		
 		
-		
-		if(modelList == null) {
-			LOG.info("model list is null");
-		}
-		
-		if(modelList != null) {
-			LOG.info("model list is not null");
-		}
 		
 		
 		/*
-		List<ModelDto> result = modelList.getModelDto();
-		
-		
-		if(result == null) {
-			LOG.info("result is null");
-		}
-		
-		if(result != null) {
-			LOG.info("result is not null");
+		List<ModelDto> result = modelList.getModelList();
+		for(ModelDto m : result) {
+			if(m!=null)
+			LOG.info("model:: "+m.getCategoryName());
 		}
 		*/
-		
-
-		
 		
 		
 		
@@ -91,6 +75,18 @@ public class Build001Helper {
 
 	public void setCategoryList(CategoryListDto categoryList) {
 		this.categoryList = categoryList;
+	}
+
+
+
+	public ModelListDto getModelList() {
+		return modelList;
+	}
+
+
+
+	public void setModelList(ModelListDto modelList) {
+		this.modelList = modelList;
 	}
 
 	

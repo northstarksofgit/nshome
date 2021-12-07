@@ -9,10 +9,10 @@ public interface Build001Service {
 	//필요시 추후 다른 Service로 통합 예정
 	
 	//카테고리 리스트를 가져옵니다.
-	CategoryListDto getCategoryList();
+	CategoryListDto getCategoryAPI();
 	
 	//모델 리스트를 가져옵니다.
-	ModelListDto getModelList();
+	ModelListDto getModelAPI();
 	
 	
 }

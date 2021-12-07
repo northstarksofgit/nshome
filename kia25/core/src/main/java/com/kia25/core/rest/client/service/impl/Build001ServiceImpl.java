@@ -34,7 +34,7 @@ public class Build001ServiceImpl implements Build001Service {
 	
 	//카테고리 리스트를 가져온다.
 	@Override
-	public CategoryListDto getCategoryList() {
+	public CategoryListDto getCategoryAPI() {
 		
 		try {
 			// http://localhost:3000/category-list로 카테고리 list를 요청해서 받아온다.
@@ -63,7 +63,7 @@ public class Build001ServiceImpl implements Build001Service {
 
 	//모델 리스트를 가져옵니다.
 	@Override
-	public ModelListDto getModelList() {
+	public ModelListDto getModelAPI() {
 		
 		try {
 			String response = service.getRequest("/model-list");

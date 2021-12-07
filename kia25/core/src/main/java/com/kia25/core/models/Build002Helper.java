@@ -7,19 +7,16 @@ import javax.inject.Inject;
 
 import org.apache.sling.api.SlingHttpServletRequest;
 import org.apache.sling.api.resource.Resource;
+import org.apache.sling.api.scripting.SlingScriptHelper;
 import org.apache.sling.models.annotations.DefaultInjectionStrategy;
 import org.apache.sling.models.annotations.Model;
-import org.apache.sling.models.annotations.injectorspecific.OSGiService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import com.kia25.core.rest.client.dto.CategoryListDto;
-import com.kia25.core.rest.client.dto.ModelDto;
-import com.kia25.core.rest.client.service.Build002Service;
-import com.kia25.core.rest.client.service.BuildYourCarService;
-import com.kia25.core.rest.client.service.impl.Build002ServiceImpl;
-import com.kia25.core.rest.client.service.impl.BuildYourCarServiceImpl;
 import com.adobe.cq.sightly.WCMUsePojo;
+import com.kia25.core.rest.client.dto.ModelDto;
+import com.kia25.core.rest.client.service.BuildYourCarService;
+import com.kia25.core.rest.client.service.impl.BuildYourCarServiceImpl;
 
 @Model(adaptables = { SlingHttpServletRequest.class }, defaultInjectionStrategy = DefaultInjectionStrategy.OPTIONAL)
 public class Build002Helper {
@@ -31,16 +28,25 @@ public class Build002Helper {
 	@Inject
 	private Resource resource;
 	
+	@Inject
+	private SlingScriptHelper slingScriptHelper;
+	
 	private List<ModelDto> modelList;
+	
+	// SlingModel 로 진행하기 때문에 WCMUsePojo를 extends 하는 대신 import 하고 선언해줌
 	private WCMUsePojo a; 
 	
+	@Inject
+	String reqParam;
+	 
 	@PostConstruct
 	public void activate() throws Exception{
+		
 		modelList = buildYourCarService.getModelListAPI().getModelList();
-		log.info("getModelList :::: {}", modelList);
+		//log.info("getModelList :::: {}", modelList);
 		
+		reqParam = (String) slingScriptHelper.getRequest().getParameter("modelid");
 		
-		String reqParam = (String) a.getSlingScriptHelper().getRequest().getParameter("modelId");
 		log.info("getReqParam :::: {}", reqParam);
 				
 	}

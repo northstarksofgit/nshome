@@ -17,6 +17,9 @@ public class TrimDto {
 	//색상 리스트
 	private ColorListDto color;
 	
+	//옵션 리스트
+	private OptionListDto option;
+	
 
 	public String getTrimId() {
 		return trimId;
@@ -48,6 +51,14 @@ public class TrimDto {
 
 	public void setColor(ColorListDto color) {
 		this.color = color;
+	}
+
+	public OptionListDto getOption() {
+		return option;
+	}
+
+	public void setOption(OptionListDto option) {
+		this.option = option;
 	}
 	
 	

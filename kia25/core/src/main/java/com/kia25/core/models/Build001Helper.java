@@ -45,27 +45,10 @@ public class Build001Helper {
 		//카테고리 리스트를 가져옵니다.
 		categoryList = service.getCategoryList();
 		
-		/*
-		if(categoryList == null) {
-			LOG.info("is null");
-		}
-		
-		if(categoryList != nul) {
-			LOG.info("in not null");
-		}
-		
-		//리스트를 찍어볼까...?
-		List<CategoryDto> result = categoryList.getCategoryList();
-		
-		
-		for(CategoryDto c: result) {
-			//로그로 잘 나오는 것을 확인함(20211206)
-			LOG.info("category Name: "+c.getCategoryName());
-		}
-		*/
 		
 		//모델 리스트를 가져옵니다.
 		modelList = service.getModelList();
+		
 		
 		
 		if(modelList == null) {
@@ -76,13 +59,20 @@ public class Build001Helper {
 			LOG.info("model list is not null");
 		}
 		
-		List<ModelDto> result = modelList.getModelDto();
 		
 		/*
-		for(ModelDto m : result ) {
-			LOG.info("model name: "+m.getCarModelName());
+		List<ModelDto> result = modelList.getModelDto();
+		
+		
+		if(result == null) {
+			LOG.info("result is null");
+		}
+		
+		if(result != null) {
+			LOG.info("result is not null");
 		}
 		*/
+		
 
 		
 		

@@ -10,6 +10,7 @@ import org.apache.sling.api.resource.Resource;
 import org.apache.sling.api.scripting.SlingScriptHelper;
 import org.apache.sling.models.annotations.DefaultInjectionStrategy;
 import org.apache.sling.models.annotations.Model;
+import org.apache.sling.models.annotations.injectorspecific.Self;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -25,6 +26,10 @@ public class Build002Helper {
 	
 	BuildYourCarService buildYourCarService = new BuildYourCarServiceImpl();
 	
+	@Self
+    private SlingHttpServletRequest request;
+	
+	
 	@Inject
 	private Resource resource;
 	
@@ -35,9 +40,6 @@ public class Build002Helper {
 	
 	// SlingModel 로 진행하기 때문에 WCMUsePojo를 extends 하는 대신 import 하고 선언해줌
 	private WCMUsePojo a; 
-	
-	@Inject
-	String reqParam;
 	 
 	@PostConstruct
 	public void activate() throws Exception{
@@ -45,9 +47,10 @@ public class Build002Helper {
 		modelList = buildYourCarService.getModelListAPI().getModelList();
 		//log.info("getModelList :::: {}", modelList);
 		
-		reqParam = (String) slingScriptHelper.getRequest().getParameter("modelid");
+		String modelid = request.getParameter("modelid");
+		//reqParam = (String) slingScriptHelper.getRequest().getParameter("modelid");
 		
-		log.info("getReqParam :::: {}", reqParam);
+		log.info("getModelId :::: {}", modelid);
 				
 	}
 	

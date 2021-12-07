@@ -78,9 +78,11 @@ public class Build001Helper {
 		
 		List<ModelDto> result = modelList.getModelDto();
 		
+		/*
 		for(ModelDto m : result ) {
 			LOG.info("model name: "+m.getCarModelName());
 		}
+		*/
 
 		
 		

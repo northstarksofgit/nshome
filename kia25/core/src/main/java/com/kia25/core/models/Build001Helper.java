@@ -14,6 +14,7 @@ import org.slf4j.LoggerFactory;
 
 import com.kia25.core.rest.client.dto.CategoryDto;
 import com.kia25.core.rest.client.dto.CategoryListDto;
+import com.kia25.core.rest.client.dto.ModelDto;
 import com.kia25.core.rest.client.dto.ModelListDto;
 import com.kia25.core.rest.client.service.Build001Service;
 import com.kia25.core.rest.client.service.BuildYourCarService;
@@ -63,6 +64,24 @@ public class Build001Helper {
 		}
 		*/
 		
+		//모델 리스트를 가져옵니다.
+		modelList = service.getModelList();
+		
+		
+		if(modelList == null) {
+			LOG.info("model list is null");
+		}
+		
+		if(modelList != null) {
+			LOG.info("model list is not null");
+		}
+		
+		List<ModelDto> result = modelList.getModelDto();
+		
+		for(ModelDto m : result ) {
+			LOG.info("model name: "+m.getCarModelName());
+		}
+
 		
 		
 		

@@ -242,23 +242,13 @@
 
 
 					<!-- car tab 수정 : 2021. 12. 06 -->
-					<!-- a 태그 사이에 sly 태그 삽입이 불가하여 다른 라인으로 분리함-->
 					
                     <h4 class="hidden">차종 선택</h4>
                     <div class="category">
                         <div class="inbox">
                         
-                        	
                         	<sly data-sly-list="${data.categoryList.categoryList}">
-	                               
-                              <sly data-sly-test="${itemList.count == 1}">
-	                            	<a href="#carTab${itemList.count}" class="on"><span>${item.categoryName}</span></a>
-                              </sly>
-                              
-                              <sly data-sly-test="${itemList.count > 1}">
-                              		<a href="#carTab${itemList.count}"><span>${item.categoryName}</span></a>
-                              </sly> 
-                        
+	                            <a href="#carTab${itemList.count}" class="${itemList.count == 1? 'on':' '}"><span>${item.categoryName}</span></a>
                             <sly>
                             
                         </div>

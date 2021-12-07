@@ -4,6 +4,7 @@ import java.io.IOException;
 
 import org.apache.felix.scr.annotations.Service;
 import org.apache.sling.models.annotations.injectorspecific.OSGiService;
+import org.osgi.service.component.annotations.Component;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -11,10 +12,13 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import com.kia25.core.rest.client.dto.CategoryListDto;
 import com.kia25.core.rest.client.dto.CategoryListDtoResults;
 import com.kia25.core.rest.client.dto.ModelListDto;
+import com.kia25.core.rest.client.dto.ModelListDtoResults;
 import com.kia25.core.rest.client.service.Build001Service;
+import com.kia25.core.rest.client.service.BuildYourCarService;
 import com.kia25.core.rest.client.service.CommonRestApiService;
 
-
+@Component(immediate = true)
+@Service(value = Build001Service.class)
 public class Build001ServiceImpl implements Build001Service {
 	
 	//build001컴포넌트에서 사용하는 ServiceImpl
@@ -34,7 +38,7 @@ public class Build001ServiceImpl implements Build001Service {
 		
 		try {
 			// http://localhost:3000/category-list로 카테고리 list를 요청해서 받아온다.
-			String response = service.getRequest("/category-list");
+			String response = service.getRequest("category-list");
 			
 			//json data와 DTO를 mapping해준다!
 			// 때문에 json data가 DTO의 field와 구조가 동일해야함! 
@@ -57,9 +61,25 @@ public class Build001ServiceImpl implements Build001Service {
 	}
 
 
+	//모델 리스트를 가져옵니다.
 	@Override
 	public ModelListDto getModelList() {
-		// TODO Auto-generated method stub
+		
+		try {
+			String response = service.getRequest("/model-list");
+			
+			ObjectMapper mapper = new ObjectMapper();
+			
+			ModelListDtoResults results = mapper.readValue(response, ModelListDtoResults.class);
+			
+			LOG.info(results.getResultCode());
+			
+			return results.getData();
+			
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+		
 		return null;
 	}
 	

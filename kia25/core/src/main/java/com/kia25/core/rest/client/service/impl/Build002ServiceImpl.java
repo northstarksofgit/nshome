@@ -18,6 +18,7 @@ public class Build002ServiceImpl implements Build002Service {
 	// LOG 확인
 	private static final Logger LOG = LoggerFactory.getLogger(BuildYourCarServiceImpl.class);
 	
+	// json 데이터를 가져오기 위해서 객체 선언
 	@OSGiService
 	private CommonRestApiService service = new CommonRestApiServiceImpl();
 

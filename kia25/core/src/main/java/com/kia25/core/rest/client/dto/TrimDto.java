@@ -19,7 +19,6 @@ public class TrimDto {
 	
 	//옵션 리스트
 	private OptionListDto option;
-	
 
 	public String getTrimId() {
 		return trimId;
@@ -61,8 +60,7 @@ public class TrimDto {
 		this.option = option;
 	}
 	
-	
-	
+
 	
 	
 }

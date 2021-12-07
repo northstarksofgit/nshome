@@ -1,5 +1,7 @@
 package com.kia25.core.rest.client.dto;
 
+import java.util.List;
+
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 @JsonIgnoreProperties(ignoreUnknown = true)
@@ -15,7 +17,7 @@ public class ModelDetailDto {
 	private String trmsn;
 	
 	//트림
-	private TrimListDto trim;
+	private List<TrimListDto> trim;
 
 	public String getModelDetailId() {
 		return modelDetailId;
@@ -41,17 +43,13 @@ public class ModelDetailDto {
 		this.trmsn = trmsn;
 	}
 
-	public TrimListDto getTrim() {
+	public List<TrimListDto> getTrim() {
 		return trim;
 	}
 
-	public void setTrim(TrimListDto trim) {
+	public void setTrim(List<TrimListDto> trim) {
 		this.trim = trim;
 	}
-	
-	
-	
-	
 	
 	
 }

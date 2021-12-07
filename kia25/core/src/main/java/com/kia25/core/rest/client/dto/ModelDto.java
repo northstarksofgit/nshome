@@ -1,5 +1,7 @@
 package com.kia25.core.rest.client.dto;
 
+import java.util.List;
+
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 @JsonIgnoreProperties(ignoreUnknown = true)
@@ -10,7 +12,7 @@ public class ModelDto {
 	private String categoryCode;
 	private String categoryName;
 	private String modelThumnail;
-	private ModelDetailListDto modelDetail;
+	private List<ModelDetailListDto> modelDetail;
 	
 	
 	public String getModelId() {
@@ -43,16 +45,10 @@ public class ModelDto {
 	public void setModelThumnail(String modelThumnail) {
 		this.modelThumnail = modelThumnail;
 	}
-	public ModelDetailListDto getModelDetail() {
+	public List<ModelDetailListDto> getModelDetail() {
 		return modelDetail;
 	}
-	public void setModelDetail(ModelDetailListDto modelDetail) {
+	public void setModelDetail(List<ModelDetailListDto> modelDetail) {
 		this.modelDetail = modelDetail;
 	}
-	
-	
-	
-	
-	
-	
 }

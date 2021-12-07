@@ -7,7 +7,7 @@ import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class TrimListDto {
 
-	List<TrimDto> trimList;
+	private List<TrimDto> trimList;
 
 	
 	public List<TrimDto> getTrimList() {

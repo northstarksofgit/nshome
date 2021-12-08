@@ -24,9 +24,9 @@ import org.apache.sling.models.annotations.DefaultInjectionStrategy;
 
 
 @Model(adaptables = { SlingHttpServletRequest.class }, defaultInjectionStrategy = DefaultInjectionStrategy.OPTIONAL)
-public class Build001Helper {
+public class Build001Model {
 
-	private final static Logger LOG = LoggerFactory.getLogger(Build001Helper.class);
+	private final static Logger LOG = LoggerFactory.getLogger(Build001Model.class);
 	
 	@OSGiService
 	Build001Service service = new Build001ServiceImpl();

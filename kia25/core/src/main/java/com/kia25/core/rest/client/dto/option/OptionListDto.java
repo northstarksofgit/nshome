@@ -7,13 +7,19 @@ import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class OptionListDto {
 
-	List<OptionDto> listOfOptions;
+	/**
+	 * 옵션리스트
+	 */
+	
+	private List<OptionDto> listOfOptions;
 
-	public List<OptionDto> getOptionList() {
+	public List<OptionDto> getListOfOptions() {
 		return listOfOptions;
 	}
 
-	public void setOptionList(List<OptionDto> listOfOptions) {
+	public void setListOfOptions(List<OptionDto> listOfOptions) {
 		this.listOfOptions = listOfOptions;
 	}
+	
+	
 }

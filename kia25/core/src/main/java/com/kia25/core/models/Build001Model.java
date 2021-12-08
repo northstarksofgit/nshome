@@ -54,15 +54,6 @@ public class Build001Model {
 		modelList = service.getModelAPI().getModelList();
 		
 		
-		/* 테스트 완료
-		for(ModelDto m : modelList) {
-			LOG.info("m-name:: " + m.getCarModelName());
-			LOG.info("m-Img:: "+m.getCarImage());
-		}
-		*/
-		
-		
-		
 	}
 
 

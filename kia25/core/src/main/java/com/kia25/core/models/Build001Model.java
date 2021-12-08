@@ -27,13 +27,22 @@ public class Build001Model {
 
 	private final static Logger LOG = LoggerFactory.getLogger(Build001Model.class);
 	
+	
+	
+	
 	@OSGiService
 	Build001Service service = new Build001ServiceImpl();
 	
+	/*
+	 * 차량 카테고리 리스트
+	 */
+	private List<CategoryDto> categoryList;
 	
-	//이 helperClass에서 전달해줄 data들...
-	private CategoryListDto categoryList;
-	private ModelListDto modelList;
+	
+	/*
+	 * 차량 모델 리스트 
+	 */
+	private List<ModelDto> modelList;
 	
 	
 	@PostConstruct
@@ -42,52 +51,50 @@ public class Build001Model {
 		
 		
 		//카테고리 리스트를 가져옵니다.
-		categoryList = service.getCategoryAPI();
+		categoryList = service.getCategoryAPI().getCategoryList();
 		
 		
 		//모델 리스트를 가져옵니다.
-		modelList = service.getModelAPI();
+		modelList = service.getModelAPI().getModelList();
 		
 		
-		
-		//테스트 code
-		List<CategoryDto> result = categoryList.getCategoryList();
-		
-		
-		for(CategoryDto c : result) {
-			LOG.info(c.getCategoryName());
+		for(ModelDto m : modelList) {
+			LOG.info("m-name:: " + m.getCarModelName());
+			LOG.info("m-Img:: "+m.getCarImage());
 		}
+		
+		
 		
 		
 	}
 
 
-	
-	//getter랑 setter...
-	
-	public CategoryListDto getCategoryList() {
+	public List<CategoryDto> getCategoryList() {
 		return categoryList;
 	}
 
 
-	public void setCategoryList(CategoryListDto categoryList) {
+	public void setCategoryList(List<CategoryDto> categoryList) {
 		this.categoryList = categoryList;
 	}
 
 
-
-	public ModelListDto getModelList() {
+	public List<ModelDto> getModelList() {
 		return modelList;
 	}
 
 
-
-	public void setModelList(ModelListDto modelList) {
+	public void setModelList(List<ModelDto> modelList) {
 		this.modelList = modelList;
 	}
 
+
 	
 	
+	
+	
+	
+
 	
 	
 	

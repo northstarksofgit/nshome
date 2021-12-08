@@ -1,6 +1,6 @@
 
 
-<sly data-sly-use.data="com.kia25.core.models.Build001Model"></sly>
+<sly data-sly-use.model="com.kia25.core.models.Build001Model"></sly>
 
 
 <div id="container">
@@ -234,7 +234,7 @@
                     <div class="category">
                         <div class="inbox">
                         
-                        	<sly data-sly-list="${data.categoryList.categoryList}">
+                        	<sly data-sly-list="${model.categoryList}">
 	                            <a href="#carTab${itemList.count}" class="${itemList.count == 1? 'on':' '}"><span>${item.categoryName}</span></a>
                             <sly>
                             

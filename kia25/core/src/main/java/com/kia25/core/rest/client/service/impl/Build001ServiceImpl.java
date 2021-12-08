@@ -66,7 +66,7 @@ public class Build001ServiceImpl implements Build001Service {
 	public ModelListDto getModelAPI() {
 		
 		try {
-			String response = service.getRequest("/model-list");
+			String response = service.getRequest("model-list");
 			
 			ObjectMapper mapper = new ObjectMapper();
 			

@@ -2,8 +2,6 @@ package com.kia25.core.models;
 
 import java.util.List;
 
-import java.io.IOException;
-
 import javax.annotation.PostConstruct;
 
 import org.apache.sling.api.SlingHttpServletRequest;
@@ -13,9 +11,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import com.kia25.core.rest.client.dto.categoryModel.CategoryDto;
-import com.kia25.core.rest.client.dto.categoryModel.CategoryListDto;
 import com.kia25.core.rest.client.dto.categoryModel.ModelDto;
-import com.kia25.core.rest.client.dto.categoryModel.ModelListDto;
 import com.kia25.core.rest.client.service.Build001Service;
 import com.kia25.core.rest.client.service.impl.Build001ServiceImpl;
 
@@ -58,11 +54,12 @@ public class Build001Model {
 		modelList = service.getModelAPI().getModelList();
 		
 		
+		/* 테스트 완료
 		for(ModelDto m : modelList) {
 			LOG.info("m-name:: " + m.getCarModelName());
 			LOG.info("m-Img:: "+m.getCarImage());
 		}
-		
+		*/
 		
 		
 		

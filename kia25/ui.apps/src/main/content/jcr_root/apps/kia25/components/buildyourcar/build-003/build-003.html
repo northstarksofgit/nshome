@@ -1,4 +1,24 @@
-<sly data-sly-use.clientLib="/libs/granite/sightly/templates/clientlib.html"  data-sly-call="${clientLib.all @ categories='kia30.base'}"></sly>
+<div data-sly-use.model="com.kia25.core.models.Build003Helper">
+	<p>1 리스트 ${model.modelList.size}</p>
+	<ul data-sly-list="${model.modelList}" data-sly-test="${model.modelList}">
+		<li> model Code : ${item.modelName}</li>
+		<li> model Name : ${item.modelId}</li>
+    </ul>
+</div>
+
+
+<div data-sly-use.color="com.kia25.core.models.Build003Helpercolor">
+	<p>2 리스트 ${model.color.size}</p>
+	<ul data-sly-list="${model.color}" data-sly-test="${model.color}">
+		<li> color Code : ${item.colorCode}</li>
+		<li> color Name : ${item.colorName}</li>
+    </ul>
+</div>
+
+<sly data-sly-use.data="com.kia25.core.models.Build003Helper"></sly>
+
+<sly data-sly-use.clientlibs="/libs/granite/sightly/templates/clientlib.html" />
+<sly data-sly-call="${clientlibs.all @ categories='kia25.base'}" />
 
 <div class="estimate_online_wrap">
     <!-- step 시작 -->

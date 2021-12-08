@@ -3,9 +3,9 @@
     jcr:primaryType="cq:Page">
     <jcr:content
         cq:template="/libs/wcm/msm/templates/blueprint"
+        jcr:description="Creates blueprint config for kia 25 Project"
         jcr:primaryType="nt:unstructured"
         jcr:title="kia 25 Project Blueprint"
-        jcr:description="Creates blueprint config for kia 25 Project"
         sling:resourceType="wcm/msm/components/blueprint"
         sitePath="/content/kia25/language-masters">
         <dialog/>

@@ -20,9 +20,9 @@ import com.kia25.core.rest.client.service.BuildYourCarService;
 import com.kia25.core.rest.client.service.impl.BuildYourCarServiceImpl;
 
 @Model(adaptables = { SlingHttpServletRequest.class }, defaultInjectionStrategy = DefaultInjectionStrategy.OPTIONAL)
-public class Build002Helper {
+public class Build002Model {
 	
-	private final static Logger log = LoggerFactory.getLogger(Build002Helper.class);
+	private final static Logger log = LoggerFactory.getLogger(Build002Model.class);
 	
 	BuildYourCarService buildYourCarService = new BuildYourCarServiceImpl();
 	

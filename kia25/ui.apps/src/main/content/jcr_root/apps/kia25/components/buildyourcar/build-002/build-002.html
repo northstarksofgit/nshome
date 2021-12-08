@@ -1,9 +1,9 @@
 
-<sly data-sly-use.data="com.kia25.core.models.Build002Helper"></sly>
+<sly data-sly-use.model="com.kia25.core.models.Build002Model">
 
-<sly data-sly-use.clientlibs="/libs/granite/sightly/templates/clientlib.html"/>
-<sly data-sly-call="${clientlibs.all @ categories='kia25.base'}" />
-           
+
+
+       
 
     <div class="estimate_online_wrap">
 
@@ -50,9 +50,9 @@
     <h4 class="hidden">STEP 1 상세차종선택</h4>
     <div class="car_name">
  
-    	<ul data-sly-list.model="${data.modelList}"  data-sly-test="${data.modelList}">
-    		<sly data-sly-test="${model.modelId =='ev6'}">
-        		<strong class="name">${model.modelName}</strong>
+    	<ul data-sly-list.list="${model.modelList}"  data-sly-test="${model.modelList}">
+    		<sly data-sly-test="${list.modelId =='ev6'}">
+        		<strong class="name">${list.modelName}</strong>
         	</sly>	
         </ul>
         
@@ -649,4 +649,4 @@
     <div class="dimmed_outClick" style="position:fixed; display:none;"></div>
     </div>
 
-
+</sly>

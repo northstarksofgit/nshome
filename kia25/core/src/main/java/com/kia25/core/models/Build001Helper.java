@@ -51,14 +51,17 @@ public class Build001Helper {
 		
 		
 		
-		
-		/*
+		//테스트 code
 		List<ModelDto> result = modelList.getModelList();
+		
 		for(ModelDto m : result) {
-			if(m!=null)
-			LOG.info("model:: "+m.getCategoryName());
+			if(m!=null) {
+				LOG.info("model cate:: "+m.getCategoryName());
+				LOG.info("model name:: "+m.getModelName());
+				
+			}
 		}
-		*/
+		
 		
 		
 		

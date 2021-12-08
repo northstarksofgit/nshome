@@ -241,7 +241,7 @@
                             target="_blank">가격표<em>보기</em></a></p>
 
 
-					<!-- car tab 수정 : 2021. 12. 06 -->
+					<!-- dwjung :: car tab 수정 : 2021. 12. 06 -->
 					
                     <h4 class="hidden">차종 선택</h4>
                     <div class="category">
@@ -260,7 +260,26 @@
                     <div class="inner">
 
                         <div id="carTab1" class="car_list on">
-                            <h5 class="hidden">EV</h5>
+                        
+<!--                             <h5 class="hidden">EV</h5> -->
+
+							<sly data-sly-list.model="${data.modelList.modelList}">
+								<h5 class="hidden">${model.categoryName}</h5>
+								${model.modelName} :: ${model.categoryName}
+								
+								<sly data-sly-list.detailL="${model.modelDetail}">
+									<sly data-sly-list.detail="${detailL.modelDetailList}">
+										${detail.modelDetailName}
+									</sly>
+									
+								</sly>
+								
+							</sly>
+
+
+
+<!-- 							
+                            <h5 class="hidden"></h5>
                             <ul class="car_u">
 
                                 <li class="car_l" car="EV6">
@@ -697,6 +716,8 @@
                             </ul>
                         </div>
                     </div>
+
+ -->
 
                     <script type="text/javascript">
                         $(document).ready(function () {

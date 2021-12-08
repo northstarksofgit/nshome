@@ -3,7 +3,7 @@
 
 <sly data-sly-use.clientlibs="/libs/granite/sightly/templates/clientlib.html"/>
 <sly data-sly-call="${clientlibs.all @ categories='kia25.base'}" />
-
+           
 
     <div class="estimate_online_wrap">
 
@@ -49,7 +49,13 @@
     <div class="preview">
     <h4 class="hidden">STEP 1 상세차종선택</h4>
     <div class="car_name">
-        <strong class="name">EV6</strong>
+ 
+    	<ul data-sly-list.model="${data.modelList}"  data-sly-test="${data.modelList}">
+    		<sly data-sly-test="${model.modelId =='ev6'}">
+        		<strong class="name">${model.modelName}</strong>
+        	</sly>	
+        </ul>
+        
             <button type="button" class="btn_car" onclick="fnOpenSelectCarPop()">다른 차량 선택</button>
         </div>
     <div class="car_img">
@@ -58,23 +64,27 @@
     </div>
     </div>
     <div class="model sel caroption">
-    <h5 class="tit">모델 <em class="hidden">선택</em></h5>
-
-        <span class="form_chk">
-            <input type="radio" prefer="client" car="EV6-LEV" carimage="https://www.kia.com/content/dam/kwcms/kr/ko/images/byo/car_ev6_standard.png" value="EV6-LEV" name="sample1" id="sample1_1" checked="">
-            <label for="sample1_1" class="form_spr radio_box r_on">롱 레인지</label>
-        </span>
-
-        <span class="form_chk">
-            <input type="radio" prefer="client" car="EV6-GEV" carimage="https://www.kia.com/content/dam/kwcms/kr/ko/images/byo/car_ev6_gt_klm.png" value="EV6-GEV" name="sample1" id="sample1_2">
-            <label for="sample1_2" class="form_spr radio_box">롱 레인지 GT-Line</label>
-        </span>
-
-        <span class="form_chk">
-            <input type="radio" prefer="client" car="EV6-SEV" carimage="https://www.kia.com/content/dam/kwcms/kr/ko/images/byo/car_ev6_standard.png" value="EV6-SEV" name="sample1" id="sample1_3">
-            <label for="sample1_3" class="form_spr radio_box">스탠다드</label>
-        </span>
-
+	    <h5 class="tit">모델 <em class="hidden">선택</em></h5>
+	
+	
+		<sly data-sly-list="${data.modelList.modelDetail}" data-sly-test="${data.modelList.modelDetail}">
+	        <span class="form_chk">
+	            <input type="radio" prefer="client" car="EV6-LEV" carimage="https://www.kia.com/content/dam/kwcms/kr/ko/images/byo/car_ev6_standard.png" value="EV6-LEV" name="sample1" id="sample1_1" checked="">
+	            <label for="sample1_1" class="form_spr radio_box r_on">${item.modelDetailName}</label>
+	        </span>
+	        
+			<!-- 반복문 생성시 삭제 처리
+	        <span class="form_chk">
+	            <input type="radio" prefer="client" car="EV6-GEV" carimage="https://www.kia.com/content/dam/kwcms/kr/ko/images/byo/car_ev6_gt_klm.png" value="EV6-GEV" name="sample1" id="sample1_2">
+	            <label for="sample1_2" class="form_spr radio_box">${item.modelDetailName}</label>
+	        </span>
+	
+	        <span class="form_chk">
+	            <input type="radio" prefer="client" car="EV6-SEV" carimage="https://www.kia.com/content/dam/kwcms/kr/ko/images/byo/car_ev6_standard.png" value="EV6-SEV" name="sample1" id="sample1_3">
+	            <label for="sample1_3" class="form_spr radio_box">${item.modelDetailName}</label>
+	        </span>
+	         -->
+		</sly>
     </div>
 
     <div class="trans sel transmission">

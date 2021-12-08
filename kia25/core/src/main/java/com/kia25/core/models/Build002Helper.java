@@ -26,9 +26,9 @@ public class Build002Helper {
 	
 	BuildYourCarService buildYourCarService = new BuildYourCarServiceImpl();
 	
+	// 파라미터 값을 받아오기 위해 선언
 	@Self
     private SlingHttpServletRequest request;
-	
 	
 	@Inject
 	private Resource resource;
@@ -48,12 +48,14 @@ public class Build002Helper {
 		//log.info("getModelList :::: {}", modelList);
 		
 		String modelid = request.getParameter("modelid");
-		//reqParam = (String) slingScriptHelper.getRequest().getParameter("modelid");
 		
-		log.info("getModelId :::: {}", modelid);
+		// 파라미터 값 받아오는건 SlingScriptHelper 사용해서 넘겨도 가능함! 
+		// 단, URL에서 editor.html 부분만 삭제해주면 
+		// String modelid = (String) slingScriptHelper.getRequest().getParameter("modelid");
+		
+		log.info("getModelList :::: {}", modelList);
 				
 	}
-	
 	
 	// getter, setter 메소드
 	public List<ModelDto> getModelList() {

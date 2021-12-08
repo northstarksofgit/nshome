@@ -3,12 +3,11 @@ package com.kia25.core.models;
 import java.util.List;
 
 import javax.annotation.PostConstruct;
-import javax.inject.Inject;
 
 import org.apache.sling.api.SlingHttpServletRequest;
-import org.apache.sling.api.resource.Resource;
 import org.apache.sling.models.annotations.DefaultInjectionStrategy;
 import org.apache.sling.models.annotations.Model;
+import org.apache.sling.models.annotations.injectorspecific.Self;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -23,13 +22,17 @@ public class Build004_OptionModel {
 private final static Logger log = LoggerFactory.getLogger(Build004_OptionModel.class);
 	
 	BuildYourCarService buildYourCarService = new BuildYourCarServiceImpl();
-	@Inject
-	private Resource resource;
+	@Self
+    private SlingHttpServletRequest request;
 
 	private List<OptionDto> optionList;
 
 	@PostConstruct
 	public void activate() throws Exception {
+//		String modelCode = request.getParameter("modelCode");
+//		String trimCode = request.getParameter("trimCode");
+		
+		
 		optionList = buildYourCarService.getOptionlListAPI().getListOfOptions();
 		log.info("getOptionList :::: {}", optionList);
 	}

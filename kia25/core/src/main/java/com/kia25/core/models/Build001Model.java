@@ -12,12 +12,11 @@ import org.apache.sling.models.annotations.injectorspecific.OSGiService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import com.kia25.core.rest.client.dto.CategoryDto;
-import com.kia25.core.rest.client.dto.CategoryListDto;
-import com.kia25.core.rest.client.dto.ModelDto;
-import com.kia25.core.rest.client.dto.ModelListDto;
+import com.kia25.core.rest.client.dto.categoryModel.CategoryDto;
+import com.kia25.core.rest.client.dto.categoryModel.CategoryListDto;
+import com.kia25.core.rest.client.dto.categoryModel.ModelDto;
+import com.kia25.core.rest.client.dto.categoryModel.ModelListDto;
 import com.kia25.core.rest.client.service.Build001Service;
-import com.kia25.core.rest.client.service.BuildYourCarService;
 import com.kia25.core.rest.client.service.impl.Build001ServiceImpl;
 
 import org.apache.sling.models.annotations.DefaultInjectionStrategy;
@@ -52,17 +51,12 @@ public class Build001Model {
 		
 		
 		//테스트 code
-		List<ModelDto> result = modelList.getModelList();
+		List<CategoryDto> result = categoryList.getCategoryList();
 		
-		for(ModelDto m : result) {
-			if(m!=null) {
-				LOG.info("model cate:: "+m.getCategoryName());
-				LOG.info("model name:: "+m.getModelName());
-				
-			}
+		
+		for(CategoryDto c : result) {
+			LOG.info(c.getCategoryName());
 		}
-		
-		
 		
 		
 	}

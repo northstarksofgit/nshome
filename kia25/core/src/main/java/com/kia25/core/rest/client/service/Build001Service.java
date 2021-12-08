@@ -1,7 +1,7 @@
 package com.kia25.core.rest.client.service;
 
-import com.kia25.core.rest.client.dto.CategoryListDto;
-import com.kia25.core.rest.client.dto.ModelListDto;
+import com.kia25.core.rest.client.dto.categoryModel.CategoryListDto;
+import com.kia25.core.rest.client.dto.categoryModel.ModelListDto;
 
 public interface Build001Service {
 

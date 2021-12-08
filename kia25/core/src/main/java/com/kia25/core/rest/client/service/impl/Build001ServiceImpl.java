@@ -9,10 +9,10 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.kia25.core.rest.client.dto.CategoryListDto;
-import com.kia25.core.rest.client.dto.CategoryListDtoResults;
-import com.kia25.core.rest.client.dto.ModelListDto;
-import com.kia25.core.rest.client.dto.ModelListDtoResults;
+import com.kia25.core.rest.client.dto.categoryModel.CategoryListDto;
+import com.kia25.core.rest.client.dto.categoryModel.CategoryListDtoResults;
+import com.kia25.core.rest.client.dto.categoryModel.ModelListDto;
+import com.kia25.core.rest.client.dto.categoryModel.ModelListDtoResults;
 import com.kia25.core.rest.client.service.Build001Service;
 import com.kia25.core.rest.client.service.BuildYourCarService;
 import com.kia25.core.rest.client.service.CommonRestApiService;

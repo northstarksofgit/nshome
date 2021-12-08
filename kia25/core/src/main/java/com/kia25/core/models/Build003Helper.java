@@ -11,6 +11,7 @@ import org.apache.felix.scr.annotations.Reference;
 import org.apache.sling.api.SlingHttpServletRequest;
 import org.apache.sling.models.annotations.Model;
 import org.apache.sling.models.annotations.injectorspecific.OSGiService;
+import org.apache.sling.models.annotations.injectorspecific.Self;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -28,6 +29,9 @@ public class Build003Helper {
 	Build003Service Build003Service = new Build003ServiceImpl();
 
 	private static final Logger LOG = LoggerFactory.getLogger(Build003Helper.class);
+	
+	@Self
+    private SlingHttpServletRequest request;
 	
 
 	private List<ModelDto> modelList;

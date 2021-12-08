@@ -17,8 +17,6 @@ public class ModelListDtoResults {
 	//Data
 	//이 구조를 맞춰주기 위해서 ListDto를 따로 만들었나보다...
 	private ModelListDto data;
-		
-	private ColorListDto colordata;
 	
 	
 	
@@ -60,14 +58,6 @@ public class ModelListDtoResults {
 
 	public void setData(ModelListDto data) {
 		this.data = data;
-	}
-	
-	public ColorListDto getcolorData() {
-		return colordata;
-	}
-
-	public void setcolorData(ColorListDto colordata) {
-		this.colordata = colordata;
 	}
 	
 	

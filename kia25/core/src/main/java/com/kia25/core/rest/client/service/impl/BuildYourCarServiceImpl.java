@@ -2,8 +2,6 @@ package com.kia25.core.rest.client.service.impl;
 
 import java.io.IOException;
 
-import javax.annotation.Resource;
-
 import org.apache.felix.scr.annotations.Service;
 import org.apache.sling.models.annotations.injectorspecific.OSGiService;
 import org.osgi.service.component.annotations.Component;
@@ -15,6 +13,8 @@ import com.kia25.core.rest.client.dto.CategoryListDto;
 import com.kia25.core.rest.client.dto.CategoryListDtoResults;
 import com.kia25.core.rest.client.dto.ModelListDto;
 import com.kia25.core.rest.client.dto.ModelListDtoResults;
+import com.kia25.core.rest.client.dto.option.OptionListDto;
+import com.kia25.core.rest.client.dto.option.OptionListDtoResults;
 import com.kia25.core.rest.client.service.BuildYourCarService;
 import com.kia25.core.rest.client.service.CommonRestApiService;
 
@@ -55,6 +55,25 @@ public class BuildYourCarServiceImpl implements BuildYourCarService {
 			ObjectMapper mapper = new ObjectMapper();
 			
 			ModelListDtoResults results = mapper.readValue(response,  ModelListDtoResults.class);
+            return results.getData();
+            
+		} catch (IOException e) {
+			LOG.error("Error parsing JSON API response.", e);
+			e.printStackTrace();
+		}
+		
+		return null;
+	}
+	
+	public OptionListDto getOptionlListAPI() {
+		
+		try {
+			String response = service.getRequest("list-of-option");
+			LOG.debug("response={}", response);
+			ObjectMapper mapper = new ObjectMapper();
+			
+			OptionListDtoResults results = mapper.readValue(response,  OptionListDtoResults.class);
+			results.getData();
             return results.getData();
             
 		} catch (IOException e) {

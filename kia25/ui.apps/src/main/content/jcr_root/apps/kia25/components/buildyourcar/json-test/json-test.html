@@ -3,22 +3,13 @@
 
 <p>Model component</p>
 <hr>
-<div data-sly-use.model="com.kia25.core.models.Build004Helper">
-	<p>리스트 ${model.modelList.size}</p>
+<div data-sly-use.option="com.kia25.core.models.Build004Helper">
+	<p>리스트 ${option.optionList.size}</p>
     <hr>
-	<sly data-sly-test="${model.modelList}">
-        <ul data-sly-list.model="${model.modelList}" data-sly-test="${model.modelList}">
-            <sly data-sly-test="${model.modelId == 'ev6'}">
-            	<li> category Code : ${model.modelId}</li>
-            	<li> category Name : ${model.modelName}</li>
-
-				<sly data-sly-list.detail="${model.modelDetail}" data-sly-test="${model.modelDetail}" >
-                	<li>modelDetailId : ${detail.modelDetailId}</li>
-                    <li>modelDetailName : ${detail.modelDetailName}</li>
-                    <li>trmsn : ${detail.trmsn}</li>
-                    <hr>
-                </sly>
-            </sly>
+	<sly data-sly-test="${option.optionList}">
+        <ul data-sly-list.optList="${option.optionList}" >
+            	<li> category Code : ${optList.trimCode}</li>
+            	<li> category Name : ${optList.optionCode}</li>
         </ul>
     </sly>
 </div>

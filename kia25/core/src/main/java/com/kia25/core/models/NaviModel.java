@@ -78,7 +78,7 @@ public class NaviModel {
 		 * 
 		 * carid(modelCode), dpcd(??), trim(trimCode), ext(exteriorCode), int(interiorCode)
 		 * 
-		 * 테스트용 url : ?car=EV6&trimCode=LRL&option=4WD,DWP,CVN&ext=aa&int=M4B&dpcd=N
+		 * 테스트용 url : ?car=EV6&trimCode=LRL&option=4WD,DWP,CVN&ext=SWP&int=M4B&dpcd=N
 		 * 
 		 */
 		

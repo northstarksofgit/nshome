@@ -7,8 +7,10 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.kia25.core.rest.client.dto.ModelListDto;
-import com.kia25.core.rest.client.dto.ModelListDtoResults;
+import com.kia25.core.rest.client.dto.TrimModel.ModelListDto;
+import com.kia25.core.rest.client.dto.TrimModel.ModelListDtoResult;
+import com.kia25.core.rest.client.dto.TrimModel.TrimListDto;
+import com.kia25.core.rest.client.dto.TrimModel.TrimListDtoResult;
 import com.kia25.core.rest.client.service.Build002Service;
 import com.kia25.core.rest.client.service.CommonRestApiService;
 
@@ -16,25 +18,48 @@ import com.kia25.core.rest.client.service.CommonRestApiService;
 public class Build002ServiceImpl implements Build002Service {
 
 	// LOG 확인
-	private static final Logger LOG = LoggerFactory.getLogger(BuildYourCarServiceImpl.class);
+	private static final Logger LOG = LoggerFactory.getLogger(Build002ServiceImpl.class);
 	
-	// json 데이터를 가져오기 위해서 객체 선언
+	// 요청을 보내서 json 데이터를 가져오기 위해서 interface 객체 선언
 	@OSGiService
 	private CommonRestApiService service = new CommonRestApiServiceImpl();
 
-	// 모델 리스트 가져오기 (interface에 선언해둔 메소드 구현)
+	
+	/**
+	 * model list 가져오기
+	 */
 	@Override
-	public ModelListDto getModelList() {
+	public ModelListDto getModelListAPI() {
 		
 		try {
-			String response = service.getRequest("/model-list");
+			String response = service.getRequest("model-list");
 			ObjectMapper mapper = new ObjectMapper();
 			
-			ModelListDtoResults results = mapper.readValue(response, ModelListDtoResults.class);
-			return results.getData();
+			ModelListDtoResult results = mapper.readValue(response, ModelListDtoResult.class);
+			return results.getModelData();
 			
 		} catch (IOException e) {
-			LOG.error("Error Parsing JSON API response.", e);
+			e.printStackTrace();
+		}
+		
+		return null;
+	}
+
+	
+	/**
+	 * trim list 가져오기
+	 */
+	@Override
+	public TrimListDto getTrimListAPI() {
+
+		try {
+			String response = service.getRequest("trim-list");
+			ObjectMapper mapper = new ObjectMapper();
+			
+			TrimListDtoResult results = mapper.readValue(response, TrimListDtoResult.class);
+			return results.getTrimData();
+			
+		} catch (IOException e) {
 			e.printStackTrace();
 		}
 		

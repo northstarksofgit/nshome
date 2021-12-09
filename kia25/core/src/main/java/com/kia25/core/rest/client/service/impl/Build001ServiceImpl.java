@@ -9,10 +9,17 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
+import com.kia25.core.rest.client.dto.ColorListDto;
+import com.kia25.core.rest.client.dto.ColorListDtoResults;
+import com.kia25.core.rest.client.dto.TrimModel.TrimListDto;
+import com.kia25.core.rest.client.dto.TrimModel.TrimListDtoResult;
 import com.kia25.core.rest.client.dto.categoryModel.CategoryListDto;
 import com.kia25.core.rest.client.dto.categoryModel.CategoryListDtoResults;
+
 import com.kia25.core.rest.client.dto.categoryModel.ModelListDto;
 import com.kia25.core.rest.client.dto.categoryModel.ModelListDtoResults;
+import com.kia25.core.rest.client.dto.option.OptionListDto;
+import com.kia25.core.rest.client.dto.option.OptionListDtoResults;
 import com.kia25.core.rest.client.service.Build001Service;
 import com.kia25.core.rest.client.service.BuildYourCarService;
 import com.kia25.core.rest.client.service.CommonRestApiService;
@@ -21,9 +28,11 @@ import com.kia25.core.rest.client.service.CommonRestApiService;
 @Service(value = Build001Service.class)
 public class Build001ServiceImpl implements Build001Service {
 	
-	//build001컴포넌트에서 사용하는 ServiceImpl
-	//필요시 추후 다른 ServiceImpl로 통합 예정
-
+	/*
+	 * build001컴포넌트와 navi컴포넌트에서 사용하는 ServiceImpl
+	 * 필요시 추후 다른 ServiceImpl로 통합 예정
+	 */
+	
 	
 	//실질적으로 요청을 보내고 응답을 받아오는 역할을 수행하는 interface(Impl)
 	@OSGiService
@@ -32,7 +41,9 @@ public class Build001ServiceImpl implements Build001Service {
 	private static final Logger LOG = LoggerFactory.getLogger(Build001ServiceImpl.class);
 	
 	
-	//카테고리 리스트를 가져온다.
+	/*
+	 * 카테고리 리스트를 가져온다.
+	 */
 	@Override
 	public CategoryListDto getCategoryAPI() {
 		
@@ -61,7 +72,9 @@ public class Build001ServiceImpl implements Build001Service {
 	}
 
 
-	//모델 리스트를 가져옵니다.
+	/*
+	 * 모델 리스트를 가져옵니다.
+	 */
 	@Override
 	public ModelListDto getModelAPI() {
 		
@@ -82,6 +95,79 @@ public class Build001ServiceImpl implements Build001Service {
 		
 		return null;
 	}
+
+
+	/*
+	 * 옵션 리스트를 가져옵니다.
+	 */
+	@Override
+	public OptionListDto getOptionlListAPI() {
+		
+		try {
+			String response = service.getRequest("list-of-option");
+			LOG.debug("response={}", response);
+			ObjectMapper mapper = new ObjectMapper();
+			
+			OptionListDtoResults results = mapper.readValue(response,  OptionListDtoResults.class);
+			results.getData();
+            return results.getData();
+            
+		} catch (IOException e) {
+			LOG.error("Error parsing JSON API response.", e);
+			e.printStackTrace();
+		}
+		
+		return null;
+	}
+
+
+	
+	/*
+	 * 컬러리스트를 가져옵니다.
+	 */
+	@Override
+	public ColorListDto getColorListAPI() {
+		try {
+			String response = service.getRequest("color-list");
+			LOG.debug("response={}", response);
+			ObjectMapper mapper = new ObjectMapper();
+			
+			ColorListDtoResults results = mapper.readValue(response,  ColorListDtoResults.class);
+			results.getData();
+            return results.getData();
+            
+		} catch (IOException e) {
+			LOG.error("Error parsing JSON API response.", e);
+			e.printStackTrace();
+		}
+		
+		return null;
+	}
+
+
+
+	/**
+	 * trim list 가져오기
+	 */
+	@Override
+	public TrimListDto getTrimListAPI() {
+
+		try {
+			String response = service.getRequest("trim-list");
+			ObjectMapper mapper = new ObjectMapper();
+			
+			TrimListDtoResult results = mapper.readValue(response, TrimListDtoResult.class);
+			return results.getTrimData();
+			
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+		
+		return null;
+	}
+	
+	
+	
 	
 	
 	

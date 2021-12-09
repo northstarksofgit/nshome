@@ -17,7 +17,10 @@ public class ColorDto {
 	/* 컬러 가격 */
 	private String colorPrice;
 	
-	/* 컬러 내/외장 */
+	/* 컬러 내/외장 
+	 * i : 인테리어
+	 * e : 익스테리어
+	 * */
 	private String carOptionCode;
 	
 	/*  트림 코드 */
@@ -78,6 +81,14 @@ public class ColorDto {
 
 	public void setProductNumber(String productNumber) {
 		this.productNumber = productNumber;
+	}
+
+	public String getCarOptionCode() {
+		return carOptionCode;
+	}
+
+	public void setCarOptionCode(String carOptionCode) {
+		this.carOptionCode = carOptionCode;
 	}
 
 	

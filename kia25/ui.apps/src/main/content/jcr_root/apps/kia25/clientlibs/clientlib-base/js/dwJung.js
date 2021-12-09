@@ -1,3 +1,32 @@
+
+
+
+//build001
+// navi에서는 주석 처리를 해야 잘 돌아갑니다~
+/*
+var category = $(".category").offset().top;
+
+
+$(window).scroll(function() {
+  	var window = $(this).scrollTop();
+
+    if(category <= window) {
+      $(".category").addClass("fixed");
+    } else {
+      $(".category").removeClass("fixed");
+    }
+	
+
+});
+
+*/
+
+
+
+
+
+//navi js//////////////////////////////////////////////////////////////
+
 $(document).ready(function() {
     $(".sales_offers").length && offersInit();
     $(".sales_demonstrator").length && demonstratorInit();
@@ -8,6 +37,8 @@ $(document).ready(function() {
     $(".gateCon").length && shoppingToolsGateInit();
     $(".btnActMove").length && showBtnActMove()
 });
+
+
 var showBtnActMove = function() {
     $(window).scroll(function() {
         sTop = Math.round($(window).scrollTop());
@@ -79,7 +110,6 @@ var showBtnActMove = function() {
 
     }
 
-
     var g = $(".build_car")
       , f = g.find(".byoTotal")
       , l = f.find(".totalBar \x3e a")
@@ -123,20 +153,8 @@ var showBtnActMove = function() {
             }
         });
 
-
-
-       
     }
     )();
-
-
-
-
-
-
-
-
-
 
 };
 
@@ -148,8 +166,7 @@ var showBtnActMove = function() {
 
 
 $(document).ready(function() {
-
-    toolBar()
+    toolBar();
 });
 
 function toolBar() {

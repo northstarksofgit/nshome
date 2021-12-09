@@ -19,7 +19,7 @@
                     <div class="totalBar">
                         <a href="#" class="btn_totalCon_open" title="상세견적 선택 내용 열기">
                             <span class="txt">Total</span>
-                            <span class="price" title="상세견적 총 금액">53,460,000</span><em class="won">원</em>
+                            <span class="price" title="상세견적 총 금액">${model.totalPrice}</span><em class="won">원</em>
                         </a>
                     </div>
 
@@ -36,11 +36,11 @@
                                             <strong>모델</strong>
                                             <p style="display:none;">차량을 선택해 주세요.</p>
                                             <div class="con" price="53460000">
-                                                <span class="fixed conTitle">EV6 롱 레인지 라이트(Light)</span>
+                                                <span class="fixed conTitle">${model.trim.trimName}</span>
                                                 <span class="fixed carImg"><img
-                                                        src="https://www.kia.com/content/dam/kwcms/kr/ko/images/byo/car_ev6_standard.png"
+                                                        src="${model.model.carImage}"
                                                         alt=""></span>
-                                                <span class="fixed conPrice">53,460,000<em>원</em></span>
+                                                <span class="fixed conPrice">${model.trim.sellingPrice}<em>원</em></span>
                                             </div>
                                         </div>
                                     </li>
@@ -71,13 +71,25 @@
                                     <li class="list03">
                                         <div class="list_in">
                                             <strong>선택옵션</strong>
-                                            <p>선택정보가 없습니다.</p>
-                                            <div style="display:none;">
-                                                <div class="con">
-
-
-                                                </div>
-                                            </div>
+                                            <sly data-sly-test="${model.optionList.size == 0}">
+	                                            <p>선택정보가 없습니다.</p>
+	                                        </sly>
+                                            <sly data-sly-test="${model.optionList.size > 0}">
+	                                                <div class="con">
+	                                                	<sly data-sly-list.opt="${model.optionList}">
+															<span class="fixed" price="${opt.optionPrice}">
+							                                	<em class="conTitle">${opt.optionName}</em>
+							                                	<span class="conPrice">${opt.optionPrice}<em>원</em>
+						                                		</span>
+															</span>
+														</sly>
+	
+	                                                </div>
+	                                                <!-- 
+	                                            <div style="display:none;">
+	                                            </div>
+	                                             -->
+                                            </sly>
                                         </div>
                                     </li>
                                     <li class="list04">

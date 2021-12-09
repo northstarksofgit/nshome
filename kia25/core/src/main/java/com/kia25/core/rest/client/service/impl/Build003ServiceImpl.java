@@ -11,8 +11,8 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.kia25.core.rest.client.dto.ModelListDto;
-import com.kia25.core.rest.client.dto.ModelListDtoResults;
+import com.kia25.core.rest.client.dto.ColorListDto;
+import com.kia25.core.rest.client.dto.ColorListDtoResults;
 import com.kia25.core.rest.client.service.Build003Service;
 import com.kia25.core.rest.client.service.CommonRestApiService;
 
@@ -25,14 +25,14 @@ public class Build003ServiceImpl implements Build003Service {
 	@OSGiService
 	private CommonRestApiService service = new CommonRestApiServiceImpl();
 	
-	public ModelListDto getModelAPI() {
+	public ColorListDto getModelAPI() {
 		
 		try {
-			String response = service.getRequest("model-list");
+			String response = service.getRequest("color-list");
 			LOG.debug("response={}", response);
 			ObjectMapper mapper = new ObjectMapper();
 			
-			ModelListDtoResults results = mapper.readValue(response,  ModelListDtoResults.class);
+			ColorListDtoResults results = mapper.readValue(response,  ColorListDtoResults.class);
             return results.getData();
             
 		} catch (IOException e) {

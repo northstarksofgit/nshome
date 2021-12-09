@@ -7,6 +7,8 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
+import com.kia25.core.rest.client.dto.TrimModel.CarGroupListDto;
+import com.kia25.core.rest.client.dto.TrimModel.CarGroupListDtoResult;
 import com.kia25.core.rest.client.dto.TrimModel.ModelListDto;
 import com.kia25.core.rest.client.dto.TrimModel.ModelListDtoResult;
 import com.kia25.core.rest.client.dto.TrimModel.TrimListDto;
@@ -44,7 +46,29 @@ public class Build002ServiceImpl implements Build002Service {
 		
 		return null;
 	}
+	
 
+	/**
+	 * carGroup list 가져오기
+	 */
+	@Override
+	public CarGroupListDto getCarGroupListAPI() {
+		
+		try {
+			String response = service.getRequest("carGroup-list");
+			ObjectMapper mapper = new ObjectMapper();
+			
+			CarGroupListDtoResult result = mapper.readValue(response, CarGroupListDtoResult.class);
+			return result.getCarGroupData();
+			
+		} catch (IOException e) {
+			e.printStackTrace();
+			
+		}
+		
+		return null;
+	}
+	
 	
 	/**
 	 * trim list 가져오기
@@ -65,6 +89,7 @@ public class Build002ServiceImpl implements Build002Service {
 		
 		return null;
 	}
+
 	
 
 }

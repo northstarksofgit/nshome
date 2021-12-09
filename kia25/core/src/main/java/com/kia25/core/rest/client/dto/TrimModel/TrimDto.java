@@ -23,6 +23,12 @@ public class TrimDto {
 	
 	
 	/**
+	 * carGroup 코드
+	 */
+	private String carGroupCode;
+	
+	
+	/**
 	 * 트림코드
 	 */
 	private String trimCode;
@@ -83,21 +89,25 @@ public class TrimDto {
 		return modelCode;
 	}
 
-
 	public void setModelCode(String modelCode) {
 		this.modelCode = modelCode;
 	}
-
 
 	public String getModelYear() {
 		return modelYear;
 	}
 
-
 	public void setModelYear(String modelYear) {
 		this.modelYear = modelYear;
 	}
 
+	public String getCarGroupCode() {
+		return carGroupCode;
+	}
+	
+	public void setCarGroupCode(String carGroupCode) {
+		this.carGroupCode = carGroupCode;
+	}
 
 	public String getTrimCode() {
 		return trimCode;

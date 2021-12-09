@@ -24,8 +24,8 @@ public class ColorDto {
 	private String carOptionCode;
 	
 	/*  트림 코드 */
-	private String trimCode;
-	
+	private String trimCode;	
+
 	/* 컬러 이미지 */
 	private String colorImgPath;
 		
@@ -91,7 +91,13 @@ public class ColorDto {
 		this.carOptionCode = carOptionCode;
 	}
 
-	
+	public String getTrimCode() {
+		return trimCode;
+	}
+
+	public void setTrimCode(String trimCode) {
+		this.trimCode = trimCode;
+	}
 	
 	
 }

@@ -11,8 +11,12 @@ import org.slf4j.LoggerFactory;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.kia25.core.rest.client.dto.CategoryListDto;
 import com.kia25.core.rest.client.dto.CategoryListDtoResults;
+import com.kia25.core.rest.client.dto.ColorListDto;
+import com.kia25.core.rest.client.dto.ColorListDtoResults;
 import com.kia25.core.rest.client.dto.ModelListDto;
 import com.kia25.core.rest.client.dto.ModelListDtoResults;
+import com.kia25.core.rest.client.dto.TrimModel.TrimListDto;
+import com.kia25.core.rest.client.dto.TrimModel.TrimListDtoResult;
 import com.kia25.core.rest.client.dto.option.OptionListDto;
 import com.kia25.core.rest.client.dto.option.OptionListDtoResults;
 import com.kia25.core.rest.client.service.BuildYourCarService;
@@ -73,6 +77,42 @@ public class BuildYourCarServiceImpl implements BuildYourCarService {
 			ObjectMapper mapper = new ObjectMapper();
 			
 			OptionListDtoResults results = mapper.readValue(response,  OptionListDtoResults.class);
+            return results.getData();
+            
+		} catch (IOException e) {
+			LOG.error("Error parsing JSON API response.", e);
+			e.printStackTrace();
+		}
+		
+		return null;
+	}
+	
+	public TrimListDto getTrimListAPI() {
+		
+		try {
+			String response = service.getRequest("trim-list");
+			LOG.debug("response={}", response);
+			ObjectMapper mapper = new ObjectMapper();
+			
+			TrimListDtoResult results = mapper.readValue(response,  TrimListDtoResult.class);
+            return results.getTrimData();
+            
+		} catch (IOException e) {
+			LOG.error("Error parsing JSON API response.", e);
+			e.printStackTrace();
+		}
+		
+		return null;
+	}
+	
+	public ColorListDto getColorListAPI() {
+		
+		try {
+			String response = service.getRequest("color-list");
+			LOG.debug("response={}", response);
+			ObjectMapper mapper = new ObjectMapper();
+			
+			ColorListDtoResults results = mapper.readValue(response,  ColorListDtoResults.class);
 			results.getData();
             return results.getData();
             

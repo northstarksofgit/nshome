@@ -57,8 +57,10 @@ public class NaviModel {
 	 */
 	private List<ColorDto> colorList;
 	
-	
-	
+	/*
+	 * 총 금액
+	 */
+	private int totalPrice = 0;
 	
 	
 	@PostConstruct
@@ -134,8 +136,6 @@ public class NaviModel {
 		/*
 		 * parameter로 넘어온 modelCode와 json의 modelCode가 일치하면 필드에 할당
 		*/
-		
-		
 		if(modelCode!=null) {
 			for(ModelDto m : modelResult) {
 				if(m.getModelCode().equals(modelCode)) {
@@ -144,14 +144,15 @@ public class NaviModel {
 			}			
 		}
 		
+		
 		/*
 		 * parameter로 넘어온 trimCode와 json의 trimCode가 일치하면 필드에 할당
 		 * */
-		
 		if(trimCode!=null) {
 			for(TrimDto t : trimResult) {
 				if(t.getTrimCode().equals(trimCode)) {
 					trim = t;
+					totalPrice += trim.getSellingPrice();
 				}
 			}			
 		}
@@ -172,7 +173,8 @@ public class NaviModel {
 					if(o.getTrimCode().equals(trimCode)&&o.getOptionCode().equals(s)) {
 						
 						optionList.add(o);
-						
+						totalPrice += Integer.parseInt(o.getOptionPrice());
+
 					}				
 				}
 			}			
@@ -184,7 +186,6 @@ public class NaviModel {
 		 * parameter로 넘어온 colorCode와 json의 colorCode가 일치하면 필드에 할당
 		 * 현재 트림 코드가 json에 없음...
 		 * */
-		 
 		if(exteriorCode!=null && interiorCode!=null) {
 			
 			colorList = new ArrayList<>();
@@ -196,6 +197,7 @@ public class NaviModel {
 				 */
 				if(c.getColorCode().equals(exteriorCode)&&c.getCarOptionCode().equals("E")) {
 					colorList.add(c);
+					totalPrice += Integer.parseInt(c.getColorPrice().replace(",", ""));
 				}
 				
 				/*
@@ -203,32 +205,12 @@ public class NaviModel {
 				 */
 				if(c.getColorCode().equals(interiorCode)&&c.getCarOptionCode().equals("I")) {
 					colorList.add(c);
+					totalPrice += Integer.parseInt(c.getColorPrice().replace(",", ""));
 				}
 				
 			}
 			
 		}
-		
-		
-
-		
-		
-		
-		LOG.info("---------------------------");
-		LOG.info("model: "+ model.getCarImage());
-		LOG.info("trim: "+trim.getTrimName());
-		for(OptionDto o : optionList) {
-			LOG.info("option: "+o.getOptionName());			
-		}
-		for(ColorDto c : colorList) {
-			LOG.info("color: "+c.getColorName());			
-		}
-		LOG.info("---------------------------");
-		
-		
-		
-		
-		
 		
 		
 		
@@ -271,6 +253,22 @@ public class NaviModel {
 
 	public void setTrim(TrimDto trim) {
 		this.trim = trim;
+	}
+
+
+
+
+
+	public int getTotalPrice() {
+		return totalPrice;
+	}
+
+
+
+
+
+	public void setTotalPrice(int totalPrice) {
+		this.totalPrice = totalPrice;
 	}
 
 	

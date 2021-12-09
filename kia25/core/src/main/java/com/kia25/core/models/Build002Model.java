@@ -36,6 +36,9 @@ public class Build002Model {
 	private WCMUsePojo a; 
 	*/
 	
+	// html에서 파라미터 값 가져다 사용하기 위해서 메소드 외부에 선언
+	private String reqParam = null;
+	
 	/**
 	 * 차량 모델 리스트
 	 */
@@ -44,7 +47,7 @@ public class Build002Model {
 	/**
 	 * carGroup 리스트
 	 */
-	private List<CarGroupDto> groupList;
+	private List<CarGroupDto> carGroupList;
 	
 	/**
 	 * 차량 trim 리스트
@@ -58,26 +61,37 @@ public class Build002Model {
 		/**
 		 * 파라미터에서 modelCode 받아와서 변수 선언
 		 */
-		String modelCode = request.getParameter("car");
+		reqParam = request.getParameter("car");
 		// 파라미터 값 받아오는건 SlingScriptHelper 사용해서 넘겨도 가능함! 
 		// 단, URL에서 editor.html 부분만 삭제해주면 
 		// String modelCode = (String) slingScriptHelper.getRequest().getParameter("modelCode");
-		log.info("getModelCode :::: {}", modelCode);
+		log.info("getModelCode :::: {}", reqParam);
+		
 		
 		modelList = service.getModelListAPI().getModelList();
 		//log.info("getModelList :::: {}", modelList);
 		
-		groupList = service.getCarGroupListAPI().getCarGroupList();
-		log.info("getgroupList :::: {}", groupList);
+		carGroupList = service.getCarGroupListAPI().getCarGroupList();
+		log.info("getgroupList :::: {}", carGroupList);
 		
 		trimList = service.getTrimListAPI().getTrimList();
 		//log.info("getTrimList :::: {}", trimList);
 				
 	}
 	
+	
 	/**
 	 * getter / setter
 	 */
+	
+	public String getReqParam() {
+		return reqParam;
+	}
+	
+	public void setReqParam(String reqParam) {
+		this.reqParam = reqParam;
+	}
+	
 	public List<ModelDto> getModelList() {
 		return modelList;
 	}
@@ -86,14 +100,17 @@ public class Build002Model {
 		this.modelList = modelList;
 	}
 
-	public List<CarGroupDto> getGroupList() {
-		return groupList;
-	}
 	
-	public void setGroupList(List<CarGroupDto> groupList) {
-		this.groupList = groupList;
+	public List<CarGroupDto> getCarGroupList() {
+		return carGroupList;
 	}
-	
+
+
+	public void setCarGroupList(List<CarGroupDto> carGroupList) {
+		this.carGroupList = carGroupList;
+	}
+
+
 	public List<TrimDto> getTrimList() {
 		return trimList;
 	}
@@ -101,6 +118,7 @@ public class Build002Model {
 	public void setTrimList(List<TrimDto> trimList) {
 		this.trimList = trimList;
 	}
+
 
 	
 }

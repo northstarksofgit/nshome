@@ -28,9 +28,14 @@ public class CarGroupDto {
 	 * 전시 대표차 종명
 	 */
 	private String carGroupName;
+	
+	/**
+	 * 모델 사진
+	 */
+	private String carImagePath;
+	
+	
 
-	
-	
 	/**
 	 * getter / setter
 	 */
@@ -66,5 +71,12 @@ public class CarGroupDto {
 		this.carGroupName = carGroupName;
 	}
 	
+	public String getCarImagePath() {
+		return carImagePath;
+	}
+	
+	public void setCarImagePath(String carImagePath) {
+		this.carImagePath = carImagePath;
+	}
 
 }

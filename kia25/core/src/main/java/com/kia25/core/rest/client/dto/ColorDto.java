@@ -20,6 +20,9 @@ public class ColorDto {
 	/* 컬러 내/외장 */
 	private String carOptionCode;
 	
+	/*  트림 코드 */
+	private String trimCode;
+	
 	/* 컬러 이미지 */
 	private String colorImgPath;
 		

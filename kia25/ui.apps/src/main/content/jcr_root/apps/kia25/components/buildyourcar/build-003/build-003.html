@@ -1,18 +1,11 @@
-<div data-sly-use.model="com.kia25.core.models.Build003Helper">
-	<p>1 리스트 ${model.modelList.size}</p>
-	<ul data-sly-list="${model.modelList}" data-sly-test="${model.modelList}">
-		<li> model Code : ${item.modelName}</li>
-		<li> model Name : ${item.modelId}</li>
-    </ul>
-</div>
+
+<sly data-sly-use.color="com.kia25.core.models.Build003Helper"></sly>
 
 
- 
 
-<sly data-sly-use.data="com.kia25.core.models.Build003Helper"></sly>
 
-<sly data-sly-use.clientlibs="/libs/granite/sightly/templates/clientlib.html" />
-<sly data-sly-call="${clientlibs.all @ categories='kia25.base'}" />
+
+
 
 <div class="estimate_online_wrap">
     <!-- step 시작 -->
@@ -83,79 +76,24 @@
 		</div>
 	</div>
 	<p class="line_wrap"></p>
+
 	<div class="inner build_car build_area">
 		<div class="build_color">
 			<div class="build_color_inner">
 				<h5 class="build_tit">외장 컬러 선택</h5>
 				<strong class="build_h">외장</strong>
-				<ul class="color_list">
-					
-					<li class="color_l exteriorOption on" price="0" img="https://www.kia.com/content/dam/kwcms/kr/ko/images/byo/car_k3_the_new_m4b.png" color="M4B">
+				<ul class="color_list" data-sly-list="${color.colorList}" data-sly-test="${color.colorList}">
+
+					<li class="color_l exteriorOption on" price="0" img="${item.color360VRPath}" color="${item.colorCode}">
 						<a href="#" class="color_a" title="선택">
-							<img src="https://www.kia.com/content/dam/kwcms/kr/ko/images/byo/color/sorento_mq4_m4b.jpg" alt="미네랄 블루">
+							<img src="${item.productNumber}" alt="${item.colorName}">
                   			<span class="sel"></span>
 						</a>
 						<span class="box_info color_info">
-							<span class="name">미네랄 블루</span> 
-							<span class="price"><em class="ico_plus">+</em>0<em class="won">원</em></span>
+							<span class="name">${item.colorName}</span> 
+							<span class="price"><em class="ico_plus">+</em><em class="won">${item.colorPrice}원</em></span>
 						</span>
 					</li>
-					
-					<li class="color_l exteriorOption" price="0" img="https://www.kia.com/content/dam/kwcms/kr/ko/images/byo/car_k3_the_new_abp.png" color="ABP">
-						<a href="#" class="color_a">
-							<img src="https://www.kia.com/content/dam/kwcms/kr/ko/images/byo/color/allnewk7_abp.jpg" alt="오로라 블랙 펄">
-                  			<span class="sel"></span>
-						</a>
-						<span class="box_info color_info">
-							<span class="name">오로라 블랙 펄</span> 
-							<span class="price"><em class="ico_plus">+</em>0<em class="won">원</em></span>
-						</span>
-					</li>
-					
-					<li class="color_l exteriorOption" price="0" img="https://www.kia.com/content/dam/kwcms/kr/ko/images/byo/car_k3_the_new_b4u.png" color="B4U">
-						<a href="#" class="color_a">
-							<img src="https://www.kia.com/content/dam/kwcms/kr/ko/images/byo/color/allnewk7_b4u.jpg" alt="그래비티 블루">
-                  			<span class="sel"></span>
-						</a>
-						<span class="box_info color_info">
-							<span class="name">그래비티 블루</span> 
-							<span class="price"><em class="ico_plus">+</em>0<em class="won">원</em></span>
-						</span>
-					</li>
-					
-					<li class="color_l exteriorOption" price="0" img="https://www.kia.com/content/dam/kwcms/kr/ko/images/byo/car_k3_the_new_abt.png" color="ABT">
-						<a href="#" class="color_a">
-							<img src="https://www.kia.com/content/dam/kwcms/kr/ko/images/byo/color/ABT.jpg" alt="플라티늄 그라파이트">
-                  			<span class="sel"></span>
-						</a>
-						<span class="box_info color_info">
-							<span class="name">플라티늄 그라파이트</span> 
-							<span class="price"><em class="ico_plus">+</em>0<em class="won">원</em></span>
-						</span>
-					</li>
-					
-					<li class="color_l exteriorOption" price="0" img="https://www.kia.com/content/dam/kwcms/kr/ko/images/byo/car_k3_the_new_klg.png" color="KLG">
-						<a href="#" class="color_a">
-							<img src="https://www.kia.com/content/dam/kwcms/kr/ko/images/byo/color/KLG.jpg" alt="스틸 그레이">
-                  			<span class="sel"></span>
-						</a>
-						<span class="box_info color_info">
-							<span class="name">스틸 그레이</span> 
-							<span class="price"><em class="ico_plus">+</em>0<em class="won">원</em></span>
-						</span>
-					</li>
-					
-					<li class="color_l exteriorOption" price="0" img="https://www.kia.com/content/dam/kwcms/kr/ko/images/byo/car_k3_the_new_swp.png" color="SWP">
-						<a href="#" class="color_a">
-							<img src="https://www.kia.com/content/dam/kwcms/kr/ko/images/byo/color/swp.jpg" alt="스노우 화이트 펄">
-                  			<span class="sel"></span>
-						</a>
-						<span class="box_info color_info">
-							<span class="name">스노우 화이트 펄<em class="tag_recommend">추천</em></span> 
-							<span class="price"><em class="ico_plus">+</em>0<em class="won">원</em></span>
-						</span>
-					</li>
-					
 				</ul>
 			</div>
 			<div class="build_color_inner">
@@ -283,3 +221,11 @@
         }
     });
 </script>
+
+<!-- <div data-sly-use.color="com.kia25.core.models.Build003Helper">
+	<p>1 리스트 ${color.colorList.size}</p>
+	<ul data-sly-list="${color.colorList}" data-sly-test="${color.colorList}">
+		<li> model Code : ${item.colorCode}</li>
+		<li> model Name : ${item.colorName}</li>
+    </ul>
+</div>  -->

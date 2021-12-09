@@ -16,7 +16,9 @@
 
 #base=/apps/kia25/clientlibs/clientlib-base
 
-js/lib.js
-js/clientlib.min.js
-js/common.js
-js/default_script.min.js
+#js/lib.js
+#js/clientlib.min.js
+#js/common.js
+#js/default_script.min.js
+
+js/hm-script.js

@@ -1,27 +1,27 @@
 <sly data-sly-use.clientLib="/libs/granite/sightly/templates/clientlib.html"  data-sly-call="${clientLib.all @ categories='kia25.base'}"></sly>
-<sly data-sly-use.data="com.kia25.core.models.Build004_OptionModel"></sly>
+<sly data-sly-use.option="com.kia25.core.models.Build004_OptionModel"></sly>
 
 <div class="estimate_online_wrap">
     <!-- step 시작 -->
     <div class="step_wrap">
         <ul>
             <li class="step1">
-                <a href="/kr/shopping-tools/build-your-car/vehicle-lineup.html">
+                <a href="/content/kia25/us/build001-test.html">
                     <span>처음으로</span>
                 </a>
             </li>
 
             <li class="step2 off">
-                <a href="vehicle-lineup.trim.car=EV6.trim=CVJJ5VH31-A.dpcd=N.html">
+                <a href="/content/kia25/us/build002-test.html?car=${option.modelCode}">
                     <span class="basic">상세차종 선택</span>
-                    <span class="result">EV6 스탠다드 라이트(Light)</span>
+                    <span class="result">${option.trimName}</span>
                 </a>
             </li>
 
             <li class="step3 off">
-                <a href="vehicle-lineup.color.car=EV6-SEV.trim=CVJJ5VH31-A.ext=SWP.int=IN_EV6_BL.dpcd=N.html">
+                <a href="/content/kia25/us/build003-test.html?car=${option.modelCode}&trimCode=${option.trimCode}">
                     <span class="basic">컬러 선택</span>
-                    <span class="result">스노우 화이트 펄</span>
+                    <span class="result">${option.modelColor}</span>
                 </a>
             </li>
 
@@ -85,38 +85,20 @@
         <span class="sum">중복선택 가능</span>
         <div class="build_option">
             <div class="trimselector slide_box multi">
-                <ul class="box_u">
-                	<!-- 반복문 start -->
-                    <li class="box_l" price="3000000" conflict="ZZZ" opt="4WD" optionname="듀얼 모터 4WD" tuonconflict="">
-                        <a href="#" class="box_a">
-                            <div class="box" option_and_tuon="4WD">
-                                <span class="h">듀얼 모터 4WD</span>
-                                <span class="price">3,000,000<em>원</em></span>
-                            </div>
-                        </a>
-                    </li>
-
-                    <li class="box_l" price="1400000" conflict="ZZZ" opt="DWP" optionname="드라이브 와이즈" tuonconflict="">
-                        <a href="#" class="box_a">
-                            <div class="box" option_and_tuon="DWP">
-                                <span class="h">드라이브 와이즈</span>
-                                <span class="price">1,400,000<em>원</em></span>
-                            </div>
-                        </a>
-                        <button type="button" class="view_option">옵션 자세히 보기</button>
-                    </li>
-
-                    <li class="box_l" price="600000" conflict="ZZZ" opt="CVN" optionname="컨비니언스" tuonconflict="">
-                        <a href="#" class="box_a">
-                            <div class="box rec" option_and_tuon="CVN">
-                                <span class="h">컨비니언스</span>
-                                <span class="price">600,000<em>원</em></span>
-                            </div>
-                        </a>
-                        <button type="button" class="view_option">옵션 자세히 보기</button>
-                    </li>
-                    <!-- 반복문 end -->
-                </ul>
+	            <sly data-sly-test="${option.optionList}">
+	            	<ul class="box_u" data-sly-list.optList="${option.optionList}" >
+	            		<sly data-sly-test="${optList.trimCode == option.trimCode}">
+	            			<li class="box_l" data-price="${optList.optionPrice}" conflict="ZZZ" data-opt="${optList.optionCode}" data-optionname="${optList.optionName}" tuonconflict="">
+		                        <a href="#" class="box_a">
+		                            <div class="box" option_and_tuon="${optList.optionCode}">
+		                                <span class="h">${optList.optionName}</span>
+		                                <span class="price">${optList.optionPrice}<em>원</em></span>
+		                            </div>
+		                        </a>
+		                    </li>
+	            		</sly>
+	            	</ul>
+	            </sly>
             </div>
         </div>
     </div>

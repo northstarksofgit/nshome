@@ -47,31 +47,56 @@
                                     <li class="list02">
                                         <div class="list_in">
                                             <strong>외장컬러</strong>
-                                            <p>선택정보가 없습니다.</p>
-                                            <div class="con con_exterior" price1="0" style="display:none;">
-                                                <span>
-                                                    <span class="colorArea"><img src="" alt="" class="colorImg"></span>
-                                                    <em class="conTitle"></em>
-                                                </span>
-                                                <span class="conPrice">0<em>원</em></span>
-                                            </div>
+                                            <sly data-sly-test="${model.colorList.size == null}">
+
+                                           		 <p>선택정보가 없습니다.</p>
+                                           	</sly>
+                                	        <sly data-sly-test="${model.colorList.size > 0}">
+                                	      
+                                	        	<sly data-sly-list.col="${model.colorList}">
+                                	        	
+                                	        		<sly data-sly-test="${col.carOptionCode=='E'}">
+
+			                                            <div class="con con_exterior" price1="${col.colorPrice}">
+			                                                <span>
+			                                                    <span class="colorArea"><img src="${col.colorImgPath}" alt="" class="colorImg"></span>
+			                                                    <em class="conTitle">${col.colorName}</em>
+			                                                </span>
+			                                                <span class="conPrice">${col.colorPrice}<em>원</em></span>
+			                                            </div>
+                                	        		</sly>
+                                	        	
+                              	        	     
+		                                             
+	                                            </sly>
+	                                        </sly>
                                         </div>
                                         <div class="list_in">
                                             <strong>내장컬러</strong>
-                                            <p>선택정보가 없습니다.</p>
-                                            <div class="con con_interior" price2="0" style="display:none;">
-                                                <span>
-                                                    <span class="colorArea"><img src="" alt="" class="colorImg"></span>
-                                                    <em class="conTitle"></em>
-                                                </span>
-                                                <span class="conPrice">0<em>원</em></span>
-                                            </div>
+                                            
+                                           <sly data-sly-test="${model.colorList.size == null}">
+                                           		 <p>선택정보가 없습니다.</p>
+                                           	</sly>
+                                           	
+                                           	<sly data-sly-test="${model.colorList.size > 0}">
+                                           		<sly data-sly-list.col="${model.colorList}">
+	                                           		<sly data-sly-test="${col.carOptionCode=='I'}">
+			                                            <div class="con con_interior" price2="${col.colorPrice}">
+			                                                <span>
+			                                                    <span class="colorArea"><img src="${col.colorImgPath}" alt="" class="colorImg"></span>
+			                                                    <em class="conTitle">${col.colorName}</em>
+			                                                </span>
+			                                                <span class="conPrice">${col.colorPrice}<em>원</em></span>
+			                                            </div>
+			                                         </sly>
+		                                         </sly>
+	                                        </sly>
                                         </div>
                                     </li>
                                     <li class="list03">
                                         <div class="list_in">
                                             <strong>선택옵션</strong>
-                                            <sly data-sly-test="${model.optionList.size == 0}">
+                                            <sly data-sly-test="${model.optionList.size == null}">
 	                                            <p>선택정보가 없습니다.</p>
 	                                        </sly>
                                             <sly data-sly-test="${model.optionList.size > 0}">

@@ -11,6 +11,7 @@ import org.apache.sling.models.annotations.injectorspecific.Self;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import com.kia25.core.rest.client.dto.TrimModel.CarGroupDto;
 import com.kia25.core.rest.client.dto.TrimModel.ModelDto;
 import com.kia25.core.rest.client.dto.TrimModel.TrimDto;
 import com.kia25.core.rest.client.service.Build002Service;
@@ -41,6 +42,11 @@ public class Build002Model {
 	private List<ModelDto> modelList;
 	
 	/**
+	 * carGroup 리스트
+	 */
+	private List<CarGroupDto> groupList;
+	
+	/**
 	 * 차량 trim 리스트
 	 */
 	private List<TrimDto> trimList;
@@ -50,23 +56,19 @@ public class Build002Model {
 	public void activate() throws Exception{
 		
 		/**
-		 * modelCode 받아와서 변수 선언
+		 * 파라미터에서 modelCode 받아와서 변수 선언
 		 */
-		String modelCode = request.getParameter("modelCode");
+		String modelCode = request.getParameter("car");
 		// 파라미터 값 받아오는건 SlingScriptHelper 사용해서 넘겨도 가능함! 
 		// 단, URL에서 editor.html 부분만 삭제해주면 
 		// String modelCode = (String) slingScriptHelper.getRequest().getParameter("modelCode");
 		log.info("getModelCode :::: {}", modelCode);
 		
-		
-		/**
-		 * model -> trim으로 넘어가기 위한 변수 선언 해줘야함
-		 */
-		
-		
-		
 		modelList = service.getModelListAPI().getModelList();
 		//log.info("getModelList :::: {}", modelList);
+		
+		groupList = service.getCarGroupListAPI().getCarGroupList();
+		log.info("getgroupList :::: {}", groupList);
 		
 		trimList = service.getTrimListAPI().getTrimList();
 		//log.info("getTrimList :::: {}", trimList);
@@ -84,6 +86,14 @@ public class Build002Model {
 		this.modelList = modelList;
 	}
 
+	public List<CarGroupDto> getGroupList() {
+		return groupList;
+	}
+	
+	public void setGroupList(List<CarGroupDto> groupList) {
+		this.groupList = groupList;
+	}
+	
 	public List<TrimDto> getTrimList() {
 		return trimList;
 	}
@@ -91,7 +101,6 @@ public class Build002Model {
 	public void setTrimList(List<TrimDto> trimList) {
 		this.trimList = trimList;
 	}
-	
 
 	
 }

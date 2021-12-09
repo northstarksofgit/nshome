@@ -1,11 +1,11 @@
-<sly data-sly-use.clientLib="/libs/granite/sightly/templates/clientlib.html"  data-sly-call="${clientLib.all @ categories='kia25.base'}"></sly>
-<sly data-sly-use.option="com.kia25.core.models.Build004_OptionModel"></sly>
+<!--<sly data-sly-use.option="com.kia25.core.models.Build004_OptionModel"></sly>-->
 
+<!--
 <p>Model component</p>
 <hr>
 <div>
 	<p>리스트 ${option.optionList.size}</p>
-    <p>모델이미지경로 ${option.modelImgPath}</p>
+    <p>모델이미지경로 ${option.matchModel.carImage}</p>
     <hr>
 	<sly data-sly-test="${option.optionList}">
         <ul data-sly-list.optList="${option.optionList}" >
@@ -14,3 +14,29 @@
         </ul>
     </sly>
 </div>
+-->
+
+
+
+<sly data-sly-use.detail="com.kia25.core.models.Build002Model">
+
+모델리스트 size${detail.modelList.size}<br>
+params ${detail.reqParam}
+<ul data-sly-list.optList="${detail.modelList}" >
+	<li> category Code : ${optList.categoryCode}</li>
+	<li> category Name : ${optList.modelCode}</li>
+    <li> category Name : ${optList.modelYear}</li>
+    <li> category Name : ${optList.carModelName}</li>
+    <li> category Name : ${optList.carImagePath}</li>
+    <li> category Name : ${optList.salesModelCode}</li>
+    <li> category Name : ${optList.carCode}</li>
+    <li> category Name : ${optList.vehiclePrice}</li>
+    <li> category Name : ${optList.currencyCode}</li>
+
+	<sly data-sly-test="${detail.reqParam == optList.modelCode}">
+		<li> <b>category Name : ${optList.modelCode}</b></li>
+    </sly>
+
+
+	<hr>
+</ul>

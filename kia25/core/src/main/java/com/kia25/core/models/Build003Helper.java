@@ -45,9 +45,11 @@ public class Build003Helper {
 	@PostConstruct
 	public void activate() throws IOException {
 		colorList = Build003Service.getColorAPI().getColorList();
-		modelList = Build003Service.getModelAPI().getModelList();
+		// modelList = Build003Service.getModelAPI().getModelList();
 
-		/* parameter로 모델명 ,이미지가져오기 */
+		/* parameter로 모델명 ,이미지가져오기
+		 * http://localhost:4502/editor.html/content/kia25/us/en/page3.html?modelCode=EV6
+		 */
 		
 		  modelCode = request.getParameter("modelCode");
 		  

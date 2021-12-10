@@ -14,6 +14,7 @@ import org.slf4j.LoggerFactory;
 
 import com.kia25.core.rest.client.dto.ColorDto;
 import com.kia25.core.rest.client.dto.ColorListDto;
+import com.kia25.core.rest.client.dto.categoryModel.ModelDto;
 import com.kia25.core.rest.client.service.Build003Service;
 import com.kia25.core.rest.client.service.impl.Build003ServiceImpl;
 
@@ -25,7 +26,7 @@ public class Build003Helper {
 	Build003Service Build003Service = new Build003ServiceImpl();
 
 	private static final Logger LOG = LoggerFactory.getLogger(Build003Helper.class);
-	
+
 	@OSGiService
 	Build003Service service = new Build003ServiceImpl();
 
@@ -33,24 +34,31 @@ public class Build003Helper {
 	private SlingHttpServletRequest request;
 
 	private List<ColorDto> colorList;
+	private List<ModelDto> modelList;
 
 	private int colorCount;
 
+	private String modelCode = null;
+	private String carModelName = null;
+	private String carImage = null;
+
 	@PostConstruct
 	public void activate() throws IOException {
-		colorList = Build003Service.getModelAPI().getColorList();
-		LOG.info("colorList={}", colorList.size());
-		
+		colorList = Build003Service.getColorAPI().getColorList();
+		modelList = Build003Service.getModelAPI().getModelList();
 
-		/*
-		 * List<ColorDto> result = Build003Service.getModelAPI().getColorList();
-		 * 
-		 * for(ColorDto resultmsg : result) { if(resultmsg != null) {
-		 * LOG.info("color code:: "+resultmsg.getColorCode());
-		 * LOG.info("color name:: "+resultmsg.getColorName());
-		 * 
-		 * } }
-		 */
+		/* parameter로 모델명 ,이미지가져오기 */
+		
+		  modelCode = request.getParameter("modelCode");
+		  
+		  for (ModelDto model : Build003Service.getModelAPI().getModelList()) {
+		  
+				if (model.getModelCode().equals(modelCode)) {
+					carImage = model.getCarImage();
+					carModelName = model.getCarModelName();
+				}
+			}
+		 
 	}
 
 	public List<ColorDto> getColorList() {
@@ -61,12 +69,28 @@ public class Build003Helper {
 		return colorCount;
 	}
 
-	public void setModelList(List<ColorDto> colorList) {
+	public void setColorList(List<ColorDto> colorList) {
 		this.colorList = colorList;
 	}
 
 	public void setColorCount(int colorCount) {
 		this.colorCount = colorCount;
+	}
+
+	public List<ModelDto> getModelList() {
+		return modelList;
+	}
+
+	public void setModelList(List<ModelDto> modelList) {
+		this.modelList = modelList;
+	}
+
+	public String getModelCode() {
+		return modelCode;
+	}
+
+	public String getCarModelName() {
+		return carModelName;
 	}
 
 }

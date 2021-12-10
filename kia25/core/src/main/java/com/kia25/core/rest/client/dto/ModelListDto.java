@@ -3,6 +3,7 @@ package com.kia25.core.rest.client.dto;
 import java.util.List;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.kia25.core.rest.client.dto.categoryModel.ModelDto;
 
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class ModelListDto {

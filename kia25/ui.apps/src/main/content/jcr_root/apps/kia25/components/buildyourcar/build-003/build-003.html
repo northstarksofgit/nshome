@@ -1,50 +1,40 @@
-
 <sly data-sly-use.color="com.kia25.core.models.Build003Helper"></sly>
-
-
-
-
-
-
+<sly data-sly-use.model="com.kia25.core.models.Build001Model"></sly>
 
 <div class="estimate_online_wrap">
     <!-- step 시작 -->
     <div class="step_wrap">
-        <ul>
-            <li class="step1">
-                <a href="/kr/shopping-tools/build-your-car/vehicle-lineup.html">
-                    <span>처음으로</span>
-                </a>
-            </li>
+						<ul>
+							<li class="step1">
+								<a href="/kr/shopping-tools/build-your-car/vehicle-lineup.html">
+									<span>처음으로</span>
+								</a>
+							</li>
+							<li class="step2 off">
+							    <a href="vehicle-lineup.trim.car=XDB.trim=DBJS4AA35-A.dpcd=N.html">
+									<span class="basic">상세차종 선택</span>
+                                    <span class="result">1.6 가솔린 트렌디</span>
+								</a>
+							</li>
+							<li class="step3 on">
+								
+                                    <span class="basic">컬러 선택</span>
 
-            <li class="step2 off">
-                <a href="vehicle-lineup.trim.car=EV6.trim=CVJJ5VH31-A.dpcd=N.html">
-                    <span class="basic">상세차종 선택</span>
-                    <span class="result">EV6 스탠다드 라이트(Light)</span>
-                </a>
-            </li>
+							</li>
+							<li class="step4 ">
+							 <span class="basic">옵션 선택</span>
 
-            <li class="step3 off">
-                <a href="vehicle-lineup.color.car=EV6-SEV.trim=CVJJ5VH31-A.ext=SWP.int=IN_EV6_BL.dpcd=N.html">
-                    <span class="basic">컬러 선택</span>
-                    <span class="result">스노우 화이트 펄</span>
-                </a>
-            </li>
-
-            <li class="step4 on">
-                <span class="basic">옵션 선택</span>
-            </li>
-            
-            <li class="step5 ">
-                <span class="basic">구매 방법</span>
-                <span class="result"></span>
-            </li>
-
-            <li class="step6 ">
-                <span class="basic">견적완료</span>
-            </li>
-        </ul>
-    </div><!-- // byoTab -->
+							</li>
+							<li class="step5 ">
+									<span class="basic">구매 방법</span>
+									<span class="result"></span>
+							</li>
+							<li class="step6 ">
+								<span class="basic">견적완료</span>
+							</li>
+						</ul>
+					</div>
+    <!-- // byoTab -->
     <!-- // step 끝 -->
 
     <div class="inner build_car">
@@ -52,8 +42,15 @@
 			<div class="preview">
 				<h4 class="hidden">STEP 2 컬러선택</h4>
 				<div class="car_name">
-					<strong class="name">K3</strong>
-					<span class="option">1.6 가솔린 트렌디</span>
+
+				<ul class="color_list" data-sly-list="${model.modelList}" data-sly-test="${model.modelList}">
+                            <li>
+                               <strong class="name">
+    							<p data-sly-test="${item.modelCode == 'EV6'}">${item.modelCode}</p>
+                                </strong>
+                            </li>
+                        </ul>
+
 					<button type="button" class="bl_type_b btn_car_view" data-on-text="차량닫기" data-off-text="차량보기">차량보기</button>
 				</div>
 				<div class="car_img">
@@ -94,6 +91,7 @@
 							<span class="price"><em class="ico_plus">+</em><em class="won">${item.colorPrice}원</em></span>
 						</span>
 					</li>
+
 				</ul>
 			</div>
 			<div class="build_color_inner">

@@ -41,13 +41,13 @@ $(window).scroll(function() {
 		
 		for(var i=0; i<carTab.length; i++){
 			//첫 화면에서 첫번째 탭이 무조건 선택되어 있게 하기 위함
-			i==0 ? carTabTop[i] = 0 : carTabTop[i] = $(carTab[i]).offset().top;
-			carTabBottom[i] = $(carTab[i]).offset().top + carTab[i].offsetHeight;
+			i==0 ? carTabTop[i] = 0 : carTabTop[i] = $(carTab[i]).offset().top-29;
+			carTabBottom[i] = $(carTab[i]).offset().top-29 + carTab[i].offsetHeight;
 		}
 
 
 		for(var i=0; i<carTabTop.length; i++){
-
+			
 			if(window >= carTabTop[i] && window <= carTabBottom[i]){
 				$(carMenu[i]).addClass("on");
 			}else{

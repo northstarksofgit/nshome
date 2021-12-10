@@ -1,0 +1,752 @@
+{
+    "category-list": {
+        "resultCode": "000",
+        "detailCode": null,
+        "resultMessage": null,
+        "detailMessage": null,
+        "data": {
+            "categoryList": [
+                {
+                    "categoryCode": "001",
+                    "categoryName": "EV"
+                }, {
+                    "categoryCode": "002",
+                    "categoryName": "승용"
+                }, {
+                    "categoryCode": "003",
+                    "categoryName": "RV"
+                }, {
+                    "categoryCode": "004",
+                    "categoryName": "상용/택시"
+                }, {
+                    "categoryCode": "005",
+                    "categoryName": "장애인/렌트"
+                }
+            ]
+        }
+    },
+
+    "model-list": {
+        "resultCode": "000",
+        "detailCode": null,
+        "resultMessage": null,
+        "detailMessage": null,
+        "data": {
+            "modelList": [
+                {
+                    "categoryCode": "001",
+                    "modelCode": "EV6",
+                    "modelYear": "2021",
+                    "carModelName": "EV6",
+                    "carImage": "/content/dam/kia25/build-a-car/car_ev6.png",
+                    "salesModelCode": "",
+                    "carCode": "",
+                    "vehiclePrice": "",
+                    "currencyCode": ""
+                }, {
+                    "categoryCode": "001",
+                    "modelCode": "EDE",
+                    "modelYear": "2021",
+                    "carModelName": "니로EV",
+                    "carImage": "/content/dam/kia25/build-a-car/car_niro-ev_swp.png",
+                    "salesModelCode": "",
+                    "carCode": "",
+                    "vehiclePrice": "",
+                    "currencyCode": ""
+                }, {
+                    "categoryCode": "001",
+                    "modelCode": "YFE",
+                    "modelYear": "2021",
+                    "carModelName": "봉고IIIEV",
+                    "carImage": "/content/dam/kia25/build-a-car/img_bongo3-ev_ud.png",
+                    "salesModelCode": "",
+                    "carCode": "",
+                    "vehiclePrice": "",
+                    "currencyCode": ""
+                }, {
+                    "categoryCode": "001",
+                    "modelCode": "Z5E",
+                    "modelYear": "2021",
+                    "carModelName": "탑차EV",
+                    "carImage": "/content/dam/kia25/build-a-car/car_bongo3_builttapcha-ev.png",
+                    "salesModelCode": "",
+                    "carCode": "",
+                    "vehiclePrice": "",
+                    "currencyCode": ""
+                }, {
+                    "categoryCode": "001",
+                    "modelCode": "Z7E",
+                    "modelYear": "2021",
+                    "carModelName": "성력EV",
+                    "carImage": "/content/dam/kia25/build-a-car/car_bongo3powergate-ev.png",
+                    "salesModelCode": "",
+                    "carCode": "",
+                    "vehiclePrice": "",
+                    "currencyCode": ""
+                }, {
+                    "categoryCode": "002",
+                    "modelCode": "XJA",
+                    "modelYear": "2021",
+                    "carModelName": "모닝",
+                    "carImage": "/content/dam/kia25/build-a-car/car_morning_b2y.png",
+                    "salesModelCode": "",
+                    "carCode": "",
+                    "vehiclePrice": "",
+                    "currencyCode": ""
+                }, {
+                    "categoryCode": "002",
+                    "modelCode": "XTM",
+                    "modelYear": "2021",
+                    "carModelName": "레이",
+                    "carImage": "/content/dam/kia25/build-a-car/car_ray_m9y.png",
+                    "salesModelCode": "",
+                    "carCode": "",
+                    "vehiclePrice": "",
+                    "currencyCode": ""
+
+                }, {
+                    "categoryCode": "003",
+                    "modelCode": "XDE",
+                    "modelYear": "2021",
+                    "carModelName": "니로",
+                    "carImage": "/content/dam/kia25/build-a-car/car_niro_hev_b4u.png",
+                    "salesModelCode": "",
+                    "carCode": "",
+                    "vehiclePrice": "",
+                    "currencyCode": ""
+
+                }, {
+                    "categoryCode": "004",
+                    "modelCode": "8GL",
+                    "modelYear": "2021",
+                    "carModelName": "K8 택시",
+                    "carImage": "/content/dam/kia25/build-a-car/car_k8_taxi.png",
+                    "salesModelCode": "",
+                    "carCode": "",
+                    "vehiclePrice": "",
+                    "currencyCode": ""
+
+                }, {
+                    "categoryCode": "005",
+                    "modelCode": "OTH",
+                    "modelYear": "2021",
+                    "carModelName": "K5[장애인전용]",
+                    "carImage": "/content/dam/kia25/build-a-car/img_dl3k5.png",
+                    "salesModelCode": "",
+                    "carCode": "",
+                    "vehiclePrice": "",
+                    "currencyCode": ""
+
+                }
+            ]
+        }
+    },
+
+    "trim-list": {
+        "resultCode": "000",
+        "detailCode": null,
+        "resultMessage": null,
+        "detailMessage": null,
+        "trimData": {
+            "trimList": [
+                {
+                    "modelCode": "001",
+                    "modelYear": "2021",
+                    "trimCode": "LRL",
+                    "trimName": "EV6 롱 레인지 라이트(Light)",
+                    "productCode": "",
+                    "sellingPrice": 53460000,
+                    "bestYn": "",
+                    "gearboxName": "",
+                    "compoundFuelEconomy": "",
+                    "bodyTypeName": "",
+                    "engineCapacityName": ""
+                }, {
+                    "modelCode": "001",
+                    "modelYear": "2021",
+                    "trimCode": "LRA",
+                    "trimName": "EV6 롱 레인지 에어(Air)",
+                    "productCode": "",
+                    "sellingPrice": 54530000,
+                    "bestYn": "",
+                    "gearboxName": "",
+                    "compoundFuelEconomy": "",
+                    "bodyTypeName": "",
+                    "engineCapacityName": ""
+                }, {
+                    "modelCode": "001",
+                    "modelYear": "2021",
+                    "trimCode": "LRE",
+                    "trimName": "EV6 롱 레인지 어스(Earth)",
+                    "productCode": "",
+                    "sellingPrice": 59590000,
+                    "bestYn": "",
+                    "gearboxName": "",
+                    "compoundFuelEconomy": "",
+                    "bodyTypeName": "",
+                    "engineCapacityName": ""
+                }, {
+                    "modelCode": "001",
+                    "modelYear": "2021",
+                    "trimCode": "LGT",
+                    "trimName": "롱 레인지 GT-Ling",
+                    "productCode": "",
+                    "sellingPrice": 60490000,
+                    "bestYn": "",
+                    "gearboxName": "",
+                    "compoundFuelEconomy": "",
+                    "bodyTypeName": "",
+                    "engineCapacityName": ""
+                }, {
+                    "modelCode": "001",
+                    "modelYear": "2021",
+                    "trimCode": "STL",
+                    "trimName": "EV6 스탠다드 라이트(Light)",
+                    "productCode": "",
+                    "sellingPrice": 49310000,
+                    "bestYn": "",
+                    "gearboxName": "",
+                    "compoundFuelEconomy": "",
+                    "bodyTypeName": "",
+                    "engineCapacityName": ""
+                }, {
+                    "modelCode": "001",
+                    "modelYear": "2021",
+                    "trimCode": "STA",
+                    "trimName": "EV6 스탠다드 에어(Air)",
+                    "productCode": "",
+                    "sellingPrice": 50370000,
+                    "bestYn": "",
+                    "gearboxName": "",
+                    "compoundFuelEconomy": "",
+                    "bodyTypeName": "",
+                    "engineCapacityName": ""
+                }, {
+                    "modelCode": "001",
+                    "modelYear": "2021",
+                    "trimCode": "STE",
+                    "trimName": "EV6 스탠다드 어스(Earth)",
+                    "productCode": "",
+                    "sellingPrice": 54900000,
+                    "bestYn": "",
+                    "gearboxName": "",
+                    "compoundFuelEconomy": "",
+                    "bodyTypeName": "",
+                    "engineCapacityName": ""
+                }
+            ]
+        }
+    },
+
+    "list-of-option": {
+        "resultCode": "000",
+        "detailCode": null,
+        "resultMessage": null,
+        "detailMessage": null,
+        "data": {
+            "listOfOptions": [
+                {
+                    "trimCode": "LRL",
+                    "carOptionCode": "",
+                    "optionCode": "4WD",
+                    "optionName": "듀얼 모터 4WD",
+                    "bestYn": "",
+                    "optionPrice": "3000000",
+                    "optionalImgPath": "",
+                    "specificationCode": "",
+                    "optionProductNumber": ""
+                }, {
+                    "trimCode": "LRL",
+                    "carOptionCode": "",
+                    "optionCode": "DWP",
+                    "optionName": "드라이브 와이즈",
+                    "bestYn": "",
+                    "optionPrice": "1400000",
+                    "optionalImgPath": "",
+                    "specificationCode": "",
+                    "optionProductNumber": ""
+                }, {
+                    "trimCode": "LRL",
+                    "carOptionCode": "",
+                    "optionCode": "CVN",
+                    "optionName": "컨비니언스",
+                    "bestYn": "",
+                    "optionPrice": "600000",
+                    "optionalImgPath": "",
+                    "specificationCode": "",
+                    "optionProductNumber": ""
+                }, {
+                    "trimCode": "LRA",
+                    "carOptionCode": "",
+                    "optionCode": "4WD",
+                    "optionName": "듀얼 모터 4WD",
+                    "bestYn": "",
+                    "optionPrice": "3000000",
+                    "optionalImgPath": "",
+                    "specificationCode": "",
+                    "optionProductNumber": ""
+                }, {
+                    "trimCode": "LRA",
+                    "carOptionCode": "",
+                    "optionCode": "DWP",
+                    "optionName": "드라이브 와이즈",
+                    "bestYn": "",
+                    "optionPrice": "1400000",
+                    "optionalImgPath": "",
+                    "specificationCode": "",
+                    "optionProductNumber": ""
+                }, {
+                    "trimCode": "LRA",
+                    "carOptionCode": "",
+                    "optionCode": "CPT",
+                    "optionName": "컴포트",
+                    "bestYn": "",
+                    "optionPrice": "650000",
+                    "optionalImgPath": "",
+                    "specificationCode": "",
+                    "optionProductNumber": ""
+                }, {
+                    "trimCode": "LRA",
+                    "carOptionCode": "",
+                    "optionCode": "CVN",
+                    "optionName": "컨비니언스",
+                    "bestYn": "",
+                    "optionPrice": "600000",
+                    "optionalImgPath": "",
+                    "specificationCode": "",
+                    "optionProductNumber": ""
+                }, {
+                    "trimCode": "LRA",
+                    "carOptionCode": "",
+                    "optionCode": "HTE",
+                    "optionName": "하이테크 (컨비니언스 적용시 선택가능)",
+                    "bestYn": "",
+                    "optionPrice": "1850000",
+                    "optionalImgPath": "",
+                    "specificationCode": "",
+                    "optionProductNumber": ""
+                }, {
+                    "trimCode": "LRA",
+                    "carOptionCode": "",
+                    "optionCode": "PRE",
+                    "optionName": "프리미엄",
+                    "bestYn": "",
+                    "optionPrice": "1050000",
+                    "optionalImgPath": "",
+                    "specificationCode": "",
+                    "optionProductNumber": ""
+                }, {
+                    "trimCode": "LRA",
+                    "carOptionCode": "",
+                    "optionCode": "MDA",
+                    "optionName": "메리디안 프리미엄 사운드 (컨비니언스 적용시 선택가능)",
+                    "bestYn": "",
+                    "optionPrice": "1000000",
+                    "optionalImgPath": "",
+                    "specificationCode": "",
+                    "optionProductNumber": ""
+                }, {
+                    "trimCode": "LRA",
+                    "carOptionCode": "",
+                    "optionCode": "SRF",
+                    "optionName": "와이드 선루프",
+                    "bestYn": "",
+                    "optionPrice": "650000",
+                    "optionalImgPath": "",
+                    "specificationCode": "",
+                    "optionProductNumber": ""
+                }, {
+                    "trimCode": "LRA",
+                    "carOptionCode": "",
+                    "optionCode": "BIC",
+                    "optionName": "빌트인 캠",
+                    "bestYn": "",
+                    "optionPrice": "600000",
+                    "optionalImgPath": "",
+                    "specificationCode": "",
+                    "optionProductNumber": ""
+                }, {
+                    "trimCode": "LRA",
+                    "carOptionCode": "",
+                    "optionCode": "R20",
+                    "optionName": "20인치 휠 & 타이어",
+                    "bestYn": "",
+                    "optionPrice": "400000",
+                    "optionalImgPath": "",
+                    "specificationCode": "",
+                    "optionProductNumber": ""
+                }, {
+                    "trimCode": "LRE",
+                    "carOptionCode": "",
+                    "optionCode": "4WD",
+                    "optionName": "듀얼 모터 4WD",
+                    "bestYn": "",
+                    "optionPrice": "3000000",
+                    "optionalImgPath": "",
+                    "specificationCode": "",
+                    "optionProductNumber": ""
+                }, {
+                    "trimCode": "LRE",
+                    "carOptionCode": "",
+                    "optionCode": "HTE",
+                    "optionName": "하이테크",
+                    "bestYn": "",
+                    "optionPrice": "1850000",
+                    "optionalImgPath": "",
+                    "specificationCode": "",
+                    "optionProductNumber": ""
+                }, {
+                    "trimCode": "LRE",
+                    "carOptionCode": "",
+                    "optionCode": "MDA",
+                    "optionName": "메리디안 프리미엄 사운드",
+                    "bestYn": "",
+                    "optionPrice": "1000000",
+                    "optionalImgPath": "",
+                    "specificationCode": "",
+                    "optionProductNumber": ""
+                }, {
+                    "trimCode": "LRE",
+                    "carOptionCode": "",
+                    "optionCode": "SRF",
+                    "optionName": "와이드 선루프",
+                    "bestYn": "",
+                    "optionPrice": "650000",
+                    "optionalImgPath": "",
+                    "specificationCode": "",
+                    "optionProductNumber": ""
+                }, {
+                    "trimCode": "LRE",
+                    "carOptionCode": "",
+                    "optionCode": "BIC",
+                    "optionName": "빌트인 캠",
+                    "bestYn": "",
+                    "optionPrice": "600000",
+                    "optionalImgPath": "",
+                    "specificationCode": "",
+                    "optionProductNumber": ""
+                }, {
+                    "trimCode": "LRE",
+                    "carOptionCode": "",
+                    "optionCode": "R20",
+                    "optionName": "20인치 휠 & 타이어",
+                    "bestYn": "",
+                    "optionPrice": "400000",
+                    "optionalImgPath": "",
+                    "specificationCode": "",
+                    "optionProductNumber": ""
+                }, {
+                    "trimCode": "LGT",
+                    "carOptionCode": "",
+                    "optionCode": "4WD",
+                    "optionName": "듀얼 모터 4WD",
+                    "bestYn": "",
+                    "optionPrice": "3000000",
+                    "optionalImgPath": "",
+                    "specificationCode": "",
+                    "optionProductNumber": ""
+                }, {
+                    "trimCode": "LGT",
+                    "carOptionCode": "",
+                    "optionCode": "HTE",
+                    "optionName": "하이테크",
+                    "bestYn": "",
+                    "optionPrice": "1850000",
+                    "optionalImgPath": "",
+                    "specificationCode": "",
+                    "optionProductNumber": ""
+                }, {
+                    "trimCode": "LGT",
+                    "carOptionCode": "",
+                    "optionCode": "MDA",
+                    "optionName": "메리디안 프리미엄 사운드",
+                    "bestYn": "",
+                    "optionPrice": "1000000",
+                    "optionalImgPath": "",
+                    "specificationCode": "",
+                    "optionProductNumber": ""
+                }, {
+                    "trimCode": "LGT",
+                    "carOptionCode": "",
+                    "optionCode": "SRF",
+                    "optionName": "와이드 선루프",
+                    "bestYn": "",
+                    "optionPrice": "650000",
+                    "optionalImgPath": "",
+                    "specificationCode": "",
+                    "optionProductNumber": ""
+                }, {
+                    "trimCode": "LGT",
+                    "carOptionCode": "",
+                    "optionCode": "BIC",
+                    "optionName": "빌트인 캠",
+                    "bestYn": "",
+                    "optionPrice": "600000",
+                    "optionalImgPath": "",
+                    "specificationCode": "",
+                    "optionProductNumber": ""
+                }, {
+                    "trimCode": "STL",
+                    "carOptionCode": "",
+                    "optionCode": "4WD",
+                    "optionName": "듀얼 모터 4WD",
+                    "bestYn": "",
+                    "optionPrice": "3000000",
+                    "optionalImgPath": "",
+                    "specificationCode": "",
+                    "optionProductNumber": ""
+                }, {
+                    "trimCode": "STL",
+                    "carOptionCode": "",
+                    "optionCode": "DWP",
+                    "optionName": "드라이브 와이즈",
+                    "bestYn": "",
+                    "optionPrice": "1400000",
+                    "optionalImgPath": "",
+                    "specificationCode": "",
+                    "optionProductNumber": ""
+                }, {
+                    "trimCode": "STL",
+                    "carOptionCode": "",
+                    "optionCode": "CVN",
+                    "optionName": "컨비니언스",
+                    "bestYn": "",
+                    "optionPrice": "600000",
+                    "optionalImgPath": "",
+                    "specificationCode": "",
+                    "optionProductNumber": ""
+                }, {
+                    "trimCode": "STA",
+                    "carOptionCode": "",
+                    "optionCode": "4WD",
+                    "optionName": "듀얼 모터 4WD",
+                    "bestYn": "",
+                    "optionPrice": "3000000",
+                    "optionalImgPath": "",
+                    "specificationCode": "",
+                    "optionProductNumber": ""
+                }, {
+                    "trimCode": "STA",
+                    "carOptionCode": "",
+                    "optionCode": "DWP",
+                    "optionName": "드라이브 와이즈",
+                    "bestYn": "",
+                    "optionPrice": "1400000",
+                    "optionalImgPath": "",
+                    "specificationCode": "",
+                    "optionProductNumber": ""
+                }, {
+                    "trimCode": "STA",
+                    "carOptionCode": "",
+                    "optionCode": "CPT",
+                    "optionName": "컴포트",
+                    "bestYn": "",
+                    "optionPrice": "650000",
+                    "optionalImgPath": "",
+                    "specificationCode": "",
+                    "optionProductNumber": ""
+                }, {
+                    "trimCode": "STA",
+                    "carOptionCode": "",
+                    "optionCode": "CVN",
+                    "optionName": "컨비니언스",
+                    "bestYn": "",
+                    "optionPrice": "600000",
+                    "optionalImgPath": "",
+                    "specificationCode": "",
+                    "optionProductNumber": ""
+                }, {
+                    "trimCode": "STA",
+                    "carOptionCode": "",
+                    "optionCode": "HTE",
+                    "optionName": "하이테크 (컨비니언스 적용시 선택가능)",
+                    "bestYn": "",
+                    "optionPrice": "1850000",
+                    "optionalImgPath": "",
+                    "specificationCode": "",
+                    "optionProductNumber": ""
+                }, {
+                    "trimCode": "STA",
+                    "carOptionCode": "",
+                    "optionCode": "PRE",
+                    "optionName": "프리미엄",
+                    "bestYn": "",
+                    "optionPrice": "1050000",
+                    "optionalImgPath": "",
+                    "specificationCode": "",
+                    "optionProductNumber": ""
+                }, {
+                    "trimCode": "STA",
+                    "carOptionCode": "",
+                    "optionCode": "MDA",
+                    "optionName": "메리디안 프리미엄 사운드 (컨비니언스 적용시 선택가능)",
+                    "bestYn": "",
+                    "optionPrice": "1000000",
+                    "optionalImgPath": "",
+                    "specificationCode": "",
+                    "optionProductNumber": ""
+                }, {
+                    "trimCode": "STA",
+                    "carOptionCode": "",
+                    "optionCode": "SRF",
+                    "optionName": "와이드 선루프",
+                    "bestYn": "",
+                    "optionPrice": "650000",
+                    "optionalImgPath": "",
+                    "specificationCode": "",
+                    "optionProductNumber": ""
+                }, {
+                    "trimCode": "STE",
+                    "carOptionCode": "",
+                    "optionCode": "4WD",
+                    "optionName": "듀얼 모터 4WD",
+                    "bestYn": "",
+                    "optionPrice": "3000000",
+                    "optionalImgPath": "",
+                    "specificationCode": "",
+                    "optionProductNumber": ""
+                }, {
+                    "trimCode": "STE",
+                    "carOptionCode": "",
+                    "optionCode": "HTE",
+                    "optionName": "하이테크",
+                    "bestYn": "",
+                    "optionPrice": "1850000",
+                    "optionalImgPath": "",
+                    "specificationCode": "",
+                    "optionProductNumber": ""
+                }, {
+                    "trimCode": "STE",
+                    "carOptionCode": "",
+                    "optionCode": "MDA",
+                    "optionName": "메리디안 프리미엄 사운드",
+                    "bestYn": "",
+                    "optionPrice": "1000000",
+                    "optionalImgPath": "",
+                    "specificationCode": "",
+                    "optionProductNumber": ""
+                }, {
+                    "trimCode": "STE",
+                    "carOptionCode": "",
+                    "optionCode": "SRF",
+                    "optionName": "와이드 선루프",
+                    "bestYn": "",
+                    "optionPrice": "650000",
+                    "optionalImgPath": "",
+                    "specificationCode": "",
+                    "optionProductNumber": ""
+                }
+            ]
+        }
+    },
+
+    "color-list": {
+        "resultCode": "000",
+        "detailCode": null,
+        "resultMessage": null,
+        "detailMessage": null,
+        "data": {
+            "colorList": [
+                {
+                    "colorCode": "M4B",
+                    "colorName": "미네랄 블루",
+                    "trimCode": "LRL",
+                    "bestYn": "Y",
+                    "carOptionCode": "E",
+                    "colorPrice": "3,0000",
+                    "colorImgPath": "https://www.kia.com/content/dam/kwcms/kr/ko/images/byo/car_k3_the_new_m4b.png",
+                    "productNumber": "https://www.kia.com/content/dam/kwcms/kr/ko/images/byo/color/sorento_mq4_m4b.jpg"
+                }, {
+                    "colorCode": "ABP",
+                    "colorName": "오로라 블랙 펄",
+                    "trimCode": "LRL",
+                    "bestYn": "Y",
+                    "carOptionCode": "I",
+                    "colorPrice": "14,000",
+                    "colorImgPath": "https://www.kia.com/content/dam/kwcms/kr/ko/images/byo/car_k3_the_new_abp.png",
+                    "productNumber": "https://www.kia.com/content/dam/kwcms/kr/ko/images/byo/color/allnewk7_abp.jpg"
+                }, {
+                    "colorCode": "GBL",
+                    "colorName": "그래비티 블루",
+                    "trimCode": "LRL",
+                    "bestYn": "Y",
+                    "carOptionCode": "I",
+                    "colorPrice": "35,000",
+                    "colorImgPath": "https://www.kia.com/content/dam/kwcms/kr/ko/images/byo/car_k3_the_new_b4u.png",
+                    "productNumber": "https://www.kia.com/content/dam/kwcms/kr/ko/images/byo/color/allnewk7_b4u.jpg"
+                }, {
+                    "colorCode": "ABT",
+                    "colorName": "플라티늄 그라파이트",
+                    "trimCode": "LRL",
+                    "bestYn": "Y",
+                    "carOptionCode": "I",
+                    "colorPrice": "75,000",
+                    "colorImgPath": "https://www.kia.com/content/dam/kwcms/kr/ko/images/byo/car_k3_the_new_abt.png",
+                    "productNumber": "https://www.kia.com/content/dam/kwcms/kr/ko/images/byo/color/ABT.jpg"
+                }, {
+                    "colorCode": "KLG",
+                    "colorName": "스틸 그레이",
+                    "trimCode": "LRL",
+                    "bestYn": "Y",
+                    "carOptionCode": "I",
+                    "colorPrice": "84,000",
+                    "colorImgPath": "https://www.kia.com/content/dam/kwcms/kr/ko/images/byo/car_k3_the_new_klg.png",
+                    "productNumber": "https://www.kia.com/content/dam/kwcms/kr/ko/images/byo/color/KLG.jpg"
+                }, {
+                    "colorCode": "SWP",
+                    "colorName": "스노우 화이트 펄",
+                    "trimCode": "LRL",
+                    "bestYn": "Y",
+                    "carOptionCode": "I",
+                    "colorPrice": "12,000",
+                    "colorImgPath": "https://www.kia.com/content/dam/kwcms/kr/ko/images/byo/car_k3_the_new_swp.png",
+                    "productNumber": "https://www.kia.com/content/dam/kwcms/kr/ko/images/byo/color/swp.jpg"
+                }
+            ]
+
+        }
+    },
+
+    "carGroup-list": {
+        "resultCode": "000",
+        "detailCode": null,
+        "resultMessage": null,
+        "detailMessage": null,
+        "carGroupData": {
+            "carGroupList": [
+                {
+                    "modelCode": "EV6",
+                    "modelYear": "2021",
+                    "carGroupCode": "EV6-LEV",
+                    "carGroupName": "롱 레인지",
+                    "carImagePath": "/content/dam/kia25/build-a-car/car_ray_m9y.png"
+                }, {
+                    "modelCode": "EV6",
+                    "modelYear": "2021",
+                    "carGroupCode": "EV6-GEV",
+                    "carGroupName": "롱 레인지 GT-Line",
+                    "carImagePath": "/content/dam/kia25/build-a-car/car_niro_hev_b4u.png"
+                }, {
+                    "modelCode": "EV6",
+                    "modelYear": "2021",
+                    "carGroupCode": "EV6-SEV",
+                    "carGroupName": "스탠다드",
+                    "carImagePath": "/content/dam/kia25/build-a-car/car_k8_taxi.png"
+                },
+                {
+                    "modelCode": "EDE",
+                    "modelYear": "2021",
+                    "carGroupCode": "EDE-DEA",
+                    "carGroupName": "EV",
+                    "carImagePath": "/content/dam/kia25/build-a-car/img_dl3k5.png"
+                }, {
+                    "modelCode": "YFE",
+                    "modelYear": "2021",
+                    "carGroupCode": "YFE-YFE",
+                    "carGroupName": "봉고Ⅲ EV",
+                    "carImagePath": "/content/dam/kia25/build-a-car/img_bongo3-ev_ud.png"
+                }
+            ]
+        }
+	}
+}

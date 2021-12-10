@@ -46,16 +46,18 @@ public class Build004_OptionModel {
 	
 	private String modelCode = null;
 	private String trimCode = null;
-	private String colorCode = null;
+	private String extColorCode = null;
+	private String intColorCode = null;
 	
 	
 	
 	@PostConstruct
 	public void activate() throws Exception {
 		
-		modelCode = request.getParameter("modelCode");
+		modelCode = request.getParameter("car").toUpperCase();
 		trimCode = request.getParameter("trimCode");
-		colorCode = request.getParameter("colorCode");
+		extColorCode = request.getParameter("ext");
+		intColorCode = request.getParameter("int");
 		
 		
 		/**
@@ -90,7 +92,7 @@ public class Build004_OptionModel {
 		 */
 		colorList = buildYourCarService.getColorListAPI().getColorList();
 		for(ColorDto color : colorList) {
-			if(color.getTrimCode().equals(trimCode) && color.getColorCode().equals(colorCode) && color.getCarOptionCode().equals("E")) {
+			if(color.getTrimCode().equals(trimCode) && color.getColorCode().equals(extColorCode) && color.getCarOptionCode().equals("E")) {
 				modelColor = color.getColorName();
 			}
 		}
@@ -124,7 +126,6 @@ public class Build004_OptionModel {
 		return modelColor;
 	}
 
-
 	public String getModelCode() {
 		return modelCode;
 	}
@@ -133,9 +134,13 @@ public class Build004_OptionModel {
 		return trimCode;
 	}
 
+	public String getExtColorCode() {
+		return extColorCode;
+	}
 
-	public String getColorCode() {
-		return colorCode;
+
+	public String getIntColorCode() {
+		return intColorCode;
 	}
 
 

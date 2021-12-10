@@ -73,13 +73,13 @@
 					<sly data-sly-test="${group.modelCode == detail.reqParam}">
 						<sly data-sly-test="${groupList.count == 1}">
 						        <span class="form_chk">
-						            <input type="radio" prefer="client" car="${group.carGroupCode}" carimage="${group.carImagePath}" value="${group.carGroupCode}" name="sample1" id="sample1_${groupList.count}" checked="">
-						            <label for="sample1_${groupList.count}" class="form_spr radio_box r_on">${group.carGroupName}</label>
+						            <input type="radio" prefer="client" car="${group.carGroupCode}" carimage="${group.carImagePath}" value="${group.carGroupCode}" name="sample1" id="sample1_${groupList.count}" checked="checked">
+						            <label for="sample1_${groupList.count}" class="form_spr radio_box">${group.carGroupName}</label>
 						        </span>
 						</sly>    
 						<sly data-sly-test="${groupList.count != 1}">
 						        <span class="form_chk">
-						            <input type="radio" prefer="client" car="${group.carGroupCode}" carimage="${group.carImagePath}" value="${group.carGroupCode}" name="sample1" id="sample1_${groupList.count}" checked="">
+						            <input type="radio" prefer="client" car="${group.carGroupCode}" carimage="${group.carImagePath}" value="${group.carGroupCode}" name="sample1" id="sample1_${groupList.count}">
 						            <label for="sample1_${groupList.count}" class="form_spr radio_box">${group.carGroupName}</label>
 						        </span>
 						</sly> 
@@ -107,107 +107,24 @@
 	    </div>
 	    <p class="line_wrap"></p>
 	    <div class="inner build_car build_area build_trim">
-	    <h5 class="tit">상세 차종 선택</h5>
-
-    <div class="trimselector slide_box" hid="true" car="EV6-LEV" transmission="manual" style="display: none;">
-	    <ul class="box_u" car="EV6-LEV">
-	
-	    </ul>
-    </div>
-    
-    
-	<!-- trimList에 담긴 값 가져오기 -->
-	<sly data-sly-list.trim="${detail.trimList}"  data-sly-test="${detail.trimList}" >
-    	<sly data-sly-test="${group.carGroupCode == trim.carGroupCode}">
-
-
-		    <div class="trimselector slide_box" hid="false" car="${trim.carGroupCode}" transmission="auto" style="display: block;">
-				<ul class="box_u" car="${trim.trimCode}">
-				    <li class="box_l" price="${trim.sellingPrice}" aimg="https://www.kia.com/content/dam/kwcms/kr/ko/images/byo/car_ev6_standard.png" trim="CVJJ5VI31-A" car="${trim.trimCode}" tmp="off">
-				        <a href="#" class="box_a">			        
-				            <div class="box">			     
-				                <span class="h">${trim.trimName}</span> 
-				                <span class="price">${trim.sellingPrice}<em>원</em></span>
-				            </div>
-				        </a>
-				    </li>	 
-				</ul>
-			</div>
-		    <div class="trimselector slide_box" hid="true" car="${trim.carGroupCode}" transmission="manual" style="display: none;">
-			    <ul class="box_u" car="${trim.carGroupCode}">
-
-			    </ul>
-		    </div>
-		 </sly>    
-
-	    <div class="trimselector slide_box" hid="true" car="EV6-GEV" transmission="manual" style="display: none;">
-	    <ul class="box_u" car="EV6-GEV">
-	
-	    </ul>
+		    <h5 class="tit">상세 차종 선택</h5>
+		    
+			<!-- trimList에 담긴 값 가져오기 -->
+			<ul class="box_u" car="${trim.trimCode}">
+				<sly data-sly-list.trim="${detail.trimList}"  data-sly-test="${detail.trimList}" >
+				    <div class="trimselector slide_box" hid="false" car="${trim.carGroupCode}" transmission="auto" style="display: block;">
+					    <li class="box_l trim_click" price="${trim.sellingPrice}" aimg="https://www.kia.com/content/dam/kwcms/kr/ko/images/byo/car_ev6_standard.png" value="${trim.carGroupCode}" trim="CVJJ5VI31-A" car="${trim.trimCode}" tmp="off">
+					        <a href="#" class="box_a">			        
+					            <div class="box">			     
+					                <span class="h">${trim.trimName}</span> 
+					                <span class="price">${trim.sellingPrice}<em>원</em></span>
+					            </div>
+					        </a>
+					    </li>	 
+					</div>
+				</sly>		
+			</ul>
 	    </div>
-	    <div class="trimselector slide_box" style="display:none;" hid="true" car="EV6-GEV" transmission="auto">
-	    <ul class="box_u" car="EV6-GEV">
-	
-	    <li class="box_l" price="60490000" aimg="https://www.kia.com/content/dam/kwcms/kr/ko/images/byo/car_ev6_gt_klm.png" trim="CVJJ5VF31-A" car="EV6-GEV" tmp="off">
-	        <a href="#" class="box_a">
-	        
-	            <div class="box">
-	        
-	                <span class="h">EV6 롱 레인지 GT-Line</span> 
-	                <span class="price">60,490,000<em>원</em></span>
-	            </div>
-	        </a>
-	    </li>
-	
-	    </ul>
-	    </div>
-
-	    <div class="trimselector slide_box" hid="true" car="EV6-SEV" transmission="manual" style="display: none;">
-	    <ul class="box_u" car="EV6-SEV">
-	
-	    </ul>
-	    </div>
-	    <div class="trimselector slide_box" style="display:none;" hid="true" car="EV6-SEV" transmission="auto">
-	    <ul class="box_u" car="EV6-SEV">
-	
-	    <li class="box_l" price="49310000" aimg="https://www.kia.com/content/dam/kwcms/kr/ko/images/byo/car_ev6_standard.png" trim="CVJJ5VH31-A" car="EV6-SEV" tmp="off">
-	        <a href="#" class="box_a">
-	        
-	            <div class="box">
-	        
-	                <span class="h">EV6 스탠다드 라이트(Light)</span> 
-	                <span class="price">49,310,000<em>원</em></span>
-	            </div>
-	        </a>
-	    </li>
-	
-	    <li class="box_l" price="50370000" aimg="https://www.kia.com/content/dam/kwcms/kr/ko/images/byo/car_ev6_standard.png" trim="CVJJ5VB31-A" car="EV6-SEV" tmp="off">
-	        <a href="#" class="box_a">
-	        
-	            <div class="box">
-	        
-	                <span class="h">EV6 스탠다드 에어(Air)</span> 
-	                <span class="price">50,370,000<em>원</em></span>
-	            </div>
-	        </a>
-	    </li>
-	
-	    <li class="box_l" price="54900000" aimg="https://www.kia.com/content/dam/kwcms/kr/ko/images/byo/car_ev6_standard.png" trim="CVJJ5VC31-A" car="EV6-SEV" tmp="off">
-	        <a href="#" class="box_a">
-	        
-	            <div class="box">
-	        
-	                <span class="h">EV6 스탠다드 어스(Earth)</span> 
-	                <span class="price">54,900,000<em>원</em></span>
-	            </div>
-	        </a>
-	    </li>
-	
-	    </ul>
-	    </div>
-
-
-    </div>
 
 
 
@@ -634,5 +551,8 @@
     </div>
     <div class="dimmed_outClick" style="position:fixed; display:none;"></div>
     </div>
+    
 
 </sly>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>

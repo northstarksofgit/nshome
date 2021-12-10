@@ -12,6 +12,8 @@ import org.apache.sling.models.annotations.injectorspecific.Self;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import com.kia25.core.rest.client.dto.ColorDto;
+import com.kia25.core.rest.client.dto.TrimModel.TrimDto;
 import com.kia25.core.rest.client.dto.categoryModel.ModelDto;
 import com.kia25.core.rest.client.dto.option.OptionDto;
 import com.kia25.core.rest.client.service.Build001Service;
@@ -34,29 +36,64 @@ public class Build004_OptionModel {
 	
 	private List<OptionDto> optionList;
 	private List<ModelDto> modelList;
-	private ModelDto matchModel;
+	private List<TrimDto> trimList;
+	private List<ColorDto> colorList;
 	
-	private String modelImgPath = null;
+	private String carImage = null;
+	private String trimName = null;
+	private String modelColor = null;
+	
+	private String modelCode = null;
+	private String trimCode = null;
+	private String colorCode = null;
+	
 	
 	
 	@PostConstruct
 	public void activate() throws Exception {
 		
-		String modelCode = request.getParameter("modelCode");
-		String trimCode = request.getParameter("trimCode");
+		modelCode = request.getParameter("modelCode");
+		trimCode = request.getParameter("trimCode");
+		colorCode = request.getParameter("colorCode");
 		
-		matchModel = new ModelDto();
 		
-		optionList = buildYourCarService.getOptionlListAPI().getListOfOptions();
-		
+		/**
+		 * get Selected Model
+		 */
 		modelList = service.getModelAPI().getModelList();
 		for(ModelDto model : modelList) {
 			if(model.getModelCode().equals(modelCode)) {
-				matchModel = model;
+				carImage = model.getCarImage();
 			}
 		}
-		log.info(matchModel.getCarImage());
 		
+		
+		/**
+		 * get Selected Model-Trim
+		 */
+		trimList = buildYourCarService.getTrimListAPI().getTrimList();
+		for(TrimDto trim : trimList) {
+			if(trim.getTrimCode().equals(trimCode)) {
+				trimName = trim.getTrimName();
+			}
+		}
+		
+		
+		/**
+		 * get Selected Model Color
+		 */
+		colorList = buildYourCarService.getColorListAPI().getColorList();
+		for(ColorDto color : colorList) {
+			if(color.getTrimCode().equals(trimCode) && color.getColorCode().equals(colorCode)) {
+				modelColor = color.getColorName();
+			}
+		}
+		
+		
+		/**
+		 * get Print Model-Option List 
+		 */
+		optionList = buildYourCarService.getOptionlListAPI().getListOfOptions();
 		
 	}
 
@@ -68,9 +105,32 @@ public class Build004_OptionModel {
 	public void setOptionList(List<OptionDto> optionList) {
 		this.optionList = optionList;
 	}
-
-	public ModelDto getMatchModel() {
-		return matchModel;
+	
+	public String getCarImage() {
+		return carImage;
 	}
 
+	public String getTrimName() {
+		return trimName;
+	}
+
+	public String getModelColor() {
+		return modelColor;
+	}
+
+
+	public String getModelCode() {
+		return modelCode;
+	}
+
+	public String getTrimCode() {
+		return trimCode;
+	}
+
+
+	public String getColorCode() {
+		return colorCode;
+	}
+
+	
 }

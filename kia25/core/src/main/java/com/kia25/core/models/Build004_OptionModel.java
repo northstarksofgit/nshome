@@ -62,10 +62,10 @@ public class Build004_OptionModel {
 		
 		/**
 		 * get Selected Model
-		 * carImage :: select Car Model Image
+		 * carImage :: select Car Model Image Path
 		 * carModelName :: select Car Model Name
 		 */
-		modelList = service.getModelAPI().getModelList();
+		modelList = buildYourCarService.getModelListAPI().getModelList();
 		for(ModelDto model : modelList) {
 			if(model.getModelCode().equals(modelCode)) {
 				carImage = model.getCarImage();

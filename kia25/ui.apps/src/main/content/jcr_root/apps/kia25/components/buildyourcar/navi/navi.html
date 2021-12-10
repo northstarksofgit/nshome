@@ -34,14 +34,18 @@
                                     <li class="list01">
                                         <div class="list_in">
                                             <strong>모델</strong>
-                                            <p style="display:none;">차량을 선택해 주세요.</p>
-                                            <div class="con" price="53460000">
-                                                <span class="fixed conTitle">${model.trim.trimName}</span>
-                                                <span class="fixed carImg"><img
-                                                        src="${model.model.carImage}"
-                                                        alt=""></span>
-                                                <span class="fixed conPrice">${model.trim.sellingPrice}<em>원</em></span>
-                                            </div>
+                                            <sly data-sly-test="${!model.trim}">
+                                            	<p>차량을 선택해 주세요.</p>
+                                            </sly>
+                                            <sly data-sly-test="${model.trim}">
+	                                            <div class="con" price="53460000">
+	                                                <span class="fixed conTitle">${model.trim.trimName}</span>
+	                                                <span class="fixed carImg"><img
+	                                                        src="${model.model.carImage}"
+	                                                        alt=""></span>
+	                                                <span class="fixed conPrice">${model.trim.sellingPrice}<em>원</em></span>
+	                                            </div>
+                                            </sly>
                                         </div>
                                     </li>
                                     <li class="list02">

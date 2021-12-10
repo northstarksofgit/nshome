@@ -1,11 +1,5 @@
-
 <sly data-sly-use.color="com.kia25.core.models.Build003Helper"></sly>
-
-
-
-
-
-
+<sly data-sly-use.model="com.kia25.core.models.Build001Model"></sly>
 
 <div class="estimate_online_wrap">
     <!-- step 시작 -->
@@ -52,8 +46,15 @@
 			<div class="preview">
 				<h4 class="hidden">STEP 2 컬러선택</h4>
 				<div class="car_name">
-					<strong class="name">K3</strong>
-					<span class="option">1.6 가솔린 트렌디</span>
+
+                    	<ul class="color_list" data-sly-list="${model.modelList}" data-sly-test="${model.modelList}">
+                            <li>
+                               <strong class="name">
+                                    <p data-sly-test="${item.modelCode == 'EV6'}">${item.modelCode}</p>
+                                </strong>
+                            </li>
+                        </ul>
+
 					<button type="button" class="bl_type_b btn_car_view" data-on-text="차량닫기" data-off-text="차량보기">차량보기</button>
 				</div>
 				<div class="car_img">

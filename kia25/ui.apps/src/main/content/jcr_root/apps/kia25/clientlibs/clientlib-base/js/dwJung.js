@@ -3,55 +3,13 @@
 //build001////////////////////////////////////
 
 
-/*
-var total = $(this).scrollTop();
-
-
-$(window).scroll(function() {
-	
-	
-
-	if($(".category").length>0){
-		
-	  	
-		var category = $(".category").offset().top;
-		var carTab = $(".estimate_online_wrap > .inner > div");
-		var carMenu = $(".category .inbox a");
-		
-		
-	    if(category <= total) {
-	      $(".category").addClass("fixed");
-	    } else {
-	      $(".category").removeClass("fixed");
-	    }
-
-		var carTabTop = new Array();
-		for(var i=0; i<carTab.length; i++){
-			carTabTop[i] =  carTab[i].offsetHeight;
-		}
-			
-
-		for(var i=0; i<carTabTop.length; i++){
-			if(carTabTop[i] <= total) {
-		      $(carMenu[i]).addClass("on");
-		    } else {
-		      $(carMenu[i]).removeClass("on");
-		    }
-		}
-
-
-		
-			
-			
-	}
-});
-
-*/
-
 
 if($(".category").length>0){
 	var category = $(".category").offset().top;
+	var carTab = $(".estimate_online_wrap > .inner > div");
+	var carMenu = $(".category .inbox a");
 }
+
 
 $(window).scroll(function() {
 	
@@ -59,6 +17,7 @@ $(window).scroll(function() {
 
 	if($(".category").length>0){
 			
+		//카테고리 fixed
 	    if(category <= window) {
 		
 	      $(".category").addClass("fixed");
@@ -68,9 +27,31 @@ $(window).scroll(function() {
 	      $(".category").removeClass("fixed");
 	    }
 
+
+		//carTab 가져오기
+		var carTab = document.querySelectorAll(".estimate_online_wrap > .inner > div");
 		
+		//carTab top 위치 저장하기	
+		var carTabTop = new Array();
+		
+		//div의 bottom 위치 저장하기
+		var carTabBottom = new Array();
+		
+		for(var i=0; i<carTab.length; i++){
+			carTabTop[i] = $(carTab[i]).offset().top;
+			carTabBottom[i] = $(carTab[i]).offset().top + carTab[i].offsetHeight;
+		}
 
 
+		for(var i=0; i<carTabTop.length; i++){
+
+			if(window >= carTabTop[i] && window <= carTabBottom[i]){
+				$(carMenu[i]).addClass("on");
+			}else{
+				$(carMenu[i]).removeClass("on");
+			}
+
+		}
 
 	}
 	

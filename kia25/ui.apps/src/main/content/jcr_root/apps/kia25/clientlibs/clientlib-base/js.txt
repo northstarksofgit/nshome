@@ -22,8 +22,7 @@
 #js/default_script.min.js
 
 js/hm-script.js
-<<<<<<< HEAD
+
 js/dwJung.js
-=======
 js/dain.js
->>>>>>> a3d5d8b5df761e69fd466e59705fb56d25a1ef3d
+

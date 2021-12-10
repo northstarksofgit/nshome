@@ -259,13 +259,12 @@
 				                                        modelid=${car.modelCode} : 출력이 정상적으로 이루어지는 것을 확인함.
 				                                        
 			                                        	연결을 위해 href의 value를 정해주면 a 태그 자체가 사라져버린다...inline stlye을 줘도 사라진다.(style="display:block)
-			                                        	/content/kia25/us/build002-test.html?modelid=${car.modelCode}
+			                                        	/content/kia25/us/build002-test.html?car=${car.modelCode}
 			                                         -->
 			                                            <span class="car_img">
 			                                                <img src="${car.carImage}"
 			                                                    alt="${car.carModelName}">
 			                                            </span>
-			                                            modelid=${car.modelCode}
 			                                            <strong class="car_name">${car.carModelName}</strong>
 			                                        </a>
 			                                    </div>

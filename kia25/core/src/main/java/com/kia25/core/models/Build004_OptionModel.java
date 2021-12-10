@@ -39,6 +39,7 @@ public class Build004_OptionModel {
 	private List<TrimDto> trimList;
 	private List<ColorDto> colorList;
 	
+	private String carModelName = null;
 	private String carImage = null;
 	private String trimName = null;
 	private String modelColor = null;
@@ -59,17 +60,21 @@ public class Build004_OptionModel {
 		
 		/**
 		 * get Selected Model
+		 * carImage :: select Car Model Image
+		 * carModelName :: select Car Model Name
 		 */
 		modelList = service.getModelAPI().getModelList();
 		for(ModelDto model : modelList) {
 			if(model.getModelCode().equals(modelCode)) {
 				carImage = model.getCarImage();
+				carModelName = model.getCarModelName();
 			}
 		}
-		
+
 		
 		/**
 		 * get Selected Model-Trim
+		 * trimName :: select Car Model-Trim Name
 		 */
 		trimList = buildYourCarService.getTrimListAPI().getTrimList();
 		for(TrimDto trim : trimList) {
@@ -81,10 +86,11 @@ public class Build004_OptionModel {
 		
 		/**
 		 * get Selected Model Color
+		 * modelColor :: select Car Exterior Color Name
 		 */
 		colorList = buildYourCarService.getColorListAPI().getColorList();
 		for(ColorDto color : colorList) {
-			if(color.getTrimCode().equals(trimCode) && color.getColorCode().equals(colorCode)) {
+			if(color.getTrimCode().equals(trimCode) && color.getColorCode().equals(colorCode) && color.getCarOptionCode().equals("E")) {
 				modelColor = color.getColorName();
 			}
 		}
@@ -132,5 +138,9 @@ public class Build004_OptionModel {
 		return colorCode;
 	}
 
+
+	public String getCarModelName() {
+		return carModelName;
+	}
 	
 }

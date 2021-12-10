@@ -68,7 +68,10 @@ $(document).ready(function() {
     $(".driving_center").length && drivingCenterInit();
     $(".catalog_price").length && shoppingtoolsCategoryInit();
     $(".gateCon").length && shoppingToolsGateInit();
-    $(".btnActMove").length && showBtnActMove()
+    $(".btnActMove").length && showBtnActMove();
+
+
+
 });
 
 
@@ -199,8 +202,32 @@ var showBtnActMove = function() {
 
 
 $(document).ready(function() {
+	
+	
+
+	//가격에 , 표시
+	if($('.conPrice').length>0){
+	
+		var prices = $('.conPrice');
+		
+		$('.price').text($('.price').text().replace(/\B(?=(\d{3})+(?!\d))/g, ","));
+		
+		for(var i = 0; i<prices.length; i++){
+			var price = ($('.conPrice')[i]).innerText.replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+			($('.conPrice')[i]).innerText = price;
+		}
+	};
+	
+	
+	
     toolBar();
 });
+
+
+
+
+
+
 
 function toolBar() {
     function c() {
@@ -241,3 +268,10 @@ function toolBar() {
         c()
     })
 };
+
+
+
+
+
+
+

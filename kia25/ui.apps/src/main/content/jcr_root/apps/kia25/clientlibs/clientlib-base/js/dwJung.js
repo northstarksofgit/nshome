@@ -1,6 +1,8 @@
 
 
-//build001////////////////////////////////////
+/*
+* build 001 관련 js
+*/
 
 
 
@@ -58,7 +60,11 @@ $(window).scroll(function() {
 });
 
 
-//navi js//////////////////////////////////////////////////////////////
+
+/*
+* navi 관련 js
+*/
+
 
 $(document).ready(function() {
     $(".sales_offers").length && offersInit();

@@ -1,28 +1,80 @@
 
 
+//build001////////////////////////////////////
 
-//build001
-// navi에서는 주석 처리를 해야 잘 돌아갑니다~
+
 /*
-var category = $(".category").offset().top;
+var total = $(this).scrollTop();
 
 
 $(window).scroll(function() {
-  	var window = $(this).scrollTop();
-
-    if(category <= window) {
-      $(".category").addClass("fixed");
-    } else {
-      $(".category").removeClass("fixed");
-    }
+	
 	
 
+	if($(".category").length>0){
+		
+	  	
+		var category = $(".category").offset().top;
+		var carTab = $(".estimate_online_wrap > .inner > div");
+		var carMenu = $(".category .inbox a");
+		
+		
+	    if(category <= total) {
+	      $(".category").addClass("fixed");
+	    } else {
+	      $(".category").removeClass("fixed");
+	    }
+
+		var carTabTop = new Array();
+		for(var i=0; i<carTab.length; i++){
+			carTabTop[i] =  carTab[i].offsetHeight;
+		}
+			
+
+		for(var i=0; i<carTabTop.length; i++){
+			if(carTabTop[i] <= total) {
+		      $(carMenu[i]).addClass("on");
+		    } else {
+		      $(carMenu[i]).removeClass("on");
+		    }
+		}
+
+
+		
+			
+			
+	}
 });
 
 */
 
 
+if($(".category").length>0){
+	var category = $(".category").offset().top;
+}
 
+$(window).scroll(function() {
+	
+  	var window = $(this).scrollTop();
+
+	if($(".category").length>0){
+			
+	    if(category <= window) {
+		
+	      $(".category").addClass("fixed");
+
+	    } else {
+		
+	      $(".category").removeClass("fixed");
+	    }
+
+		
+
+
+
+	}
+	
+});
 
 
 //navi js//////////////////////////////////////////////////////////////
@@ -207,9 +259,4 @@ function toolBar() {
     $(window).scroll(function(a) {
         c()
     })
-}
-
-
-
-
-;
+};

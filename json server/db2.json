@@ -85,14 +85,17 @@
         "detailCode": null,
         "resultMessage": null,
         "detailMessage": null,
-        "carGroupData": {
-            "carGroupList": [
+        "data": {
+                "modelCode": "EV6",
+                "carModelName": "EV6",
+                "carImagePath": "/content/dam/kia25/build-a-car/car_ev6.png",
+                "carGroupList": [
                 {
                     "modelCode": "EV6",
                     "modelYear": "2021",
                     "carGroupCode": "EV6-LEV",
                     "carGroupName": "롱 레인지",
-                    "carImagePath": "/content/dam/kia25/build-a-car/car_ray_m9y.png"
+                    "carImagePath": "/content/dam/kia25/build-a-car/car_ray_m9y.png",
                 }, {
                     "modelCode": "EV6",
                     "modelYear": "2021",
@@ -119,15 +122,8 @@
                     "carGroupName": "봉고Ⅲ EV",
                     "carImagePath": "/content/dam/kia25/build-a-car/img_bongo3-ev_ud.png"
                 }
-            ]
-        }
-	},	
-        "trim-list": {
-            "resultCode": "000",
-            "detailCode": null,
-            "resultMessage": null,
-            "detailMessage": null,
-            "trimData": {
+
+            ],
                 "trimList": [
                     {
                         "modelCode": "EV6",
@@ -222,6 +218,15 @@
                         "engineCapacityName": ""
                     }
             ]
+            
+        }
+	},	
+        "trim-list": {
+            "resultCode": "000",
+            "detailCode": null,
+            "resultMessage": null,
+            "detailMessage": null,
+            "trimData": {
         }
     }
 }

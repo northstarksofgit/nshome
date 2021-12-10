@@ -708,6 +708,32 @@
 					 ]	
 					
 		} 
-	}
-
+	},
+    "summary-info-1": {
+		"resultCode": "000",
+		"detailCode": null,
+		"resultMessage": null,
+		"detailMessage": null,
+		"data": {
+			"summary": {
+  			"modelName": "EV6"
+  			"modelImgPath": "sdfsdfsdfs"
+  			"exteriorColor": "	스노우 화이트 펄"
+  			"exteriorColorImgPath" : "/consdf/sdsdfsdf"
+			
+			}
+    }
+    "summary-info-2": {
+		"resultCode": "000",
+		"detailCode": null,
+		"resultMessage": null,
+		"detailMessage": null,
+		"data": {
+			"summary": {
+  			"modelName": "EV6"
+  			"modelImgPath": "sdfsdfsdfs"
+  			"exteriorColor": "	스노우 화이트 펄"
+  			"exteriorColorImgPath" : "/consdf/sdsdfsdf"
+			}
+    }
 }

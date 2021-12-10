@@ -236,6 +236,9 @@ $(document).ready(function() {
 
 
 function toolBar() {
+	
+	var MOBILE_WIDTH = 0;
+	
     function c() {
         l = $("body").height() - $(window).height() - $(window).scrollTop();
         l < $("#footer").height() ? a.addClass("normal") : a.removeClass("normal");

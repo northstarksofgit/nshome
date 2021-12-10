@@ -40,7 +40,8 @@ $(window).scroll(function() {
 		var carTabBottom = new Array();
 		
 		for(var i=0; i<carTab.length; i++){
-			carTabTop[i] = $(carTab[i]).offset().top;
+			//첫 화면에서 첫번째 탭이 무조건 선택되어 있게 하기 위함
+			i==0 ? carTabTop[i] = 0 : carTabTop[i] = $(carTab[i]).offset().top;
 			carTabBottom[i] = $(carTab[i]).offset().top + carTab[i].offsetHeight;
 		}
 

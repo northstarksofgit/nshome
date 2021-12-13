@@ -6,11 +6,6 @@ import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 public class TrimDto {
 	
 	/**
-	 * build002 컴포넌트 TrimDto
-	 */
-	
-	
-	/**
 	 * 모델코드
 	 */
 	private String modelCode;
@@ -81,6 +76,7 @@ public class TrimDto {
 	 */
 	private String engineCapacityName;
 
+	
 	
 	/**
 	 * getter / setter

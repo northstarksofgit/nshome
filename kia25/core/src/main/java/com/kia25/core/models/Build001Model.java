@@ -53,11 +53,7 @@ public class Build001Model {
 		//모델 리스트를 가져옵니다.
 		modelList = service.getModelListAPI().getModelList();
 		
-		
-		for(ModelDto m : modelList) {
-			LOG.info("modelName: "+m.getModelName());
-		}
-		
+	
 		
 		
 	}

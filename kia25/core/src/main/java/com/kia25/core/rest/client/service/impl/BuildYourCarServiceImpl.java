@@ -160,4 +160,45 @@ public class BuildYourCarServiceImpl implements BuildYourCarService {
 		
 		return null;
 	}
+	
+	/**
+	 * build003 / colorlist 불러오기
+	 */
+	
+	public ColorListDto getColorAPI() {
+
+		try {
+			String response = service.getRequest("color-list");
+			LOG.debug("response={}", response);
+			ObjectMapper mapper = new ObjectMapper();
+
+			ColorListDtoResults results = mapper.readValue(response, ColorListDtoResults.class);
+			return results.getData();
+
+		} catch (IOException e) {
+			LOG.error("Error parsing JSON API response.", e);
+			e.printStackTrace();
+		}
+
+		return null;
+	}
+	
+	public ModelListDto getModelAPI() {
+
+		try {
+			String response = service.getRequest("model-list");
+			LOG.debug("response={}", response);
+			ObjectMapper mapper = new ObjectMapper();
+
+			ModelListDtoResults results = mapper.readValue(response, ModelListDtoResults.class);
+			return results.getData();
+
+		} catch (IOException e) {
+			LOG.error("Error parsing JSON API response.", e);
+			e.printStackTrace();
+		}
+
+		return null;
+	}
+
 }

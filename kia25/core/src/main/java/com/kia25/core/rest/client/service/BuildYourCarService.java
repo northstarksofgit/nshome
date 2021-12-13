@@ -35,7 +35,15 @@ public interface BuildYourCarService {
 	ColorListDto getColorListAPI();
 	
 	/**
+	 * build003 / colorlist 불러오기
+	 */
+	ColorListDto getColorAPI();
+	ModelListDto getModelAPI();
+	
+	/**
 	 * build004 / optionlist 불러오기
 	 */
 	OptionListDto getOptionlListAPI();
+	
+	
 }

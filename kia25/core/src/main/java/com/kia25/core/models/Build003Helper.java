@@ -14,7 +14,7 @@ import org.slf4j.LoggerFactory;
 
 import com.kia25.core.rest.client.dto.ColorDto;
 import com.kia25.core.rest.client.dto.ColorListDto;
-import com.kia25.core.rest.client.dto.categoryModel.ModelDto;
+import com.kia25.core.rest.client.dto.ModelDto;
 import com.kia25.core.rest.client.service.Build003Service;
 import com.kia25.core.rest.client.service.impl.Build003ServiceImpl;
 
@@ -41,6 +41,7 @@ public class Build003Helper {
 	private String modelCode = null;
 	private String carModelName = null;
 	private String carImage = null;
+	private String modelYear = null;
 
 	@PostConstruct
 	public void activate() throws IOException {
@@ -56,7 +57,7 @@ public class Build003Helper {
 		  for (ModelDto model : Build003Service.getModelAPI().getModelList()) {
 		  
 				if (model.getModelCode().equals(modelCode)) {
-					carImage = model.getCarImage();
+					carImage = model.getCarImagePath();
 					carModelName = model.getCarModelName();
 				}
 			}
@@ -93,6 +94,10 @@ public class Build003Helper {
 
 	public String getCarModelName() {
 		return carModelName;
+	}
+	
+	public String getModelYear() {
+		return modelYear;
 	}
 
 }

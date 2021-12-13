@@ -54,6 +54,12 @@ public class Build001Model {
 		modelList = service.getModelListAPI().getModelList();
 		
 		
+		for(ModelDto m : modelList) {
+			LOG.info("modelName: "+m.getModelName());
+		}
+		
+		
+		
 	}
 
 

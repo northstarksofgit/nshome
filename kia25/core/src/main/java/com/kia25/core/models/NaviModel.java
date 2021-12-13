@@ -110,10 +110,14 @@ public class NaviModel {
 		
 		
 	}
+	
+	
+	
+	
+	
+	
+	
+	
 
 
-	
-	
-	
-	
 }

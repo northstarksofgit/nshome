@@ -18,6 +18,8 @@ import com.kia25.core.rest.client.dto.ColorListDtoResults;
 import com.kia25.core.rest.client.dto.ModelListDto;
 import com.kia25.core.rest.client.dto.ModelListDtoResults;
 import com.kia25.core.rest.client.dto.OptionListDtoResults;
+import com.kia25.core.rest.client.dto.SummaryDto;
+import com.kia25.core.rest.client.dto.SummaryDtoResults;
 import com.kia25.core.rest.client.dto.TrimListDto;
 import com.kia25.core.rest.client.dto.TrimListDtoResults;
 import com.kia25.core.rest.client.service.BuildYourCarService;
@@ -196,6 +198,51 @@ public class BuildYourCarServiceImpl implements BuildYourCarService {
 			e.printStackTrace();
 		}
 
+		return null;
+	}
+	
+	
+	
+	/*
+	 * get summary
+	 */
+
+	@Override
+	public SummaryDto getSummaryAPI(String step) {
+		
+		String response = null;
+		
+		try {
+		
+			if(step.equals("1")) {
+				//trim까지
+				
+				response = service.getRequest("summary-info-1");
+
+				
+			}else if(step.equals("2")){
+				//color까지
+				
+				response = service.getRequest("summary-info-2");
+				
+			}else {
+				//option까지
+			
+				response = service.getRequest("summary-info-3");
+			}
+			
+			LOG.debug("response={}", response);
+			ObjectMapper mapper = new ObjectMapper();
+			
+			SummaryDtoResults result = mapper.readValue(response, SummaryDtoResults.class);
+			
+			return result.getData();
+		
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
 		return null;
 	}
 

@@ -72,24 +72,12 @@
 				{
 					"optionCode":"4WD",
 					"optionName": "듀얼 모터 4WD",
-					"optionPrice": "3000000",
-					"trimCode" : "",
-					"carOptionCode": "",
-					"bestYn": "",
-					"optionalImgPath": "",
-					"specificationCode": "",
-					"optionProductNumber": ""
+					"optionPrice": "3000000"
 				},
 				{
 					"optionCode":"DWP",
 					"optionName": "드라이브 와이즈",
-					"optionPrice": "1400000",
-					"trimCode" : "",
-					"carOptionCode": "",
-					"bestYn": "",
-					"optionalImgPath": "",
-					"specificationCode": "",
-					"optionProductNumber": ""
+					"optionPrice": "1400000"
 					
 				}
 			],

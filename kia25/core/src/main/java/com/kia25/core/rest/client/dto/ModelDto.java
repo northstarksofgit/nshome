@@ -6,10 +6,6 @@ import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 public class ModelDto {
 	
 	/**
-	 * build002 컴포넌트 ModelDto
-	 */
-	
-	/**
 	 * 차종 카테고리 코드
 	 */
 	private String categoryCode;
@@ -34,11 +30,7 @@ public class ModelDto {
 	 */
 	private String carImagePath;
 	
-	/**
-	 * 차량 가격
-	 */
-	private int vehiclePrice;
-
+	
 	
 	/**
 	 * getter / setter
@@ -83,12 +75,5 @@ public class ModelDto {
 		this.carImagePath = carImagePath;
 	}
 
-	public int getVehiclePrice() {
-		return vehiclePrice;
-	}
-
-	public void setVehiclePrice(int vehiclePrice) {
-		this.vehiclePrice = vehiclePrice;
-	}
 
 }

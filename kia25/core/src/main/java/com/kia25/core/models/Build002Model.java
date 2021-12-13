@@ -11,18 +11,18 @@ import org.apache.sling.models.annotations.injectorspecific.Self;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import com.kia25.core.rest.client.dto.TrimModel.CarGroupDto;
-import com.kia25.core.rest.client.dto.TrimModel.ModelDto;
-import com.kia25.core.rest.client.dto.TrimModel.TrimDto;
-import com.kia25.core.rest.client.service.Build002Service;
-import com.kia25.core.rest.client.service.impl.Build002ServiceImpl;
+import com.kia25.core.rest.client.dto.CarGroupDto;
+import com.kia25.core.rest.client.dto.ModelDto;
+import com.kia25.core.rest.client.dto.TrimDto;
+import com.kia25.core.rest.client.service.BuildYourCarService;
+import com.kia25.core.rest.client.service.impl.BuildYourCarServiceImpl;
 
 @Model(adaptables = { SlingHttpServletRequest.class }, defaultInjectionStrategy = DefaultInjectionStrategy.OPTIONAL)
 public class Build002Model {
 	
 	private final static Logger log = LoggerFactory.getLogger(Build002Model.class);
 	
-	Build002Service service = new Build002ServiceImpl();
+	BuildYourCarService service = new BuildYourCarServiceImpl();
 	
 	// 파라미터 값을 받아오기 위해 선언
 	@Self
@@ -40,7 +40,7 @@ public class Build002Model {
 	private String reqParam = null;
 	
 	/**
-	 * 차량 모델 리스트
+	 * 모델 리스트
 	 */
 	private List<ModelDto> modelList;
 	
@@ -50,7 +50,7 @@ public class Build002Model {
 	private List<CarGroupDto> carGroupList;
 	
 	/**
-	 * 차량 trim 리스트
+	 * trim 리스트
 	 */
 	private List<TrimDto> trimList;
 	

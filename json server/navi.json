@@ -21,17 +21,21 @@
 		"resultMessage": null,
 		"detailMessage": null,
 		"data": {
-			"summary": {
+		    "modelCode": "ev6",
 				"modelName": "EV6",
 				"carImgPath": "/content/dam/kia25/build-a-car/car_ev6.png",
 				"trimCode": "LRA",
 				"trimName": "EV6 롱 레인지 에어(Air)",
-				"exteriorColor": "스노우 화이트 펄",
+				"exteriorColorCode": "CB"
+				"exteriorColorName": "스노우 화이트 펄",
 				"exteriorColorImgPath" : "https://www.kia.com/content/dam/kwcms/kr/ko/images/byo/car_k3_the_new_swp.png",
-				"interiorColor": "스틸 그레이",
+				"exteriorColorPrice": "1,000원"
+				"interiorColorCode": "IN"
+				"interiorColorName": "스틸 그레이",
 				"interiorColorImgPath" : "https://www.kia.com/content/dam/kwcms/kr/ko/images/byo/car_k3_the_new_swp.png"
-			}
-		}
+				"interiorColorPrice": "1,000원"
+				"toPrice": "1,312,312원"
+  		}
     },
 	
 	"summary-info-3": {

@@ -34,6 +34,7 @@ public class Build003Helper {
 	private SlingHttpServletRequest request;
 
 	private List<ColorDto> colorList;
+	private List<ColorDto> exteriorList;
 	private List<ModelDto> modelList;
 
 	private int colorCount;
@@ -46,6 +47,7 @@ public class Build003Helper {
 	@PostConstruct
 	public void activate() throws IOException {
 		colorList = Build003Service.getColorAPI().getColorList();
+		exteriorList = Build003Service.getColorAPI().getExteriorList();
 		// modelList = Build003Service.getModelAPI().getModelList();
 
 		/*
@@ -68,6 +70,10 @@ public class Build003Helper {
 
 	public List<ColorDto> getColorList() {
 		return colorList;
+	}
+	
+	public List<ColorDto> getExteriorList() {
+		return exteriorList;
 	}
 
 	public int getColorCount() {

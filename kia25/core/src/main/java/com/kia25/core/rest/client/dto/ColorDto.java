@@ -5,45 +5,39 @@ import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class ColorDto {
 
-	/* 색상 코드 */
+	/* colorList 색상 코드 */
 	private String colorCode;
 	
-	/* 컬러명 */
+	/* colorList 컬러명 */
 	private String colorName;
 	
-	/* 컬러별 추천 */
+	/* colorList 컬러별 추천 */
 	private String bestYn;
 	
-	/* 컬러 가격 */
+	/* colorList 컬러 가격 */
 	private String colorPrice;
-	
-	
-	private String modelYear;
-	
-	/* 컬러 내/외장 
-	 * i : 인테리어
-	 * e : 익스테리어
-	 * */
+		
+	/* colorList 컬러 내/외장 	 * i : 인테리어	 * e : 익스테리어 */
 	private String carOptionCode;
 	
-	/*  트림 코드 */
+	/* colorList 트림 코드 */
 	private String trimCode;	
 
-	/* 컬러 이미지 */
+	/* colorList 컬러 이미지 */
 	private String colorImgPath;
 		
-	/* 컬러 조각 */
+	/* colorList 컬러 조각 */
 	private String productNumber;
-
 	
 	
-	public String getModelYear() {
-		return modelYear;
-	}
-
-	public void setModelYear(String modelYear) {
-		this.modelYear = modelYear;
-	}
+	/* exteriorList 연식  */
+	private String modelYear;
+	
+	/* exteriorList 가격  */
+	private String cellvehiclePrice;
+	
+	/* exteriorList 색상조각  */
+	private String carcelImage;
 
 	public String getColorCode() {
 		return colorCode;
@@ -108,6 +102,32 @@ public class ColorDto {
 
 	public void setTrimCode(String trimCode) {
 		this.trimCode = trimCode;
+	}
+	
+	
+	/* exteriorList */
+	public String getCellvehiclePrice() {
+		return cellvehiclePrice;
+	}
+
+	public void setCellvehiclePrice(String cellvehiclePrice) {
+		this.cellvehiclePrice = cellvehiclePrice;
+	}
+
+	public String getModelYear() {
+		return modelYear;
+	}
+
+	public void setModelYear(String modelYear) {
+		this.modelYear = modelYear;
+	}
+
+	public String getCarcelImage() {
+		return carcelImage;
+	}
+
+	public void setCarcelImage(String carcelImage) {
+		this.carcelImage = carcelImage;
 	}
 	
 	

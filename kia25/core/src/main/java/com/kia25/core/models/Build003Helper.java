@@ -62,7 +62,7 @@ public class Build003Helper {
 
 			if (model.getModelCode().equals(modelCode)) {
 				carImage = model.getCarImagePath();
-				carModelName = model.getCarModelName();
+				carModelName = model.getModelName();
 			}
 		}
 

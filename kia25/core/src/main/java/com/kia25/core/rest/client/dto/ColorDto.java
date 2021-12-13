@@ -17,6 +17,9 @@ public class ColorDto {
 	/* 컬러 가격 */
 	private String colorPrice;
 	
+	
+	private String modelYear;
+	
 	/* 컬러 내/외장 
 	 * i : 인테리어
 	 * e : 익스테리어
@@ -34,6 +37,14 @@ public class ColorDto {
 
 	
 	
+	public String getModelYear() {
+		return modelYear;
+	}
+
+	public void setModelYear(String modelYear) {
+		this.modelYear = modelYear;
+	}
+
 	public String getColorCode() {
 		return colorCode;
 	}

@@ -11,6 +11,11 @@ public class ModelDto {
 	private String categoryCode;
 	
 	/**
+	 * 차종 카테고리 명
+	 */
+	private String categoryName;
+	
+	/**
 	 * 모델 코드
 	 */
 	private String modelCode;
@@ -23,7 +28,7 @@ public class ModelDto {
 	/**
 	 * 전시 대표 차 종명
 	 */
-	private String modelName;
+	private String carModelName;
 	
 	/**
 	 * 대표 차량 이미지
@@ -42,6 +47,15 @@ public class ModelDto {
 	public void setCategoryCode(String categoryCode) {
 		this.categoryCode = categoryCode;
 	}
+	
+	public String getCategoryName() {
+		return categoryName;
+	}
+
+	public void setCategoryName(String categoryName) {
+		this.categoryName = categoryName;
+	}
+
 
 	public String getModelCode() {
 		return modelCode;
@@ -59,12 +73,12 @@ public class ModelDto {
 		this.modelYear = modelYear;
 	}
 	
-	public String getModelName() {
-		return modelName;
+	public String getCarModelName() {
+		return carModelName;
 	}
-
-	public void setModelName(String modelName) {
-		this.modelName = modelName;
+	
+	public void setCarModelName(String carModelName) {
+		this.carModelName = carModelName;
 	}
 
 	public String getCarImagePath() {

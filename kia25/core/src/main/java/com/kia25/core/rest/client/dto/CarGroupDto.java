@@ -24,6 +24,13 @@ public class CarGroupDto {
 	 * 전시 대표차 종명
 	 */
 	private String carGroupName;
+	
+	/**
+	 * 모델 대표 이미지
+	 */
+	private String carImagePath;
+	
+	
 
 	
 	

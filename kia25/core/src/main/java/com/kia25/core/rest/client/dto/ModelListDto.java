@@ -8,10 +8,6 @@ import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 public class ModelListDto {
 
 	/**
-	 * build002 컴포넌트 ModelListDto
-	 */
-	
-	/**
 	 * 모델 리스트
 	 */
 	private List<ModelDto> modelList;

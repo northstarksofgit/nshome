@@ -1,10 +1,6 @@
 package com.kia25.core.rest.client.dto;
 
 public class ModelListDtoResults {
-
-	/**
-	 * build002 컴포넌트 ModelListDtoResult
-	 */
 	
 	/**
 	 * 결과 코드

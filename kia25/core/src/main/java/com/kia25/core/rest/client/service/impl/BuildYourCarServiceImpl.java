@@ -33,7 +33,9 @@ public class BuildYourCarServiceImpl implements BuildYourCarService {
 	@OSGiService
 	private CommonRestApiService service = new CommonRestApiServiceImpl();
 	
-	//get Category
+	/**
+	 * get category List
+	 */
 	public CategoryListDto getCategoryAPI() {
 		
 		try {
@@ -52,7 +54,9 @@ public class BuildYourCarServiceImpl implements BuildYourCarService {
 		return null;
 	}
 	
-	//get Model List
+	/**
+	 * get Model List
+	 */
 	public ModelListDto getModelListAPI() {
 		
 		try {
@@ -73,7 +77,7 @@ public class BuildYourCarServiceImpl implements BuildYourCarService {
 	
 	
 	/**
-	 * carGroup list 가져오기
+	 * get carGroup List
 	 */
 	@Override
 	public CarGroupListDto getCarGroupListAPI() {
@@ -93,7 +97,9 @@ public class BuildYourCarServiceImpl implements BuildYourCarService {
 		return null;
 	}
 	
-	
+	/**
+	 * get trim List
+	 */
 	public TrimListDto getTrimListAPI() {
 		
 		try {
@@ -112,7 +118,9 @@ public class BuildYourCarServiceImpl implements BuildYourCarService {
 		return null;
 	}
 	
-	
+	/**
+	 * get option List
+	 */
 	public OptionListDto getOptionlListAPI() {
 		
 		try {
@@ -131,6 +139,9 @@ public class BuildYourCarServiceImpl implements BuildYourCarService {
 		return null;
 	}
 	
+	/**
+	 * get color List
+	 */
 	public ColorListDto getColorListAPI() {
 		
 		try {

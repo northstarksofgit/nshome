@@ -9,15 +9,33 @@ import com.kia25.core.rest.client.dto.TrimListDto;
 
 public interface BuildYourCarService {
 
+	/**
+	 * build001 / categorylist 불러오기
+	 */
 	CategoryListDto getCategoryAPI();
 
+	/**
+	 * build002 / modellist 불러오기
+	 */
 	ModelListDto getModelListAPI();
 
+	/**
+	 * build002 / carGrouplist 불러오기
+	 */
 	CarGroupListDto  getCarGroupListAPI();
 	
+	/**
+	 * build002 / trimlist 불러오기
+	 */
 	TrimListDto getTrimListAPI();
 	
+	/**
+	 * build003 / colorlist 불러오기
+	 */
 	ColorListDto getColorListAPI();
 	
+	/**
+	 * build004 / optionlist 불러오기
+	 */
 	OptionListDto getOptionlListAPI();
 }

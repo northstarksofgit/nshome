@@ -6,10 +6,6 @@ import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 public class CarGroupDto {
 	
 	/**
-	 * build002 컴포넌트 carGroupDto
-	 */
-	
-	/**
 	 * 모델 코드
 	 */
 	private String modelCode;

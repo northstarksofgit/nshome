@@ -152,8 +152,7 @@
 		}]
 	}
   },
-  {
-    "list-of-option": {
+  "list-of-option": {
         "resultCode": "000",
         "detailCode": null,
         "resultMessage": null,
@@ -562,6 +561,5 @@
             ]
         }
     }
-}
 }
  

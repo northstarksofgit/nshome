@@ -48,20 +48,22 @@ public class Build003Helper {
 		colorList = Build003Service.getColorAPI().getColorList();
 		// modelList = Build003Service.getModelAPI().getModelList();
 
-		/* parameter로 모델명 ,이미지가져오기
-		 * http://localhost:4502/editor.html/content/kia25/us/en/page3.html?modelCode=EV6
+		/*
+		 * parameter로 모델명 ,이미지가져오기
+		 * http://localhost:4502/editor.html/content/kia25/us/en/page3.html?modelCode=
+		 * EV6
 		 */
-		
-		  modelCode = request.getParameter("modelCode");
-		  
-		  for (ModelDto model : Build003Service.getModelAPI().getModelList()) {
-		  
-				if (model.getModelCode().equals(modelCode)) {
-					carImage = model.getCarImagePath();
-					carModelName = model.getCarModelName();
-				}
+
+		modelCode = request.getParameter("modelCode");
+
+		for (ModelDto model : Build003Service.getModelAPI().getModelList()) {
+
+			if (model.getModelCode().equals(modelCode)) {
+				carImage = model.getCarImagePath();
+				carModelName = model.getCarModelName();
 			}
-		 
+		}
+
 	}
 
 	public List<ColorDto> getColorList() {
@@ -95,7 +97,7 @@ public class Build003Helper {
 	public String getCarModelName() {
 		return carModelName;
 	}
-	
+
 	public String getModelYear() {
 		return modelYear;
 	}

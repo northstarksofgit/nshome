@@ -15,20 +15,20 @@ import org.slf4j.LoggerFactory;
 import com.kia25.core.rest.client.dto.ColorDto;
 import com.kia25.core.rest.client.dto.ColorListDto;
 import com.kia25.core.rest.client.dto.ModelDto;
-import com.kia25.core.rest.client.service.Build003Service;
-import com.kia25.core.rest.client.service.impl.Build003ServiceImpl;
+import com.kia25.core.rest.client.service.BuildYourCarService;
+import com.kia25.core.rest.client.service.impl.BuildYourCarServiceImpl;
 
 import org.apache.sling.models.annotations.DefaultInjectionStrategy;
 
 @Model(adaptables = { SlingHttpServletRequest.class }, defaultInjectionStrategy = DefaultInjectionStrategy.OPTIONAL)
 public class Build003Helper {
 
-	Build003Service Build003Service = new Build003ServiceImpl();
+	BuildYourCarService Build003Service = new BuildYourCarServiceImpl();
 
 	private static final Logger LOG = LoggerFactory.getLogger(Build003Helper.class);
 
 	@OSGiService
-	Build003Service service = new Build003ServiceImpl();
+	BuildYourCarService service = new BuildYourCarServiceImpl();
 
 	@Self
 	private SlingHttpServletRequest request;

@@ -1,17 +1,25 @@
-package com.kia25.core.rest.client.dto;
+package com.kia25.core.rest.client.dto.TrimModel;
 
 import java.util.List;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
-import com.kia25.core.rest.client.dto.categoryModel.ModelDto;
 
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class ModelListDto {
 
+	/**
+	 * build002 컴포넌트 ModelListDto
+	 */
 	
-	//차량 모델 list
+	/**
+	 * 모델 리스트
+	 */
 	private List<ModelDto> modelList;
 
+	
+	/**
+	 * getter / setter
+	 */
 	public List<ModelDto> getModelList() {
 		return modelList;
 	}
@@ -19,4 +27,6 @@ public class ModelListDto {
 	public void setModelList(List<ModelDto> modelList) {
 		this.modelList = modelList;
 	}
+	
+	
 }

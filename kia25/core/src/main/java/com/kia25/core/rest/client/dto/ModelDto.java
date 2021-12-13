@@ -1,54 +1,94 @@
-package com.kia25.core.rest.client.dto;
-
-import java.util.List;
+package com.kia25.core.rest.client.dto.TrimModel;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class ModelDto {
-
-	private String modelId;
-	private String modelName;
+	
+	/**
+	 * build002 컴포넌트 ModelDto
+	 */
+	
+	/**
+	 * 차종 카테고리 코드
+	 */
 	private String categoryCode;
-	private String categoryName;
-	private String modelThumnail;
-	private List<ModelDetailListDto> modelDetail;
 	
+	/**
+	 * 모델 코드
+	 */
+	private String modelCode;
 	
-	public String getModelId() {
-		return modelId;
-	}
-	public void setModelId(String modelId) {
-		this.modelId = modelId;
-	}
-	public String getModelName() {
-		return modelName;
-	}
-	public void setModelName(String modelName) {
-		this.modelName = modelName;
-	}
+	/**
+	 * 모델 연식 코드
+	 */
+	private String modelYear;
+	
+	/**
+	 * 전시 대표 차 종명
+	 */
+	private String carModelName;
+	
+	/**
+	 * 대표 차량 이미지
+	 */
+	private String carImagePath;
+	
+	/**
+	 * 차량 가격
+	 */
+	private int vehiclePrice;
+
+	
+	/**
+	 * getter / setter
+	 */
 	public String getCategoryCode() {
 		return categoryCode;
 	}
+
 	public void setCategoryCode(String categoryCode) {
 		this.categoryCode = categoryCode;
 	}
-	public String getCategoryName() {
-		return categoryName;
+
+	public String getModelCode() {
+		return modelCode;
 	}
-	public void setCategoryName(String categoryName) {
-		this.categoryName = categoryName;
+
+	public void setModelCode(String modelCode) {
+		this.modelCode = modelCode;
 	}
-	public String getModelThumnail() {
-		return modelThumnail;
+
+	public String getModelYear() {
+		return modelYear;
 	}
-	public void setModelThumnail(String modelThumnail) {
-		this.modelThumnail = modelThumnail;
+
+	public void setModelYear(String modelYear) {
+		this.modelYear = modelYear;
 	}
-	public List<ModelDetailListDto> getModelDetail() {
-		return modelDetail;
+
+	public String getCarModelName() {
+		return carModelName;
 	}
-	public void setModelDetail(List<ModelDetailListDto> modelDetail) {
-		this.modelDetail = modelDetail;
+
+	public void setCarModelName(String carModelName) {
+		this.carModelName = carModelName;
 	}
+
+	public String getCarImagePath() {
+		return carImagePath;
+	}
+
+	public void setCarImagePath(String carImagePath) {
+		this.carImagePath = carImagePath;
+	}
+
+	public int getVehiclePrice() {
+		return vehiclePrice;
+	}
+
+	public void setVehiclePrice(int vehiclePrice) {
+		this.vehiclePrice = vehiclePrice;
+	}
+
 }

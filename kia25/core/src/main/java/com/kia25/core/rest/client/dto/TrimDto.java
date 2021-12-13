@@ -1,66 +1,202 @@
-package com.kia25.core.rest.client.dto;
+package com.kia25.core.rest.client.dto.TrimModel;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class TrimDto {
-
-	//트림 아이디
-	private String trimId;
 	
-	//트림 이름
+	/**
+	 * build002 컴포넌트 TrimDto
+	 */
+	
+	
+	/**
+	 * 모델코드
+	 */
+	private String modelCode;
+	
+	
+	/**
+	 * 모델연식코드
+	 */
+	private String modelYear;
+	
+	
+	/**
+	 * carGroup 코드
+	 */
+	private String carGroupCode;
+	
+	
+	/**
+	 * 트림코드
+	 */
+	private String trimCode;
+	
+	
+	/**
+	 * 트림명
+	 */
 	private String trimName;
 	
-	//가격
-	private String price;
 	
-	//색상 리스트
-	private ColorListDto color;
+	/**
+	 * 상품번호
+	 */
+	private String productCode;
 	
-	//옵션 리스트
-	private OptionListDto option;
+	
+	/**
+	 * 추천판매가격
+	 */
+	private int sellingPrice;
+	
+	
+	/**
+	 * 추천(베스트)여부
+	 */
+	private String bestYn;
 
-	public String getTrimId() {
-		return trimId;
+	
+	/**
+	 * 변속기 이름
+	 */
+	private String gearboxName;
+	
+	
+	/**
+	 * 복합연비
+	 */
+	private String compoundFuelEconomy;
+	
+	
+	/**
+	 * 바디타입 이름
+	 */
+	private String bodyTypeName;
+	
+	
+	/**
+	 * 엔진용량 이름
+	 */
+	private String engineCapacityName;
+
+	
+	/**
+	 * getter / setter
+	 */
+	public String getModelCode() {
+		return modelCode;
 	}
 
-	public void setTrimId(String trimId) {
-		this.trimId = trimId;
+	public void setModelCode(String modelCode) {
+		this.modelCode = modelCode;
 	}
+
+	public String getModelYear() {
+		return modelYear;
+	}
+
+	public void setModelYear(String modelYear) {
+		this.modelYear = modelYear;
+	}
+
+	public String getCarGroupCode() {
+		return carGroupCode;
+	}
+	
+	public void setCarGroupCode(String carGroupCode) {
+		this.carGroupCode = carGroupCode;
+	}
+
+	public String getTrimCode() {
+		return trimCode;
+	}
+
+
+	public void setTrimCode(String trimCode) {
+		this.trimCode = trimCode;
+	}
+
 
 	public String getTrimName() {
 		return trimName;
 	}
 
+
 	public void setTrimName(String trimName) {
 		this.trimName = trimName;
 	}
 
-	public String getPrice() {
-		return price;
+
+	public String getProductCode() {
+		return productCode;
 	}
 
-	public void setPrice(String price) {
-		this.price = price;
+
+	public void setProductCode(String productCode) {
+		this.productCode = productCode;
 	}
 
-	public ColorListDto getColor() {
-		return color;
+
+	public int getSellingPrice() {
+		return sellingPrice;
 	}
 
-	public void setColor(ColorListDto color) {
-		this.color = color;
+
+	public void setSellingPrice(int sellingPrice) {
+		this.sellingPrice = sellingPrice;
 	}
 
-	public OptionListDto getOption() {
-		return option;
+
+	public String getBestYn() {
+		return bestYn;
 	}
 
-	public void setOption(OptionListDto option) {
-		this.option = option;
+
+	public void setBestYn(String bestYn) {
+		this.bestYn = bestYn;
+	}
+
+
+	public String getGearboxName() {
+		return gearboxName;
+	}
+
+
+	public void setGearboxName(String gearboxName) {
+		this.gearboxName = gearboxName;
+	}
+
+
+	public String getCompoundFuelEconomy() {
+		return compoundFuelEconomy;
+	}
+
+
+	public void setCompoundFuelEconomy(String compoundFuelEconomy) {
+		this.compoundFuelEconomy = compoundFuelEconomy;
+	}
+
+
+	public String getBodyTypeName() {
+		return bodyTypeName;
+	}
+
+
+	public void setBodyTypeName(String bodyTypeName) {
+		this.bodyTypeName = bodyTypeName;
+	}
+
+
+	public String getEngineCapacityName() {
+		return engineCapacityName;
+	}
+
+
+	public void setEngineCapacityName(String engineCapacityName) {
+		this.engineCapacityName = engineCapacityName;
 	}
 	
 
-	
-	
 }

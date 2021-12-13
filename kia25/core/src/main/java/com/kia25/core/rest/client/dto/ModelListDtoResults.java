@@ -1,9 +1,9 @@
-package com.kia25.core.rest.client.dto.TrimModel;
+package com.kia25.core.rest.client.dto;
 
-public class CarGroupListDtoResult {
-	
+public class ModelListDtoResults {
+
 	/**
-	 * build002 컴포넌트 carGroupListDtoResult
+	 * build002 컴포넌트 ModelListDtoResult
 	 */
 	
 	/**
@@ -26,13 +26,12 @@ public class CarGroupListDtoResult {
 	 */
 	private String detailMessage;
 	
-	
 	/**
 	 * Data 가져오기
 	 */
-	private CarGroupListDto carGroupData;
+	private ModelListDto data;
 
-
+	
 	/**
 	 * getter / setter
 	 */
@@ -68,12 +67,14 @@ public class CarGroupListDtoResult {
 		this.detailMessage = detailMessage;
 	}
 
-	public CarGroupListDto getCarGroupData() {
-		return carGroupData;
+	public ModelListDto getData() {
+		return data;
 	}
 
-	public void setCarGroupData(CarGroupListDto carGroupData) {
-		this.carGroupData = carGroupData;
+	public void setData(ModelListDto data) {
+		this.data = data;
 	}
 
+	
+	
 }

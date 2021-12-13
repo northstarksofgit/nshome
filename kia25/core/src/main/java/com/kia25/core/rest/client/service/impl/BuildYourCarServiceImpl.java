@@ -9,15 +9,17 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
+import com.kia25.core.rest.client.dto.CarGroupListDto;
+import com.kia25.core.rest.client.dto.CarGroupListDtoResults;
 import com.kia25.core.rest.client.dto.CategoryListDto;
 import com.kia25.core.rest.client.dto.CategoryListDtoResults;
 import com.kia25.core.rest.client.dto.ColorListDto;
 import com.kia25.core.rest.client.dto.ColorListDtoResults;
-import com.kia25.core.rest.client.dto.TrimModel.TrimListDto;
-import com.kia25.core.rest.client.dto.TrimModel.TrimListDtoResult;
-import com.kia25.core.rest.client.dto.categoryModel.ModelListDto;
-import com.kia25.core.rest.client.dto.categoryModel.ModelListDtoResults;
-import com.kia25.core.rest.client.dto.option.OptionListDto;
+import com.kia25.core.rest.client.dto.ModelListDto;
+import com.kia25.core.rest.client.dto.ModelListDtoResults;
+import com.kia25.core.rest.client.dto.OptionListDto;
+import com.kia25.core.rest.client.dto.TrimListDto;
+import com.kia25.core.rest.client.dto.TrimListDtoResults;
 import com.kia25.core.rest.client.dto.option.OptionListDtoResults;
 import com.kia25.core.rest.client.service.BuildYourCarService;
 import com.kia25.core.rest.client.service.CommonRestApiService;
@@ -69,6 +71,48 @@ public class BuildYourCarServiceImpl implements BuildYourCarService {
 		return null;
 	}
 	
+	
+	/**
+	 * carGroup list 가져오기
+	 */
+	@Override
+	public CarGroupListDto getCarGroupListAPI() {
+		
+		try {
+			String response = service.getRequest("carGroup-list");
+			ObjectMapper mapper = new ObjectMapper();
+			
+			CarGroupListDtoResults result = mapper.readValue(response, CarGroupListDtoResults.class);
+			return result.getData();
+			
+		} catch (IOException e) {
+			e.printStackTrace();
+			
+		}
+		
+		return null;
+	}
+	
+	
+	public TrimListDto getTrimListAPI() {
+		
+		try {
+			String response = service.getRequest("trim-list");
+			LOG.debug("response={}", response);
+			ObjectMapper mapper = new ObjectMapper();
+			
+			TrimListDtoResults results = mapper.readValue(response,  TrimListDtoResults.class);
+			return results.getData();
+			
+		} catch (IOException e) {
+			LOG.error("Error parsing JSON API response.", e);
+			e.printStackTrace();
+		}
+		
+		return null;
+	}
+	
+	
 	public OptionListDto getOptionlListAPI() {
 		
 		try {
@@ -78,24 +122,6 @@ public class BuildYourCarServiceImpl implements BuildYourCarService {
 			
 			OptionListDtoResults results = mapper.readValue(response,  OptionListDtoResults.class);
             return results.getData();
-            
-		} catch (IOException e) {
-			LOG.error("Error parsing JSON API response.", e);
-			e.printStackTrace();
-		}
-		
-		return null;
-	}
-	
-	public TrimListDto getTrimListAPI() {
-		
-		try {
-			String response = service.getRequest("trim-list");
-			LOG.debug("response={}", response);
-			ObjectMapper mapper = new ObjectMapper();
-			
-			TrimListDtoResult results = mapper.readValue(response,  TrimListDtoResult.class);
-            return results.getTrimData();
             
 		} catch (IOException e) {
 			LOG.error("Error parsing JSON API response.", e);

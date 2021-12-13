@@ -1,6 +1,6 @@
-package com.kia25.core.rest.client.dto.TrimModel;
+package com.kia25.core.rest.client.dto;
 
-public class TrimListDtoResult {
+public class TrimListDtoResults {
 
 	/**
 	 * build002 컴포넌트 TrimListDtoResult
@@ -29,7 +29,7 @@ public class TrimListDtoResult {
 	/**
 	 * Data 가져오기
 	 */
-	private TrimListDto trimData;
+	private TrimListDto data;
 
 	
 	/**
@@ -67,14 +67,15 @@ public class TrimListDtoResult {
 		this.detailMessage = detailMessage;
 	}
 
-	public TrimListDto getTrimData() {
-		return trimData;
+	public TrimListDto getData() {
+		return data;
 	}
 
-	public void setTrimData(TrimListDto trimData) {
-		this.trimData = trimData;
+	public void setData(TrimListDto data) {
+		this.data = data;
 	}
 
+	
 	
 	
 }

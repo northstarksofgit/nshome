@@ -1,4 +1,4 @@
-package com.kia25.core.rest.client.dto.TrimModel;
+package com.kia25.core.rest.client.dto;
 
 import java.util.List;
 

@@ -16,11 +16,11 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import com.kia25.core.rest.client.dto.ColorDto;
-import com.kia25.core.rest.client.dto.TrimModel.TrimDto;
-import com.kia25.core.rest.client.dto.categoryModel.ModelDto;
+import com.kia25.core.rest.client.dto.ModelDto;
+import com.kia25.core.rest.client.dto.TrimDto;
 import com.kia25.core.rest.client.dto.option.OptionDto;
-import com.kia25.core.rest.client.service.Build001Service;
-import com.kia25.core.rest.client.service.impl.Build001ServiceImpl;
+import com.kia25.core.rest.client.service.BuildYourCarService;
+import com.kia25.core.rest.client.service.impl.BuildYourCarServiceImpl;
 
 @Model(adaptables = { SlingHttpServletRequest.class }, defaultInjectionStrategy = DefaultInjectionStrategy.OPTIONAL)
 public class NaviModel {
@@ -28,7 +28,7 @@ public class NaviModel {
 	private final static Logger LOG = LoggerFactory.getLogger(NaviModel.class);
 	
 	@OSGiService
-	Build001Service service = new Build001ServiceImpl();
+	BuildYourCarService service = new BuildYourCarServiceImpl();
 	
 	/*
 	 * get 방식으로 넘어온 parameter를 처리하기 위함
@@ -114,12 +114,12 @@ public class NaviModel {
 		/*
 		 * 차량 이미지
 		 */
-		List<ModelDto> modelResult = service.getModelAPI().getModelList();
+		List<ModelDto> modelResult = service.getModelListAPI().getModelList();
 		
 		/*
 		 * 트림 종류, 가격
 		 */
-		List<TrimDto> trimResult = service.getTrimListAPI().getTrimList();
+		//List<TrimDto> trimResult = service.getTrimListAPI().getTrimList();
 		
 		/*
 		 * 옵션 종류, 가격
@@ -147,7 +147,7 @@ public class NaviModel {
 		
 		/*
 		 * parameter로 넘어온 trimCode와 json의 trimCode가 일치하면 필드에 할당
-		 * */
+		 * 
 		if(trimCode!=null) {
 			for(TrimDto t : trimResult) {
 				if(t.getTrimCode().equals(trimCode)) {
@@ -156,7 +156,7 @@ public class NaviModel {
 				}
 			}			
 		}
-		
+		*/
 		
 		/*
 		 * parameter로 넘어온 optionCode와 json의 optionCode가 일치하면 필드에 할당

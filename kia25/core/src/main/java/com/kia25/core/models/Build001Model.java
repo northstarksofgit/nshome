@@ -10,10 +10,10 @@ import org.apache.sling.models.annotations.injectorspecific.OSGiService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import com.kia25.core.rest.client.dto.categoryModel.CategoryDto;
-import com.kia25.core.rest.client.dto.categoryModel.ModelDto;
-import com.kia25.core.rest.client.service.Build001Service;
-import com.kia25.core.rest.client.service.impl.Build001ServiceImpl;
+import com.kia25.core.rest.client.dto.CategoryDto;
+import com.kia25.core.rest.client.dto.ModelDto;
+import com.kia25.core.rest.client.service.BuildYourCarService;
+import com.kia25.core.rest.client.service.impl.BuildYourCarServiceImpl;
 
 import org.apache.sling.models.annotations.DefaultInjectionStrategy;
 
@@ -27,7 +27,7 @@ public class Build001Model {
 	
 	
 	@OSGiService
-	Build001Service service = new Build001ServiceImpl();
+	BuildYourCarService service = new BuildYourCarServiceImpl();
 	
 	/*
 	 * 차량 카테고리 리스트
@@ -51,7 +51,7 @@ public class Build001Model {
 		
 		
 		//모델 리스트를 가져옵니다.
-		modelList = service.getModelAPI().getModelList();
+		modelList = service.getModelListAPI().getModelList();
 		
 		
 	}

@@ -5,8 +5,15 @@
 <sly data-sly-use.model="com.kia25.core.models.NaviModel"></sly>
 
 
+<template data-sly-template.formattedPrice="${ @ price}">
+	<span data-sly-use.priceFormatter="${'com.kia25.core.models.CurrencyFormatterModel' @ value=price}">
+			${priceFormatter.formattedPrice}
+	</span>
+</template>
+<sly data-sly-call="${formattedPrice @ price=model.summary.totalPrice}">${priceFormatter.formattedPrice}</sly>
 
-
+		
+		
         <div class="estimate_online_wrap">
 
             <div class="build_car">

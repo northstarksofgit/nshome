@@ -1,0 +1,787 @@
+<div class="estimate_online_wrap">
+    <div class="step_wrap">
+        <ul>
+            <li class="step1">
+                <a href="/kr/shopping-tools/build-your-car/vehicle-lineup.html">
+                    <span>처음으로</span>
+                </a>
+            </li>
+
+            <li class="step2 off">
+                <a href="vehicle-lineup.trim.car=EV6.trim=CVJJ5VH31-A.dpcd=N.html">
+                    <span class="basic">상세차종 선택</span>
+                    <span class="result">EV6 스탠다드 라이트(Light)</span>
+                </a>
+            </li>
+
+            <li class="step3 off">
+                <a href="vehicle-lineup.color.car=EV6-SEV.trim=CVJJ5VH31-A.ext=SWP.int=IN_EV6_BL.dpcd=N.html">
+                    <span class="basic">컬러 선택</span>
+                    <span class="result">스노우 화이트 펄</span>
+                </a>
+            </li>
+
+            <li class="step4 off">
+                <a href="vehicle-lineup.option.car=EV6-SEV.trim=CVJJ5VH31-A.ext=SWP.int=IN_EV6_BL.option=ZZZ.dpcd=N.html">
+                    <span class="basic">옵션 선택</span>
+                    <span class="result">기본품목</span>
+                </a>
+            </li>
+
+            <li class="step5 on">
+                <span class="basic">구매 방법</span>
+                <span class="result"></span>
+            </li>
+
+            <li class="step6 ">
+                <span class="basic">견적완료</span>
+            </li>
+        </ul>
+    </div>
+
+    <div class="inner build_car">
+        <div class="build_preview build_viewer">
+            <div class="preview">
+                <h4 class="hidden">STEP 4 구매방법</h4>
+                <div class="car_name">
+                    <strong class="name">EV6</strong>
+                    <span class="option">EV6 스탠다드 라이트(Light)</span>
+                    <button type="button" class="bl_type_b btn_car_view" data-on-text="차량닫기" data-off-text="차량보기">차량보기</button>
+                </div>
+                <div class="car_img" style="display: none;">
+                    <p class="car_desc">※ 본 차량의 이미지는 실제와 다를 수 있습니다.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <p class="line_wrap"></p>
+    <div class="inner build_car build_area">
+        <script type="text/javascript">
+            $(function() {
+                $('.form_select').sSelect();
+            });
+        </script>
+        <h5 class="build_tit">
+            구매비용<span class="item">필수사항</span>
+        </h5>
+
+        <div class="build_pay">
+            <div class="pay_box method">
+                <h6>지불방법
+                    <span class="pay_guide">
+                        <a href="#" onclick="fnELeadEvent('sptool_byod_purchaseinfo_method_popup', '#URL', 'BRAND');">지불방법 자세히 보기</a>
+                    </span>
+                </h6>
+                
+                <div class="box">
+                    <div class="pay_u type2">
+                        <span class="form_chk pay_sel">
+                            <input type="radio" name="sample1" id="sample1_1" method="cash" checked="checked">
+                            <label for="sample1_1" class="form_spr radio_box r_on">현금</label>
+                        </span>
+                        <span class="form_chk pay_sel">
+                            <input type="radio" name="sample1" id="sample1_2" method="installment">
+                            <label for="sample1_2" class="form_spr radio_box wid">할부(일반형)</label>
+                        </span>
+                    </div>
+                    <div class="installment" style="display: none;">
+                        <strong class="stit">할부기간</strong>
+                        <div class="pay_u type3">
+                            <span class="form_chk pay_date">
+                                <input type="radio" name="sample11" id="sample11_1" taxrate="4.0" taxrateb="4.0" term="36">
+                                <label for="sample11_1" class="form_spr radio_box r_on">36개월</label>
+                            </span>
+
+                            <span class="form_chk pay_date">
+                                <input type="radio" name="sample11" id="sample11_2" taxrate="4.5" taxrateb="4.5" term="48">
+                                <label for="sample11_2" class="form_spr radio_box r_on">48개월</label>
+                            </span>
+
+                            <span class="form_chk pay_date">
+                                <input type="radio" name="sample11" id="sample11_3" taxrate="5.5" taxrateb="5.5" term="60">
+                                <label for="sample11_3" class="form_spr radio_box r_on">60개월</label>
+                            </span>
+                        </div>
+
+                        <strong class="stit">할부원금</strong>
+                        <div class="pay_u">
+                            <span class="form_area">
+                                <span class="form_wrp won">
+                                    <input type="text" class="input_box initFee" title="할부원금" placeholder="0" onkeypress="return fnReturnNum(event);" onkeyup="number_chk(this);" maxlength="5">
+                                </span>
+                            </span>
+                            <a href="javascript:installment();" class="btn_apply" title="적용">적용</a>
+                        </div>
+
+                        <div class="result">
+                            <p><strong class="bl_typeR_note">이자율</strong> <span class="txt lowdown">%</span></p>
+                            <p><strong class="bl_typeR_note">월할부금</strong> <span class="txt monthlyFee">원</span></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="pay_box">
+                <h6>탁송 방법<span class="desc">※ 희망 탁송/출고 지역을 선택해주세요.</span></h6>
+                
+                <div class="box">
+                    <div class="pay_u type2">
+                        <span class="form_chk pay_sel">
+                            <input type="radio" name="sample12" id="sample12_1" value="1" checked="checked">
+                            <label for="sample12_1" class="form_spr radio_box r_on">탁송의뢰</label>
+                        </span>
+                        <span class="form_chk pay_sel">
+                            <input type="radio" name="sample12" id="sample12_2" value="2">
+                            <label for="sample12_2" class="form_spr radio_box">본인탁송</label>
+                        </span>
+                        <div class="pay_sel mhet" style="display: block;">
+                            <strong class="stit">탁송지</strong>
+                            <span class="form_wrp half"> 
+                                <span class="sel_box inp_sel">
+                                    <select class="form_select transfeeSi" title="탁송지 선택(시/도)" style="display: none;">
+                                        <option value="">시/도 선택</option>
+                                        <option value="B">서울</option>
+                                        <option value="D">인천</option>
+                                        <option value="E">경기</option>
+                                        <option value="F">강원</option>
+                                        <option value="G">충북</option>
+                                        <option value="H">대전</option>
+                                        <option value="I">충남</option>
+                                        <option value="J">전북</option>
+                                        <option value="K">광주</option>
+                                        <option value="L">전남</option>
+                                        <option value="M">대구</option>
+                                        <option value="N">경북</option>
+                                        <option value="P">부산</option>
+                                        <option value="S">경남</option>
+                                        <option value="T">제주</option>
+                                        <option value="U">울산</option>
+                                    </select>
+                                    
+                                    <div style="display: none; outline-style: none; position: static;" class="select-list-box " tabindex="0">
+                                        <div title="SelectBox 키보드 이용 안내" style="position:absolute;top:-9999px;left:-9999px;width:1px;height:1px;overflow:hidden;">
+                                            <h3>SelectBox 키보드 이용 안내</h3>
+                                            <dl>
+                                                <dt>Up, Down 키보드 이용</dt>
+                                                <dd>Select Box의 항목 중 이전, 다음 선택</dd>
+                                                <dt>Alt + Up &amp; Alt + Down 키보드 이용</dt>
+                                                <dd>Select Box 목록 활성화 및 항목 중 이전, 다음 선택</dd>
+                                                <dt>Home, PageUp 키보드 이용</dt>
+                                                <dd>Select Box 목록 중 처음으로 이동</dd>
+                                                <dt>End, PageDown 키보드 이용</dt>
+                                                <dd>Select Box 목록 중 마지막으로 이동</dd>
+                                            </dl>
+                                        </div>
+                                        
+                                        <div title="탁송지 선택(시/도)" class="form_spr selected-headline" style="display: none;">
+                                            <span>서울</span>
+                                        </div>
+                                        <ul class="select-list" style="visibility: visible; display: none; top: 39px; height: 0px; left: 0px;">
+                                            <li><a title="시/도 선택" href="JavaScript:void(0);" class="select-list-link" style="outline-style: none;">시/도 선택</a></li>
+                                            <li><a title="서울" href="JavaScript:void(0);" class="select-list-link select-list-selected" style="outline-style: none;">서울</a></li>
+                                            <li><a title="인천" href="JavaScript:void(0);" class="select-list-link" style="outline-style: none;">인천</a></li>
+                                            <li><a title="경기" href="JavaScript:void(0);" class="select-list-link" style="outline-style: none;">경기</a></li>
+                                            <li><a title="강원" href="JavaScript:void(0);" class="select-list-link" style="outline-style: none;">강원</a></li>
+                                            <li><a title="충북" href="JavaScript:void(0);" class="select-list-link" style="outline-style: none;">충북</a></li>
+                                            <li><a title="대전" href="JavaScript:void(0);" class="select-list-link" style="outline-style: none;">대전</a></li>
+                                            <li><a title="충남" href="JavaScript:void(0);" class="select-list-link" style="outline-style: none;">충남</a></li>
+                                            <li><a title="전북" href="JavaScript:void(0);" class="select-list-link" style="outline-style: none;">전북</a></li>
+                                            <li><a title="광주" href="JavaScript:void(0);" class="select-list-link" style="outline-style: none;">광주</a></li>
+                                            <li><a title="전남" href="JavaScript:void(0);" class="select-list-link" style="outline-style: none;">전남</a></li>
+                                            <li><a title="대구" href="JavaScript:void(0);" class="select-list-link" style="outline-style: none;">대구</a></li>
+                                            <li><a title="경북" href="JavaScript:void(0);" class="select-list-link" style="outline-style: none;">경북</a></li>
+                                            <li><a title="부산" href="JavaScript:void(0);" class="select-list-link" style="outline-style: none;">부산</a></li>
+                                            <li><a title="경남" href="JavaScript:void(0);" class="select-list-link" style="outline-style: none;">경남</a></li>
+                                            <li><a title="제주" href="JavaScript:void(0);" class="select-list-link" style="outline-style: none;">제주</a></li>
+                                            <li><a title="울산" href="JavaScript:void(0);" class="select-list-link" style="outline-style: none;">울산</a></li>
+                                        </ul>
+                                    </div>
+                                    
+                                    <div style="outline-style: none; position: static;" class="select-list-box " tabindex="0">
+                                        <div title="SelectBox 키보드 이용 안내" style="position:absolute;top:-9999px;left:-9999px;width:1px;height:1px;overflow:hidden;">
+                                            <h3>SelectBox 키보드 이용 안내</h3>
+                                            <dl>
+                                                <dt>Up, Down 키보드 이용</dt>
+                                                <dd>Select Box의 항목 중 이전, 다음 선택</dd>
+                                                <dt>Alt + Up &amp; Alt + Down 키보드 이용</dt>
+                                                <dd>Select Box 목록 활성화 및 항목 중 이전, 다음 선택</dd>
+                                                <dt>Home, PageUp 키보드 이용</dt>
+                                                <dd>Select Box 목록 중 처음으로 이동</dd>
+                                                <dt>End, PageDown 키보드 이용</dt>
+                                                <dd>Select Box 목록 중 마지막으로 이동</dd>
+                                            </dl>
+                                        </div>
+                                        
+                                        <div title="탁송지 선택(시/도)" class="form_spr selected-headline" style="">
+                                            <span>서울</span>
+                                        </div>
+                                        
+                                        <ul class="select-list" style="visibility: visible; top: 39px; height: 140px; left: 0px; display: none;">
+                                            <li><a title="시/도 선택" href="JavaScript:void(0);" class="select-list-link" style="outline-style: none;">시/도 선택</a></li>
+                                            <li><a title="서울" href="JavaScript:void(0);" class="select-list-link select-list-selected" style="outline-style: none;">서울</a></li>
+                                            <li><a title="인천" href="JavaScript:void(0);" class="select-list-link" style="outline-style: none;">인천</a></li>
+                                            <li><a title="경기" href="JavaScript:void(0);" class="select-list-link" style="outline-style: none;">경기</a></li>
+                                            <li><a title="강원" href="JavaScript:void(0);" class="select-list-link" style="outline-style: none;">강원</a></li>
+                                            <li><a title="충북" href="JavaScript:void(0);" class="select-list-link" style="outline-style: none;">충북</a></li>
+                                            <li><a title="대전" href="JavaScript:void(0);" class="select-list-link" style="outline-style: none;">대전</a></li>
+                                            <li><a title="충남" href="JavaScript:void(0);" class="select-list-link" style="outline-style: none;">충남</a></li>
+                                            <li><a title="전북" href="JavaScript:void(0);" class="select-list-link" style="outline-style: none;">전북</a></li>
+                                            <li><a title="광주" href="JavaScript:void(0);" class="select-list-link" style="outline-style: none;">광주</a></li>
+                                            <li><a title="전남" href="JavaScript:void(0);" class="select-list-link" style="outline-style: none;">전남</a></li>
+                                            <li><a title="대구" href="JavaScript:void(0);" class="select-list-link" style="outline-style: none;">대구</a></li>
+                                            <li><a title="경북" href="JavaScript:void(0);" class="select-list-link" style="outline-style: none;">경북</a></li>
+                                            <li><a title="부산" href="JavaScript:void(0);" class="select-list-link" style="outline-style: none;">부산</a></li>
+                                            <li><a title="경남" href="JavaScript:void(0);" class="select-list-link" style="outline-style: none;">경남</a></li>
+                                            <li><a title="제주" href="JavaScript:void(0);" class="select-list-link" style="outline-style: none;">제주</a></li>
+                                            <li><a title="울산" href="JavaScript:void(0);" class="select-list-link" style="outline-style: none;">울산</a></li>
+                                        </ul>
+                                    </div>
+                                </span>
+                            </span>
+
+                            <span class="form_wrp half">
+                                <span class="sel_box inp_sel">
+                                    <select class="form_select transfeeGu" title="탁송지 선택" style="display: none;">
+                                        <option value="">선택하세요</option>
+                                        <option value="B0">서울</option>
+                                    </select>
+                                    
+                                    <div style="outline-style: none; position: static;" class="select-list-box " tabindex="0">
+                                        <div title="SelectBox 키보드 이용 안내" style="position:absolute;top:-9999px;left:-9999px;width:1px;height:1px;overflow:hidden;">
+                                            <h3>SelectBox 키보드 이용 안내</h3>
+                                            <dl>
+                                                <dt>Up, Down 키보드 이용</dt>
+                                                <dd>Select Box의 항목 중 이전, 다음 선택</dd>
+                                                <dt>Alt + Up &amp; Alt + Down 키보드 이용</dt>
+                                                <dd>Select Box 목록 활성화 및 항목 중 이전, 다음 선택</dd>
+                                                <dt>Home, PageUp 키보드 이용</dt>
+                                                <dd>Select Box 목록 중 처음으로 이동</dd>
+                                                <dt>End, PageDown 키보드 이용</dt>
+                                                <dd>Select Box 목록 중 마지막으로 이동</dd>
+                                            </dl>
+                                        </div>
+                                        
+                                        <div title="탁송지 선택" class="form_spr selected-headline" style="">
+                                            <span>서울</span>
+                                        </div>
+                                        
+                                        <ul class="select-list" style="visibility: visible; top: 39px; height: 56px; left: 0px; display: none;">
+                                            <li><a title="선택하세요" href="JavaScript:void(0);" class="select-list-link" style="outline-style: none;">선택하세요</a></li>
+                                            <li><a title="서울" href="JavaScript:void(0);" class="select-list-link select-list-selected" style="outline-style: none;">서울</a></li>
+                                        </ul>
+                                    </div>
+                                </span>
+                            </span>
+                        </div>
+                    </div>
+
+                    <div class="pay_u">
+                        <strong class="stit">출고장</strong>
+                        <div class="pay_sel">
+                            <span class="form_wrp half">
+                                <span class="sel_box inp_sel">
+                                    <select class="form_select transout" title="출고장 선택" style="display: none;">
+                                        <option value="">출고장 선택</option>
+                                        <option value="13" fee="0">화성</option>
+                                        <option value="06" fee="43000">덕평</option>
+                                        <option value="01" fee="48000">소하리</option>
+                                        <option value="09" fee="48000">서산</option>
+                                        <option value="24" fee="60000">충주</option>
+                                        <option value="08" fee="96000">신태인</option>
+                                        <option value="12" fee="113000">경산</option>
+                                        <option value="22" fee="115000">광주</option>
+                                    </select>
+                                    
+                                    <div style="display: none; outline-style: none; position: static;" class="select-list-box " tabindex="0">
+                                        <div title="SelectBox 키보드 이용 안내" style="position:absolute;top:-9999px;left:-9999px;width:1px;height:1px;overflow:hidden;">
+                                            <h3>SelectBox 키보드 이용 안내</h3>
+                                            <dl>
+                                                <dt>Up, Down 키보드 이용</dt>
+                                                <dd>Select Box의 항목 중 이전, 다음 선택</dd>
+                                                <dt>Alt + Up &amp; Alt + Down 키보드 이용</dt>
+                                                <dd>Select Box 목록 활성화 및 항목 중 이전, 다음 선택</dd>
+                                                <dt>Home, PageUp 키보드 이용</dt>
+                                                <dd>Select Box 목록 중 처음으로 이동</dd>
+                                                <dt>End, PageDown 키보드 이용</dt>
+                                                <dd>Select Box 목록 중 마지막으로 이동</dd>
+                                            </dl>
+                                        </div>
+                                        
+                                        <div title="출고장 선택" class="form_spr selected-headline" style="display: none;">
+                                            <span>화성</span>
+                                        </div>
+                                        
+                                        <ul class="select-list" style="visibility: visible; display: none; top: 39px; height: 0px; left: 0px;">
+                                            <li><a title="출고장 선택" href="JavaScript:void(0);" class="select-list-link" style="outline-style: none;">출고장 선택</a></li>
+                                            <li><a title="화성" href="JavaScript:void(0);" class="select-list-link select-list-selected" style="outline-style: none;">화성</a></li>
+                                            <li><a title="덕평" href="JavaScript:void(0);" class="select-list-link" style="outline-style: none;">덕평</a></li>
+                                            <li><a title="소하리" href="JavaScript:void(0);" class="select-list-link" style="outline-style: none;">소하리</a></li>
+                                            <li><a title="서산" href="JavaScript:void(0);" class="select-list-link" style="outline-style: none;">서산</a></li>
+                                            <li><a title="충주" href="JavaScript:void(0);" class="select-list-link" style="outline-style: none;">충주</a></li>
+                                            <li><a title="신태인" href="JavaScript:void(0);" class="select-list-link" style="outline-style: none;">신태인</a></li>
+                                            <li><a title="경산" href="JavaScript:void(0);" class="select-list-link" style="outline-style: none;">경산</a></li>
+                                            <li><a title="광주" href="JavaScript:void(0);" class="select-list-link" style="outline-style: none;">광주</a></li>
+                                        </ul>
+                                    </div>
+                                    
+                                    <div style="outline-style: none; position: static;" class="select-list-box " tabindex="0">
+                                        <div title="SelectBox 키보드 이용 안내" style="position:absolute;top:-9999px;left:-9999px;width:1px;height:1px;overflow:hidden;">
+                                            <h3>SelectBox 키보드 이용 안내</h3>
+                                            <dl>
+                                                <dt>Up, Down 키보드 이용</dt>
+                                                <dd>Select Box의 항목 중 이전, 다음 선택</dd>
+                                                <dt>Alt + Up &amp; Alt + Down 키보드 이용</dt>
+                                                <dd>Select Box 목록 활성화 및 항목 중 이전, 다음 선택</dd>
+                                                <dt>Home, PageUp 키보드 이용</dt>
+                                                <dd>Select Box 목록 중 처음으로 이동</dd>
+                                                <dt>End, PageDown 키보드 이용</dt>
+                                                <dd>Select Box 목록 중 마지막으로 이동</dd>
+                                            </dl>
+                                        </div>
+                                        
+                                        <div title="출고장 선택" class="form_spr selected-headline" style="">
+                                            <span>화성</span>
+                                        </div>
+                                        
+                                        <ul class="select-list" style="visibility: visible; top: -141px; height: 140px; left: 0px; display: none;">
+                                            <li><a title="출고장 선택" href="JavaScript:void(0);" class="select-list-link" style="outline-style: none;">출고장 선택</a></li>
+                                            <li><a title="화성" href="JavaScript:void(0);" class="select-list-link select-list-selected" style="outline-style: none;">화성</a></li>
+                                            <li><a title="덕평" href="JavaScript:void(0);" class="select-list-link" style="outline-style: none;">덕평</a></li>
+                                            <li><a title="소하리" href="JavaScript:void(0);" class="select-list-link" style="outline-style: none;">소하리</a></li>
+                                            <li><a title="서산" href="JavaScript:void(0);" class="select-list-link" style="outline-style: none;">서산</a></li>
+                                            <li><a title="충주" href="JavaScript:void(0);" class="select-list-link" style="outline-style: none;">충주</a></li>
+                                            <li><a title="신태인" href="JavaScript:void(0);" class="select-list-link" style="outline-style: none;">신태인</a></li>
+                                            <li><a title="경산" href="JavaScript:void(0);" class="select-list-link" style="outline-style: none;">경산</a></li>
+                                            <li><a title="광주" href="JavaScript:void(0);" class="select-list-link" style="outline-style: none;">광주</a></li>
+                                        </ul>
+                                    </div>
+                                </span>
+                            </span>
+                        </div>
+                    </div>
+                </div>
+
+                <input type="hidden" id="transfeeGuH" value="B0">
+                <input type="hidden" id="transoutH" value="13">
+            </div>
+
+            <div class="pay_box wide">
+                <h6> 등록비용</h6>
+                <div class="box">
+                    <div class="pay_u type2">
+                        <div class="price_payment">
+                            <strong class="stit">차량가 면세<span class="pay_guide"><a href="#">등록비용 자세히 보기</a></span></strong>
+                            <div class="pay_info">
+                                <span class="form_chk">
+                                    <input type="radio" name="sample3" id="sample3_1" pricefree="no" value="no" checked="checked">
+                                    <label for="sample3_1" class="form_spr radio_box r_on">과세</label>
+                                </span>
+
+                                <span class="form_chk"><input type="radio" name="sample3" id="sample3_2" pricefree="yes" value="yes">
+                                    <label for="sample3_2" class="form_spr radio_box">면세</label>
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="pay_u type2">
+                        <div class="tax_payment">
+                            <strong class="stit">취득세 면세<span class="pay_guide"><a href="#">취득세면세 자세히 보기</a></span></strong>
+                            <div class="pay_info">
+                                <span class="form_chk">
+                                    <input type="radio" name="sample2" id="sample2_1" taxfree="no" checked="checked">
+                                    <label for="sample2_1" class="form_spr radio_box r_on">과세</label>
+                                </span>
+                                <span class="form_chk">
+                                    <input type="radio" name="sample2" id="sample2_2" taxfree="yes">
+                                    <label for="sample2_2" class="form_spr radio_box">면세</label>
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="box">
+                    <div class="pay_u">
+                        <strong class="stit">등록지 <span class="desc">※ 희망 차량 등록지를 선택해주세요.</span></strong>
+                        <div class="pay_info">
+                            <span class="form_wrp half"> 
+                                <span class="sel_box inp_sel">
+                                    <select class="form_select register" title="등록지 선택" style="display: none;">
+                                        <option value="">시/도 선택</option>
+                                        <option value="B010" selected="selected">서울</option>
+                                        <option value="P020">부산</option>
+                                        <option value="M030">대구</option>
+                                        <option value="H040">대전</option>
+                                        <option value="D050">인천</option>
+                                        <option value="K060">광주</option>
+                                        <option value="U070">울산</option>
+                                        <option value="F080">강원</option>
+                                        <option value="E090">경기</option>
+                                        <option value="I100">충남</option>
+                                        <option value="G110">충북</option>
+                                        <option value="L120">전남</option>
+                                        <option value="J130">전북</option>
+                                        <option value="S140">경남</option>
+                                        <option value="N150">경북</option>
+                                        <option value="T160">제주</option>
+                                        <option value="V170">창원</option>
+                                        <option value="W180">세종</option>
+                                    </select>
+                                    
+                                    <div style="display: none; outline-style: none; position: static;" class="select-list-box " tabindex="0">
+                                        <div title="SelectBox 키보드 이용 안내" style="position:absolute;top:-9999px;left:-9999px;width:1px;height:1px;overflow:hidden;">
+                                            <h3>SelectBox 키보드 이용 안내</h3>
+                                            <dl>
+                                                <dt>Up, Down 키보드 이용</dt>
+                                                <dd>Select Box의 항목 중 이전, 다음 선택</dd>
+                                                <dt>Alt + Up &amp; Alt + Down 키보드 이용</dt>
+                                                <dd>Select Box 목록 활성화 및 항목 중 이전, 다음 선택</dd>
+                                                <dt>Home, PageUp 키보드 이용</dt>
+                                                <dd>Select Box 목록 중 처음으로 이동</dd>
+                                                <dt>End, PageDown 키보드 이용</dt>
+                                                <dd>Select Box 목록 중 마지막으로 이동</dd>
+                                            </dl>
+                                        </div>
+                                        
+                                        <div title="등록지 선택" class="form_spr selected-headline" style="display: none;">
+                                            <span>서울</span>
+                                        </div>
+                                        
+                                        <ul class="select-list" style="visibility: visible; display: none; top: 39px; height: 0px; left: 0px;">
+                                            <li><a title="시/도 선택" href="JavaScript:void(0);" class="select-list-link" style="outline-style: none;">시/도 선택</a></li>
+                                            <li><a title="서울" href="JavaScript:void(0);" class="select-list-link select-list-selected" style="outline-style: none;">서울</a></li>
+                                            <li><a title="부산" href="JavaScript:void(0);" class="select-list-link" style="outline-style: none;">부산</a></li>
+                                            <li><a title="대구" href="JavaScript:void(0);" class="select-list-link" style="outline-style: none;">대구</a></li>
+                                            <li><a title="대전" href="JavaScript:void(0);" class="select-list-link" style="outline-style: none;">대전</a></li>
+                                            <li><a title="인천" href="JavaScript:void(0);" class="select-list-link" style="outline-style: none;">인천</a></li>
+                                            <li><a title="광주" href="JavaScript:void(0);" class="select-list-link" style="outline-style: none;">광주</a></li>
+                                            <li><a title="울산" href="JavaScript:void(0);" class="select-list-link" style="outline-style: none;">울산</a></li>
+                                            <li><a title="강원" href="JavaScript:void(0);" class="select-list-link" style="outline-style: none;">강원</a></li>
+                                            <li><a title="경기" href="JavaScript:void(0);" class="select-list-link" style="outline-style: none;">경기</a></li>
+                                            <li><a title="충남" href="JavaScript:void(0);" class="select-list-link" style="outline-style: none;">충남</a></li>
+                                            <li><a title="충북" href="JavaScript:void(0);" class="select-list-link" style="outline-style: none;">충북</a></li>
+                                            <li><a title="전남" href="JavaScript:void(0);" class="select-list-link" style="outline-style: none;">전남</a></li>
+                                            <li><a title="전북" href="JavaScript:void(0);" class="select-list-link" style="outline-style: none;">전북</a></li>
+                                            <li><a title="경남" href="JavaScript:void(0);" class="select-list-link" style="outline-style: none;">경남</a></li>
+                                            <li><a title="경북" href="JavaScript:void(0);" class="select-list-link" style="outline-style: none;">경북</a></li>
+                                            <li><a title="제주" href="JavaScript:void(0);" class="select-list-link" style="outline-style: none;">제주</a></li>
+                                            <li><a title="창원" href="JavaScript:void(0);" class="select-list-link" style="outline-style: none;">창원</a></li>
+                                            <li><a title="세종" href="JavaScript:void(0);" class="select-list-link" style="outline-style: none;">세종</a></li>
+                                        </ul>
+                                    </div>
+                                    
+                                    <div style="outline-style: none; position: static;" class="select-list-box " tabindex="0">
+                                        <div title="SelectBox 키보드 이용 안내" style="position:absolute;top:-9999px;left:-9999px;width:1px;height:1px;overflow:hidden;">
+                                            <h3>SelectBox 키보드 이용 안내</h3>
+                                            <dl><dt>Up, Down 키보드 이용</dt>
+                                                <dd>Select Box의 항목 중 이전, 다음 선택</dd>
+                                                <dt>Alt + Up &amp; Alt + Down 키보드 이용</dt>
+                                                <dd>Select Box 목록 활성화 및 항목 중 이전, 다음 선택</dd>
+                                                <dt>Home, PageUp 키보드 이용</dt>
+                                                <dd>Select Box 목록 중 처음으로 이동</dd>
+                                                <dt>End, PageDown 키보드 이용</dt>
+                                                <dd>Select Box 목록 중 마지막으로 이동</dd>
+                                            </dl>
+                                        </div>
+                                        
+                                        <div title="등록지 선택" class="form_spr selected-headline" style="">
+                                            <span>서울</span>
+                                        </div>
+                                        
+                                        <ul class="select-list" style="visibility: visible; top: -141px; height: 140px; left: 0px; display: none;">
+                                            <li><a title="시/도 선택" href="JavaScript:void(0);" class="select-list-link" style="outline-style: none;">시/도 선택</a></li>
+                                            <li><a title="서울" href="JavaScript:void(0);" class="select-list-link select-list-selected" style="outline-style: none;">서울</a></li>
+                                            <li><a title="부산" href="JavaScript:void(0);" class="select-list-link" style="outline-style: none;">부산</a></li>
+                                            <li><a title="대구" href="JavaScript:void(0);" class="select-list-link" style="outline-style: none;">대구</a></li>
+                                            <li><a title="대전" href="JavaScript:void(0);" class="select-list-link" style="outline-style: none;">대전</a></li>
+                                            <li><a title="인천" href="JavaScript:void(0);" class="select-list-link" style="outline-style: none;">인천</a></li>
+                                            <li><a title="광주" href="JavaScript:void(0);" class="select-list-link" style="outline-style: none;">광주</a></li>
+                                            <li><a title="울산" href="JavaScript:void(0);" class="select-list-link" style="outline-style: none;">울산</a></li>
+                                            <li><a title="강원" href="JavaScript:void(0);" class="select-list-link" style="outline-style: none;">강원</a></li>
+                                            <li><a title="경기" href="JavaScript:void(0);" class="select-list-link" style="outline-style: none;">경기</a></li>
+                                            <li><a title="충남" href="JavaScript:void(0);" class="select-list-link" style="outline-style: none;">충남</a></li>
+                                            <li><a title="충북" href="JavaScript:void(0);" class="select-list-link" style="outline-style: none;">충북</a></li>
+                                            <li><a title="전남" href="JavaScript:void(0);" class="select-list-link" style="outline-style: none;">전남</a></li>
+                                            <li><a title="전북" href="JavaScript:void(0);" class="select-list-link" style="outline-style: none;">전북</a></li>
+                                            <li><a title="경남" href="JavaScript:void(0);" class="select-list-link" style="outline-style: none;">경남</a></li>
+                                            <li><a title="경북" href="JavaScript:void(0);" class="select-list-link" style="outline-style: none;">경북</a></li>
+                                            <li><a title="제주" href="JavaScript:void(0);" class="select-list-link" style="outline-style: none;">제주</a></li>
+                                            <li><a title="창원" href="JavaScript:void(0);" class="select-list-link" style="outline-style: none;">창원</a></li>
+                                            <li><a title="세종" href="JavaScript:void(0);" class="select-list-link" style="outline-style: none;">세종</a></li>
+                                        </ul>
+                                    </div> 
+                                    
+                                    <input type="hidden" name="transfee" price="122000">
+                                </span>
+                            </span>
+                        </div>
+                    </div>
+                    <div class="pay_u type3">
+                        <div class="add_check register_payment">
+                            <strong class="stit">공채 납부방식<span class="pay_guide"><a href="#">공채납부방식 자세히 보기</a></span></strong>
+                            <div class="pay_info">
+                                <span class="form_chk">
+                                    <input type="radio" name="sample4" id="sample4_1" payment="buy">
+                                    <label for="sample4_1" class="form_spr radio_box">매입</label>
+                                </span>
+                                <span class="form_chk">
+                                    <input type="radio" name="sample4" id="sample4_2" payment="dc" checked="checked">
+                                    <label for="sample4_2" class="form_spr radio_box r_on">할인</label>
+                                </span> 
+                                <span class="form_chk">
+                                    <input type="radio" name="sample4" id="sample4_3" payment="buy">
+                                    <label for="sample4_3" class="form_spr radio_box">면세</label>
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <ul class="noti">
+                    <li>등록비용 선택 정보에 따라 과세/면세가 계산되어 차량 총 견적 금액에 적용됩니다.</li>
+                    <li>친환경 차량의 경우, 차량가 과세 선택 시 세제혜택이 적용된 금액으로 견적됩니다.</li>
+                    <li>상용 차량의 경우, 기본적으로 차량가에 세금이 면제된 금액으로 ‘차량가 면세’ 항목의 과세/면세 선택이 불가능합니다.</li>
+                    <li>공채 금액은 매일매일 변경되는 부분으로 자세한 내용은 지점 대리점으로 문의 부탁드립니다.</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="toggle_point">
+            <button type="button">
+                <h5 class="build_tit">포인트<span>선택사항</span></h5>
+                <p>보유하고 계신 포인트 등을 통한 혜택을 확인하실 수 있습니다.</p>
+                <em class="hidden">열기</em>
+            </button>
+        </div>
+
+        <div class="build_pay">
+            <div class="pay_box">
+                <h6>포인트<span class="pay_guide"><a href="#" onclick="fnELeadEvent('sptool_byod_purchaseinfo_point_popup', '#URL', 'BRAND');">포인트 안내 자세히 보기</a></span></h6>
+                <div class="box">
+                    <div class="pay_u">
+                        <div class="pay_info">
+                            <span class="form_area"> 
+                                <span class="form_wrp point">
+                                    <input type="text" class="input_box" name="mpoint" title="M포인트" onkeypress="return fnReturnNum(event);" onkeyup="number_chk(this);" maxlength="9">
+                                </span>
+                            </span> 
+                            <a href="https://www.hyundaicard.com/" target="_blank" class="btn_arrow" title="M포인트 조회" rel="noopener noreferrer">조회</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pay_box">
+                <h6>기아포인트</h6>
+                <div class="box">
+                    <div class="pay_u">
+                        <div class="pay_info redPoint">
+                            <span class="form_area">
+                                <span class="form_wrp point">
+                                    <input type="text" class="input_box" name="qpoint" title="기아포인트" onkeypress="return fnReturnNum(event);" onkeyup="number_chk(this);" maxlength="9">
+                                </span>
+                            </span>
+
+                            <a href="javascript:login();" class="btn_arrow" title="기아포인트 조회">조회</a>
+                        </div>
+                    </div>
+                    <div class="pay_u">
+                        <strong class="stit">신차 구매 횟수</strong>
+                        <div class="pay_u type4">
+                            <span class="form_chk">
+                                <input type="radio" name="sample13" id="sample13_1" value="100,000" checked="checked">
+                                <label for="sample13_1" class="form_spr radio_box r_on">1회차</label>
+                            </span> 
+                            <span class="form_chk">
+                                <input type="radio" name="sample13" id="sample13_2" value="200,000">
+                                <label for="sample13_2" class="form_spr radio_box">2회차</label>
+                            </span>
+                            <span class="form_chk">
+                                <input type="radio" name="sample13" id="sample13_3" value="300,000">
+                                <label for="sample13_3" class="form_spr radio_box">3회차</label>
+                            </span> 
+                            <span class="form_chk">
+                                <input type="radio" name="sample13" id="sample13_4" value="400,000">
+                                <label for="sample13_4" class="form_spr radio_box">4회차 이상</label>
+                            </span>
+                        </div>
+
+                        <div class="pay_info">
+                            <strong class="stit">예상 적립 포인트</strong>
+                            <span class="form_area">
+                                <span class="form_wrp point">
+                                    <input id="redSavePoint" type="text" class="input_box" title="예상 적립 포인트" value="100,000" disabled="">
+                                </span>
+                            </span>
+                        </div>
+                        <div class="pay_info">* 신차 구매 시 적립되는 기아포인트는 다음 차량 구매 시 사용 가능합니다.</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pay_box wide pc">
+                <ul class="noti">
+                    <li>조회 기아포인트와 실제 신차구매 시점의 보유 포인트가 상이할 수 있습니다. (회원 사용,소멸,양도 등 사유)</li>
+                    <li>신차 계약 시, 지점/대리점을 통해 포인트 사용 요청을 한 고객에 한하여 가능합니다.</li>
+                    <li>개인 신차 구매 시 1회 기아포인트 사용 한도는 5년간 200만 포인트입니다.</li>
+                    <li>신차로 부여 받은 포인트로는 해당 차량에 사용할 수 없습니다.</li>
+                    <li>포인트는 주 계약자의 당사 차량 구매 이력 기준으로 적립되며, 보유 이력이 사실과 다른 경우에는 계약 시, 기아 지점 및 대리점에 자동차 등록 원부를 제출하여 주시기 바랍니다.</li>
+                    <li>포인트는 구매 포인트와 재 구매 포인트로 나뉘어 적립되며, 연간 최대 10회까지 적립 가능합니다.</li>
+                    <li>장애인 공동명의 면세건에 한하여 공동명의자의 과거 구매이력이 인정됩니다.</li>
+                    <li>이용자리스(개인/법인)는 구매가의 0.3% 적립됩니다.</li>
+                    <li>과거 구매 이력 산정 시, 기아 임직원용 구입 차량의 이력은 제외됩니다.</li>
+                    <li>지급된 포인트는 5년간 사용할 수 있으며, 5년이 지난 시점에 먼저 지급/적립된 포인트부터 월 단위로 자동 소멸됩니다.</li>
+                    <li>본 혜택은 2015년 1월 1일 이후 출고 및 제작증 발급된 차량부터 적용 됩니다. 단, 차량 출고(제작증 발급) 후 12개월 이내 Kia MEMBERS 회원으로 가입한 경우에 한해 적립됩니다.</li>
+                    <li>개인택시 구매 시 해당 차종의 기아 첫구매 포인트만 적립됩니다.(과거 기아 구매횟수 이력 무관)</li>
+                    <li>차량 구매 취소 시 적립된 포인트도 함께 취소 되며, 포인트 오 적립 시 취소 될 수 있습니다.</li>
+                    <li>상기 포인트 적립은 일반 개인(사업자) 기준이며, 기아와 관련된 직원용 구입 차량은 포인트 적립 대상에서 제외됩니다.(그룹/협력사 직원은 구매가의 0.3% 적립)</li>
+                </ul>
+            </div>
+
+            <div class="pay_box wide mo">
+                <h6>유의사항<span class="pay_guide"><a href="#">유의사항 자세히 보기</a></span></h6>
+                <ul class="noti">
+                    <li>조회 기아포인트와 실제 신차구매 시점의 보유 포인트가 상이할 수 있습니다. (회원 사용,소멸,양도 등 사유)</li>
+                    <li>신차 계약 시, 지점/대리점을 통해 포인트 사용 요청을 한 고객에 한하여 가능합니다.</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="inner btn_botom">
+            <a href="javascript:nextStep();" class="btn_sales">견적보기</a>
+        </div>		
+        <script type="text/javascript">
+            // point toggle
+            $('.toggle_point button').click(function(){
+                var item = $('.toggle_point').next('.build_pay');
+                $(this).toggleClass('on');
+                if(item.hasClass('on')){
+                    item.removeClass('on').slideUp();
+                    $(this).find('em').text('열기');
+                } else {
+                    item.addClass('on').slideDown();
+                    $(this).find('em').text('닫기');
+                }
+            });
+        </script>	
+    </div>
+
+	<!--
+    <div class="build_car">
+        <div class="byoTotal">
+            <div class="btn_area">
+                <a href="vehicle-lineup.option.car=EV6-SEV.trim=CVJJ5VH31-A.ext=SWP.int=IN_EV6_BL.option=ZZZ.html" class="btnPrev"><span class="ico_prev">이전</span></a>
+                <a href="javascript:nextStep();" class="btnNext btnActMove on"><span class="ico_next">다음</span></a>
+            </div>
+            <div class="totalBar">
+                <a href="#" class="btn_totalCon_open" title="상세견적 선택 내용 열기">
+                    <span class="txt">Total</span> 
+                    <span class="price" title="상세견적 총 금액">46,422,469</span><em class="won">원</em>
+                </a>
+            </div>
+            <div class="totalCon" style="display: none;">
+                <div class="totalCon_wrap">
+                    <div class="totalCon_inner">
+                        <strong class="hidden">상세견적 전체 선택 내용보기</strong>
+                        <ul class="totalList">
+                            <li class="list01">
+                                <div class="list_in">
+                                    <strong>모델</strong>
+                                    <p style="display:none;">차량을 선택해 주세요.</p>
+                                    <div class="con" price="49310000">
+                                        <span class="fixed conTitle">EV6 스탠다드 라이트(Light)</span>
+                                        <span class="fixed carImg"><img src="/content/dam/kwcms/kr/ko/images/byo/car_ev6_standard_swp.png" alt="EV6 스탠다드 라이트(Light)"></span>
+                                        <span class="fixed conPrice">49,310,000<em>원</em></span>
+                                    </div>
+                                </div>
+                            </li>
+
+                            <li class="list02">
+                                <div class="list_in">
+                                    <strong>외장컬러</strong>
+                                    <p style="display:none;">선택정보가 없습니다.</p>
+                                    <div class="con con_exterior" price1="0">
+                                        <span>
+                                            <span class="colorArea"><img src="/content/dam/kwcms/kr/ko/images/byo/color/swp.jpg" alt="스노우 화이트 펄" class="colorImg"></span>
+                                            <em class="conTitle">스노우 화이트 펄</em>
+                                        </span>
+                                        <span class="conPrice">0<em>원</em></span>
+                                    </div>
+                                </div>
+
+                                <div class="list_in">
+                                    <strong>내장컬러</strong>
+                                    <p style="display:none;">선택정보가 없습니다.</p>
+                                    <div class="con con_interior" price2="0">
+                                        <span>
+                                            <span class="colorArea"><img src="/content/dam/kwcms/kr/ko/images/byo/color/in_ev6_bl.jpg" alt="블랙 인테리어" class="colorImg"></span>
+                                            <em class="conTitle">블랙 인테리어</em>
+                                        </span>
+                                        <span class="conPrice">0<em>원</em></span>
+                                    </div>
+                                </div>
+                            </li>
+                            <li class="list03">
+                                <div class="list_in">
+                                    <strong>선택옵션</strong>
+                                    <p style="display:none;">선택정보가 없습니다.</p>
+                                    <div>
+                                        <div class="con">
+                                            <span class="fixed" price="0.0">
+                                                <em class="conTitle">기본품목</em>
+                                                <span class="conPrice">0<em>원</em>
+                                                </span>
+                                            </span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </li>
+    
+                            <li class="list04">
+                                <div class="list_in">
+                                    <strong>구매방법</strong>
+                                    <p style="display:none;">선택정보가 없습니다.</p>
+                                    <div class="con_pay">
+                                        <span>
+                                            <em class="tit">지불방법</em>
+                                            <em class="txt">현금구입</em>
+                                        </span>
+                                        <span>
+                                            <em class="tit">차량가</em>
+                                            <em class="txt">과세</em>
+                                        </span>
+                                    </div>
+                                </div>
+
+                                <div class="list_in"> 
+                                    <strong><em>할인내역 / </em><em>기타비용</em></strong>
+                                    <p style="display:none;">선택정보가 없습니다.</p>
+                                    <div class="con_etc">
+                                        <input type="hidden" class="pointdc" price="0">
+                                        <input type="hidden" class="transfee" price="122000">
+                                        <span>
+                                            <em class="tit">탁송료</em>
+                                            <em class="txt">122,000 원</em>
+                                        </span>
+                                        <span>
+                                            <em class="tit">면세 할인</em>
+                                            <em class="txt"><i>-3,009,531</i> 원</em>
+                                        </span>
+                                        <span>
+                                            <em class="tit">포인트</em>
+                                            <em class="txt"><i>-0</i> 원</em>
+                                        </span>
+                                    </div>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                    <button class="btn_totalCon_close"><span>상세견적 선택 내용 닫기</span></button>
+                </div>
+            </div>
+        </div>
+    </div>
+    -->
+</div>

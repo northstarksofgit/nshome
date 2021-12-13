@@ -1,4 +1,4 @@
-$(document).ready(function() {
+
 	var selectedOptList = [];
 	var selectedOptPrice = 0;
     $('.box_l').click(function(e) {
@@ -24,4 +24,3 @@ $(document).ready(function() {
 		$('.info_area.option_info').find('.box_info').children().find('.num')[0].textContent = selectedOptPrice.toString().replace(/\B(?<!\.\d*)(?=(\d{3})+(?!\d))/g, ",");
 
     })
-})

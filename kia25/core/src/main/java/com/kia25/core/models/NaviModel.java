@@ -39,6 +39,10 @@ public class NaviModel {
     private SlingHttpServletRequest request;
 	
 	
+	/*
+	 * summary 데이터
+	 */
+	private SummaryDto summary;
 	
 	
 	@PostConstruct
@@ -105,27 +109,27 @@ public class NaviModel {
 		/*
 		 * summary정보 호출
 		 */
-		SummaryDto summary = service.getSummaryAPI(step);
+		summary = service.getSummaryAPI(step);
 		
-		/*
-		 * summary 출력 테스트
-		 */
-		LOG.info(summary.getTrimName());
-		List<OptionDto> optionResult = summary.getListOfOptions();
+		LOG.info("trimName: "+summary.getTrimName());
 		
-		for(OptionDto o: optionResult) {
-			LOG.info("optionName: "+o.getOptionName());
+		for(OptionDto o : summary.getListOfOptions()) {
+			LOG.info("option: "+o.getOptionName());
 		}
 		
 		
 		
-		
 	}
-	
-	
-	
-	
-	 
+
+
+	public SummaryDto getSummary() {
+		return summary;
+	}
+
+
+	public void setSummary(SummaryDto summary) {
+		this.summary = summary;
+	}
 	
 	
 	

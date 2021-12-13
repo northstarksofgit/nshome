@@ -34,15 +34,7 @@ public class Build004_OptionModel {
 	private List<OptionDto> optionList;
 	private OptionListDto optionData;
 	private OptionListDtoResults optionResults;
-	private List<ModelDto> modelList;
-	private List<TrimDto> trimList;
-	private List<ColorDto> colorList;
-	
-	private String carModelName = null;
-	private String carImage = null;
-	private String trimName = null;
-	private String modelColor = null;
-	
+
 	private String modelCode = null;
 	private String trimCode = null;
 	private String extColorCode = null;
@@ -79,18 +71,6 @@ public class Build004_OptionModel {
 	public void setOptionList(List<OptionDto> optionList) {
 		this.optionList = optionList;
 	}
-	
-	public String getCarImage() {
-		return carImage;
-	}
-
-	public String getTrimName() {
-		return trimName;
-	}
-
-	public String getModelColor() {
-		return modelColor;
-	}
 
 	public String getModelCode() {
 		return modelCode;
@@ -106,10 +86,6 @@ public class Build004_OptionModel {
 
 	public String getIntColorCode() {
 		return intColorCode;
-	}
-
-	public String getCarModelName() {
-		return carModelName;
 	}
 
 	public OptionListDto getOptionData() {

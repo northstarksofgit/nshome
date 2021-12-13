@@ -1,5 +1,6 @@
 package com.kia25.core.models;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.annotation.PostConstruct;
@@ -12,7 +13,8 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import com.kia25.core.rest.client.dto.CarGroupDto;
-import com.kia25.core.rest.client.dto.ModelDto;
+import com.kia25.core.rest.client.dto.CarGroupListDto;
+import com.kia25.core.rest.client.dto.CarGroupListDtoResults;
 import com.kia25.core.rest.client.dto.TrimDto;
 import com.kia25.core.rest.client.service.BuildYourCarService;
 import com.kia25.core.rest.client.service.impl.BuildYourCarServiceImpl;
@@ -40,19 +42,18 @@ public class Build002Model {
 	private String reqParam = null;
 	
 	/**
-	 * 모델 리스트
-	 */
-	private List<ModelDto> modelList;
-	
-	/**
 	 * carGroup 리스트
 	 */
 	private List<CarGroupDto> carGroupList;
+	private CarGroupListDto carData;
+	private CarGroupListDtoResults carResults;
+	
 	
 	/**
 	 * trim 리스트
 	 */
-	private List<TrimDto> trimList;
+//	private List<TrimDto> trimList = new ArrayList<>();;
+	private TrimDto trimList;
 	
 	 
 	@PostConstruct
@@ -65,16 +66,32 @@ public class Build002Model {
 		// 파라미터 값 받아오는건 SlingScriptHelper 사용해서 넘겨도 가능함! 
 		// 단, URL에서 editor.html 부분만 삭제해주면 
 		// String modelCode = (String) slingScriptHelper.getRequest().getParameter("modelCode");
-		log.info("getModelCode :::: {}", reqParam);
+		log.info("reqParam :::: {}", reqParam);
+
 		
-		modelList = service.getModelListAPI().getModelList();
-		//log.info("getModelList :::: {}", modelList);
+		carResults = service.getCarGroupListAPI();
+		log.info(carResults.toString());
 		
-		carGroupList = service.getCarGroupListAPI().getCarGroupList();
-		log.info("getgroupList :::: {}", carGroupList);
+		carData = carResults.getData();
+		carGroupList = carData.getCarGroupList();
+
+		for(CarGroupDto aa : carGroupList){
+			for(TrimDto bb : aa.getTrimList()) {
+				aa.setTrimList(bb);;
+			}
+			
+		}
 		
+//		carResults.getData();
+//		carGroupList = service.getCarGroupListAPI().getCarGroupList();
+
+
+//		log.info("getGroupList :::: {}", carGroupList);
+		
+		/*
 		trimList = service.getTrimListAPI().getTrimList();
 		//log.info("getTrimList :::: {}", trimList);
+		*/		
 				
 	}
 	
@@ -88,14 +105,6 @@ public class Build002Model {
 
 	public void setReqParam(String reqParam) {
 		this.reqParam = reqParam;
-	}
-
-	public List<ModelDto> getModelList() {
-		return modelList;
-	}
-
-	public void setModelList(List<ModelDto> modelList) {
-		this.modelList = modelList;
 	}
 
 	public List<CarGroupDto> getCarGroupList() {
@@ -114,5 +123,23 @@ public class Build002Model {
 		this.trimList = trimList;
 	}
 
+	public CarGroupListDto getCarData() {
+		return carData;
+	}
+
+	public void setCarData(CarGroupListDto carData) {
+		this.carData = carData;
+	}
+
+	public CarGroupListDtoResults getCarResults() {
+		return carResults;
+	}
+
+	public void setCarResults(CarGroupListDtoResults carResults) {
+		this.carResults = carResults;
+	}
+
+	
+	
 	
 }

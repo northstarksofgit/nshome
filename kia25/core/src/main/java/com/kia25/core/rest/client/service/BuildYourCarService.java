@@ -1,6 +1,6 @@
 package com.kia25.core.rest.client.service;
 
-import com.kia25.core.rest.client.dto.CarGroupListDto;
+import com.kia25.core.rest.client.dto.CarGroupListDtoResults;
 import com.kia25.core.rest.client.dto.CategoryListDto;
 import com.kia25.core.rest.client.dto.ColorListDto;
 import com.kia25.core.rest.client.dto.ModelListDto;
@@ -23,12 +23,13 @@ public interface BuildYourCarService {
 	/**
 	 * build002 / carGrouplist 불러오기
 	 */
-	CarGroupListDto  getCarGroupListAPI();
-	
+//	CarGroupListDto  getCarGroupListAPI();
+	CarGroupListDtoResults  getCarGroupListAPI();
 	/**
 	 * build002 / trimlist 불러오기
-	 */
+	 
 	TrimListDto getTrimListAPI();
+	*/
 	
 	/**
 	 * build003 / colorlist 불러오기

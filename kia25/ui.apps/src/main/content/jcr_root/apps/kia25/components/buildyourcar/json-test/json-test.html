@@ -18,25 +18,21 @@
 
 
 
-<sly data-sly-use.detail="com.kia25.core.models.Build002Model">
+<sly data-sly-use.car="com.kia25.core.models.Build002Model">
 
-모델리스트 size${detail.modelList.size}<br>
-params ${detail.reqParam}
-<ul data-sly-list.optList="${detail.modelList}" >
-	<li> category Code : ${optList.categoryCode}</li>
-	<li> category Name : ${optList.modelCode}</li>
-    <li> category Name : ${optList.modelYear}</li>
-    <li> category Name : ${optList.carModelName}</li>
-    <li> category Name : ${optList.carImagePath}</li>
-    <li> category Name : ${optList.salesModelCode}</li>
-    <li> category Name : ${optList.carCode}</li>
-    <li> category Name : ${optList.vehiclePrice}</li>
-    <li> category Name : ${optList.currencyCode}</li>
 
-	<sly data-sly-test="${detail.reqParam == optList.modelCode}">
-		<li> <b>category Name : ${optList.modelCode}</b></li>
+<p>car component</p>
+<hr>
+<div>
+	<p>리스트 ${car.carGroupList.size}</p>
+    <p>모델이미지경로 ${car.carData.carImagePath}</p>
+    <p>모델이미지경로 ${car.carGroupList.carGroupList.size}</p>
+    <hr>
+	<sly data-sly-test="${car.carGroupList}">
+        <ul data-sly-list.list="car.carGroupList" >
+            	<li> category Code : ${list.trimCode}</li>
+            	<li> category Name : ${list.trimName}</li>
+            	<li> category Name : ${list.sellingPrice}</li>
+        </ul>
     </sly>
-
-
-	<hr>
-</ul>
+</div>

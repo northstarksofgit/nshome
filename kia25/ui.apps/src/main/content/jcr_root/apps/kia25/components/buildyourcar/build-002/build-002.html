@@ -47,20 +47,18 @@
 				  <h4 class="hidden">STEP 1 상세차종선택</h4>
 			    <div class="car_name">
 
-			 		<!-- 상세 차종 선택 페이지 - modellist에 담긴 값 뿌리기 -->
-			    	<ul data-sly-list.model="${detail.modelList}">
-			    		<sly data-sly-test="${detail.reqParam == model.modelCode}">
-				    		<strong class="name">
-				        		${model.carModelName}
-				        	</strong>	
-				        </sly>	
-			        </ul>
+			 		<!-- 상세 차종 선택 페이지 -->
+		    		<sly data-sly-test="${detail.reqParam == detail.modelCode}">
+			    		<strong class="name">
+			        		${detail.carModelName}
+			        	</strong>	
+			        </sly>	
 			        <button type="button" class="btn_car" onclick="fnOpenSelectCarPop()">다른 차량 선택</button>
 		        </div>
 
-			    <div data-sly-list.model="${detail.modelList}" class="car_img" >
-			    	<sly data-sly-test="${detail.reqParam == model.modelCode}">
-				        <img src="${model.carImagePath}" alt="${model.carModelName}">
+			    <div class="car_img" >
+			    	<sly data-sly-test="${detail.reqParam == detail.modelCode}">
+				        <img src="${detail.carImagePath}" alt="${detail.carModelName}">
 				        <p class="car_desc">※ 본 차량의 이미지는 실제와 다를 수 있습니다.</p>
 			        </sly>
 			    </div>
@@ -70,7 +68,7 @@
 
 				<!-- carGroupList에 담긴 값 가져오기 -->
 				<sly data-sly-list.group="${detail.carGroupList}" data-sly-test="${detail.carGroupList}">
-					<sly data-sly-test="${group.modelCode == detail.reqParam}">
+					<sly data-sly-test="${detail.modelCode == detail.reqParam}">
 						<sly data-sly-test="${groupList.count == 1}">
 						        <span class="form_chk">
 						            <input type="radio" prefer="client" car="${group.carGroupCode}" carimage="${group.carImagePath}" value="${group.carGroupCode}" name="sample1" id="sample1_${groupList.count}" checked="checked">
@@ -110,20 +108,7 @@
 		    <h5 class="tit">상세 차종 선택</h5>
 		    
 			<!-- trimList에 담긴 값 가져오기 -->
-			<ul class="box_u" car="${trim.trimCode}">
-				<sly data-sly-list.trim="${detail.trimList}"  data-sly-test="${detail.trimList}" >
-				    <div class="trimselector slide_box" hid="false" car="${trim.carGroupCode}" transmission="auto" style="display: block;">
-					    <li class="box_l trim_click" price="${trim.sellingPrice}" aimg="https://www.kia.com/content/dam/kwcms/kr/ko/images/byo/car_ev6_standard.png" value="${trim.carGroupCode}" trim="CVJJ5VI31-A" car="${trim.trimCode}" tmp="off">
-					        <a href="#" class="box_a">			        
-					            <div class="box">			     
-					                <span class="h">${trim.trimName}</span> 
-					                <span class="price">${trim.sellingPrice}<em>원</em></span>
-					            </div>
-					        </a>
-					    </li>	 
-					</div>
-				</sly>		
-			</ul>
+		
 	    </div>
 
 

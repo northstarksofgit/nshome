@@ -17,8 +17,9 @@ import org.slf4j.LoggerFactory;
 
 import com.kia25.core.rest.client.dto.ColorDto;
 import com.kia25.core.rest.client.dto.ModelDto;
+import com.kia25.core.rest.client.dto.OptionDto;
 import com.kia25.core.rest.client.dto.TrimDto;
-import com.kia25.core.rest.client.dto.option.OptionDto;
+
 import com.kia25.core.rest.client.service.BuildYourCarService;
 import com.kia25.core.rest.client.service.impl.BuildYourCarServiceImpl;
 
@@ -119,7 +120,7 @@ public class NaviModel {
 		/*
 		 * 트림 종류, 가격
 		 */
-		//List<TrimDto> trimResult = service.getTrimListAPI().getTrimList();
+		List<TrimDto> trimResult = service.getTrimListAPI().getTrimList();
 		
 		/*
 		 * 옵션 종류, 가격
@@ -148,6 +149,7 @@ public class NaviModel {
 		/*
 		 * parameter로 넘어온 trimCode와 json의 trimCode가 일치하면 필드에 할당
 		 * 
+		 * */
 		if(trimCode!=null) {
 			for(TrimDto t : trimResult) {
 				if(t.getTrimCode().equals(trimCode)) {
@@ -156,7 +158,7 @@ public class NaviModel {
 				}
 			}			
 		}
-		*/
+		
 		
 		/*
 		 * parameter로 넘어온 optionCode와 json의 optionCode가 일치하면 필드에 할당

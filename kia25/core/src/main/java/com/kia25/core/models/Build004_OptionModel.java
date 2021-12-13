@@ -7,15 +7,16 @@ import javax.annotation.PostConstruct;
 import org.apache.sling.api.SlingHttpServletRequest;
 import org.apache.sling.models.annotations.DefaultInjectionStrategy;
 import org.apache.sling.models.annotations.Model;
-import org.apache.sling.models.annotations.injectorspecific.OSGiService;
 import org.apache.sling.models.annotations.injectorspecific.Self;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import com.kia25.core.rest.client.dto.ColorDto;
-import com.kia25.core.rest.client.dto.TrimDto;
 import com.kia25.core.rest.client.dto.ModelDto;
 import com.kia25.core.rest.client.dto.OptionDto;
+import com.kia25.core.rest.client.dto.OptionListDto;
+import com.kia25.core.rest.client.dto.OptionListDtoResults;
+import com.kia25.core.rest.client.dto.TrimDto;
 import com.kia25.core.rest.client.service.BuildYourCarService;
 import com.kia25.core.rest.client.service.impl.BuildYourCarServiceImpl;
 
@@ -31,6 +32,8 @@ public class Build004_OptionModel {
     private SlingHttpServletRequest request;
 	
 	private List<OptionDto> optionList;
+	private OptionListDto optionData;
+	private OptionListDtoResults optionResults;
 	private List<ModelDto> modelList;
 	private List<TrimDto> trimList;
 	private List<ColorDto> colorList;
@@ -49,56 +52,23 @@ public class Build004_OptionModel {
 	
 	@PostConstruct
 	public void activate() throws Exception {
-		
-		modelCode = request.getParameter("car").toUpperCase();
-		trimCode = request.getParameter("trimCode");
-		extColorCode = request.getParameter("ext");
-		intColorCode = request.getParameter("int");
-		
-		
-		/**
-		 * get Selected Model
-		 * carImage :: select Car Model Image Path
-		 * carModelName :: select Car Model Name
-		 */
-		modelList = buildYourCarService.getModelListAPI().getModelList();
-		for(ModelDto model : modelList) {
-			if(model.getModelCode().equals(modelCode)) {
-				carImage = model.getCarImagePath();
-				carModelName = model.getCarModelName();
-			}
+		try {
+			modelCode = request.getParameter("car").toUpperCase();
+			trimCode = request.getParameter("trimCode");
+			extColorCode = request.getParameter("ext");
+			intColorCode = request.getParameter("int");
+		} catch(Exception e) {
+			
 		}
-
-		
-		/**
-		 * get Selected Model-Trim
-		 * trimName :: select Car Model-Trim Name
-		 */
-		trimList = buildYourCarService.getTrimListAPI().getTrimList();
-		for(TrimDto trim : trimList) {
-			if(trim.getTrimCode().equals(trimCode)) {
-				trimName = trim.getTrimName();
-			}
-		}
-		
-		
-		/**
-		 * get Selected Model Color
-		 * modelColor :: select Car Exterior Color Name
-		 */
-		colorList = buildYourCarService.getColorListAPI().getColorList();
-		for(ColorDto color : colorList) {
-			if(color.getTrimCode().equals(trimCode) && color.getColorCode().equals(extColorCode) && color.getCarOptionCode().equals("E")) {
-				modelColor = color.getColorName();
-			}
-		}
-		
 		
 		/**
 		 * get Print Model-Option List 
 		 */
-		optionList = buildYourCarService.getOptionlListAPI().getListOfOptions();
+//		optionList = buildYourCarService.getOptionlListAPI().getListOfOptions();
+		optionResults = buildYourCarService.getOptionlListAPI();
 		
+		optionList = optionResults.getData().getListOfOptions();
+		optionData = optionResults.getData();
 	}
 
 
@@ -134,14 +104,22 @@ public class Build004_OptionModel {
 		return extColorCode;
 	}
 
-
 	public String getIntColorCode() {
 		return intColorCode;
 	}
 
-
 	public String getCarModelName() {
 		return carModelName;
 	}
+
+	public OptionListDto getOptionData() {
+		return optionData;
+	}
+
+	public OptionListDtoResults getOptionResults() {
+		return optionResults;
+	}
+
+	
 	
 }

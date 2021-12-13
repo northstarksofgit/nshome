@@ -17,7 +17,6 @@ import com.kia25.core.rest.client.dto.ColorListDto;
 import com.kia25.core.rest.client.dto.ColorListDtoResults;
 import com.kia25.core.rest.client.dto.ModelListDto;
 import com.kia25.core.rest.client.dto.ModelListDtoResults;
-import com.kia25.core.rest.client.dto.OptionListDto;
 import com.kia25.core.rest.client.dto.OptionListDtoResults;
 import com.kia25.core.rest.client.dto.TrimListDto;
 import com.kia25.core.rest.client.dto.TrimListDtoResults;
@@ -121,7 +120,7 @@ public class BuildYourCarServiceImpl implements BuildYourCarService {
 	/**
 	 * get option List
 	 */
-	public OptionListDto getOptionlListAPI() {
+	public OptionListDtoResults getOptionlListAPI() {
 		
 		try {
 			String response = service.getRequest("list-of-option");
@@ -129,7 +128,7 @@ public class BuildYourCarServiceImpl implements BuildYourCarService {
 			ObjectMapper mapper = new ObjectMapper();
 			
 			OptionListDtoResults results = mapper.readValue(response,  OptionListDtoResults.class);
-            return results.getData();
+            return results;
             
 		} catch (IOException e) {
 			LOG.error("Error parsing JSON API response.", e);

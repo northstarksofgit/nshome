@@ -18,6 +18,7 @@ import org.slf4j.LoggerFactory;
 import com.kia25.core.rest.client.dto.ColorDto;
 import com.kia25.core.rest.client.dto.ModelDto;
 import com.kia25.core.rest.client.dto.OptionDto;
+import com.kia25.core.rest.client.dto.SummaryDto;
 import com.kia25.core.rest.client.dto.TrimDto;
 
 import com.kia25.core.rest.client.service.BuildYourCarService;
@@ -101,10 +102,20 @@ public class NaviModel {
 			option = optionParam.split(",");			
 		}
 
+		/*
+		 * summary정보 호출
+		 */
+		SummaryDto summary = service.getSummaryAPI(step);
 		
+		/*
+		 * summary 출력 테스트
+		 */
+		LOG.info(summary.getTrimName());
+		List<OptionDto> optionResult = summary.getListOfOptions();
 		
-
-		
+		for(OptionDto o: optionResult) {
+			LOG.info("optionName: "+o.getOptionName());
+		}
 		
 		
 		
@@ -114,7 +125,7 @@ public class NaviModel {
 	
 	
 	
-	
+	 
 	
 	
 	

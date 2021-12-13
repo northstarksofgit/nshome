@@ -1,5 +1,7 @@
 package com.kia25.core.rest.client.dto;
 
+import java.util.List;
+
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 @JsonIgnoreProperties(ignoreUnknown = true)
@@ -73,7 +75,7 @@ public class SummaryDto {
 	/*
 	 * 선택한 옵션
 	 */
-	private OptionListDto listOfOptions;
+	private List<OptionDto> listOfOptions;
 	
 	/*
 	 * 현재까지의 총 가격
@@ -188,11 +190,11 @@ public class SummaryDto {
 		this.interiorColorImgPath = interiorColorImgPath;
 	}
 
-	public OptionListDto getListOfOptions() {
+	public List<OptionDto> getListOfOptions() {
 		return listOfOptions;
 	}
 
-	public void setListOfOptions(OptionListDto listOfOptions) {
+	public void setListOfOptions(List<OptionDto> listOfOptions) {
 		this.listOfOptions = listOfOptions;
 	}
 

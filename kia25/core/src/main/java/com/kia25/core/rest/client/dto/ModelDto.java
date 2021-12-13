@@ -23,7 +23,7 @@ public class ModelDto {
 	/**
 	 * 전시 대표 차 종명
 	 */
-	private String carModelName;
+	private String modelName;
 	
 	/**
 	 * 대표 차량 이미지
@@ -58,13 +58,13 @@ public class ModelDto {
 	public void setModelYear(String modelYear) {
 		this.modelYear = modelYear;
 	}
-
-	public String getCarModelName() {
-		return carModelName;
+	
+	public String getModelName() {
+		return modelName;
 	}
 
-	public void setCarModelName(String carModelName) {
-		this.carModelName = carModelName;
+	public void setModelName(String modelName) {
+		this.modelName = modelName;
 	}
 
 	public String getCarImagePath() {

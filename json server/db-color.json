@@ -1,6 +1,3 @@
-
-
-
 {
       "category-list":
 	  {
@@ -708,7 +705,31 @@
 						"colorImgPath" : "https://www.kia.com/content/dam/kwcms/kr/ko/images/byo/car_k3_the_new_swp.png", 
 						"productNumber":"https://www.kia.com/content/dam/kwcms/kr/ko/images/byo/color/swp.jpg"
 					}
-					 ]	
+					 ],			
+			"exteriorList": [
+                {
+                    "categoryCode": "001",
+                    "modelCode": "EV6",
+                    "modelYear": "2021",
+                    "carModelName": "EV6",
+                    "carcelImage": "https://www.kia.com/content/dam/kwcms/kr/ko/images/byo/color/swp.jpg",
+                    "cellvehiclePrice": "1,000"
+                }, {
+                    "categoryCode": "001",
+                    "modelCode": "EDE",
+                    "modelYear": "2021",
+                    "carModelName": "니로EV",
+                    "carcelImage": "https://www.kia.com/content/dam/kwcms/kr/ko/images/byo/color/ABT.jpg",
+                    "cellvehiclePrice": "2,000"
+                }, {
+                    "categoryCode": "001",
+                    "modelCode": "YFE",
+                    "modelYear": "2021",
+                    "carModelName": "봉고IIIEV",
+                    "carcelImage": "https://www.kia.com/content/dam/kwcms/kr/ko/images/byo/color/allnewk7_abp.jpg",
+                    "cellvehiclePrice": "3,000"
+                } 
+            ]
 					
 		} 
 	}

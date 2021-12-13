@@ -1,4 +1,4 @@
-package com.kia25.core.rest.client.dto.option;
+package com.kia25.core.rest.client.dto;
 
 public class OptionListDtoResults {
 

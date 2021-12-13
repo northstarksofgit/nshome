@@ -18,9 +18,9 @@ import com.kia25.core.rest.client.dto.ColorListDtoResults;
 import com.kia25.core.rest.client.dto.ModelListDto;
 import com.kia25.core.rest.client.dto.ModelListDtoResults;
 import com.kia25.core.rest.client.dto.OptionListDto;
+import com.kia25.core.rest.client.dto.OptionListDtoResults;
 import com.kia25.core.rest.client.dto.TrimListDto;
 import com.kia25.core.rest.client.dto.TrimListDtoResults;
-import com.kia25.core.rest.client.dto.option.OptionListDtoResults;
 import com.kia25.core.rest.client.service.BuildYourCarService;
 import com.kia25.core.rest.client.service.CommonRestApiService;
 

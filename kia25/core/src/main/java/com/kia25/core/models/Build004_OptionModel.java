@@ -13,12 +13,10 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import com.kia25.core.rest.client.dto.ColorDto;
-import com.kia25.core.rest.client.dto.TrimModel.TrimDto;
-import com.kia25.core.rest.client.dto.categoryModel.ModelDto;
-import com.kia25.core.rest.client.dto.option.OptionDto;
-import com.kia25.core.rest.client.service.Build001Service;
+import com.kia25.core.rest.client.dto.TrimDto;
+import com.kia25.core.rest.client.dto.ModelDto;
+import com.kia25.core.rest.client.dto.OptionDto;
 import com.kia25.core.rest.client.service.BuildYourCarService;
-import com.kia25.core.rest.client.service.impl.Build001ServiceImpl;
 import com.kia25.core.rest.client.service.impl.BuildYourCarServiceImpl;
 
 
@@ -28,8 +26,6 @@ public class Build004_OptionModel {
 	private final static Logger log = LoggerFactory.getLogger(Build004_OptionModel.class);
 	BuildYourCarService buildYourCarService = new BuildYourCarServiceImpl();
 	
-	@OSGiService
-	Build001Service service = new Build001ServiceImpl();
 	
 	@Self
     private SlingHttpServletRequest request;
@@ -68,7 +64,7 @@ public class Build004_OptionModel {
 		modelList = buildYourCarService.getModelListAPI().getModelList();
 		for(ModelDto model : modelList) {
 			if(model.getModelCode().equals(modelCode)) {
-				carImage = model.getCarImage();
+				carImage = model.getCarImagePath();
 				carModelName = model.getCarModelName();
 			}
 		}

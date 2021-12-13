@@ -19,7 +19,7 @@
 			"interiorColorName":  null,
 			"interiorColorPrice": 0,
 			"interiorColorImgPath" : null,
-			"optionList" : null,
+			"listOfOptions" : null,
 			"totalPrice" : 23432424
 			
 		}
@@ -44,7 +44,7 @@
 			"interiorColorName": "스틸 그레이",
 			"interiorColorPrice": 1000,
 			"interiorColorImgPath" : "https://www.kia.com/content/dam/kwcms/kr/ko/images/byo/car_k3_the_new_swp.png",
-			"optionList" : null,
+			"listOfOptions" : null,
 			"totalPrice" : 123123
 		}
     },
@@ -68,16 +68,28 @@
 			"interiorColorName": "스틸 그레이",
 			"interiorColorPrice": 1000,
 			"interiorColorImgPath" : "https://www.kia.com/content/dam/kwcms/kr/ko/images/byo/car_k3_the_new_swp.png",
-			"optionList":[
+			"listOfOptions":[
 				{
 					"optionCode":"4WD",
 					"optionName": "듀얼 모터 4WD",
-					"optionPrice": 3000000
+					"optionPrice": "3000000",
+					"trimCode" : "",
+					"carOptionCode": "",
+					"bestYn": "",
+					"optionalImgPath": "",
+					"specificationCode": "",
+					"optionProductNumber": ""
 				},
 				{
 					"optionCode":"DWP",
 					"optionName": "드라이브 와이즈",
-					"optionPrice": 1400000
+					"optionPrice": "1400000",
+					"trimCode" : "",
+					"carOptionCode": "",
+					"bestYn": "",
+					"optionalImgPath": "",
+					"specificationCode": "",
+					"optionProductNumber": ""
 					
 				}
 			],

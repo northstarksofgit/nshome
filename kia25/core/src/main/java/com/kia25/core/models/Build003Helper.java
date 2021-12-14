@@ -14,7 +14,7 @@ import org.slf4j.LoggerFactory;
 
 import com.kia25.core.rest.client.dto.ColorDto;
 import com.kia25.core.rest.client.dto.ColorListDto;
-import com.kia25.core.rest.client.dto.ModelDto;
+import com.kia25.core.rest.client.dto.ColorListDtoResults;
 import com.kia25.core.rest.client.service.BuildYourCarService;
 import com.kia25.core.rest.client.service.impl.BuildYourCarServiceImpl;
 
@@ -23,9 +23,7 @@ import org.apache.sling.models.annotations.DefaultInjectionStrategy;
 @Model(adaptables = { SlingHttpServletRequest.class }, defaultInjectionStrategy = DefaultInjectionStrategy.OPTIONAL)
 public class Build003Helper {
 
-	BuildYourCarService Build003Service = new BuildYourCarServiceImpl();
-
-	private static final Logger LOG = LoggerFactory.getLogger(Build003Helper.class);
+	private static final Logger log = LoggerFactory.getLogger(Build003Helper.class);
 
 	@OSGiService
 	BuildYourCarService service = new BuildYourCarServiceImpl();
@@ -35,77 +33,41 @@ public class Build003Helper {
 
 	private List<ColorDto> colorList;
 	private List<ColorDto> exteriorList;
-	private List<ModelDto> modelList;
-
-	private int colorCount;
-
-	private String modelCode = null;
-	private String carModelName = null;
-	private String carImage = null;
-	private String modelYear = null;
+	 
+	private String premodelCode = null;
+	private String pretrimName = null;
+ 
 
 	@PostConstruct
 	public void activate() throws IOException {
-		colorList = Build003Service.getColorAPI().getColorList();
-		exteriorList = Build003Service.getColorAPI().getExteriorList();
-		// modelList = Build003Service.getModelAPI().getModelList();
-
-		/*
-		 * parameter로 모델명 ,이미지가져오기
-		 * http://localhost:4502/editor.html/content/kia25/us/en/page3.html?modelCode=
-		 * EV6
-		 */
-
-		modelCode = request.getParameter("modelCode");
-
-		for (ModelDto model : Build003Service.getModelAPI().getModelList()) {
-
-			if (model.getModelCode().equals(modelCode)) {
-				carImage = model.getCarImagePath();
-				carModelName = model.getModelName();
-			}
-		}
+		colorList = service.getColorAPI().getColorList();
+		exteriorList = service.getColorAPI().getExteriorList();
+		
+		premodelCode = service.getColorAPI().getPremodelCode();
+		pretrimName = service.getColorAPI().getPretrimName();
 
 	}
+
 
 	public List<ColorDto> getColorList() {
 		return colorList;
 	}
-	
+
+
 	public List<ColorDto> getExteriorList() {
 		return exteriorList;
 	}
 
-	public int getColorCount() {
-		return colorCount;
+
+	public String getPremodelCode() {
+		return premodelCode;
 	}
 
-	public void setColorList(List<ColorDto> colorList) {
-		this.colorList = colorList;
+
+	public String getPretrimName() {
+		return pretrimName;
 	}
 
-	public void setColorCount(int colorCount) {
-		this.colorCount = colorCount;
-	}
 
-	public List<ModelDto> getModelList() {
-		return modelList;
-	}
-
-	public void setModelList(List<ModelDto> modelList) {
-		this.modelList = modelList;
-	}
-
-	public String getModelCode() {
-		return modelCode;
-	}
-
-	public String getCarModelName() {
-		return carModelName;
-	}
-
-	public String getModelYear() {
-		return modelYear;
-	}
 
 }

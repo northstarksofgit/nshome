@@ -20,8 +20,6 @@ public class ColorDto {
 	/* colorList 컬러 내/외장 	 * i : 인테리어	 * e : 익스테리어 */
 	private String carOptionCode;
 	
-	/* colorList 트림 코드 */
-	private String trimCode;	
 
 	/* colorList 컬러 이미지 */
 	private String colorImgPath;
@@ -30,19 +28,29 @@ public class ColorDto {
 	private String productNumber;
 	
 	
-	/* exteriorList 연식  */
-	private String modelYear;
+	/* exteriorList  트림  */
+	private String trimCode;
 	
 	/* exteriorList 가격  */
 	private String cellvehiclePrice;
 	
 	/* exteriorList 색상조각  */
 	private String carcelImage;
+	
+	/** selected Trim Code
+	 */
+	private String pretrimName;
+
+	/**
+	 * selected Model Code
+	 */
+	private String premodelCode;
+	
 
 	public String getColorCode() {
 		return colorCode;
 	}
-
+	
 	public void setColorCode(String colorCode) {
 		this.colorCode = colorCode;
 	}
@@ -114,20 +122,28 @@ public class ColorDto {
 		this.cellvehiclePrice = cellvehiclePrice;
 	}
 
-	public String getModelYear() {
-		return modelYear;
-	}
-
-	public void setModelYear(String modelYear) {
-		this.modelYear = modelYear;
-	}
-
 	public String getCarcelImage() {
 		return carcelImage;
 	}
 
 	public void setCarcelImage(String carcelImage) {
 		this.carcelImage = carcelImage;
+	}
+
+	public String getPretrimName() {
+		return pretrimName;
+	}
+
+	public void setPretrimName(String pretrimName) {
+		this.pretrimName = pretrimName;
+	}
+
+	public String getPremodelCode() {
+		return premodelCode;
+	}
+
+	public void setPremodelCode(String premodelCode) {
+		this.premodelCode = premodelCode;
 	}
 	
 	

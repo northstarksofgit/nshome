@@ -1,5 +1,5 @@
-{
-      "category-list":
+{	
+	"category-list":
 	  {
 		"resultCode": "000",
 		"detailCode": null,
@@ -28,8 +28,8 @@
 		  }]
 		}
 	  },
-	
-	"model-list": {
+	  
+	  "model-list": {
         "resultCode": "000",
         "detailCode": null,
         "resultMessage": null,
@@ -642,13 +642,18 @@
             ]
         }
     },
-
-    	"color-list": {
+      
+    "color-list": {
 		"resultCode": "000",
 		"detailCode": null,
 		"resultMessage": null,
 		"detailMessage": null,
 		"data": {
+			"modelName" : "EV6",
+            "modelCode" :"EV6",
+            "carImagePath" :"/content/dam/kia25/build-a-car/car_ev6.png", 
+			"trimCode": "LRL",
+			"trimName": "EV6 롱 레인지 라이트(Light)",
 			"colorList": [
 					{ 	"colorCode": "M4B", 
 						"colorName": "미네랄 블루", 
@@ -708,30 +713,20 @@
 					 ],			
 			"exteriorList": [
                 {
-                    "categoryCode": "001",
-                    "modelCode": "EV6",
-                    "modelYear": "2021",
-                    "carModelName": "EV6",
-                    "carcelImage": "https://www.kia.com/content/dam/kwcms/kr/ko/images/byo/color/swp.jpg",
+                    "trimCode": "LRL",
+					"carcelImage": "https://www.kia.com/content/dam/kwcms/kr/ko/images/byo/color/swp.jpg",
                     "cellvehiclePrice": "1,000"
                 }, {
-                    "categoryCode": "001",
-                    "modelCode": "EDE",
-                    "modelYear": "2021",
-                    "carModelName": "니로EV",
-                    "carcelImage": "https://www.kia.com/content/dam/kwcms/kr/ko/images/byo/color/ABT.jpg",
+                    "trimCode": "LRL",
+					"carcelImage": "https://www.kia.com/content/dam/kwcms/kr/ko/images/byo/color/ABT.jpg",
                     "cellvehiclePrice": "2,000"
                 }, {
-                    "categoryCode": "001",
-                    "modelCode": "YFE",
-                    "modelYear": "2021",
-                    "carModelName": "봉고IIIEV",
-                    "carcelImage": "https://www.kia.com/content/dam/kwcms/kr/ko/images/byo/color/allnewk7_abp.jpg",
+                    "trimCode": "LRL",
+					"carcelImage": "https://www.kia.com/content/dam/kwcms/kr/ko/images/byo/color/allnewk7_abp.jpg",
                     "cellvehiclePrice": "3,000"
                 } 
             ]
 					
 		} 
 	}
-
 }

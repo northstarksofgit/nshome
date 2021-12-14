@@ -4,25 +4,25 @@ public class ColorListDtoResults {
 	/**
 	 * 결과코드
 	 */
-    private String resultCode;
-    /**
-     * 상세코드
-     */
-    private String detailCode;
-    /**
-     * 결과
-     */
-    private String resultMessage;
-    /**
-     * 상세결과
-     */
-    private String detailMessage;
+	private String resultCode;
+	/**
+	 * 상세코드
+	 */
+	private String detailCode;
+	/**
+	 * 결과
+	 */
+	private String resultMessage;
+	/**
+	 * 상세결과
+	 */
+	private String detailMessage;
 
-    /**
-     * Data
-     */
-    private ColorListDto data;
-    
+	/**
+	 * Data
+	 */
+	private ColorListDto data;
+
 	public String getResultCode() {
 		return resultCode;
 	}
@@ -61,6 +61,6 @@ public class ColorListDtoResults {
 
 	public void setData(ColorListDto data) {
 		this.data = data;
-	}	
+	}
 
 }

@@ -6,13 +6,17 @@
 
 
 <template data-sly-template.formattedPrice="${ @ price}">
-	<span data-sly-use.priceFormatter="${'com.kia25.core.models.CurrencyFormatterModel' @ value=price}">
-			${priceFormatter.formattedPrice}
+	 <span data-sly-use.priceFormatter="${'com.kia25.core.models.CurrencyFormatterModel' @ value=price}">
+			format : ${priceFormatter.formattedPrice}
 	</span>
+	
+	 price : ${price}
 </template>
-<sly data-sly-call="${formattedPrice @ price=model.summary.totalPrice}">${priceFormatter.formattedPrice}</sly>
 
-		
+
+<sly data-sly-call="${formattedPrice @ price=model.summary.totalPrice}"></sly>
+
+<br> total : ${model.summary.totalPrice}		
 		
         <div class="estimate_online_wrap">
 

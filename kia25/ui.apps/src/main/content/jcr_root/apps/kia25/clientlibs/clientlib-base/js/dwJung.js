@@ -283,6 +283,54 @@ function toolBar() {
 
 
 
+function nextStep(){
+	
+	/*
+	* url의 prameter를 체크하기 위함
+	* url 출력 예시 : ?step=3&car=ev6
+	*/
+	var pramUrl = window.location.search;
+	var params = new URLSearchParams(pramUrl);
+	const step = params.get('step');
+	
+	/*
+	* 다음  url로 가기 위함
+	* 예시 : /content/kia25/us/navi.html?step=1
+	*/
+	var totalUrl = window.location.href;
+	
+	var subUrl = totalUrl.substr(totalUrl.indexOf('/content'), totalUrl.length);
+	var next = "";
 
+
+	if(step == 1){
+		
+		/*
+		* 이동할 url 셋팅
+		*/
+		
+		subUrl = subUrl.replace('step=1','step=2');
+		next = "&ext=ABP&int=IN_EV6_BL";
+		
+		
+	}else if(step == 2){
+		subUrl = subUrl.replace('step=2','step=3');
+		next = "&option=4WD,DWP,CVN";
+		
+	}
+	
+	
+	/*
+	* 해당 url로 이동
+	*/		
+		
+	subUrl += next;
+	
+	console.log("subUrl: "+subUrl);
+	
+	location.href = subUrl;
+	
+	
+}
 
 

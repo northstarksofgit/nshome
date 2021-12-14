@@ -69,6 +69,8 @@ public class NaviModel {
 		 */
 		String step = request.getParameter("step");
 		
+		step = (step == null) ? "0" : step;
+		
 		/*
 		 * 차량 model code
 		 */

@@ -38,7 +38,7 @@ public class OptionDto {
 	/**
 	 * 옵션가격
 	 */
-	private String optionPrice;
+	private int optionPrice;
 	
 	
 	/**
@@ -110,12 +110,12 @@ public class OptionDto {
 	}
 
 
-	public String getOptionPrice() {
+	public int getOptionPrice() {
 		return optionPrice;
 	}
 
 
-	public void setOptionPrice(String optionPrice) {
+	public void setOptionPrice(int optionPrice) {
 		this.optionPrice = optionPrice;
 	}
 

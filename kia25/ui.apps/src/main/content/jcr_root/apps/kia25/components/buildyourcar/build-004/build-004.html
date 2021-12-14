@@ -1,6 +1,13 @@
 <sly data-sly-use.clientLib="/libs/granite/sightly/templates/clientlib.html"  data-sly-call="${clientLib.all @ categories='kia25.base'}"></sly>
 <sly data-sly-use.option="com.kia25.core.models.Build004_OptionModel"></sly>
 
+<template data-sly-template.formattedPrice="${ @ price}">
+	<span  class="price" data-sly-use.priceFormatter="${'com.kia25.core.models.CurrencyFormatterModel' @ value=price}">
+		${priceFormatter.formattedPrice}<em>원</em>
+	</span> 
+</template>
+
+
 <div class="estimate_online_wrap">
     <!-- step 시작 -->
     <div class="step_wrap">
@@ -92,7 +99,8 @@
 		                        <a href="#" class="box_a">
 		                            <div class="box" option_and_tuon="${optList.optionCode}">
 		                                <span class="h">${optList.optionName}</span>
-		                                <span class="price">${optList.optionPrice}<em>원</em></span>
+										<sly data-sly-call="${formattedPrice @ price=optList.optionPrice}"></sly>
+<!-- 		                                <span class="price">${optList.optionPrice}<em>원</em></span> -->
 		                            </div>
 		                        </a>
 		                    </li>

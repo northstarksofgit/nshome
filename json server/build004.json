@@ -7,7 +7,9 @@
         "data": {
 
             "modelName" : "EV6",
-            "modelCode" :"EV6",
+            "modelCode" : "EV6",
+            "trimCode" : "LRL",
+            "trimName" : "EV6 롱 레인지 라이트(Light)",
             "carImagePath" :"/content/dam/kia25/build-a-car/car_ev6.png",
             "extColorName" :"오로라 블랙 펄",
             "extColorCode" :"ABP",

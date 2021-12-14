@@ -283,6 +283,65 @@ function toolBar() {
 
 
 
-
+function nextStep(){
+	
+	/*
+	* url의 prameter를 체크하기 위함
+	* url 출력 예시 : ?step=3&car=ev6
+	*/
+	var pramUrl = window.location.search;
+	var params = new URLSearchParams(pramUrl);
+	const step = params.get('step');
+	
+	/*
+	* 다음  url로 가기 위해 현재 URL 가져오기
+	* 예시 : /content/kia25/us/navi.html?step=1
+	*/
+	var totalUrl = window.location.href;
+	var subUrl = totalUrl.substr(totalUrl.indexOf('/content'), totalUrl.length);
+	
+	/*
+	* 이동할 url 셋팅
+	*/
+	var next = "";
+	
+	if(step == null){
+		/*최초 시작
+		* 다음 단계에서 트림 출력
+		*/
+		
+		next = "?step=1&car=EV6&trimCode=LRL";
+		
+	}
+	else if(step == 1){
+		/* trim까지 출력된 단계
+		* 다음 단계에서 color까지 출력
+		*/
+		
+		subUrl = subUrl.replace('step=1','step=2');
+		next = "&ext=ABP&int=IN_EV6_BL";
+		
+		
+	}else if(step == 2){
+		/* color까지 출력된 단계
+		*다음 단계에서 option까지 출력
+		*/
+		
+		subUrl = subUrl.replace('step=2','step=3');
+		next = "&option=4WD,DWP,CVN";
+		
+	}
+	
+	
+	/*
+	* 셋팅한 url로 이동
+	*/		
+		
+	subUrl += next;
+	
+	location.href = subUrl;
+	
+	
+}
 
 

@@ -9,7 +9,7 @@ public class CurrencyFormatter {
 
 	
     
-    public static String formatPrice(BigDecimal price, Locale locale) {
+    public static String formatPrice(int price, Locale locale) {
 
         
         DecimalFormat formatter = (DecimalFormat) NumberFormat.getInstance(locale);

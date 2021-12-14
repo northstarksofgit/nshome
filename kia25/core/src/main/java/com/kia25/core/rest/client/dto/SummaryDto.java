@@ -1,5 +1,6 @@
 package com.kia25.core.rest.client.dto;
 
+import java.math.BigDecimal;
 import java.util.List;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
@@ -205,7 +206,7 @@ public class SummaryDto {
 	public void setTotalPrice(int totalPrice) {
 		this.totalPrice = totalPrice;
 	}
-	
+
 	
 	
 	

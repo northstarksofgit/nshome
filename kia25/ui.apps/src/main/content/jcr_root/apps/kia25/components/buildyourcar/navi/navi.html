@@ -7,18 +7,11 @@
 
 
 <template data-sly-template.formattedPrice="${ @ price}">
-	 <span data-sly-use.priceFormatter="${'com.kia25.core.models.CurrencyFormatterModel' @ value=price}">
-			format : ${priceFormatter.formattedPrice}
-			<br>price : ${price}
-	</span>
-	
-	 
+	 <sly data-sly-use.priceFormatter="${'com.kia25.core.models.CurrencyFormatterModel' @ value=price}">
+			${priceFormatter.formattedPrice}
+	</sly>
 </template>
 
-
-<sly data-sly-call="${formattedPrice @ price=model.summary.totalPrice}"></sly>
-
-<br> total : ${model.summary.totalPrice}		
 		
         <div class="estimate_online_wrap">
 
@@ -32,7 +25,9 @@
                     <div class="totalBar">
                         <a href="#" class="btn_totalCon_open" title="상세견적 선택 내용 열기">
                             <span class="txt">Total</span>
-                            <span class="price" title="상세견적 총 금액">${model.summary.totalPrice}</span><em class="won">원</em>
+                            
+                            
+                            <span class="price" title="상세견적 총 금액"><sly data-sly-call="${formattedPrice @ price=model.summary.totalPrice}"></sly></span><em class="won">원</em>
                         </a>
                     </div>
 
@@ -56,7 +51,7 @@
 	                                                <span class="fixed carImg"><img
 	                                                        src="${model.summary.carImgPath}"
 	                                                        alt=""></span>
-	                                                <span class="fixed conPrice">${model.summary.trimPrice}<em>원</em></span>
+	                                                <span class="fixed conPrice"><sly data-sly-call="${formattedPrice @ price=model.summary.trimPrice}"></sly><em>원</em></span>
 	                                            </div>
                                             </sly>
                                         </div>
@@ -79,7 +74,7 @@
 	                                                    <span class="colorArea"><img src="${model.summaryl.exteriorColorImgPath}" alt="" class="colorImg"></span>
 	                                                    <em class="conTitle">${model.summary.exteriorColorName}</em>
 	                                                </span>
-	                                                <span class="conPrice">${model.summary.exteriorColorPrice}<em>원</em></span>
+	                                                <span class="conPrice"><sly data-sly-call="${formattedPrice @ price=model.summary.exteriorColorPrice}"></sly><em>원</em></span>
 	                                            </div>
                                 	        		
                                 	        	
@@ -101,7 +96,7 @@
 	                                                    <span class="colorArea"><img src="${model.summary.interiorColorImgPath}" alt="" class="colorImg"></span>
 	                                                    <em class="conTitle">${model.summary.interiorColorName}</em>
 	                                                </span>
-	                                                <span class="conPrice">${model.summary.interiorColorPrice}<em>원</em></span>
+	                                                <span class="conPrice"><sly data-sly-call="${formattedPrice @ price=model.summary.interiorColorPrice}"></sly><em>원</em></span>
 	                                            </div>
 			                                      
 	                                        </sly>
@@ -119,7 +114,8 @@
 	                                                	<sly data-sly-list.opt="${model.summary.listOfOptions}">
 															<span class="fixed" price="${opt.optionPrice}">
 							                                	<em class="conTitle">${opt.optionName}</em>
-							                                	<span class="conPrice">${opt.optionPrice}<em>원</em>
+							                                	<span class="conPrice">
+							                                		<sly data-sly-call="${formattedPrice @ price=opt.optionPrice}"></sly><em>원</em>
 						                                		</span>
 															</span>
 														</sly>

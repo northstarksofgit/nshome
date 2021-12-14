@@ -46,9 +46,6 @@ public class CurrencyFormatterModel {
         
         formattedPrice = CurrencyFormatter.formatPrice(price, locale);
         
-    
-        LOG.info("formattedPrice: "+formattedPrice);
-        LOG.info("value: "+value);
         
     }
     

@@ -143,7 +143,7 @@ public class BuildYourCarServiceImpl implements BuildYourCarService {
 	/**
 	 * get color List
 	 */
-	public ColorListDto getColorListAPI() {
+	public ColorListDto getPreColorListAPI() {
 		
 		try {
 			String response = service.getRequest("color-list");
@@ -151,8 +151,8 @@ public class BuildYourCarServiceImpl implements BuildYourCarService {
 			ObjectMapper mapper = new ObjectMapper();
 			
 			ColorListDtoResults results = mapper.readValue(response,  ColorListDtoResults.class);
-			results.getData();
-            return results.getData();
+
+			return results.getData();
             
 		} catch (IOException e) {
 			LOG.error("Error parsing JSON API response.", e);

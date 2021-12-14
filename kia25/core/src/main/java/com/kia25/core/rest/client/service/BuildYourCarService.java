@@ -3,6 +3,7 @@ package com.kia25.core.rest.client.service;
 import com.kia25.core.rest.client.dto.CarGroupListDto;
 import com.kia25.core.rest.client.dto.CategoryListDto;
 import com.kia25.core.rest.client.dto.ColorListDto;
+import com.kia25.core.rest.client.dto.ColorListDtoResults;
 import com.kia25.core.rest.client.dto.ModelListDto;
 import com.kia25.core.rest.client.dto.OptionListDtoResults;
 import com.kia25.core.rest.client.dto.SummaryDto;
@@ -33,13 +34,8 @@ public interface BuildYourCarService {
 	/**
 	 * build003 / colorlist 불러오기
 	 */
-	ColorListDto getColorListAPI();
-	
-	/**
-	 * build003 / colorlist 불러오기
-	 */
+ 	ColorListDto  getPreColorListAPI();
 	ColorListDto getColorAPI();
-	ModelListDto getModelAPI();
 	
 	/**
 	 * build004 / optionlist 불러오기

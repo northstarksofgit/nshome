@@ -5,23 +5,23 @@ import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class TrimDto {
 	
-	/**
-	 * 모델코드
-	 */
-	private String modelCode;
-	
-	
-	/**
-	 * 모델연식코드
-	 */
-	private String modelYear;
-	
-	
-	/**
-	 * carGroup 코드
-	 */
-	private String carGroupCode;
-	
+//	/**
+//	 * 모델코드
+//	 */
+//	private String modelCode;
+//	
+//	
+//	/**
+//	 * 모델연식코드
+//	 */
+//	private String modelYear;
+//	
+//	
+//	/**
+//	 * carGroup 코드
+//	 */
+//	private String carGroupCode;
+//	
 	
 	/**
 	 * 트림코드
@@ -81,29 +81,29 @@ public class TrimDto {
 	/**
 	 * getter / setter
 	 */
-	public String getModelCode() {
-		return modelCode;
-	}
-
-	public void setModelCode(String modelCode) {
-		this.modelCode = modelCode;
-	}
-
-	public String getModelYear() {
-		return modelYear;
-	}
-
-	public void setModelYear(String modelYear) {
-		this.modelYear = modelYear;
-	}
-
-	public String getCarGroupCode() {
-		return carGroupCode;
-	}
-	
-	public void setCarGroupCode(String carGroupCode) {
-		this.carGroupCode = carGroupCode;
-	}
+//	public String getModelCode() {
+//		return modelCode;
+//	}
+//
+//	public void setModelCode(String modelCode) {
+//		this.modelCode = modelCode;
+//	}
+//
+//	public String getModelYear() {
+//		return modelYear;
+//	}
+//
+//	public void setModelYear(String modelYear) {
+//		this.modelYear = modelYear;
+//	}
+//
+//	public String getCarGroupCode() {
+//		return carGroupCode;
+//	}
+//	
+//	public void setCarGroupCode(String carGroupCode) {
+//		this.carGroupCode = carGroupCode;
+//	}
 
 	public String getTrimCode() {
 		return trimCode;

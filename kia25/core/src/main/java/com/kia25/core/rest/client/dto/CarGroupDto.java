@@ -1,19 +1,11 @@
 package com.kia25.core.rest.client.dto;
 
+import java.util.List;
+
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class CarGroupDto {
-	
-	/**
-	 * 모델 코드
-	 */
-	private String modelCode;
-	
-	/**
-	 * 모델 연식 코드
-	 */
-	private String modelYear;
 	
 	/**
 	 * 모델 코드
@@ -29,29 +21,13 @@ public class CarGroupDto {
 	 * 모델 대표 이미지
 	 */
 	private String carImagePath;
-	
-	
 
-	
+
+	private List<TrimDto> trimList;
 	
 	/**
 	 * getter / setter
 	 */
-	public String getModelCode() {
-		return modelCode;
-	}
-
-	public void setModelCode(String modelCode) {
-		this.modelCode = modelCode;
-	}
-
-	public String getModelYear() {
-		return modelYear;
-	}
-
-	public void setModelYear(String modelYear) {
-		this.modelYear = modelYear;
-	}
 
 	public String getCarGroupCode() {
 		return carGroupCode;
@@ -68,6 +44,24 @@ public class CarGroupDto {
 	public void setCarGroupName(String carGroupName) {
 		this.carGroupName = carGroupName;
 	}
+
+	public String getCarImagePath() {
+		return carImagePath;
+	}
+
+	public void setCarImagePath(String carImagePath) {
+		this.carImagePath = carImagePath;
+	}
+
+	public List<TrimDto> getTrimList() {
+		return trimList;
+	}
+
+	public void setTrimList(List<TrimDto> trimList) {
+		this.trimList = trimList;
+	}
+
+	
 	
 
 }

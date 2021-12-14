@@ -81,16 +81,20 @@ public class BuildYourCarServiceImpl implements BuildYourCarService {
 	 * get carGroup List
 	 */
 	@Override
-	public CarGroupListDto getCarGroupListAPI() {
+//	public CarGroupListDto getCarGroupListAPI() {
+	public CarGroupListDtoResults getCarGroupListAPI() {
 		
 		try {
-			String response = service.getRequest("carGroup-list");
+			String response = service.getRequest("trim-list");
+			LOG.debug("response={}", response);
 			ObjectMapper mapper = new ObjectMapper();
 			
 			CarGroupListDtoResults result = mapper.readValue(response, CarGroupListDtoResults.class);
-			return result.getData();
+			return result;
+//			return result.getData();
 			
 		} catch (IOException e) {
+			LOG.debug("response={}", "error");
 			e.printStackTrace();
 			
 		}
@@ -100,7 +104,7 @@ public class BuildYourCarServiceImpl implements BuildYourCarService {
 	
 	/**
 	 * get trim List
-	 */
+	 
 	public TrimListDto getTrimListAPI() {
 		
 		try {
@@ -118,6 +122,7 @@ public class BuildYourCarServiceImpl implements BuildYourCarService {
 		
 		return null;
 	}
+	*/
 	
 	/**
 	 * get option List
@@ -214,7 +219,11 @@ public class BuildYourCarServiceImpl implements BuildYourCarService {
 		
 		try {
 		
-			if(step.equals("1")) {
+			if(step.equals("0")) {
+				
+				response = service.getRequest("summary-info-0");
+				
+			}else if(step.equals("1")) {
 				//trim까지
 				
 				response = service.getRequest("summary-info-1");

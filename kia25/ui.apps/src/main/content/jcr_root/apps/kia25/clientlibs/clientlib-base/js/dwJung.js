@@ -211,6 +211,7 @@ var showBtnActMove = function() {
 $(document).ready(function() {
 	
 	
+	/*
 
 	//가격에 , 표시
 	if($('.conPrice').length>0){
@@ -225,7 +226,7 @@ $(document).ready(function() {
 		}
 	};
 	
-	
+	*/
 	
     toolBar();
 });

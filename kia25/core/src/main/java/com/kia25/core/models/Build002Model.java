@@ -93,7 +93,7 @@ public class Build002Model {
 		
 		for(CarGroupDto aa : carGroupList){
 			
-			ArrayList trim = (ArrayList) aa.getTrimList();
+			//ArrayList trim = (ArrayList) aa.getTrimList();
 	
 			
 			log.info(aa.getTrimList().toString());

@@ -6,7 +6,7 @@ $(document).ready(function() {
 	
 	
 	
-    $('.form_chk').click(function() {
+    $('.form_chk.carGroup').click(function() {
 
 		carGroupCode = $(this).children('input').val();
 		carGroupList = $('.box_u').children('.trimselector').children('.trim_click');
@@ -15,16 +15,14 @@ $(document).ready(function() {
 		
 		if ($(this).children('input').attr('checked') == true){
 			trimCarGroupCode = $('.box_u').children('.trimselector').children('.trim_click').attr('value');
-			console.log('트림코드' + trimCarGroupCode);
+			//console.log('트림코드' + trimCarGroupCode);
 			
 		}
-			console.log('그룹코드' + carGroupCode);
-		
-		
+			//console.log('그룹코드' + carGroupCode);
 		
 		
 		for(var i =0; i < carGroupList.length; i++) {
-			console.log(carGroupList[i].value);
+			//console.log(carGroupList[i]);
 			/*
 			if(carGroupCode == trimCarGroupCode){
 				$('.trimselector').css('display', 'block');

@@ -113,13 +113,7 @@ public class NaviModel {
 		 */
 		summary = service.getSummaryAPI(step);
 		
-		/*
-		LOG.info("trimName: "+summary.getTrimName());
 		
-		for(OptionDto o : summary.getListOfOptions()) {
-			LOG.info("option: "+o.getOptionName());
-		}
-		*/
 		
 		
 	}

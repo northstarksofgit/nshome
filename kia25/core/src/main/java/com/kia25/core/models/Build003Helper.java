@@ -23,7 +23,7 @@ import org.apache.sling.models.annotations.DefaultInjectionStrategy;
 @Model(adaptables = { SlingHttpServletRequest.class }, defaultInjectionStrategy = DefaultInjectionStrategy.OPTIONAL)
 public class Build003Helper {
 
-	private static final Logger LOG = LoggerFactory.getLogger(Build003Helper.class);
+	private static final Logger log = LoggerFactory.getLogger(Build003Helper.class);
 
 	@OSGiService
 	BuildYourCarService service = new BuildYourCarServiceImpl();
@@ -43,34 +43,31 @@ public class Build003Helper {
 		colorList = service.getColorAPI().getColorList();
 		exteriorList = service.getColorAPI().getExteriorList();
 		
-		premodelCode = service.getPreColorListAPI().getPremodelCode();
-		pretrimName = service.getPreColorListAPI().getPretrimName();
+		premodelCode = service.getColorAPI().getPremodelCode();
+		pretrimName = service.getColorAPI().getPretrimName();
 
 	}
+
 
 	public List<ColorDto> getColorList() {
 		return colorList;
 	}
-	
-	public void setColorList(List<ColorDto> colorList) {
-		this.colorList = colorList;
-	}
-	
+
+
 	public List<ColorDto> getExteriorList() {
 		return exteriorList;
 	}
-	
-	public void setExteriorList(List<ColorDto> exteriorList) {
-		this.exteriorList = exteriorList;
-	}
 
-	public String getPreModelCode() {
+
+	public String getPremodelCode() {
 		return premodelCode;
 	}
 
-	public String getPreTrimName() {
+
+	public String getPretrimName() {
 		return pretrimName;
 	}
+
 
 
 }

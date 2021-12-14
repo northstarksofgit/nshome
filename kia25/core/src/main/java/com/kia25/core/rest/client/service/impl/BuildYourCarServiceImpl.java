@@ -145,28 +145,7 @@ public class BuildYourCarServiceImpl implements BuildYourCarService {
 		return null;
 	}
 	
-	/**
-	 * get color List
-	 */
-	public ColorListDto getPreColorListAPI() {
-		
-		try {
-			String response = service.getRequest("color-list");
-			LOG.debug("response={}", response);
-			ObjectMapper mapper = new ObjectMapper();
-			
-			ColorListDtoResults results = mapper.readValue(response,  ColorListDtoResults.class);
-
-			return results.getData();
-            
-		} catch (IOException e) {
-		//	LOG.error("Error parsing JSON API response.", e);
-			e.printStackTrace();
-		}
-		
-		return null;
-	}
-	
+	 
 	/**
 	 * build003 / colorlist 불러오기
 	 */

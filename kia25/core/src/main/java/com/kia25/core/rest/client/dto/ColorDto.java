@@ -37,10 +37,13 @@ public class ColorDto {
 	/* exteriorList 색상조각  */
 	private String carcelImage;
 	
-	/* selected Trim Code */
+	/** selected Trim Code
+	 */
 	private String pretrimName;
 
-	/* selected Model Code	 */
+	/**
+	 * selected Model Code
+	 */
 	private String premodelCode;
 	
 

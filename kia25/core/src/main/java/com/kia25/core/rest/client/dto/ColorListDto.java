@@ -28,6 +28,10 @@ public class ColorListDto {
 	public List<ColorDto> getExteriorList() {
 		return exteriorList;
 	}
+	
+	public List<ColorDto> getcarNameList() {
+		return exteriorList;
+	}
 
 	public void setColorList(List<ColorDto> colorList) {
 		this.colorList = colorList;
@@ -36,7 +40,8 @@ public class ColorListDto {
 	public void setExteriorList(List<ColorDto> exteriorList) {
 		this.exteriorList = exteriorList;
 	}
-
+	
+	/** string 으로 가져오기 **/
 	public String getPretrimName() {
 		return pretrimName;
 	}

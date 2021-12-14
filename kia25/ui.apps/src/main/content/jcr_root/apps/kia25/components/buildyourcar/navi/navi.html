@@ -2,7 +2,7 @@
 <sly data-sly-use.clientlibs="/libs/granite/sightly/templates/clientlib.html" />
 <sly data-sly-call="${clientlibs.all @ categories='kia25.base'}" />
 
-<sly data-sly-use.model="com.kia25.core.models.NaviModel"></sly>
+<sly data-sly-use.model="com.kia25.core.models.NaviModel" data-sly-test.summary="${model.summary}"></sly>
 
 
 
@@ -11,6 +11,7 @@
 			${priceFormatter.formattedPrice}
 	</sly>
 </template>
+
 
 		
         <div class="estimate_online_wrap">
@@ -27,7 +28,7 @@
                             <span class="txt">Total</span>
                             
                             
-                            <span class="price" title="상세견적 총 금액"><sly data-sly-call="${formattedPrice @ price=model.summary.totalPrice}"></sly></span><em class="won">원</em>
+                            <span class="price" title="상세견적 총 금액"><sly data-sly-call="${formattedPrice @ price=summary.totalPrice}"></sly></span><em class="won">원</em>
                         </a>
                     </div>
 
@@ -42,16 +43,16 @@
                                     <li class="list01">
                                         <div class="list_in">
                                             <strong>모델</strong>
-                                            <sly data-sly-test="${!model.summary.trimCode}">
+                                            <sly data-sly-test="${!summary.trimCode}">
                                             	<p>차량을 선택해 주세요.</p>
                                             </sly>
-                                            <sly data-sly-test="${model.summary.trimCode}">
-	                                            <div class="con" price="${model.summary.trimPrice}">
+                                            <sly data-sly-test="${summary.trimCode}">
+	                                            <div class="con" price="${summary.trimPrice}">
 	                                                <span class="fixed conTitle">${model.summary.trimName}</span>
 	                                                <span class="fixed carImg"><img
-	                                                        src="${model.summary.carImgPath}"
+	                                                        src="${summary.carImgPath}"
 	                                                        alt=""></span>
-	                                                <span class="fixed conPrice"><sly data-sly-call="${formattedPrice @ price=model.summary.trimPrice}"></sly><em>원</em></span>
+	                                                <span class="fixed conPrice"><sly data-sly-call="${formattedPrice @ price=summary.trimPrice}"></sly><em>원</em></span>
 	                                            </div>
                                             </sly>
                                         </div>
@@ -59,22 +60,22 @@
                                     <li class="list02">
                                         <div class="list_in">
                                             <strong>외장컬러</strong>
-                                            <sly data-sly-test="${!model.summary.exteriorColorCode}">
+                                            <sly data-sly-test="${!summary.exteriorColorCode}">
 
                                            		 <p>선택정보가 없습니다.</p>
                                            	</sly>
-                                           	<sly data-sly-test="${model.summary.exteriorColorCode}">
+                                           	<sly data-sly-test="${summary.exteriorColorCode}">
                                 	      
                                 	        	
                                 	        	
                                 	        		
 
-	                                            <div class="con con_exterior" price1="${model.summary.exteriorColorPrice}">
+	                                            <div class="con con_exterior" price1="${summary.exteriorColorPrice}">
 	                                                <span>
-	                                                    <span class="colorArea"><img src="${model.summaryl.exteriorColorImgPath}" alt="" class="colorImg"></span>
+	                                                    <span class="colorArea"><img src="${summary.exteriorColorImgPath}" alt="" class="colorImg"></span>
 	                                                    <em class="conTitle">${model.summary.exteriorColorName}</em>
 	                                                </span>
-	                                                <span class="conPrice"><sly data-sly-call="${formattedPrice @ price=model.summary.exteriorColorPrice}"></sly><em>원</em></span>
+	                                                <span class="conPrice"><sly data-sly-call="${formattedPrice @ price=summary.exteriorColorPrice}"></sly><em>원</em></span>
 	                                            </div>
                                 	        		
                                 	        	
@@ -86,17 +87,17 @@
                                         <div class="list_in">
                                             <strong>내장컬러</strong>
                                             
-                                           <sly data-sly-test="${!model.summary.interiorColorCode}">
+                                           <sly data-sly-test="${!summary.interiorColorCode}">
                                            		 <p>선택정보가 없습니다.</p>
                                            	</sly>
                                            	
-                                           	<sly data-sly-test="${model.summary.interiorColorCode}">
-	                                            <div class="con con_interior" price2="${model.summary.interiorColorPrice}">
+                                           	<sly data-sly-test="${summary.interiorColorCode}">
+	                                            <div class="con con_interior" price2="${summary.interiorColorPrice}">
 	                                                <span>
-	                                                    <span class="colorArea"><img src="${model.summary.interiorColorImgPath}" alt="" class="colorImg"></span>
+	                                                    <span class="colorArea"><img src="${summary.interiorColorImgPath}" alt="" class="colorImg"></span>
 	                                                    <em class="conTitle">${model.summary.interiorColorName}</em>
 	                                                </span>
-	                                                <span class="conPrice"><sly data-sly-call="${formattedPrice @ price=model.summary.interiorColorPrice}"></sly><em>원</em></span>
+	                                                <span class="conPrice"><sly data-sly-call="${formattedPrice @ price=summary.interiorColorPrice}"></sly><em>원</em></span>
 	                                            </div>
 			                                      
 	                                        </sly>
@@ -105,13 +106,13 @@
                                     <li class="list03">
                                         <div class="list_in">
                                             <strong>선택옵션</strong>
-                                            <sly data-sly-test="${!model.summary.listOfOptions}">
+                                            <sly data-sly-test="${!summary.listOfOptions}">
 	                                            <p>선택정보가 없습니다.</p>
 	                                        </sly>
 	                                        
-                                            <sly data-sly-test="${model.summary.listOfOptions}">
+                                            <sly data-sly-test="${summary.listOfOptions}">
 	                                                <div class="con">
-	                                                	<sly data-sly-list.opt="${model.summary.listOfOptions}">
+	                                                	<sly data-sly-list.opt="${summary.listOfOptions}">
 															<span class="fixed" price="${opt.optionPrice}">
 							                                	<em class="conTitle">${opt.optionName}</em>
 							                                	<span class="conPrice">

@@ -294,19 +294,28 @@ function nextStep(){
 	const step = params.get('step');
 	
 	/*
-	* 다음  url로 가기 위함
+	* 다음  url로 가기 위해 현재 URL 가져오기
 	* 예시 : /content/kia25/us/navi.html?step=1
 	*/
 	var totalUrl = window.location.href;
-	
 	var subUrl = totalUrl.substr(totalUrl.indexOf('/content'), totalUrl.length);
+	
+	/*
+	* 이동할 url 셋팅
+	*/
 	var next = "";
-
-
-	if(step == 1){
+	
+	if(step == null){
+		/*최초 시작
+		* 다음 단계에서 트림 출력
+		*/
 		
-		/*
-		* 이동할 url 셋팅
+		next = "?step=1&car=EV6&trimCode=LRL";
+		
+	}
+	else if(step == 1){
+		/* trim까지 출력된 단계
+		* 다음 단계에서 color까지 출력
 		*/
 		
 		subUrl = subUrl.replace('step=1','step=2');
@@ -314,6 +323,10 @@ function nextStep(){
 		
 		
 	}else if(step == 2){
+		/* color까지 출력된 단계
+		*다음 단계에서 option까지 출력
+		*/
+		
 		subUrl = subUrl.replace('step=2','step=3');
 		next = "&option=4WD,DWP,CVN";
 		
@@ -321,12 +334,10 @@ function nextStep(){
 	
 	
 	/*
-	* 해당 url로 이동
+	* 셋팅한 url로 이동
 	*/		
 		
 	subUrl += next;
-	
-	console.log("subUrl: "+subUrl);
 	
 	location.href = subUrl;
 	

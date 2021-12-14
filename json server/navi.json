@@ -131,6 +131,34 @@
 			}
 		]}
 	},
+	
+	
+	"summary-info-0": {
+		"resultCode": "000",
+		"detailCode": null,
+		"resultMessage": null,
+		"detailMessage": null,
+		"data": {
+			"modelName": null,
+			"carImgPath": null,
+			"trimCode": null,
+			"trimName": null,			
+			"trimPrice" : 0,
+			"exteriorColorCode": null,
+			"exteriorColorName": null,
+			"exteriorColorPrice": 0,
+			"exteriorColorImgPath" : null,
+			"interiorColorCode":  null,
+			"interiorColorName":  null,
+			"interiorColorPrice": 0,
+			"interiorColorImgPath" : null,
+			"listOfOptions" : null,
+			"totalPrice" : 0
+			
+		}
+    },
+	
+	
       
 	"summary-info-1": {
 		"resultCode": "000",

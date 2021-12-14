@@ -359,7 +359,7 @@
 			"totalPrice" : 23432424
 		}
 	},
-  "list-of-option": {
+	"list-of-option": {
         "resultCode": "000",
         "detailCode": null,
         "resultMessage": null,
@@ -367,7 +367,9 @@
         "data": {
 
             "modelName" : "EV6",
-            "modelCode" :"EV6",
+            "modelCode" : "EV6",
+            "trimCode" : "LRL",
+            "trimName" : "EV6 롱 레인지 라이트(Light)",
             "carImagePath" :"/content/dam/kia25/build-a-car/car_ev6.png",
             "extColorName" :"오로라 블랙 펄",
             "extColorCode" :"ABP",
@@ -380,7 +382,7 @@
                     "optionCode": "4WD",
                     "optionName": "듀얼 모터 4WD",
                     "bestYn": "",
-                    "optionPrice": "3000000",
+                    "optionPrice": 3000000,
                     "optionalImgPath": "",
                     "specificationCode": "",
                     "optionProductNumber": ""
@@ -390,7 +392,7 @@
                     "optionCode": "DWP",
                     "optionName": "드라이브 와이즈",
                     "bestYn": "",
-                    "optionPrice": "1400000",
+                    "optionPrice": 1400000,
                     "optionalImgPath": "",
                     "specificationCode": "",
                     "optionProductNumber": ""
@@ -400,7 +402,7 @@
                     "optionCode": "CVN",
                     "optionName": "컨비니언스",
                     "bestYn": "",
-                    "optionPrice": "600000",
+                    "optionPrice": 600000,
                     "optionalImgPath": "",
                     "specificationCode": "",
                     "optionProductNumber": ""
@@ -410,7 +412,7 @@
                     "optionCode": "4WD",
                     "optionName": "듀얼 모터 4WD",
                     "bestYn": "",
-                    "optionPrice": "3000000",
+                    "optionPrice": 3000000,
                     "optionalImgPath": "",
                     "specificationCode": "",
                     "optionProductNumber": ""
@@ -420,7 +422,7 @@
                     "optionCode": "DWP",
                     "optionName": "드라이브 와이즈",
                     "bestYn": "",
-                    "optionPrice": "1400000",
+                    "optionPrice": 1400000,
                     "optionalImgPath": "",
                     "specificationCode": "",
                     "optionProductNumber": ""
@@ -430,7 +432,7 @@
                     "optionCode": "CPT",
                     "optionName": "컴포트",
                     "bestYn": "",
-                    "optionPrice": "650000",
+                    "optionPrice": 650000,
                     "optionalImgPath": "",
                     "specificationCode": "",
                     "optionProductNumber": ""
@@ -440,7 +442,7 @@
                     "optionCode": "CVN",
                     "optionName": "컨비니언스",
                     "bestYn": "",
-                    "optionPrice": "600000",
+                    "optionPrice": 600000,
                     "optionalImgPath": "",
                     "specificationCode": "",
                     "optionProductNumber": ""
@@ -450,7 +452,7 @@
                     "optionCode": "HTE",
                     "optionName": "하이테크 (컨비니언스 적용시 선택가능)",
                     "bestYn": "",
-                    "optionPrice": "1850000",
+                    "optionPrice": 1850000,
                     "optionalImgPath": "",
                     "specificationCode": "",
                     "optionProductNumber": ""
@@ -460,7 +462,7 @@
                     "optionCode": "PRE",
                     "optionName": "프리미엄",
                     "bestYn": "",
-                    "optionPrice": "1050000",
+                    "optionPrice": 1050000,
                     "optionalImgPath": "",
                     "specificationCode": "",
                     "optionProductNumber": ""
@@ -470,7 +472,7 @@
                     "optionCode": "MDA",
                     "optionName": "메리디안 프리미엄 사운드 (컨비니언스 적용시 선택가능)",
                     "bestYn": "",
-                    "optionPrice": "1000000",
+                    "optionPrice": 1000000,
                     "optionalImgPath": "",
                     "specificationCode": "",
                     "optionProductNumber": ""
@@ -480,7 +482,7 @@
                     "optionCode": "SRF",
                     "optionName": "와이드 선루프",
                     "bestYn": "",
-                    "optionPrice": "650000",
+                    "optionPrice": 650000,
                     "optionalImgPath": "",
                     "specificationCode": "",
                     "optionProductNumber": ""
@@ -490,7 +492,7 @@
                     "optionCode": "BIC",
                     "optionName": "빌트인 캠",
                     "bestYn": "",
-                    "optionPrice": "600000",
+                    "optionPrice": 600000,
                     "optionalImgPath": "",
                     "specificationCode": "",
                     "optionProductNumber": ""
@@ -500,7 +502,7 @@
                     "optionCode": "R20",
                     "optionName": "20인치 휠 & 타이어",
                     "bestYn": "",
-                    "optionPrice": "400000",
+                    "optionPrice": 400000,
                     "optionalImgPath": "",
                     "specificationCode": "",
                     "optionProductNumber": ""
@@ -510,7 +512,7 @@
                     "optionCode": "4WD",
                     "optionName": "듀얼 모터 4WD",
                     "bestYn": "",
-                    "optionPrice": "3000000",
+                    "optionPrice": 3000000,
                     "optionalImgPath": "",
                     "specificationCode": "",
                     "optionProductNumber": ""
@@ -520,7 +522,7 @@
                     "optionCode": "HTE",
                     "optionName": "하이테크",
                     "bestYn": "",
-                    "optionPrice": "1850000",
+                    "optionPrice": 1850000,
                     "optionalImgPath": "",
                     "specificationCode": "",
                     "optionProductNumber": ""
@@ -530,7 +532,7 @@
                     "optionCode": "MDA",
                     "optionName": "메리디안 프리미엄 사운드",
                     "bestYn": "",
-                    "optionPrice": "1000000",
+                    "optionPrice": 1000000,
                     "optionalImgPath": "",
                     "specificationCode": "",
                     "optionProductNumber": ""
@@ -540,7 +542,7 @@
                     "optionCode": "SRF",
                     "optionName": "와이드 선루프",
                     "bestYn": "",
-                    "optionPrice": "650000",
+                    "optionPrice": 650000,
                     "optionalImgPath": "",
                     "specificationCode": "",
                     "optionProductNumber": ""
@@ -550,7 +552,7 @@
                     "optionCode": "BIC",
                     "optionName": "빌트인 캠",
                     "bestYn": "",
-                    "optionPrice": "600000",
+                    "optionPrice": 600000,
                     "optionalImgPath": "",
                     "specificationCode": "",
                     "optionProductNumber": ""
@@ -560,7 +562,7 @@
                     "optionCode": "R20",
                     "optionName": "20인치 휠 & 타이어",
                     "bestYn": "",
-                    "optionPrice": "400000",
+                    "optionPrice": 400000,
                     "optionalImgPath": "",
                     "specificationCode": "",
                     "optionProductNumber": ""
@@ -570,7 +572,7 @@
                     "optionCode": "4WD",
                     "optionName": "듀얼 모터 4WD",
                     "bestYn": "",
-                    "optionPrice": "3000000",
+                    "optionPrice": 3000000,
                     "optionalImgPath": "",
                     "specificationCode": "",
                     "optionProductNumber": ""
@@ -580,7 +582,7 @@
                     "optionCode": "HTE",
                     "optionName": "하이테크",
                     "bestYn": "",
-                    "optionPrice": "1850000",
+                    "optionPrice": 1850000,
                     "optionalImgPath": "",
                     "specificationCode": "",
                     "optionProductNumber": ""
@@ -590,7 +592,7 @@
                     "optionCode": "MDA",
                     "optionName": "메리디안 프리미엄 사운드",
                     "bestYn": "",
-                    "optionPrice": "1000000",
+                    "optionPrice": 1000000,
                     "optionalImgPath": "",
                     "specificationCode": "",
                     "optionProductNumber": ""
@@ -600,7 +602,7 @@
                     "optionCode": "SRF",
                     "optionName": "와이드 선루프",
                     "bestYn": "",
-                    "optionPrice": "650000",
+                    "optionPrice": 650000,
                     "optionalImgPath": "",
                     "specificationCode": "",
                     "optionProductNumber": ""
@@ -610,7 +612,7 @@
                     "optionCode": "BIC",
                     "optionName": "빌트인 캠",
                     "bestYn": "",
-                    "optionPrice": "600000",
+                    "optionPrice": 600000,
                     "optionalImgPath": "",
                     "specificationCode": "",
                     "optionProductNumber": ""
@@ -620,7 +622,7 @@
                     "optionCode": "4WD",
                     "optionName": "듀얼 모터 4WD",
                     "bestYn": "",
-                    "optionPrice": "3000000",
+                    "optionPrice": 3000000,
                     "optionalImgPath": "",
                     "specificationCode": "",
                     "optionProductNumber": ""
@@ -630,7 +632,7 @@
                     "optionCode": "DWP",
                     "optionName": "드라이브 와이즈",
                     "bestYn": "",
-                    "optionPrice": "1400000",
+                    "optionPrice": 1400000,
                     "optionalImgPath": "",
                     "specificationCode": "",
                     "optionProductNumber": ""
@@ -640,7 +642,7 @@
                     "optionCode": "CVN",
                     "optionName": "컨비니언스",
                     "bestYn": "",
-                    "optionPrice": "600000",
+                    "optionPrice": 600000,
                     "optionalImgPath": "",
                     "specificationCode": "",
                     "optionProductNumber": ""
@@ -650,7 +652,7 @@
                     "optionCode": "4WD",
                     "optionName": "듀얼 모터 4WD",
                     "bestYn": "",
-                    "optionPrice": "3000000",
+                    "optionPrice": 3000000,
                     "optionalImgPath": "",
                     "specificationCode": "",
                     "optionProductNumber": ""
@@ -660,7 +662,7 @@
                     "optionCode": "DWP",
                     "optionName": "드라이브 와이즈",
                     "bestYn": "",
-                    "optionPrice": "1400000",
+                    "optionPrice": 1400000,
                     "optionalImgPath": "",
                     "specificationCode": "",
                     "optionProductNumber": ""
@@ -670,7 +672,7 @@
                     "optionCode": "CPT",
                     "optionName": "컴포트",
                     "bestYn": "",
-                    "optionPrice": "650000",
+                    "optionPrice": 650000,
                     "optionalImgPath": "",
                     "specificationCode": "",
                     "optionProductNumber": ""
@@ -680,7 +682,7 @@
                     "optionCode": "CVN",
                     "optionName": "컨비니언스",
                     "bestYn": "",
-                    "optionPrice": "600000",
+                    "optionPrice": 600000,
                     "optionalImgPath": "",
                     "specificationCode": "",
                     "optionProductNumber": ""
@@ -690,7 +692,7 @@
                     "optionCode": "HTE",
                     "optionName": "하이테크 (컨비니언스 적용시 선택가능)",
                     "bestYn": "",
-                    "optionPrice": "1850000",
+                    "optionPrice": 1850000,
                     "optionalImgPath": "",
                     "specificationCode": "",
                     "optionProductNumber": ""
@@ -700,7 +702,7 @@
                     "optionCode": "PRE",
                     "optionName": "프리미엄",
                     "bestYn": "",
-                    "optionPrice": "1050000",
+                    "optionPrice": 1050000,
                     "optionalImgPath": "",
                     "specificationCode": "",
                     "optionProductNumber": ""
@@ -710,7 +712,7 @@
                     "optionCode": "MDA",
                     "optionName": "메리디안 프리미엄 사운드 (컨비니언스 적용시 선택가능)",
                     "bestYn": "",
-                    "optionPrice": "1000000",
+                    "optionPrice": 1000000,
                     "optionalImgPath": "",
                     "specificationCode": "",
                     "optionProductNumber": ""
@@ -720,7 +722,7 @@
                     "optionCode": "SRF",
                     "optionName": "와이드 선루프",
                     "bestYn": "",
-                    "optionPrice": "650000",
+                    "optionPrice": 650000,
                     "optionalImgPath": "",
                     "specificationCode": "",
                     "optionProductNumber": ""
@@ -730,7 +732,7 @@
                     "optionCode": "4WD",
                     "optionName": "듀얼 모터 4WD",
                     "bestYn": "",
-                    "optionPrice": "3000000",
+                    "optionPrice": 3000000,
                     "optionalImgPath": "",
                     "specificationCode": "",
                     "optionProductNumber": ""
@@ -740,7 +742,7 @@
                     "optionCode": "HTE",
                     "optionName": "하이테크",
                     "bestYn": "",
-                    "optionPrice": "1850000",
+                    "optionPrice": 1850000,
                     "optionalImgPath": "",
                     "specificationCode": "",
                     "optionProductNumber": ""
@@ -750,7 +752,7 @@
                     "optionCode": "MDA",
                     "optionName": "메리디안 프리미엄 사운드",
                     "bestYn": "",
-                    "optionPrice": "1000000",
+                    "optionPrice": 1000000,
                     "optionalImgPath": "",
                     "specificationCode": "",
                     "optionProductNumber": ""
@@ -760,7 +762,7 @@
                     "optionCode": "SRF",
                     "optionName": "와이드 선루프",
                     "bestYn": "",
-                    "optionPrice": "650000",
+                    "optionPrice": 650000,
                     "optionalImgPath": "",
                     "specificationCode": "",
                     "optionProductNumber": ""

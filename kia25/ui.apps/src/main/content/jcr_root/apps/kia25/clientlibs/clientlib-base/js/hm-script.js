@@ -1,7 +1,7 @@
 $(document).ready(function() {
 	var selectedOptList = [];
 	var selectedOptPrice = 0;
-    $('.box_l').click(function(e) {
+    $('.option-list').click(function(e) {
         e.preventDefault()
 
         $(this).hasClass("on") ? $(this).removeClass("on") : $(this).addClass("on")

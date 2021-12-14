@@ -1,50 +1,59 @@
 $(document).ready(function() {
-
-	var carGroupCode = "";
-	var trimCarGroupCode = $('.box_u').children('.trimselector').children('.trim_click').attr('value');
-	var carGroupList = null;
+	
+	var selectedTrimCode = null;
+	var radioIntVal = $("input:radio[name=sample1]");
+	
+	for(var i=0; i< radioIntVal.length; i++){
+		
+		if(radioIntVal[i].checked){
+			
+			var radioId = radioIntVal[i].id;
+			selectedTrimCode = $('#'+radioId).parent()[0].dataset.trimcode;		
+			
+			showHideEvent(selectedTrimCode);
+		}
+	}
 	
 	
+	function showHideEvent(_trimCode){
+		
+		var trimlist = $('.trim-list');
+		
+		for(var i = 0; i < trimlist.length; i++){
+			
+			if(trimlist[i].dataset.car != _trimCode){
+				trimlist[i].style.display = 'none';
+			} else {
+				trimlist[i].style.display = 'block';
+				
+				var classAdd = $(trimlist[i]).find('li')[0];
+				
+				if ($(trimlist[i]).find('li')[0].dataset.seq == 1){
+					
+					$(classAdd).addClass('on');
+				}
+			}
+		}
+	}
+	
+	
+	$('.form_chk.carGroup').trigger('click');
 	
     $('.form_chk.carGroup').click(function() {
-
-		carGroupCode = $(this).children('input').val();
-		carGroupList = $('.box_u').children('.trimselector').children('.trim_click');
+	
+		$('.trim_click').removeClass('on');
+		selectedTrimCode = $(this)[0].dataset.trimcode;
 		
-		console.log(carGroupList);
-		
-		if ($(this).children('input').attr('checked') == true){
-			trimCarGroupCode = $('.box_u').children('.trimselector').children('.trim_click').attr('value');
-			//console.log('트림코드' + trimCarGroupCode);
-			
-		}
-			//console.log('그룹코드' + carGroupCode);
-		
-		
-		for(var i =0; i < carGroupList.length; i++) {
-			//console.log(carGroupList[i]);
-			/*
-			if(carGroupCode == trimCarGroupCode){
-				$('.trimselector').css('display', 'block');
-			} else {
-				$('.trimselector').css('display', 'none');
-			}
-			*/
-			
-		}
-			
-		
-		if($(this).attr('checked') != true && $(this).attr('checked') != true) {
-								
-			$(this).children('input').prop('checked', true);
-			$(this).children('input').attr('checked', true);
-			
-		}
+		showHideEvent(selectedTrimCode);
 		
 	})
 	
+	$('.trim_click').on('click', function(e){
+		e.preventDefault();
 		
-		
+		$('.trim_click').removeClass('on');
+		$(this).addClass('on');
+	})
 
 
 })

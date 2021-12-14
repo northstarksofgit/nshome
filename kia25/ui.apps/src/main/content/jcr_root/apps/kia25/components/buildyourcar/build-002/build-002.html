@@ -1,6 +1,12 @@
 
 <sly data-sly-use.detail="com.kia25.core.models.Build002Model">
 
+<template data-sly-template.formattedPrice="${ @ price}">
+	<span data-sly-use.priceFormatter="${'com.kia25.core.models.CurrencyFormatterModel' @ value=price}">
+		${priceFormatter.formattedPrice}
+	</span>
+</template>
+
     <div class="estimate_online_wrap">
 
         <!-- step 시작 -->
@@ -69,14 +75,14 @@
 				<sly data-sly-list.group="${detail.carData.carGroupList}" data-sly-test="${detail.carData.carGroupList}">
 					<sly data-sly-test="${detail.carData.modelCode == detail.reqParam}">
 						<sly data-sly-test="${groupList.count == 1}">
-						        <span class="form_chk carGroup">
-						            <input type="radio" prefer="client" car="${group.carGroupCode}" carimage="${group.carImagePath}" value="${group.carGroupCode}" name="sample1" id="sample1_${groupList.count}" checked="checked">
+						        <span class="form_chk carGroup" data-trimCode="${group.carGroupCode}">
+						            <input type="radio" prefer="client" data-carGroup="${group.carGroupCode}" carimage="${group.carImagePath}" value="${group.carGroupCode}" name="sample1" id="sample1_${groupList.count}" checked="checked">
 						            <label for="sample1_${groupList.count}" class="form_spr radio_box">${group.carGroupName}</label>
 						        </span>
 						</sly>    
 						<sly data-sly-test="${groupList.count != 1}">
-						        <span class="form_chk carGroup">
-						            <input type="radio" prefer="client" car="${group.carGroupCode}" carimage="${group.carImagePath}" value="${group.carGroupCode}" name="sample1" id="sample1_${groupList.count}">
+						        <span class="form_chk carGroup" data-trimCode="${group.carGroupCode}">
+						            <input type="radio" prefer="client" data-carGroup="${group.carGroupCode}" carimage="${group.carImagePath}" value="${group.carGroupCode}" name="sample1" id="sample1_${groupList.count}">
 						            <label for="sample1_${groupList.count}" class="form_spr radio_box">${group.carGroupName}</label>
 						        </span>
 						</sly> 
@@ -104,56 +110,30 @@
 	    </div>
 	    <p class="line_wrap"></p>
 	    <div class="inner build_car build_area build_trim">
-		    <h5 class="tit">상세 차종 선택</h5>
+		     <h5 class="tit">상세 차종 선택</h5>
 		    
 		    
-			<!-- trimList에 담긴 값 가져오기 -->
-			<ul class="box_u" car="${detail.test.trimCode}">
-				<sly data-sly-list.trim="${detail.test}"  data-sly-test="${detail.test}" >
-				    <div class="trimselector slide_box" hid="false" data-car="${trim.carGroupCode}" transmission="auto" style="display: none;">
-					    <li class="box_l trim_click" price="${trim.sellingPrice}" aimg="https://www.kia.com/content/dam/kwcms/kr/ko/images/byo/car_ev6_standard.png" value="${trim.carGroupCode}" trim="CVJJ5VI31-A" car="${trim.trimCode}" tmp="off">
-					        <a href="#" class="box_a">			        
-					            <div class="box">			     
-					                <span class="h">${trim.trimName}</span> 
-					                <span class="price">${trim.sellingPrice}<em>원</em></span>
-					            </div>
-					        </a>
-					    </li>	 
-					</div>
-				</sly>		
-			</ul>
-			
-			<ul class="box_u" car="${detail.test.trimCode}">
-				<sly data-sly-list.trim="${detail.test}"  data-sly-test="${detail.test}" >
-				    <div class="trimselector slide_box" hid="false" data-car="${trim.carGroupCode}" transmission="auto" style="display: none;">
-					    <li class="box_l trim_click" price="${trim.sellingPrice}" aimg="https://www.kia.com/content/dam/kwcms/kr/ko/images/byo/car_ev6_standard.png" value="${trim.carGroupCode}" trim="CVJJ5VI31-A" car="${trim.trimCode}" tmp="off">
-					        <a href="#" class="box_a">			        
-					            <div class="box">			     
-					                <span class="h">${trim.trimName}</span> 
-					                <span class="price">${trim.sellingPrice}<em>원</em></span>
-					            </div>
-					        </a>
-					    </li>	 
-					</div>
-				</sly>		
-			</ul>
-			
-			<ul class="box_u" car="${detail.test.trimCode}">
-				<sly data-sly-list.trim="${detail.test}"  data-sly-test="${detail.test}" >
-				    <div class="trimselector slide_box" hid="false" data-car="${trim.carGroupCode}" transmission="auto" style="display: none;">
-					    <li class="box_l trim_click" price="${trim.sellingPrice}" aimg="https://www.kia.com/content/dam/kwcms/kr/ko/images/byo/car_ev6_standard.png" value="${trim.carGroupCode}" trim="CVJJ5VI31-A" car="${trim.trimCode}" tmp="off">
-					        <a href="#" class="box_a">			        
-					            <div class="box">			     
-					                <span class="h">${trim.trimName}</span> 
-					                <span class="price">${trim.sellingPrice}<em>원</em></span>
-					            </div>
-					        </a>
-					    </li>	 
-					</div>
-				</sly>		
-			</ul>
-			
-	    </div>
+			 <!-- trimList에 담긴 값 가져오기 -->
+			 <!-- <ul class="box_u" car="${detail.test.trimCode}"> -->
+			 <ul class="box_u">
+				 <sly data-sly-list.trim="${detail.test}"  data-sly-test="${detail.test}" >
+				     <div class="trimselector slide_box trim-list" hid="false" data-car="${trim.carGroupCode}" transmission="auto" style="display: none;">
+					     <li class="box_l trim_click" price="${trim.sellingPrice}" data-seq="${trim.seq}" aimg="https://www.kia.com/content/dam/kwcms/kr/ko/images/byo/car_ev6_standard.png" value="${trim.carGroupCode}" trim="CVJJ5VI31-A" car="${trim.trimCode}" tmp="off">
+					         <a href="#" class="box_a">			        
+					             <div class="box">			     
+					                 <span class="h">${trim.trimName}</span> 
+<!-- 					                 <span class="price">${trim.sellingPrice}<em>원</em></span> -->
+									 <span class="price">
+									 	<sly data-sly-call="${formattedPrice @ price=trim.sellingPrice}"></sly>
+									 	<em>원</em>
+									 </span>
+					             </div>
+					         </a>
+					     </li>	 
+				 	 </div>
+				 </sly>		
+			 </ul>
+	     </div>
 
 
     <div id="selectCar" class="popup_wrap popup new_popup" style="max-width: 950px; position: absolute; display: none; width: 1405px; left: 219px;">

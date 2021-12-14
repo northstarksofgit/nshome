@@ -33,21 +33,10 @@ public class Build002Model {
 	@Self
     private SlingHttpServletRequest request;
 	
-	/* SlingHttpServletRequest로 대체함 (파라미터 받아오기 위한 선언)
-	@Inject
-	private SlingScriptHelper slingScriptHelper;
-	
-	// SlingModel 로 진행하기 때문에 WCMUsePojo를 extends 하는 대신 import 하고 선언해줌
-	private WCMUsePojo a; 
-	*/
-	
-	// html에서 파라미터 값 가져다 사용하기 위해서 메소드 외부에 선언
 	private String reqParam = null;
 	
 	/**
 	 * carGroup 리스트
-	 * 리스트 값을 리스트만 가져온게 아니라 전체를 가져왔기 때문에
-	 * 내용을 꺼내기 위해서 각각의 값이 있는 dto도 선언
 	 */
 	private List<CarGroupDto> carGroupList;
 	private CarGroupListDto carData;
@@ -57,7 +46,6 @@ public class Build002Model {
 	/**
 	 * trim 리스트
 	 */
-//	private List<TrimDto> trimList = new ArrayList<>();;
 	private List<TrimDto> trimList;
 	private TrimListDto trimData;
 	
@@ -71,52 +59,17 @@ public class Build002Model {
 		 * 파라미터에서 modelCode 받아와서 변수 선언
 		 */
 		reqParam = request.getParameter("car");
-		// 파라미터 값 받아오는건 SlingScriptHelper 사용해서 넘겨도 가능함! 
-		// 단, URL에서 editor.html 부분만 삭제해주면 
-		// String modelCode = (String) slingScriptHelper.getRequest().getParameter("modelCode");
-		log.info("reqParam :::: {}", reqParam);
 
-		
 		carResults = service.getCarGroupListAPI();
-		log.info(carResults.toString());
 		
 		carData = carResults.getData();
 		carGroupList = carData.getCarGroupList();
 		
-		
 		int size = carGroupList.size();
-		log.info("size" + size);
 		
-//		for(int i = 0; i < size; i++) {
-//			carGroupList.add();
-//		}
-		
+			
 		for(CarGroupDto aa : carGroupList){
-			
-			//ArrayList trim = (ArrayList) aa.getTrimList();
-	
-			
-			log.info(aa.getTrimList().toString());
-			
-			for(TrimDto bb : aa.getTrimList()) {
-				log.info("-------------------------------");
-				log.info("trim.getSellingPrice() : " + bb.getSellingPrice());
-			}
-			
-		}
-		
-//		carResults.getData();
-//		carGroupList = service.getCarGroupListAPI().getCarGroupList();
-
-
-//		log.info("getGroupList :::: {}", carGroupList);
-		
-		/*
-		trimList = service.getTrimListAPI().getTrimList();
-		//log.info("getTrimList :::: {}", trimList);
-		*/		
-				
-		for(CarGroupDto aa : carGroupList){
+			int seq = 1; 
 			
 			for(TrimDto bb : aa.getTrimList()) {
 				
@@ -132,27 +85,17 @@ public class Build002Model {
 				map.put("compoundFuelEconomy", bb.getCompoundFuelEconomy());
 				map.put("bodyTypeName", bb.getBodyTypeName());
 				map.put("engineCapacityName", bb.getEngineCapacityName());
+				map.put("seq", seq++);
 				test.add(map);
 			}
-			
 		}
-		
-		
-		for(Map<String, Object> a : test ) {
-			
-			log.info("-------------------------------");
-			log.info("test.getSellingPrice() : " + test.get(0).get("trimCode").toString());
-			
-		}
-		
-		
 		
 	}
+	
 	
 	/**
 	 * getter / setter
 	 */
-	
 	public String getReqParam() {
 		return reqParam;
 	}
@@ -169,14 +112,6 @@ public class Build002Model {
 		this.carGroupList = carGroupList;
 	}
 	
-//	public TrimDto getTrimList() {
-//		return trimList;
-//	}
-//
-//	public void setTrimList(TrimDto trimList) {
-//		this.trimList = trimList;
-//	}
-
 	public CarGroupListDto getCarData() {
 		return carData;
 	}
@@ -208,7 +143,6 @@ public class Build002Model {
 	public void setTrimList(List<TrimDto> trimList) {
 		this.trimList = trimList;
 	}
-
 	
 	public List<Map<String, Object>> getTest() {
 		return test;

@@ -160,7 +160,7 @@ public class BuildYourCarServiceImpl implements BuildYourCarService {
 			return results.getData();
             
 		} catch (IOException e) {
-			LOG.error("Error parsing JSON API response.", e);
+		//	LOG.error("Error parsing JSON API response.", e);
 			e.printStackTrace();
 		}
 		
@@ -181,7 +181,7 @@ public class BuildYourCarServiceImpl implements BuildYourCarService {
 			return results.getData();
 
 		} catch (IOException e) {
-			LOG.error("Error parsing JSON API response.", e);
+		//	LOG.error("Error parsing JSON API response.", e);
 			e.printStackTrace();
 		}
 

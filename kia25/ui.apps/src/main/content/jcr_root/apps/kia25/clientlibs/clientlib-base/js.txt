@@ -23,6 +23,6 @@
 
 js/hm-script.js
 js/how-to-buy.js
-#js/dwJung.js
+js/dwJung.js
 js/dain.js
 

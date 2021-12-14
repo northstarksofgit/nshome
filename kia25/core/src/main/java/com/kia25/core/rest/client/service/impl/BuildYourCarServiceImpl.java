@@ -219,7 +219,11 @@ public class BuildYourCarServiceImpl implements BuildYourCarService {
 		
 		try {
 		
-			if(step.equals("1")) {
+			if(step.equals("0")) {
+				
+				response = service.getRequest("summary-info-0");
+				
+			}else if(step.equals("1")) {
 				//trim까지
 				
 				response = service.getRequest("summary-info-1");

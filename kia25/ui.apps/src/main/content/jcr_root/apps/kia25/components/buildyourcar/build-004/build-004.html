@@ -94,17 +94,15 @@
             <div class="trimselector slide_box multi">
 	            <sly data-sly-test="${option.optionList}">
 	            	<ul class="box_u" data-sly-list.optList="${option.optionList}" >
-	            		<sly data-sly-test="${optList.trimCode == option.optionData.trimCode}">
-	            			<li class="box_l option-list" data-price="${optList.optionPrice}" conflict="ZZZ" data-opt="${optList.optionCode}" data-optionname="${optList.optionName}" tuonconflict="">
-		                        <a href="#" class="box_a">
-		                            <div class="box" option_and_tuon="${optList.optionCode}">
-		                                <span class="h">${optList.optionName}</span>
-										<sly data-sly-call="${formattedPrice @ price=optList.optionPrice}"></sly>
+            			<li class="box_l option-list" data-price="${optList.optionPrice}" conflict="ZZZ" data-opt="${optList.optionCode}" data-optionname="${optList.optionName}" tuonconflict="">
+	                        <a href="#" class="box_a">
+	                            <div class="box" option_and_tuon="${optList.optionCode}">
+	                                <span class="h">${optList.optionName}</span>
+									<sly data-sly-call="${formattedPrice @ price=optList.optionPrice}"></sly>
 <!-- 		                                <span class="price">${optList.optionPrice}<em>원</em></span> -->
-		                            </div>
-		                        </a>
-		                    </li>
-	            		</sly>
+	                            </div>
+	                        </a>
+	                    </li>
 	            	</ul>
 	            </sly>
             </div>

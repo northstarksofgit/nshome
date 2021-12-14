@@ -26,13 +26,15 @@
 <div>
 	<p>리스트 ${car.carGroupList.size}</p>
     <p>모델이미지경로 ${car.carData.carImagePath}</p>
-    <p>모델이미지경로 ${car.carGroupList.carGroupList.size}</p>
+    <p>모델이미지경로 ${car.test.size}</p>
     <hr>
-	<sly data-sly-test="${car.carGroupList}">
-        <ul data-sly-list.list="car.carGroupList" >
+	<sly data-sly-test="${car.test}">
+        <ul data-sly-list.list="${car.test}" >
+        		<li> category Code : ${list.carGroupCode}</li>
             	<li> category Code : ${list.trimCode}</li>
             	<li> category Name : ${list.trimName}</li>
             	<li> category Name : ${list.sellingPrice}</li>
+            	<hr>
         </ul>
     </sly>
 </div>

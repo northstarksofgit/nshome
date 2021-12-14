@@ -31,6 +31,10 @@ public class CarGroupListDto {
 	 */
 	private String modelYear;
 	
+	/**
+	 * 모델 명
+	 */
+	private String carModelName;
 //	
 //	/**
 //	 * 모델 코드
@@ -98,6 +102,14 @@ public class CarGroupListDto {
 		this.modelYear = modelYear;
 	}
 
+	public String getCarModelName() {
+		return carModelName;
+	}
+	
+	
+	public void setCarModelName(String carModelName) {
+		this.carModelName = carModelName;
+	}
 
 //	public String getCarGroupCode() {
 //		return carGroupCode;
@@ -137,5 +149,10 @@ public class CarGroupListDto {
 	public void setCarGroupList(List<CarGroupDto> carGroupList) {
 		this.carGroupList = carGroupList;
 	}
+
+
+	
+	
+	
 	
 }

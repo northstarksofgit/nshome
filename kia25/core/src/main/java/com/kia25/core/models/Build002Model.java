@@ -1,7 +1,9 @@
 package com.kia25.core.models;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import javax.annotation.PostConstruct;
 
@@ -16,6 +18,7 @@ import com.kia25.core.rest.client.dto.CarGroupDto;
 import com.kia25.core.rest.client.dto.CarGroupListDto;
 import com.kia25.core.rest.client.dto.CarGroupListDtoResults;
 import com.kia25.core.rest.client.dto.TrimDto;
+import com.kia25.core.rest.client.dto.TrimListDto;
 import com.kia25.core.rest.client.service.BuildYourCarService;
 import com.kia25.core.rest.client.service.impl.BuildYourCarServiceImpl;
 
@@ -43,6 +46,8 @@ public class Build002Model {
 	
 	/**
 	 * carGroup 리스트
+	 * 리스트 값을 리스트만 가져온게 아니라 전체를 가져왔기 때문에
+	 * 내용을 꺼내기 위해서 각각의 값이 있는 dto도 선언
 	 */
 	private List<CarGroupDto> carGroupList;
 	private CarGroupListDto carData;
@@ -53,7 +58,10 @@ public class Build002Model {
 	 * trim 리스트
 	 */
 //	private List<TrimDto> trimList = new ArrayList<>();;
-	private TrimDto trimList;
+	private List<TrimDto> trimList;
+	private TrimListDto trimData;
+	
+	private List<Map<String, Object>> test = new ArrayList<Map<String, Object>>();
 	
 	 
 	@PostConstruct
@@ -74,10 +82,25 @@ public class Build002Model {
 		
 		carData = carResults.getData();
 		carGroupList = carData.getCarGroupList();
-
+		
+		
+		int size = carGroupList.size();
+		log.info("size" + size);
+		
+//		for(int i = 0; i < size; i++) {
+//			carGroupList.add();
+//		}
+		
 		for(CarGroupDto aa : carGroupList){
+			
+			ArrayList trim = (ArrayList) aa.getTrimList();
+	
+			
+			log.info(aa.getTrimList().toString());
+			
 			for(TrimDto bb : aa.getTrimList()) {
-				aa.setTrimList(bb);;
+				log.info("-------------------------------");
+				log.info("trim.getSellingPrice() : " + bb.getSellingPrice());
 			}
 			
 		}
@@ -93,6 +116,37 @@ public class Build002Model {
 		//log.info("getTrimList :::: {}", trimList);
 		*/		
 				
+		for(CarGroupDto aa : carGroupList){
+			
+			for(TrimDto bb : aa.getTrimList()) {
+				
+				Map<String, Object> map = new HashMap<String, Object>();
+				map.put("carGroupCode", aa.getCarGroupCode());
+				
+				map.put("trimCode", bb.getTrimCode());
+				map.put("trimName", bb.getTrimName());
+				map.put("productCode", bb.getProductCode());
+				map.put("sellingPrice", bb.getSellingPrice());
+				map.put("bestYn", bb.getBestYn());
+				map.put("gearboxName", bb.getGearboxName());
+				map.put("compoundFuelEconomy", bb.getCompoundFuelEconomy());
+				map.put("bodyTypeName", bb.getBodyTypeName());
+				map.put("engineCapacityName", bb.getEngineCapacityName());
+				test.add(map);
+			}
+			
+		}
+		
+		
+		for(Map<String, Object> a : test ) {
+			
+			log.info("-------------------------------");
+			log.info("test.getSellingPrice() : " + test.get(0).get("trimCode").toString());
+			
+		}
+		
+		
+		
 	}
 	
 	/**
@@ -115,13 +169,13 @@ public class Build002Model {
 		this.carGroupList = carGroupList;
 	}
 	
-	public List<TrimDto> getTrimList() {
-		return trimList;
-	}
-
-	public void setTrimList(List<TrimDto> trimList) {
-		this.trimList = trimList;
-	}
+//	public TrimDto getTrimList() {
+//		return trimList;
+//	}
+//
+//	public void setTrimList(TrimDto trimList) {
+//		this.trimList = trimList;
+//	}
 
 	public CarGroupListDto getCarData() {
 		return carData;
@@ -139,7 +193,25 @@ public class Build002Model {
 		this.carResults = carResults;
 	}
 
+	public TrimListDto getTrimData() {
+		return trimData;
+	}
+
+	public void setTrimData(TrimListDto trimData) {
+		this.trimData = trimData;
+	}
+
+	public List<TrimDto> getTrimList() {
+		return trimList;
+	}
+
+	public void setTrimList(List<TrimDto> trimList) {
+		this.trimList = trimList;
+	}
+
 	
-	
+	public List<Map<String, Object>> getTest() {
+		return test;
+	}
 	
 }

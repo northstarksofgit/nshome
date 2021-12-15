@@ -196,17 +196,17 @@ public class BuildYourCarServiceImpl implements BuildYourCarService {
 		
 		try {
 		
-			if(step.equals("0")) {
+			if(step.equals("2")) {
 				
 				response = service.getRequest("summary-info-0");
 				
-			}else if(step.equals("1")) {
+			}else if(step.equals("3")) {
 				//trim까지
 				
 				response = service.getRequest("summary-info-1");
 
 				
-			}else if(step.equals("2")){
+			}else if(step.equals("4")){
 				//color까지
 				
 				response = service.getRequest("summary-info-2");

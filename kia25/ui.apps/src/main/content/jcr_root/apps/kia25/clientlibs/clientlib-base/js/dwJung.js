@@ -268,13 +268,13 @@ function updateBuildOption() {
 	
 	if (0 < $(".build_option").length) {
 		var c = $(".totalList .list03 .con")
-		  , a = $(".build_option_preview .info_text em")
-		  , e = $(".build_option_preview .price .num")
+//		  , a = $(".build_option_preview .info_text em")
+//		  , e = $(".build_option_preview .price .num")
 		  , g = 0
 		  , f = 0;
 		c.empty();
-		a.text("0");
-		e.text("0");
+//		a.text("0");
+//		e.text("0");
 		for (var l = $(".build_option .box_l.on"), k = 0; k < l.length; k++) {
 			var h = l[k]
 			  , m = $(h).find("span.h").text();
@@ -304,7 +304,7 @@ function totalSum(price){
 	var sumPriceStr = makeComma(sumPrice);
 	
 	$('.btn_totalCon_open > .price').text(sumPriceStr);
-	$('.btn_totalCon_open > .price').attr('initprice', sumPrice);
+	//$('.btn_totalCon_open > .price').attr('initprice', sumPrice);
 	
 }
 

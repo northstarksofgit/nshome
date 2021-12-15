@@ -413,10 +413,11 @@
 		"resultMessage": null,
 		"detailMessage": null,
 		"data": {
-			"modelName" : "K3",
-            "modelCode" :"K3",
-			"trimCode": "LRL",
-			"trimName": "1.6 가솔린 트렌디",
+			"premodelName" : "K3",
+            "premodelCode" :"K3",
+            "precarImagePath" :"/content/dam/kia25/build-a-car/new_k9.png", 
+			"pretrimCode": "LRL",
+			"pretrimName": "1.6 가솔린 트렌디",
 			"colorList": [
 					{ 	"colorCode": "M4B", 
 						"colorName": "미네랄 블루", 
@@ -536,6 +537,16 @@
                     	{"siSubCode": "seoguipo_sub", "siSubName": "서귀포시"}
                     ]
                 }
+            ],
+            "transList": [
+            	{ "transCode": "hwasung", "transName": "화성"},
+            	{ "transCode": "dukpyeong", "transName": "덕평"},
+            	{ "transCode": "sohari", "transName": "소하리"},
+            	{ "transCode": "seosan", "transName": "서산"},
+            	{ "transCode": "hwasung", "transName": "충주"},
+            	{ "transCode": "sinteain", "transName": "신태인"},
+            	{ "transCode": "gyeongsan", "transName": "경산"},
+            	{ "transCode": "gyeongju", "transName": "경주"}
             ]
         }
     }

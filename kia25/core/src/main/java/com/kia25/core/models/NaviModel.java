@@ -111,6 +111,7 @@ public class NaviModel {
 		/*
 		 * summary정보 호출
 		 */
+		
 		summary = service.getSummaryAPI(step);
 		
 		

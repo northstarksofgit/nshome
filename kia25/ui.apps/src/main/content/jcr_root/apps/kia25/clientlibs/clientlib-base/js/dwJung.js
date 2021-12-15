@@ -267,6 +267,40 @@ function toolBar() {
 
 
 
+
+/*
+* navi의 total sum을 구하는 함수
+*/
+function totalSum(price){
+	
+	var initprice = parseInt($('.btn_totalCon_open > .price').attr('initprice'));
+	var sumPrice = price + initprice;
+	var sumPriceStr = makeComma(sumPrice);
+	
+	$('.btn_totalCon_open > .price').text(sumPriceStr);
+	$('.btn_totalCon_open > .price').attr('initprice', sumPrice);
+	
+}
+
+
+/*
+* navi의 total sum을 구한 뒤, , 를 찍어서 다시 보여주는 함수
+*/
+function makeComma(str) {
+
+	 str = String(str);
+
+	 return str.replace(/(\d)(?=(?:\d{3})+(?!\d))/g, '$1,');
+
+ }
+
+
+
+
+
+
+
+
 function nextStep(){
 	
 	/*
@@ -292,12 +326,9 @@ function nextStep(){
 		/* trim 선택 단계 : build 002 page
 		* 다음 단계에서 트림 출력
 		*/
-		subUrl = subUrl.replace('step=2','step=3').replace('build-your-car-002.html','build-your-car-003.html');
 		
-		/*
-		* 동적으로! 다른 컴포넌트에서 클릭하여 넘어온 값으로 바뀌게 해줘야하는 부분
-		*/
-		next = "?step=2&car=EV6&trimCode=LRL";
+		subUrl = subUrl.replace('step=2','step=3').replace('build-your-car-002.html','build-your-car-003.html');
+		next = "&trimCode="+naviTrimCode;
 		
 	}
 	else if(step == 3){
@@ -317,12 +348,9 @@ function nextStep(){
 		*다음 단계에서 option까지 출력
 		*/
 		
-		// 사용자가 선택한 옵션값
-		// var selectedOptList
-		console.log(selectedOptList);
 		
 		subUrl = subUrl.replace('step=4','step=5').replace('build-your-car-004.html','build-your-car-005.html');
-		next = "&option=4WD,DWP,CVN";
+		next = "&option="+selectedOptList.toString();
 		
 	}
 	
@@ -332,8 +360,9 @@ function nextStep(){
 	*/		
 		
 	subUrl += next;
+	console.log("subUrl: "+subUrl);
 	
-	location.href = subUrl;
+	//location.href = subUrl;
 	
 	
 }

@@ -7,8 +7,6 @@ $(document).ready(function() {
 	var selectedTrimCode = null;
 	var radioInitVal = $("input:radio[name=sample1]");
 	
-	loadTrim();
-	
 	for(var i=0; i< radioInitVal.length; i++){
 		
 		if(radioInitVal[i].checked){
@@ -40,6 +38,7 @@ $(document).ready(function() {
 				if ($(trimlist[i]).find('li')[0].dataset.seq == 1){
 					$(classAdd).addClass('on');
 					
+					naviTrimCode = $(trimlist[i]).find('li')[0].dataset.trim;
 				}
 			}
 		}
@@ -53,25 +52,21 @@ $(document).ready(function() {
 		
 		showHideEvent(selectedTrimCode);
 		
-		loadTrim();
-		
-	})
-	
-	function loadTrim(){
-		
-		var aa = $('.trim_click')
-		console.log(aa);
+		var aa = $('.trim_click');
 		
 		for(var i = 0; i < aa.length; i++){
 			
 			if($(aa[i]).hasClass('on')){
 				naviTrimCode = aa[i].dataset.trim;
-				console.log(naviTrimCode);
 			}
 		}
-	}
+		
+	})
 	
 	
+	/**
+		* trim 클릭시 실행되는 함수	
+	 */
 	$('.trim_click').on('click', function(e){
 		e.preventDefault();
 		

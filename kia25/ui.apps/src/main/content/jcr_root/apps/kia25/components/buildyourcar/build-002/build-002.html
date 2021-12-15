@@ -53,19 +53,15 @@
 			    <div class="car_name">
 
 			 		<!-- 상세 차종 선택 페이지 -->
-		    		<sly data-sly-test="${detail.reqParam == detail.carData.modelCode}">
-			    		<strong class="name">
-			        		${detail.carData.carModelName}
-			        	</strong>	
-			        </sly>	
+		    		<strong class="name">
+		        		${detail.carData.carModelName}
+		        	</strong>	
 			        <button type="button" class="btn_car" onclick="fnOpenSelectCarPop()">다른 차량 선택</button>
 		        </div>
 
 			    <div class="car_img" >
-			    	<sly data-sly-test="${detail.reqParam == detail.carData.modelCode}">
-				        <img src="${detail.carData.carImagePath}" alt="${detail.carData.carModelName}">
-				        <p class="car_desc">※ 본 차량의 이미지는 실제와 다를 수 있습니다.</p>
-			        </sly>
+			        <img src="${detail.carData.carImagePath}" alt="${detail.carData.carModelName}">
+			        <p class="car_desc">※ 본 차량의 이미지는 실제와 다를 수 있습니다.</p>
 			    </div>
 			</div>
 		    <div class="model sel caroption">
@@ -73,20 +69,18 @@
 
 				<!-- carGroupList에 담긴 값 가져오기 -->
 				<sly data-sly-list.group="${detail.carData.carGroupList}" data-sly-test="${detail.carData.carGroupList}">
-					<sly data-sly-test="${detail.carData.modelCode == detail.reqParam}">
-						<sly data-sly-test="${groupList.count == 1}">
-						        <span class="form_chk carGroup" data-trimCode="${group.carGroupCode}">
-						            <input type="radio" prefer="client" data-carGroup="${group.carGroupCode}" carimage="${group.carImagePath}" value="${group.carGroupCode}" name="sample1" id="sample1_${groupList.count}" checked="checked">
-						            <label for="sample1_${groupList.count}" class="form_spr radio_box">${group.carGroupName}</label>
-						        </span>
-						</sly>    
-						<sly data-sly-test="${groupList.count != 1}">
-						        <span class="form_chk carGroup" data-trimCode="${group.carGroupCode}">
-						            <input type="radio" prefer="client" data-carGroup="${group.carGroupCode}" carimage="${group.carImagePath}" value="${group.carGroupCode}" name="sample1" id="sample1_${groupList.count}">
-						            <label for="sample1_${groupList.count}" class="form_spr radio_box">${group.carGroupName}</label>
-						        </span>
-						</sly> 
-			        </sly>
+					<sly data-sly-test="${groupList.count == 1}">
+					        <span class="form_chk carGroup" data-trimCode="${group.carGroupCode}">
+					            <input type="radio" prefer="client" data-carGroup="${group.carGroupCode}" carimage="${group.carImagePath}" value="${group.carGroupCode}" name="sample1" id="sample1_${groupList.count}" checked="checked">
+					            <label for="sample1_${groupList.count}" class="form_spr radio_box">${group.carGroupName}</label>
+					        </span>
+					</sly>    
+					<sly data-sly-test="${groupList.count != 1}">
+					        <span class="form_chk carGroup" data-trimCode="${group.carGroupCode}">
+					            <input type="radio" prefer="client" data-carGroup="${group.carGroupCode}" carimage="${group.carImagePath}" value="${group.carGroupCode}" name="sample1" id="sample1_${groupList.count}">
+					            <label for="sample1_${groupList.count}" class="form_spr radio_box">${group.carGroupName}</label>
+					        </span>
+					</sly> 
 				</sly>
 		    </div>
 
@@ -114,7 +108,6 @@
 		    
 		    
 			 <!-- trimList에 담긴 값 가져오기 -->
-			 <!-- <ul class="box_u" car="${detail.test.trimCode}"> -->
 			 <ul class="box_u">
 				 <sly data-sly-list.trim="${detail.test}"  data-sly-test="${detail.test}" >
 				     <div class="trimselector slide_box trim-list" hid="false" data-car="${trim.carGroupCode}" transmission="auto" style="display: none;">
@@ -122,7 +115,6 @@
 					         <a href="#" class="box_a">			        
 					             <div class="box">			     
 					                 <span class="h">${trim.trimName}</span> 
-<!-- 					                 <span class="price">${trim.sellingPrice}<em>원</em></span> -->
 									 <span class="price">
 									 	<sly data-sly-call="${formattedPrice @ price=trim.sellingPrice}"></sly>
 									 	<em>원</em>

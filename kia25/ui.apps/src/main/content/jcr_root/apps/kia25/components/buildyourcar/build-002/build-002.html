@@ -111,9 +111,10 @@
 			 <ul class="box_u">
 				 <sly data-sly-list.trim="${detail.test}"  data-sly-test="${detail.test}" >
 				     <div class="trimselector slide_box trim-list" hid="false" data-car="${trim.carGroupCode}" transmission="auto" style="display: none;">
-					     <li class="box_l trim_click" price="${trim.sellingPrice}" data-seq="${trim.seq}" aimg="https://www.kia.com/content/dam/kwcms/kr/ko/images/byo/car_ev6_standard.png" value="${trim.carGroupCode}" trim="CVJJ5VI31-A" car="${trim.trimCode}" tmp="off">
+					     <li class="box_l trim_click" price="${trim.sellingPrice}" data-seq="${trim.seq}" aimg="https://www.kia.com/content/dam/kwcms/kr/ko/images/byo/car_ev6_standard.png" value="${trim.carGroupCode}" trim="CVJJ5VI31-A" data-trim="${trim.trimCode}" tmp="off">
 					         <a href="#" class="box_a">			        
 					             <div class="box">			     
+						         <input type="hidden" id="naviTrimCode" name="naviTrimCode" value="${trim.trimCode}" />
 					                 <span class="h">${trim.trimName}</span> 
 									 <span class="price">
 									 	<sly data-sly-call="${formattedPrice @ price=trim.sellingPrice}"></sly>

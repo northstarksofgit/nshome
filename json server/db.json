@@ -491,6 +491,53 @@
             ]
 					
 		} 
-	}
+	},
+	"list-of-area": {
+        "resultCode": "000",
+        "detailCode": null,
+        "resultMessage": null,
+        "detailMessage": null,
+        "data": {
+
+            "modelName" : "EV6",
+            "modelCode" : "EV6",
+            "trimCode" : "LRL",
+            "trimName" : "EV6 롱 레인지 라이트(Light)",
+            "carImagePath" :"/content/dam/kia25/build-a-car/car_ev6.png",
+            "extColorName" :"오로라 블랙 펄",
+            "extColorCode" :"ABP",
+            "intColorName":"블랙 인테리어",
+            "intColorCode":"BLK",
+            "optionCode": "4WD",
+            "optionName": "듀얼 모터 4WD",
+            "areaList": [
+                {
+                    "siCode": "seoul",
+                    "siName": "서울",
+                    "siSub" :[
+                    	{
+                    		"siSubCode": "seoul_sub",
+                    		"siSubName": "서울"
+                    	}
+                    ]
+                }, {
+                    "siCode": "incheon",
+                    "siName": "인천",
+                    "siSub" :[
+                    	{"siSubCode": "incheon_sub", "siSubName": "인천"},
+                    	{"siSubCode": "gangwhagun_sub", "siSubName": "강화군"}
+                    ]
+                }, {
+                    "siCode": "jeju",
+                    "siName": "제주",
+                    "siSub" :[
+                    	{"siSubCode": "jejuhang_sub", "siSubName": "제주항"},
+                    	{"siSubCode": "jejusi_sub", "siSubName": "제주시"},
+                    	{"siSubCode": "seoguipo_sub", "siSubName": "서귀포시"}
+                    ]
+                }
+            ]
+        }
+    }
 }
  

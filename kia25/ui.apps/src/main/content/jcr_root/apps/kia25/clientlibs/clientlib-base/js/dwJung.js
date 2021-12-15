@@ -23,6 +23,7 @@ $(window).scroll(function() {
 	    if(category <= window) {
 		
 	      $(".category").addClass("fixed");
+		  
 
 	    } else {
 		
@@ -85,15 +86,15 @@ $(document).ready(function() {
 var showBtnActMove = function() {
     $(window).scroll(function() {
         sTop = Math.round($(window).scrollTop());
-        c()
+        
     });
     $(window).load(function() {
         sTop = Math.round($(window).scrollTop());
-        c()
+       
     });
     $(window).resize(function() {
         sTop = Math.round($(window).scrollTop());
-        c()
+       
     });
     var c = function() {
         $(".btnActMove").each(function(a) {
@@ -192,7 +193,7 @@ var showBtnActMove = function() {
                 a > g && $(".totalCon").addClass("over").animate({
                     height: e + "px"
                 }, 400);
-                c()
+               
             }
         });
 
@@ -266,6 +267,40 @@ function toolBar() {
 
 
 
+
+/*
+* navi의 total sum을 구하는 함수
+*/
+function totalSum(price){
+	
+	var initprice = parseInt($('.btn_totalCon_open > .price').attr('initprice'));
+	var sumPrice = price + initprice;
+	var sumPriceStr = makeComma(sumPrice);
+	
+	$('.btn_totalCon_open > .price').text(sumPriceStr);
+	$('.btn_totalCon_open > .price').attr('initprice', sumPrice);
+	
+}
+
+
+/*
+* navi의 total sum을 구한 뒤, , 를 찍어서 다시 보여주는 함수
+*/
+function makeComma(str) {
+
+	 str = String(str);
+
+	 return str.replace(/(\d)(?=(?:\d{3})+(?!\d))/g, '$1,');
+
+ }
+
+
+
+
+
+
+
+
 function nextStep(){
 	
 	/*
@@ -277,8 +312,7 @@ function nextStep(){
 	const step = params.get('step');
 	
 	/*
-	* 다음  url로 가기 위해 현재 URL 가져오기
-	* 예시 : /content/kia25/us/navi.html?step=1
+	* 공통적으로 사용되는 url
 	*/
 	var totalUrl = window.location.href;
 	var subUrl = totalUrl.substr(totalUrl.indexOf('/content'), totalUrl.length);
@@ -288,30 +322,35 @@ function nextStep(){
 	*/
 	var next = "";
 	
-	if(step == null){
-		/*최초 시작
+	if(step == 2){
+		/* trim 선택 단계 : build 002 page
 		* 다음 단계에서 트림 출력
 		*/
 		
-		next = "?step=1&car=EV6&trimCode=LRL";
+		subUrl = subUrl.replace('step=2','step=3').replace('build-your-car-002.html','build-your-car-003.html');
+		next = "&trimCode="+naviTrimCode;
 		
 	}
-	else if(step == 1){
-		/* trim까지 출력된 단계
+	else if(step == 3){
+		/* trim까지 출력된 단계 : build 003 page
 		* 다음 단계에서 color까지 출력
 		*/
 		
-		subUrl = subUrl.replace('step=1','step=2');
+		/*
+		* 동적으로! 다른 컴포넌트에서 클릭하여 넘어온 값으로 바뀌게 해줘야하는 부분
+		*/
+		subUrl = subUrl.replace('step=3','step=4').replace('build-your-car-003.html','build-your-car-004.html');
 		next = "&ext=ABP&int=IN_EV6_BL";
 		
 		
-	}else if(step == 2){
-		/* color까지 출력된 단계
+	}else if(step == 4){
+		/* color까지 출력된 단계 : build 004 page
 		*다음 단계에서 option까지 출력
 		*/
 		
-		subUrl = subUrl.replace('step=2','step=3');
-		next = "&option=4WD,DWP,CVN";
+		
+		subUrl = subUrl.replace('step=4','step=5').replace('build-your-car-004.html','build-your-car-005.html');
+		next = "&option="+selectedOptList.toString();
 		
 	}
 	
@@ -321,8 +360,9 @@ function nextStep(){
 	*/		
 		
 	subUrl += next;
+	console.log("subUrl: "+subUrl);
 	
-	location.href = subUrl;
+	//location.href = subUrl;
 	
 	
 }

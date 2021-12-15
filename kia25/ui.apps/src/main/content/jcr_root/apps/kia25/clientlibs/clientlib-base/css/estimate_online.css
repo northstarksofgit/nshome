@@ -350,7 +350,7 @@ body.total_fixed {overflow:hidden;}
 }
 /* select list */
 .estimate_online_wrap.list .category {position: absolute; top:40px; left:0; z-index:9; width:100%; background:#eff1f1; border-top:1px solid rgba(5,20,31,0.2);border-bottom:1px solid rgba(5,20,31,0.2);}
-.estimate_online_wrap.list .category.fixed {position:fixed; top:109px; left:0; z-index:9; width:100%;}
+.estimate_online_wrap.list .category.fixed {position:fixed; top:0px; left:0; z-index:9; width:100%;}
 .estimate_online_wrap.list .category .inbox {width:940px; margin:0 auto; text-align: center;}
 .estimate_online_wrap.list .category .inbox a {display:block; float:left; width:20%; height:50px; box-sizing:border-box; font-size:16px; text-align:center; line-height:3; text-decoration:none;}
 .estimate_online_wrap.list .category .inbox a.on {background:#05141f; color: #fff;}

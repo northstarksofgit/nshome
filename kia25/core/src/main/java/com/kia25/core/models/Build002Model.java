@@ -35,19 +35,38 @@ public class Build002Model {
 	
 	private String reqParam = null;
 	
+	private String modelCode = service.getCarGroupListAPI().getData().getModelCode();
+	
+	
 	/**
 	 * carGroup 리스트
 	 */
-	private List<CarGroupDto> carGroupList;
 	private CarGroupListDto carData;
+	private List<CarGroupDto> carGroupList;
 	private CarGroupListDtoResults carResults;
 	
 	
 	/**
 	 * trim 리스트
 	 */
-	private List<TrimDto> trimList;
 	private TrimListDto trimData;
+	private List<TrimDto> trimList;
+	
+	
+	/**
+	 * transmission 리스트
+	 */
+	private CarGroupListDto transData;
+	private List<CarGroupDto> transList;
+	private CarGroupListDtoResults transResults;
+	
+	
+	/**
+	 * transmission trim 리스트
+	 */
+	private TrimListDto transTrimData;
+	private List<TrimDto> transTrimList;
+	
 	
 	private List<Map<String, Object>> test = new ArrayList<Map<String, Object>>();
 	
@@ -58,35 +77,70 @@ public class Build002Model {
 		/**
 		 * 파라미터에서 modelCode 받아와서 변수 선언
 		 */
-		reqParam = request.getParameter("car");
+		reqParam = request.getParameter("modelCode");
 
-		carResults = service.getCarGroupListAPI();
-		
-		carData = carResults.getData();
-		carGroupList = carData.getCarGroupList();
-		
-		int size = carGroupList.size();
-		
+		// 차종이 EV6인 경우 
+		if(reqParam.equals(modelCode)) {
 			
-		for(CarGroupDto aa : carGroupList){
-			int seq = 1; 
+			carResults = service.getCarGroupListAPI();
 			
-			for(TrimDto bb : aa.getTrimList()) {
+			carData = carResults.getData();
+			carGroupList = carData.getCarGroupList();
+			
+			int size = carGroupList.size();
 				
-				Map<String, Object> map = new HashMap<String, Object>();
-				map.put("carGroupCode", aa.getCarGroupCode());
+			for(CarGroupDto aa : carGroupList){
+				int seq = 1; 
 				
-				map.put("trimCode", bb.getTrimCode());
-				map.put("trimName", bb.getTrimName());
-				map.put("productCode", bb.getProductCode());
-				map.put("sellingPrice", bb.getSellingPrice());
-				map.put("bestYn", bb.getBestYn());
-				map.put("gearboxName", bb.getGearboxName());
-				map.put("compoundFuelEconomy", bb.getCompoundFuelEconomy());
-				map.put("bodyTypeName", bb.getBodyTypeName());
-				map.put("engineCapacityName", bb.getEngineCapacityName());
-				map.put("seq", seq++);
-				test.add(map);
+				for(TrimDto bb : aa.getTrimList()) {
+					
+					Map<String, Object> map = new HashMap<String, Object>();
+					map.put("carGroupCode", aa.getCarGroupCode());
+					map.put("trimCode", bb.getTrimCode());
+					map.put("trimName", bb.getTrimName());
+					map.put("productCode", bb.getProductCode());
+					map.put("sellingPrice", bb.getSellingPrice());
+					map.put("bestYn", bb.getBestYn());
+					map.put("gearboxName", bb.getGearboxName());
+					map.put("compoundFuelEconomy", bb.getCompoundFuelEconomy());
+					map.put("bodyTypeName", bb.getBodyTypeName());
+					map.put("engineCapacityName", bb.getEngineCapacityName());
+					map.put("transmission", bb.getTransmission());
+					map.put("seq", seq++);
+					test.add(map);
+				}
+			}
+			
+		// 차종이 EV6가 아닌 경우 
+		} else {
+			
+			carResults = service.getTrasmissionListAPI();
+			
+			carData = carResults.getData();
+			carGroupList = carData.getCarGroupList();
+			
+			int size = transList.size();
+			
+			for(CarGroupDto trans : transList){
+				int seq = 1; 
+				
+				for(TrimDto transTrim : trans.getTrimList()) {
+					
+					Map<String, Object> map = new HashMap<String, Object>();
+					map.put("carGroupCode", trans.getCarGroupCode());
+					map.put("trimCode", transTrim.getTrimCode());
+					map.put("trimName", transTrim.getTrimName());
+					map.put("productCode", transTrim.getProductCode());
+					map.put("sellingPrice", transTrim.getSellingPrice());
+					map.put("bestYn", transTrim.getBestYn());
+					map.put("gearboxName", transTrim.getGearboxName());
+					map.put("compoundFuelEconomy", transTrim.getCompoundFuelEconomy());
+					map.put("bodyTypeName", transTrim.getBodyTypeName());
+					map.put("engineCapacityName", transTrim.getEngineCapacityName());
+					map.put("transmission", transTrim.getTransmission());
+					map.put("seq", seq++);
+					test.add(map);
+				}
 			}
 		}
 		
@@ -144,6 +198,46 @@ public class Build002Model {
 		this.trimList = trimList;
 	}
 	
+	public String getModelCode() {
+		return modelCode;
+	}
+
+
+	public void setModelCode(String modelCode) {
+		this.modelCode = modelCode;
+	}
+
+
+	public CarGroupListDtoResults getTransResults() {
+		return transResults;
+	}
+
+
+	public void setTransResults(CarGroupListDtoResults transResults) {
+		this.transResults = transResults;
+	}
+
+
+	public TrimListDto getTransTrimData() {
+		return transTrimData;
+	}
+
+
+	public void setTransTrimData(TrimListDto transTrimData) {
+		this.transTrimData = transTrimData;
+	}
+
+
+	public List<TrimDto> getTransTrimList() {
+		return transTrimList;
+	}
+
+
+	public void setTransTrimList(List<TrimDto> transTrimList) {
+		this.transTrimList = transTrimList;
+	}
+
+
 	public List<Map<String, Object>> getTest() {
 		return test;
 	}

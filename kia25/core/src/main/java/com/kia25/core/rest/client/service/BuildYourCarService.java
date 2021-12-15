@@ -21,15 +21,14 @@ public interface BuildYourCarService {
 	ModelListDto getModelListAPI();
 
 	/**
-	 * build002 / carGrouplist 불러오기
+	 * build002 / get carGroup Trim List
 	 */
-//	CarGroupListDto  getCarGroupListAPI();
 	CarGroupListDtoResults  getCarGroupListAPI();
+	
 	/**
-	 * build002 / trimlist 불러오기
-	 
-	TrimListDto getTrimListAPI();
-	*/
+	 * build002 / get transmission Trim List
+	 */
+	CarGroupListDtoResults  getTrasmissionListAPI();
 	
 	/**
 	 * build003 / colorlist 불러오기

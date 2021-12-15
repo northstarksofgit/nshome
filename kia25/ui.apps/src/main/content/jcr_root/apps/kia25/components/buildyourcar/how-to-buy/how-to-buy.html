@@ -4,29 +4,29 @@
     <div class="step_wrap">
         <ul>
             <li class="step1">
-                <a href="/kr/shopping-tools/build-your-car/vehicle-lineup.html">
+                <a href="/content/kia25/us/en/build-your-car/build-001.html">
                     <span>처음으로</span>
                 </a>
             </li>
 
             <li class="step2 off">
-                <a href="vehicle-lineup.trim.car=EV6.trim=CVJJ5VH31-A.dpcd=N.html">
+                <a href="/content/kia25/us/en/build-your-car/build002-test.html?car=${how.areaData.modelCode}">
                     <span class="basic">상세차종 선택</span>
-                    <span class="result">EV6 스탠다드 라이트(Light)</span>
+                    <span class="result">${how.areaData.trimName}</span>
                 </a>
             </li>
 
             <li class="step3 off">
                 <a href="vehicle-lineup.color.car=EV6-SEV.trim=CVJJ5VH31-A.ext=SWP.int=IN_EV6_BL.dpcd=N.html">
                     <span class="basic">컬러 선택</span>
-                    <span class="result">스노우 화이트 펄</span>
+                    <span class="result">${how.areaData.extColorName}</span>
                 </a>
             </li>
 
             <li class="step4 off">
-                <a href="vehicle-lineup.option.car=EV6-SEV.trim=CVJJ5VH31-A.ext=SWP.int=IN_EV6_BL.option=ZZZ.dpcd=N.html">
+                <a href="/content/kia25/us/en/build-your-car/build004-test.html">
                     <span class="basic">옵션 선택</span>
-                    <span class="result">기본품목</span>
+                    <span class="result">${how.areaData.optionName}</span>
                 </a>
             </li>
 
@@ -206,11 +206,15 @@
                                     
                                     <div style="outline-style: none; position: static;" class="select-list-box " tabindex="0">
                                         <div title="출고장 선택" class="form_spr selected-headline" style="">
-                                            <span>화성</span>
+                                            <span class="trans-text">화성</span>
                                         </div>
                                         
-                                        <ul class="select-list" style="visibility: visible; top: -141px; height: 140px; left: 0px; display: none;">
-                                            <li><a title="출고장 선택" href="JavaScript:void(0);" class="select-list-link" style="outline-style: none;">출고장 선택</a></li>
+                                        <ul class="select-list trans-sub" style="visibility: visible; top: -141px; height: 140px; left: 0px; display: none;">
+                                            <li><a title="출고장 선택" data-value="null" href="JavaScript:void(0);" class="select-list-link select-list-selected trans-item" style="outline-style: none;">출고장 선택</a></li>
+                                            <sly data-sly-list.trans="${how.transList}" >
+                                            	<li><a title="${trans.transName}" data-value="${trans.transCode}" href="JavaScript:void(0);" class="select-list-link trans-item" style="outline-style: none;">${trans.transName}</a></li>	
+                                            </sly>
+                                            <!-- 
                                             <li><a title="화성" href="JavaScript:void(0);" class="select-list-link select-list-selected" style="outline-style: none;">화성</a></li>
                                             <li><a title="덕평" href="JavaScript:void(0);" class="select-list-link" style="outline-style: none;">덕평</a></li>
                                             <li><a title="소하리" href="JavaScript:void(0);" class="select-list-link" style="outline-style: none;">소하리</a></li>
@@ -219,6 +223,7 @@
                                             <li><a title="신태인" href="JavaScript:void(0);" class="select-list-link" style="outline-style: none;">신태인</a></li>
                                             <li><a title="경산" href="JavaScript:void(0);" class="select-list-link" style="outline-style: none;">경산</a></li>
                                             <li><a title="광주" href="JavaScript:void(0);" class="select-list-link" style="outline-style: none;">광주</a></li>
+                                            -->
                                         </ul>
                                     </div>
                                 </span>

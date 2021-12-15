@@ -78,6 +78,10 @@
 	$('.transfeeSi-sub').mouseleave(function() {
 		$('.transfeeSi-sub').css('display','none');
     });
+	
+	$('.trans-sub').mouseleave(function() {
+		$('.trans-sub').css('display','none');
+    });
 
     $('.transfeeSi-item').click(function() {
     	$('.selected-si-sub').text("선택하세요");
@@ -124,6 +128,14 @@
     	$(this).addClass('select-list-selected');
     	$('.selected-si-sub').text($(this)[0].title);
     	$('.transfeeSi-sub').trigger('mouseleave');
+    })
+    
+    
+    $('.trans-item').on('click', function() {
+    	$('.trans-item').removeClass('select-list-selected');
+    	$(this).addClass('select-list-selected');
+    	$('.trans-text').text($(this)[0].title);
+    	$('.trans-sub').trigger('mouseleave');
     })
     
     /**

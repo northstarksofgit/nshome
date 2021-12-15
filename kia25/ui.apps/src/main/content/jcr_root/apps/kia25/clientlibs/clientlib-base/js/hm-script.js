@@ -21,6 +21,8 @@ $(document).ready(function() {
 
         $('.info_area.option_info').find('.info_text').children()[0].textContent = selectedOptList.length;
 		$('.info_area.option_info').find('.box_info').children().find('.num')[0].textContent = selectedOptPrice.toString().replace(/\B(?<!\.\d*)(?=(\d{3})+(?!\d))/g, ",");
-
+		
+		updateBuildOption()
+		totalSum(parseInt(selectedOptPrice))
     })
 })

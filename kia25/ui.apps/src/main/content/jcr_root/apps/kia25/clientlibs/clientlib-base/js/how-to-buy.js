@@ -1,6 +1,15 @@
 //$(document).ready(function() {
 
 	/**
+	 * 차량보기 버튼
+	 */
+	$('.bl_type_b.btn_car_view').on('click', function() {
+		$('.car_view_more').css('display') == 'none' ? 
+				$('.car_view_more').css('display','block') : $('.car_view_more').css('display','none');
+	})
+
+
+	/**
 	 *  지불방법 클릭 display 제어
 	 */
     $("input:radio[name=pay_sel_radio]").click(function() {

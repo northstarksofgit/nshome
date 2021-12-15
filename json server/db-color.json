@@ -649,11 +649,11 @@
 		"resultMessage": null,
 		"detailMessage": null,
 		"data": {
-			"modelName" : "EV6",
-            "modelCode" :"EV6",
-            "carImagePath" :"/content/dam/kia25/build-a-car/car_ev6.png", 
-			"trimCode": "LRL",
-			"trimName": "EV6 롱 레인지 라이트(Light)",
+			"premodelName" : "K3",
+            "premodelCode" :"K3",
+            "precarImagePath" :"/content/dam/kia25/build-a-car/car_ev6.png", 
+			"pretrimCode": "LRL",
+			"pretrimName": "1.6 가솔린 트렌디",
 			"colorList": [
 					{ 	"colorCode": "M4B", 
 						"colorName": "미네랄 블루", 

@@ -1,5 +1,7 @@
 package com.kia25.core.rest.client.dto;
 
+import java.util.List;
+
 public class AreaListDto {
 
 	private String modelCode;
@@ -24,6 +26,10 @@ public class AreaListDto {
 	
 	private String optionName;
 
+	private List<AreaDto> areaList;
+	
+	private List<TransDto> transList;
+	
 	public String getModelCode() {
 		return modelCode;
 	}
@@ -110,6 +116,22 @@ public class AreaListDto {
 
 	public void setOptionName(String optionName) {
 		this.optionName = optionName;
+	}
+
+	public List<AreaDto> getAreaList() {
+		return areaList;
+	}
+
+	public void setAreaList(List<AreaDto> areaList) {
+		this.areaList = areaList;
+	}
+
+	public List<TransDto> getTransList() {
+		return transList;
+	}
+
+	public void setTransList(List<TransDto> transList) {
+		this.transList = transList;
 	}
 
 }

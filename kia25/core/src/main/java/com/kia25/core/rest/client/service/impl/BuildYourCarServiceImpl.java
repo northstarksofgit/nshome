@@ -150,14 +150,14 @@ public class BuildYourCarServiceImpl implements BuildYourCarService {
 	 * build003 / colorlist 불러오기
 	 */
 	
-	public ColorListDto getColorAPI() {
+	public ColorListDtoResults getColorAPI() {
 
 		try {
 			String response = service.getRequest("color-list");
 			ObjectMapper mapper = new ObjectMapper();
 
 			ColorListDtoResults results = mapper.readValue(response, ColorListDtoResults.class);
-			return results.getData();
+			return results;
 
 		} catch (IOException e) {
 		//	LOG.error("Error parsing JSON API response.", e);

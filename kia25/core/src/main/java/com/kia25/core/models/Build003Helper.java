@@ -15,6 +15,9 @@ import org.slf4j.LoggerFactory;
 import com.kia25.core.rest.client.dto.ColorDto;
 import com.kia25.core.rest.client.dto.ColorListDto;
 import com.kia25.core.rest.client.dto.ColorListDtoResults;
+import com.kia25.core.rest.client.dto.OptionDto;
+import com.kia25.core.rest.client.dto.OptionListDto;
+import com.kia25.core.rest.client.dto.OptionListDtoResults;
 import com.kia25.core.rest.client.service.BuildYourCarService;
 import com.kia25.core.rest.client.service.impl.BuildYourCarServiceImpl;
 
@@ -31,43 +34,46 @@ public class Build003Helper {
 	@Self
 	private SlingHttpServletRequest request;
 
+	private ColorListDtoResults colorAllList;
+
 	private List<ColorDto> colorList;
 	private List<ColorDto> exteriorList;
-	 
-	private String premodelCode = null;
-	private String pretrimName = null;
- 
+	private ColorListDto colorData;
+
+	private String modelCode = null;
+	private String trimName = null;
 
 	@PostConstruct
 	public void activate() throws IOException {
-		colorList = service.getColorAPI().getColorList();
-		exteriorList = service.getColorAPI().getExteriorList();
-		
-		premodelCode = service.getColorAPI().getPremodelCode();
-		pretrimName = service.getColorAPI().getPretrimName();
+		colorAllList = service.getColorAPI();
+		colorList = colorAllList.getData().getColorList();
+		exteriorList = colorAllList.getData().getExteriorList();
+		colorData = colorAllList.getData();
 
 	}
 
+	public ColorListDtoResults getcolorAllList() {
+		return colorAllList;
+	}
 
 	public List<ColorDto> getColorList() {
 		return colorList;
 	}
 
-
 	public List<ColorDto> getExteriorList() {
 		return exteriorList;
 	}
 
-
-	public String getPremodelCode() {
-		return premodelCode;
+	public ColorListDto getColorData() {
+		return colorData;
 	}
 
-
-	public String getPretrimName() {
-		return pretrimName;
+	public String getModelCode() {
+		return modelCode;
 	}
 
-
+	public String getTrimName() {
+		return trimName;
+	}
 
 }

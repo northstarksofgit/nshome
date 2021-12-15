@@ -28,8 +28,6 @@ public class ColorDto {
 	private String productNumber;
 	
 	
-	/* exteriorList  트림  */
-	private String trimCode;
 	
 	/* exteriorList 가격  */
 	private String cellvehiclePrice;
@@ -37,14 +35,28 @@ public class ColorDto {
 	/* exteriorList 색상조각  */
 	private String carcelImage;
 	
-	/** selected Trim Code
+	/**
+	 * selected Model Name
 	 */
-	private String pretrimName;
-
+	private String modelName;
+	
+	
 	/**
 	 * selected Model Code
 	 */
-	private String premodelCode;
+	private String modelCode;
+	
+	
+	/**
+	 * selected Trim Code
+	 */
+	private String trimCode;
+	
+	
+	/**
+	 * selected Trim Code
+	 */
+	private String trimName;
 	
 
 	public String getColorCode() {
@@ -130,21 +142,32 @@ public class ColorDto {
 		this.carcelImage = carcelImage;
 	}
 
-	public String getPretrimName() {
-		return pretrimName;
+	/* model code, trim name */
+	public String getTrimName() {
+		return trimName;
 	}
 
-	public void setPretrimName(String pretrimName) {
-		this.pretrimName = pretrimName;
+	public void setTrimName(String trimName) {
+		this.trimName = trimName;
 	}
 
-	public String getPremodelCode() {
-		return premodelCode;
+	public String getModelCode() {
+		return modelCode;
 	}
 
-	public void setPremodelCode(String premodelCode) {
-		this.premodelCode = premodelCode;
+	public void setModelCode(String modelCode) {
+		this.modelCode = modelCode;
+	}
+
+	public String getModelName() {
+		return modelName;
+	}
+
+	public void setModelName(String modelName) {
+		this.modelName = modelName;
 	}
 	
 	
+
+
 }

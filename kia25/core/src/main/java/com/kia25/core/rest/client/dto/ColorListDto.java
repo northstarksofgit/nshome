@@ -15,10 +15,10 @@ public class ColorListDto {
 	private List<ColorDto> exteriorList;
 	
 	/* selected Trim Code */
-	private String pretrimName;
+	private String trimName;
 
 	/* selected Model Code	 */
-	private String premodelCode;
+	private String modelCode;
 	
 
 	public List<ColorDto> getColorList() {
@@ -29,10 +29,6 @@ public class ColorListDto {
 		return exteriorList;
 	}
 	
-	public List<ColorDto> getcarNameList() {
-		return exteriorList;
-	}
-
 	public void setColorList(List<ColorDto> colorList) {
 		this.colorList = colorList;
 	}
@@ -40,24 +36,23 @@ public class ColorListDto {
 	public void setExteriorList(List<ColorDto> exteriorList) {
 		this.exteriorList = exteriorList;
 	}
-	
-	/** string 으로 가져오기 **/
-	public String getPretrimName() {
-		return pretrimName;
+
+	public String getTrimName() {
+		return trimName;
 	}
 
-	public void setPretrimName(String pretrimName) {
-		this.pretrimName = pretrimName;
+	public void setTrimName(String trimName) {
+		this.trimName = trimName;
 	}
 
-	public String getPremodelCode() {
-		return premodelCode;
+	public String getModelCode() {
+		return modelCode;
 	}
 
-	public void setPremodelCode(String premodelCode) {
-		this.premodelCode = premodelCode;
+	public void setModelCode(String modelCode) {
+		this.modelCode = modelCode;
 	}
 	
-	
+		
 
 }

@@ -413,11 +413,10 @@
 		"resultMessage": null,
 		"detailMessage": null,
 		"data": {
-			"premodelName" : "K3",
-            "premodelCode" :"K3",
-            "precarImagePath" :"/content/dam/kia25/build-a-car/new_k9.png", 
-			"pretrimCode": "LRL",
-			"pretrimName": "1.6 가솔린 트렌디",
+			"modelName" : "K3",
+            "modelCode" :"K3",
+			"trimCode": "LRL",
+			"trimName": "1.6 가솔린 트렌디",
 			"colorList": [
 					{ 	"colorCode": "M4B", 
 						"colorName": "미네랄 블루", 

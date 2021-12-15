@@ -254,12 +254,9 @@
 										<sly data-sly-test="${cate.categoryCode == car.categoryCode}">              
 			                                <li class="car_l" car="${car.modelCode}">
 			                                    <div class="car_box">
-			                                        <a href="/content/kia25/us/build002-test.html?car=${car.modelCode}" class="car_a"  title="Select">
+			                                        <a href="/content/kia25/us/en/build-your-car/build-your-car-002.html?step=2&modelCode=${car.modelCode}" class="car_a"  title="Select">
 			                                        <!-- 
-				                                        modelid=${car.modelCode} : 출력이 정상적으로 이루어지는 것을 확인함.
-
-			                                        	연결을 위해 href의 value를 정해주면 a 태그 자체가 사라져버린다...inline stlye을 줘도 사라진다.(style="display:block)
-			                                        	/content/kia25/us/build002-test.html?car=${car.modelCode}
+				                                        해당 경로에 page가 실제로 존재해야 링크가 연결됨
 			                                         -->
 			                                            <span class="car_img">
 			                                                <img src="${car.carImagePath}"

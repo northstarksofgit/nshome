@@ -74,7 +74,7 @@ public class NaviModel {
 		/*
 		 * 차량 model code
 		 */
-		String modelCode = request.getParameter("car");
+		String modelCode = request.getParameter("modelCode");
 		
 		/*
 		 * trim code

@@ -106,27 +106,24 @@
                                     <li class="list03">
                                         <div class="list_in">
                                             <strong>선택옵션</strong>
+                                            <!-- 
                                             <sly data-sly-test="${!summary.listOfOptions}">
 	                                            <p>선택정보가 없습니다.</p>
 	                                        </sly>
+	                                         -->
 	                                        
-                                            <sly data-sly-test="${summary.listOfOptions}">
-	                                                <div class="con">
-	                                                	<sly data-sly-list.opt="${summary.listOfOptions}">
-															<span class="fixed" price="${opt.optionPrice}">
-							                                	<em class="conTitle">${opt.optionName}</em>
-							                                	<span class="conPrice">
-							                                		<sly data-sly-call="${formattedPrice @ price=opt.optionPrice}"></sly><em>원</em>
-						                                		</span>
-															</span>
-														</sly>
-	
-	                                                </div>
-	                                                <!-- 
-	                                            <div style="display:none;">
-	                                            </div>
-	                                             -->
-                                            </sly>
+                                            <div class="con">
+	                                            <sly data-sly-test="${summary.listOfOptions}">
+	                                               	<sly data-sly-list.opt="${summary.listOfOptions}">
+														<span class="fixed" price="${opt.optionPrice}">
+						                                	<em class="conTitle">${opt.optionName}</em>
+						                                	<span class="conPrice">
+						                                		<sly data-sly-call="${formattedPrice @ price=opt.optionPrice}"></sly><em>원</em>
+					                                		</span>
+														</span>
+													</sly>
+	                                            </sly>
+                                            </div>
                                         </div>
                                     </li>
                                     <li class="list04">

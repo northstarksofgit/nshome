@@ -1,4 +1,8 @@
+var static_value1 = "hi";
+
+
 $(document).ready(function() {
+	var static_value2 = "hello";
 	var selectedOptList = [];
 	var selectedOptPrice = 0;
     $('.option-list').click(function(e) {

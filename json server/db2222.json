@@ -132,77 +132,6 @@
 		]}
 	},
    "trim-list-E": {
-<<<<<<< HEAD
-        "resultCode": "000",
-        "detailCode": null,
-        "resultMessage": null,
-        "detailMessage": null,
-        "data": {
-              "categoryCode": "001",
-              "categoryName": "EV",
-              "modelCode": "EV6",
-              "modelYear": "2021",
-              "carModelName": "EV6",
-              "carImagePath": "/content/dam/kia25/build-a-car/car_ev6.png",
-              "carGroupList" : [
-              
-                  {
-                      "carGroupCode": "EV6-LEV",
-                      "carGroupName": "롱 레인지",
-                      "carImagePath": "/content/dam/kia25/build-a-car/car_ray_m9y.png"
-                  },
-                  {
-                      "carGroupCode": "EV6-LEV1",
-                      "carGroupName": "롱 레인지1",
-                      "carImagePath": "/content/dam/kia25/build-a-car/car_ray_m9y.png"
-                  }
-                  ],
-              "transmissionList": [{
-                "transmissionCode" : "A",
-                "transmissionName" : "자동"
-                },
-                {
-                "transmissionCode" : "M",
-                "transmissionName" : "수동"
-                }
-                ],
-                "trimList" : [
-                    {
-                        "carGroupCode": "EV6-LEV",
-                        "transmissionCode" : "M",
-                        "trimCode": "LRL",
-                        "trimName": "EV6 롱 레인지 라이트(Light)",
-                        "productCode": "",
-                        "sellingPrice": 53460000,
-                        "bestYn": "",
-                        "gearboxName": "",
-                        "compoundFuelEconomy": "",
-                        "bodyTypeName": "",
-                        "engineCapacityName": "",
-                        "transmission" : "automatic"
-                    },
-                    {
-                        "carGroupCode": "EV6-LEV",
-                        "transmissionCode" : "A",
-                        "trimCode": "LRL",
-                        "trimName": "EV6 롱 레인지 라이트(Light)",
-                        "productCode": "",
-                        "sellingPrice": 53460000,
-                        "bestYn": "",
-                        "gearboxName": "",
-                        "compoundFuelEconomy": "",
-                        "bodyTypeName": "",
-                        "engineCapacityName": "",
-                        "transmission" : "automatic"
-                    },
-                          {
-                        "carGroupCode": "EV6-LEV",
-                        "transmissionCode" : "A",
-                              "trimCode": "LRA",
-                              "trimName": "EV6 롱 레인지 에어(Air)",
-                              "productCode": "",
-                              "sellingPrice": 54530000,
-=======
       "resultCode": "000",
       "detailCode": null,
       "resultMessage": null,
@@ -344,7 +273,6 @@
                               "trimName": "파워게이트(1톤 베이스) 수직형 (2단) 킹캡 초장축 L",
                               "productCode": "",
                               "sellingPrice": 21570000,
->>>>>>> 2652c537f8f39feb1ed7cb4fa60dabdef131d2c1
                               "bestYn": "",
                               "gearboxName": "",
                               "compoundFuelEconomy": "",
@@ -353,21 +281,6 @@
                               "transmission" : "automatic"
                           },
                           {
-<<<<<<< HEAD
-                        "carGroupCode": "EV6-LEV",
-                        "transmissionCode" : "A",
-                              "trimCode": "LRE",
-                              "trimName": "EV6 롱 레인지 어스(Earth)",
-                              "productCode": "",
-                              "sellingPrice": 59590000,
-                              "bestYn": "",
-                              "gearboxName": "",
-                              "compoundFuelEconomy": "",
-                              "bodyTypeName": "",
-                              "engineCapacityName": "",
-                              "transmission" : "automatic"
-                          }
-=======
                             "trimCode": "P2LM",
                             "trimName": "파워게이트(1톤 베이스) 수직형 (2단) 킹캡 초장축 L",
                             "productCode": "",
@@ -403,10 +316,14 @@
                             "engineCapacityName": "",
                             "transmission" : "manual"
                         }
->>>>>>> 2652c537f8f39feb1ed7cb4fa60dabdef131d2c1
                       ]
                   }
+              ]
+    
+          }
       },
+
+	
 	"summary-info-0": {
 		"resultCode": "000",
 		"detailCode": null,

@@ -1,5 +1,59 @@
 <sly data-sly-use.complet="com.kia25.core.models.Build006Helper"></sly>
 
+<script type="text/javascript">
+
+	 
+    
+	$(function() {
+
+		$(window).resize(function(){
+		    var _winWid   = document.documentElement.clientWidth || document.body.clientWidth || window.innerWidth;
+		    if (_winWid < 768){
+		      $('.estimate_online_wrap .note_box').addClass('mo');
+		    }else{
+		      $('.estimate_online_wrap .note_box').removeClass('mo');
+		      $('.estimate_online_wrap .note_box .bu_list').removeAttr('style');
+		    }
+		  });
+		  //toggle
+		  $('.build_estimate .btn_toggle').click(function(){
+
+		    var item = $(this).closest('.box_inner').find('.ainArg');
+		    if($(this).hasClass('on')){
+		      $(this).removeClass('on');
+		      item.removeClass('on').slideUp();
+		      $(this).find('em.hidden').text('열기');
+		    }else{
+		      $(this).toggleClass('on');
+		      if(item.hasClass('on')){
+		        item.removeClass('on').slideUp();
+		        $(this).find('em.hidden').text('열기');
+		      }else {
+		        item.addClass('on').slideDown();
+		        $(this).find('em.hidden').text('닫기');
+		      }
+		    }
+		  });
+	
+		  $('.note_box .btn_toggle').click(function(){
+		    var item = $(this).next('.bu_list');
+		    if($(this).hasClass('on')){
+		      $(this).removeClass('on');
+		      item.removeClass('on').slideUp();
+		      $(this).find('em').text('열기');
+		    }else{
+		      $(this).toggleClass('on');
+		      if(item.hasClass('on')){
+		        item.removeClass('on').slideUp();
+		        $(this).find('em').text('열기');
+		      }else {
+		        item.addClass('on').slideDown();
+		        $(this).find('em').text('닫기');
+		      }
+		    }
+		  });
+	});
+</script>
 <div class="estimate_online_wrap">
 					<!-- step 시작 -->
 					<div class="step_wrap">
@@ -54,7 +108,7 @@
 									
                                     
 									<span class="basic">구매 방법</span>
-									<span class="result">현금구입</span>
+									<span class="result">${complet.completeData.installment}</span>
 								
 								</a>
 								
@@ -114,7 +168,7 @@
 				
 				<em class="hidden">열기</em>
 			</button>
-			<div class="ainArg on" style="">
+			<div class="ainArg" style="">
 				<h5 class="hidden">견적서</h5>
 				<ul class="build_list">
 					<li>
@@ -194,24 +248,24 @@
         <div class="total"><strong>출고 전 납입금액 합계</strong> <span class="beforeTotalPrice1">50,356,483</span>원</div>
         <em class="hidden">열기</em>
       </button>
-      <div class="ainArg on" style="">
+      <div class="ainArg" style="">
         <h5 class="hidden">출고 전 납입금액</h5>
         <div class="txt_tip">장애인 면세/과세, 하이브리드 세제지원 등 자세한 추가 할인 혜택은 구매상담신청 및 영업점 방문바랍니다. </div>
         <ul class="build_list">
           <li class="condition">
             <strong class="opt1">지불조건</strong>
             <div class="opt2">할부유형</div>
-            <span class="opt3">현금구입</span>
+            <span class="opt3">${complet.completeData.installment}</span>
           </li>
           
           <li class="option">
             <strong class="opt1">부대비용</strong>
             <div class="opt2">인지대</div>
-            <span class="opt3">35,000 원</span>
+            <span class="opt3">${complet.completeData.recognitionPrice} 원</span>
           </li>
           <li class="last">
             <div class="opt2">의무보험료</div>
-            <span class="opt3">2,300 원</span>
+            <span class="opt3">${complet.completeData.insurancePrice} 원</span>
           </li>
           <!-- s:할부 변경시에만 노출 -->
           <li class="btnarea modifySaveBtn" style="display:none;">
@@ -221,7 +275,7 @@
         </ul>
         <div class="total">
           <strong>출고 전 납입금액 합계</strong>
-          <span class="beforeTotalPrice2">50,356,483<em>원</em></span>
+          <span class="beforeTotalPrice2">${complet.completeData.shippingPrice}<em>원</em></span>
         </div>
       </div>
     </div>
@@ -236,23 +290,23 @@
         <div class="total"><strong>차량 인도 시까지 소요비용</strong> <span class="committalPrice1">52,321,191</span>원</div>
         <em class="hidden">열기</em>
       </button>
-      <div class="ainArg on" style="">
+      <div class="ainArg" style="">
         <h5 class="hidden">등록제 비용</h5>
         <ul class="build_list">
           <li class="option">
             <strong class="opt1">차량<br>등록비용</strong>
             <div class="opt2">공채할인</div>
-            <span class="opt3">161,802 원</span>
+            <span class="opt3">${complet.completeData.publoanPrice} 원</span>
           </li>
           
           <li>
             <div class="opt2">계</div>
-            <span class="opt3">161,802 원</span>
+            <span class="opt3">${complet.completeData.publoanPricesum} 원</span>
           </li>
           <li class="pay">
             <strong class="opt1">취득세</strong>
             <div class="opt2"></div>
-            <span class="opt3">1,802,906 원</span>
+            <span class="opt3">${complet.completeData.chwideugPrice} 원</span>
           </li>
           
           <li class="paylist">
@@ -264,7 +318,7 @@
         </ul>
         <div class="total">
           <strong>차량 인도 시 <br>까지 소요비용</strong>
-          <span class="committalPrice2">52,321,191<em>원</em></span>
+          <span class="committalPrice2">${complet.completeData.allAmountPrice}<em>원</em></span>
         </div>
       </div>
     </div>
@@ -278,7 +332,7 @@
     <div class="build_red">
       <div class="point_box">
         <h5>적립 예상 기아포인트</h5>
-        <div class="build_total"><span>100,000</span> point</div>
+        <div class="build_total"><span>${complet.completeData.kiaPoint}</span> point</div>
       </div>
       <ul class="bu_list">
         <li>기아포인트는 적립 시점 기준 유효기간 5년입니다.</li>

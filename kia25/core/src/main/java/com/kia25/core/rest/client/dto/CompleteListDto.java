@@ -14,8 +14,6 @@ public class CompleteListDto {
 	private String trimName;
 
 	private String trimPrice;
-	
-	private String Installment;
 
 	private String exteriorColorName;
 
@@ -49,7 +47,25 @@ public class CompleteListDto {
 
 	private String consumptionTaxPrice;
 
-	private String orderPrice;
+	private String totalPrice;
+	
+	private String installment;
+	
+	private String recognitionPrice;
+	
+	private String insurancePrice;
+	
+	private String shippingPrice;
+	
+	private String publoanPrice;
+	
+	private String publoanPricesum;
+	
+	private String chwideugPrice;
+	
+	private String allAmountPrice;
+	
+	private String kiaPoint;
 
 	public String getModelName() {
 		return modelName;
@@ -211,21 +227,84 @@ public class CompleteListDto {
 		this.consumptionTaxPrice = consumptionTaxPrice;
 	}
 
-	public String getorderPrice() {
-		return orderPrice;
+	public String getTotalPrice() {
+		return totalPrice;
 	}
 
-	public void setorderPrice(String orderPrice) {
-		this.orderPrice = orderPrice;
+	public void setTotalPrice(String totalPrice) {
+		this.totalPrice = totalPrice;
+	}
+
+	public String getRecognitionPrice() {
+		return recognitionPrice;
+	}
+
+	public void setRecognitionPrice(String recognitionPrice) {
+		this.recognitionPrice = recognitionPrice;
+	}
+
+	public String getInsurancePrice() {
+		return insurancePrice;
+	}
+
+	public void setInsurancePrice(String insurancePrice) {
+		this.insurancePrice = insurancePrice;
+	}
+
+	public String getShippingPrice() {
+		return shippingPrice;
+	}
+
+	public void setShippingPrice(String shippingPrice) {
+		this.shippingPrice = shippingPrice;
+	}
+
+	public String getPubloanPrice() {
+		return publoanPrice;
+	}
+
+	public void setPubloanPrice(String publoanPrice) {
+		this.publoanPrice = publoanPrice;
+	}
+
+	public String getPubloanPricesum() {
+		return publoanPricesum;
+	}
+
+	public void setPubloanPricesum(String publoanPricesum) {
+		this.publoanPricesum = publoanPricesum;
+	}
+
+	public String getChwideugPrice() {
+		return chwideugPrice;
+	}
+
+	public void setChwideugPrice(String chwideugPrice) {
+		this.chwideugPrice = chwideugPrice;
+	}
+
+	public String getAllAmountPrice() {
+		return allAmountPrice;
+	}
+
+	public void setAllAmountPrice(String allAmountPrice) {
+		this.allAmountPrice = allAmountPrice;
+	}
+
+	public String getKiaPoint() {
+		return kiaPoint;
+	}
+
+	public void setKiaPoint(String kiaPoint) {
+		this.kiaPoint = kiaPoint;
 	}
 
 	public String getInstallment() {
-		return Installment;
+		return installment;
 	}
 
 	public void setInstallment(String installment) {
-		Installment = installment;
+		this.installment = installment;
 	}
-
-
+	
 }

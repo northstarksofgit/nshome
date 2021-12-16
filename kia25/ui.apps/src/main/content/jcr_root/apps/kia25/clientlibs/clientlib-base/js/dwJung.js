@@ -322,6 +322,42 @@ function makeComma(str) {
 
 
 
+/*
+* 사용자가 선택한 trim에 대한 내용이 navi에 할당됩니다.
+*/
+function addTrimToNavi(){
+	
+	var len = $('.trim_click').length;
+
+	for(var i = 0; i<len; i++){
+		
+		if($($('.trim_click')[i]).hasClass('on')){
+			
+			// trim name 할당
+			$('.list01 > .list_in > .con > .conTitle').text($($('.trim_click')[i]).find('.h').text());
+
+			// trim price 할당 -- int 로
+			var priceInt = parseInt($($('.trim_click')[i]).attr('price'));
+			$('.list01 > .list_in > .con').attr('price', priceInt);
+
+			// trim price 할당 -- str로
+			var priceStr = makeComma(priceInt);
+			$('.list01 > .list_in > .con > .conPrice').html(priceStr+'<em>원<em>');
+
+			//합계 변경
+			$('.btn_totalCon_open > .price').attr('initprice', 0);
+			totalSum(priceInt);
+			
+		}
+	
+	}
+	
+}
+
+
+
+
+
 
 
 

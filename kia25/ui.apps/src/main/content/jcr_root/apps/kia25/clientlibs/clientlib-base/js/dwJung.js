@@ -69,100 +69,26 @@ $(window).scroll(function() {
 
 
 $(document).ready(function() {
-    $(".sales_offers").length && offersInit();
-    $(".sales_demonstrator").length && demonstratorInit();
-    $(".branchList");
+
     $(".build_car").length && buildcarInit();
-    $(".driving_center").length && drivingCenterInit();
-    $(".catalog_price").length && shoppingtoolsCategoryInit();
-    $(".gateCon").length && shoppingToolsGateInit();
-    $(".btnActMove").length && showBtnActMove();
+	 toolBar();
 
 });
 
 
-var showBtnActMove = function() {
-    $(window).scroll(function() {
-        sTop = Math.round($(window).scrollTop());
-        
-    });
-    $(window).load(function() {
-        sTop = Math.round($(window).scrollTop());
-       
-    });
-    $(window).resize(function() {
-        sTop = Math.round($(window).scrollTop());
-       
-    });
-    var c = function() {
-        $(".btnActMove").each(function(a) {
-            sTop >= $(".btnActMove:eq(" + a + ")").offset().top - $(window).height() && sTop <= $(".btnActMove:eq(" + a + ")").offset().top && ($(".btnActMove:eq(" + a + ")").hasClass("on") || $(".btnActMove:eq(" + a + ")").addClass("on"))
-        })
-    }
-}
 
-  , finddealerInit = function() {}
-  , buildcarSlider = function() {
-    var c = $(".build_car");
-    c.find(".byoTotal").find(".totalBar \x3e a");
-    c.find(".totalCon");
-    c.find(".totalList");
-    var a = function(a) {
-        this.self = this;
-        this.target = a;
-        this.init()
-    };
-    a.prototype = {
-        init: function() {
-            this.self.initLayout();
-            this.self.addEvent()
-        },
-        initLayout: function() {
-            this.self.item = this.target.find(".box_l");
-            this.self.control = this.self.target.siblings(".slide_ctrl")
-        },
-        addEvent: function() {
-            var a = this.self, c = a.item, f, l, k;
-            a.control.find(".prev").off();
-            a.control.find(".next").off();
-            $(window).off("resize.multislider");
-            a.control.find(".prev").on("click", function(a) {
-                0 < l && (c.filter(":hidden").slice(-f).show(),
-                $(window).triggerHandler("resize.multislider"))
-            });
-            a.control.find(".next").on("click", function(a) {
-                l < k && (c.not(":hidden").slice(0, f).hide(),
-                $(window).triggerHandler("resize.multislider"))
-            });
-            $(window).on("resize.multislider", function(e) {
-                e = $(document).width();
-                f = 1024 < e ? 5 : 767 > e ? 3 : 4;
-                l = Math.ceil(c.not(":hidden").filter(":first").index() / f) + 1;
-                k = Math.ceil(c.length / f);
-                a.control.find("span.page").text(l + "/" + k)
-            }).triggerHandler("resize.multislider")
-        }
-    };
-    $(".slide_box").each(function() {
-        "none" != $(this).css("display") && new a($(this))
-    })
-}
-  , buildcarInit = function() {
-    function c() {
-
-    }
-
+var buildcarInit = function() {
     var g = $(".build_car")
       , f = g.find(".byoTotal")
       , l = f.find(".totalBar \x3e a")
       , k = g.find(".totalCon")
       , h = g.find(".totalList");
     (function() {
-        var a = h.find("li.totalFinish").height();
-        h.find("li").css("height", a);
-        k.slideUp(0);
-        f.removeClass("on")
-    }
+	        var a = h.find("li.totalFinish").height();
+	        h.find("li").css("height", a);
+	        k.slideUp(0);
+	        f.removeClass("on")
+    	}
     )();
     (function() {
         function a() {
@@ -195,26 +121,8 @@ var showBtnActMove = function() {
             }
         });
 
-    }
-    )();
-
+    })();
 };
-
-
-
-
-
-
-
-
-$(document).ready(function() {
-	
-    toolBar();
-});
-
-
-
-
 
 
 
@@ -262,8 +170,6 @@ function toolBar() {
 };
 
 
-
-
 function updateBuildOption() {
 	
 	if (0 < $(".build_option").length) {
@@ -285,9 +191,6 @@ function updateBuildOption() {
 	}
 	
 }
-
-
-
 
 
 
@@ -353,13 +256,9 @@ function addTrimToNavi(){
 
 
 
-
-
-
-
-
-
-
+/*
+* navi의 다음> 클릭시 다음 step으로 넘어가는 함수
+*/
 function nextStep(){
 	
 	/*

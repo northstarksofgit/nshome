@@ -5,64 +5,36 @@ import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class ColorDto {
 
-	/* colorList 색상 코드 */
 	private String colorCode;
-	
-	/* colorList 컬러명 */
-	private String colorName;
-	
-	/* colorList 컬러별 추천 */
-	private String bestYn;
-	
-	/* colorList 컬러 가격 */
-	private String colorPrice;
-		
-	/* colorList 컬러 내/외장 	 * i : 인테리어	 * e : 익스테리어 */
-	private String carOptionCode;
-	
 
-	/* colorList 컬러 이미지 */
+	private String colorName;
+
+	private String bestYn;
+
+	private String colorPrice;
+
+	private String carOptionCode;
+
 	private String colorImgPath;
-		
-	/* colorList 컬러 조각 */
+
 	private String productNumber;
-	
-	
-	
-	/* exteriorList 가격  */
+
 	private String cellvehiclePrice;
-	
-	/* exteriorList 색상조각  */
+
 	private String carcelImage;
-	
-	/**
-	 * selected Model Name
-	 */
+
 	private String modelName;
-	
-	
-	/**
-	 * selected Model Code
-	 */
+
 	private String modelCode;
-	
-	
-	/**
-	 * selected Trim Code
-	 */
+
 	private String trimCode;
-	
-	
-	/**
-	 * selected Trim Code
-	 */
+
 	private String trimName;
-	
 
 	public String getColorCode() {
 		return colorCode;
 	}
-	
+
 	public void setColorCode(String colorCode) {
 		this.colorCode = colorCode;
 	}
@@ -91,6 +63,13 @@ public class ColorDto {
 		this.colorPrice = colorPrice;
 	}
 
+	public String getCarOptionCode() {
+		return carOptionCode;
+	}
+
+	public void setCarOptionCode(String carOptionCode) {
+		this.carOptionCode = carOptionCode;
+	}
 
 	public String getColorImgPath() {
 		return colorImgPath;
@@ -108,24 +87,6 @@ public class ColorDto {
 		this.productNumber = productNumber;
 	}
 
-	public String getCarOptionCode() {
-		return carOptionCode;
-	}
-
-	public void setCarOptionCode(String carOptionCode) {
-		this.carOptionCode = carOptionCode;
-	}
-
-	public String getTrimCode() {
-		return trimCode;
-	}
-
-	public void setTrimCode(String trimCode) {
-		this.trimCode = trimCode;
-	}
-	
-	
-	/* exteriorList */
 	public String getCellvehiclePrice() {
 		return cellvehiclePrice;
 	}
@@ -142,13 +103,12 @@ public class ColorDto {
 		this.carcelImage = carcelImage;
 	}
 
-	/* model code, trim name */
-	public String getTrimName() {
-		return trimName;
+	public String getModelName() {
+		return modelName;
 	}
 
-	public void setTrimName(String trimName) {
-		this.trimName = trimName;
+	public void setModelName(String modelName) {
+		this.modelName = modelName;
 	}
 
 	public String getModelCode() {
@@ -159,15 +119,21 @@ public class ColorDto {
 		this.modelCode = modelCode;
 	}
 
-	public String getModelName() {
-		return modelName;
+	public String getTrimCode() {
+		return trimCode;
 	}
 
-	public void setModelName(String modelName) {
-		this.modelName = modelName;
+	public void setTrimCode(String trimCode) {
+		this.trimCode = trimCode;
 	}
-	
-	
 
+	public String getTrimName() {
+		return trimName;
+	}
 
+	public void setTrimName(String trimName) {
+		this.trimName = trimName;
+	}
+
+	 
 }

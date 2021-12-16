@@ -1,0 +1,313 @@
+<sly data-sly-use.complet="com.kia25.core.models.Build006Helper"></sly>
+
+<div class="estimate_online_wrap">
+					<!-- step 시작 -->
+					<div class="step_wrap">
+						<ul>
+							<li class="step1">
+								<a href="/kr/shopping-tools/build-your-car/vehicle-lineup.html">
+									<span>처음으로</span>
+								</a>
+							</li>
+							
+							<li class="step2 off">
+								
+							    <a href="vehicle-lineup.trim.car=EV6.trim=CVJJ5VI31-A.dpcd=N.html">
+							    	
+									<span class="basic">상세차종 선택</span>
+									
+                                    <span class="result">${complet.completeData.trimName}</span>
+                                    
+
+								</a>
+								
+							</li>
+							<li class="step3 off">
+								
+								<a href="vehicle-lineup.color.car=EV6-LEV.trim=CVJJ5VI31-A.ext=SWP.int=IN_EV6_BL.dpcd=N.html">
+								
+                                    <span class="basic">컬러 선택</span>
+                                    
+                                    <span class="result">${complet.completeData.exteriorColorName}</span>
+                                    
+								
+								</a>
+								
+							</li>
+							<li class="step4 off">
+								
+								<a href="vehicle-lineup.option.car=EV6-LEV.trim=CVJJ5VI31-A.ext=SWP.int=IN_EV6_BL.option=ZZZ.dpcd=N.html">
+								
+                                    <span class="basic">옵션 선택</span>
+                                    
+                                    <span class="result">${complet.completeData.optionName}</span>
+                                    
+                                    
+									
+									</a>
+									
+							</li>
+							<li class="step5 off">
+								
+								<a href="vehicle-lineup.method.car=EV6-LEV.trim=CVJJ5VI31-A.ext=SWP.int=IN_EV6_BL.option=ZZZ.method=null.dpcd=N.html">
+								
+									
+                                    
+									<span class="basic">구매 방법</span>
+									<span class="result">현금구입</span>
+								
+								</a>
+								
+							</li>
+							<li class="step6 on">
+								<span class="basic">견적완료</span>
+							</li>
+						</ul>
+					</div><!-- // byoTab -->
+					<!-- // step 끝 -->
+	<div class="inner build_car">
+		<div class="build_preview build_viewer complete">
+			<div class="preview">
+				<h4 class="hidden">SERP6 견적완료</h4>
+				<div class="car_name">
+					<strong class="name">${complet.completeData.modelName}</strong>
+					<span class="option">${complet.completeData.trimName}</span>
+				</div>
+				<div class="car_img">
+					<img src="${complet.completeData.carImagePath}" width="450" height="260" alt="${complet.completeData.trimName}">
+					<p class="car_desc">※ 본 차량의 이미지는 실제와 다를 수 있습니다.</p>
+				</div>
+			</div>
+			
+		  	<div class="complete_info">꼭 <strong>내 것</strong> 같은 느낌이 드시죠? 고객님의 차로 만나보세요.</div>
+		  	
+
+			<div class="sales_box_wrap">
+				<div class="sales_box">
+					<p class="txt_sales">고객님의 온라인 견적이 <br><strong>완료</strong>되었습니다</p>
+					<div class="btn_area goMyKia"><a href="javascript:loginAndSave();" class="btn_sales">견적 저장하기</a></div>
+				</div>
+				<div class="sales_box" id="carnotexist">
+					<h5 class="hidden">Sales Tools</h5>
+					<ul class="sales_tool">
+						<li><a href="/kr/experience-center/test-service/default.html" class="tool_tspr spr_tool1">시승신청</a></li>
+						<li><a href="/kr/shopping-tools/quick-counsel/default.html/modelCode/EV6/carCode/LEV/trimCode/CVJJ5VI31/opCode/A" class="tool_tspr spr_tool2">구매상담신청</a></li>
+						<li><a href="/kr/shopping-tools/comparisons/comparisons-select-korea01-01.html" class="tool_tspr spr_tool10">경쟁차비교</a></li>
+						<li><a href="#spr_tool11_" onclick="fnDownPdf(); fnELeadEvent('sptool_byod_output_pdf', '#URL', 'TMB');" class="tool_tspr spr_tool11">PDF저장</a></li>
+						<li><a href="#" onclick="emailSet();fnELeadEvent('sptool_byod_output_mail_popup', '#URL', 'TMB');" class="tool_tspr spr_tool5">메일발송</a></li>
+					</ul>
+				</div>
+			</div>
+		</div>
+	</div>
+	
+	<p class="line_wrap"></p>
+	
+	<div class="con_box build_estimate">
+    	<div class="box_inner build">
+			<button type="button" class="btn_toggle">
+				<strong class="build_tit">견적서<em class="pointcolor1">(개별소비세 감면 혜택 적용 후)</em></strong>
+				<span class="build_date">2021.12.15</span>
+				<div class="total"><strong>차량 총 금액</strong>
+
+				<span>50,319,183</span>원</div>
+				
+				<em class="hidden">열기</em>
+			</button>
+			<div class="ainArg on" style="">
+				<h5 class="hidden">견적서</h5>
+				<ul class="build_list">
+					<li>
+						<strong class="opt1">모델</strong>
+						<div class="opt2">${complet.completeData.trimName}</div>
+						<span class="opt3">${complet.completeData.trimPrice}<em>원</em></span>
+					</li>
+					<li>
+						<strong class="opt1">외장 컬러</strong>
+						<div class="opt2"><img src="${complet.completeData.exteriorColorPixel}" alt="${complet.completeData.exteriorColorName}">${complet.completeData.exteriorColorName}</div>
+						<span class="opt3">${complet.completeData.exteriorColorPrice}<em>원</em></span>
+					</li>
+					<li>
+						<strong class="opt1">내장 컬러</strong>
+						<div class="opt2"><img src="${complet.completeData.interiorColorPixel}" alt="${complet.completeData.interiorColorName}">${complet.completeData.interiorColorName}</div>
+						<span class="opt3">${complet.completeData.interiorColorPrice}<em>원</em></span>
+					</li>
+					
+					<li class="option">
+						
+						<strong class="opt1">옵션</strong>
+						
+						<div class="opt2">${complet.completeData.optionName}</div>
+						<span class="opt3">${complet.completeData.optionPrice}<em>원</em></span>
+					</li>
+					
+					
+					
+					<li>
+						<strong class="opt1">면세</strong>
+						<div class="opt2">${complet.completeData.exemptionName}</div>
+						<span class="opt3 colorSale" "="">${complet.completeData.exemptionPrice}<em>원</em></span>
+					</li>
+					
+					<li>
+						<strong class="opt1">기타 비용</strong>
+						<div class="opt2">${complet.completeData.consignmentName}</div>
+						<span class="opt3 transfee" price="${complet.completeData.consignmentPrice}">${complet.completeData.consignmentPrice}<em>원</em></span>
+					</li>
+					
+					
+					<li>
+						<strong class="opt1"></strong>
+						<div class="opt2">${complet.completeData.totalPriceName}</div>
+						<span class="opt3">${complet.completeData.totalPricePrice}<em>원</em></span>
+					</li>
+					<li>
+						<strong class="opt1"></strong>
+						<div class="opt2">${complet.completeData.consumptionTaxName}</div>
+						<span class="opt3"><font color="#ea0029">${complet.completeData.consumptionTaxPrice}</font><em>원</em></span>
+					</li>
+					
+					
+					
+										
+				</ul>
+				<div id="carTotal" class="total">
+					<strong>차량 총 금액<em class="pointcolor1">(개별소비세 감면 혜택 적용 후)</em></strong>
+
+					<span>${complet.completeData.orderPrice}<em>원</em></span>
+					
+					<ul class="bu_list">
+						
+						<li style="color:#ea0029">개별소비세율 한시적 인하 적용으로 견적 금액이 실제와 상이할 수 있으니 최종 구매 가격은 가까운 지점/대리점을 통해 확인해주시기 바랍니다.</li>
+						
+						<li>차량 총 금액은 사용 포인트 종류와 금액에 따라, 실제 세금계산서 금액과 상이할 수 있습니다.</li>
+						<li>하이브리드, 면세차량 관련 금액은 실제 세금계산서 금액과 상이할 수 있습니다.</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="con_box build_estimate">
+    <div class="box_inner">
+      <button type="button" class="btn_toggle">
+        <strong class="build_tit">출고 전 납입금액</strong>
+        <div class="total"><strong>출고 전 납입금액 합계</strong> <span class="beforeTotalPrice1">50,356,483</span>원</div>
+        <em class="hidden">열기</em>
+      </button>
+      <div class="ainArg on" style="">
+        <h5 class="hidden">출고 전 납입금액</h5>
+        <div class="txt_tip">장애인 면세/과세, 하이브리드 세제지원 등 자세한 추가 할인 혜택은 구매상담신청 및 영업점 방문바랍니다. </div>
+        <ul class="build_list">
+          <li class="condition">
+            <strong class="opt1">지불조건</strong>
+            <div class="opt2">할부유형</div>
+            <span class="opt3">현금구입</span>
+          </li>
+          
+          <li class="option">
+            <strong class="opt1">부대비용</strong>
+            <div class="opt2">인지대</div>
+            <span class="opt3">35,000 원</span>
+          </li>
+          <li class="last">
+            <div class="opt2">의무보험료</div>
+            <span class="opt3">2,300 원</span>
+          </li>
+          <!-- s:할부 변경시에만 노출 -->
+          <li class="btnarea modifySaveBtn" style="display:none;">
+            <a href="javascript:saveQuote(true);" class="btn_apply save" title="변경정보 저장하기 ">변경정보 저장하기 </a>
+          </li>
+          <!-- e:할부 변경시에만 노출 -->
+        </ul>
+        <div class="total">
+          <strong>출고 전 납입금액 합계</strong>
+          <span class="beforeTotalPrice2">50,356,483<em>원</em></span>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- e:출고 전 납입금액 -->
+
+  <!-- s:등록제 비용-->
+  <div class="con_box build_estimate">
+    <div class="box_inner last">
+      <button type="button" class="btn_toggle">
+        <strong class="build_tit">등록제 비용</strong>
+        <div class="total"><strong>차량 인도 시까지 소요비용</strong> <span class="committalPrice1">52,321,191</span>원</div>
+        <em class="hidden">열기</em>
+      </button>
+      <div class="ainArg on" style="">
+        <h5 class="hidden">등록제 비용</h5>
+        <ul class="build_list">
+          <li class="option">
+            <strong class="opt1">차량<br>등록비용</strong>
+            <div class="opt2">공채할인</div>
+            <span class="opt3">161,802 원</span>
+          </li>
+          
+          <li>
+            <div class="opt2">계</div>
+            <span class="opt3">161,802 원</span>
+          </li>
+          <li class="pay">
+            <strong class="opt1">취득세</strong>
+            <div class="opt2"></div>
+            <span class="opt3">1,802,906 원</span>
+          </li>
+          
+          <li class="paylist">
+            <ul class="bu_list">
+              <li>할부원금이 4,000만원 이상 일 경우, 증지대 비용이 발생할 수 있습니다.</li>
+              <li>하이브리드, 면세차량 관련 등록제 비용은 실제 금액과 상이할 수 있습니다.</li>
+            </ul>
+          </li>
+        </ul>
+        <div class="total">
+          <strong>차량 인도 시 <br>까지 소요비용</strong>
+          <span class="committalPrice2">52,321,191<em>원</em></span>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- e:등록제 비용-->
+  
+  <p class="line_wrap"></p>
+
+  <div class="point_wrap">
+    <!-- s:적립 예상 RED포인트 -->
+    <div class="build_red">
+      <div class="point_box">
+        <h5>적립 예상 기아포인트</h5>
+        <div class="build_total"><span>100,000</span> point</div>
+      </div>
+      <ul class="bu_list">
+        <li>기아포인트는 적립 시점 기준 유효기간 5년입니다.</li>
+        <li>기아포인트는 자동차와 생활 영역에서 다양하게 적립 및 사용이 가능합니다.</li>
+        <li>포인트와 관련하여 자세한 사항은 기아멤버스 웹 사이트 (<a href="https://members.kia.com/kr/view/qben/qpoi/usePointList01.do" title="기아멤버스 웹 사이트 새창" target="_blank" rel="noopener noreferrer">members.kia.com</a>)에서 확인 바랍니다.</li>
+      </ul>
+    </div>
+    <!-- e:적립 예상 RED포인트 -->
+    
+    <!-- s:이달의 구매혜택 -->
+    
+	
+    <!-- e:이달의 구매혜택 -->
+  </div>
+  <div class="inner tcenter"><a href="/content/kwcms/kr/ko/shopping-tools/build-your-car/vehicle-lineup.html" class="btn_again">다시 견적내기</a></div>
+  <br>
+  <!-- s:온라인견적 참고사항-->
+  <div class="note_box">
+    <strong class="stit">온라인견적 참고사항</strong>
+    <button type="button" class="btn_toggle"><span class="bl_type_noti">온라인견적 참고사항을 확인하세요.</span><em class="hidden">닫기</em></button>
+    <ul class="bu_list">
+      	<li>자동차 취등록세 및 부대비용, 등록비용은 고객님의 이해를 돕기 위한 부분으로 정확한 금액은 반드시 지점,대리점에 확인하시기 바랍니다.</li>
+        <li>부대비용의 할부 수수료 및 근저당 설정 비용은 계약자의 신용 등급에 따라 변동될 수 있습니다.</li>
+        <li>공채 금액은 매일매일 변경되는 부분으로 자세한 내용은 지점 대리점으로 문의 부탁드립니다.</li>
+        <li>본 견적서는 고객님의 차량 구입(청약) 의사 결정에 도움을 드리고자 작성된 것으로 법적인 효력은 없으며, 계약을 원하실 경우 별도로 청약 의사 표시를 하셔야 합니다.</li>
+        <li>실제 계약 내용은 청약하실 시점의 판매조건이나 대출조건에 따라 본 견적 내용과 달라질 수 있으며, 본 견적은 법적구속력이 없습니다. </li>
+        <li>기아는 지점, 대리점의 영업직 사원을 통해서만 판매되며, 전국 어느 곳에서나 동일한 가격과 조건으로 제공되고 있습니다.</li>
+    </ul>
+  </div>
+  <!-- e:온라인견적 참고사항-->
+  
+</div>

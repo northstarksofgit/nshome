@@ -78,8 +78,6 @@ $(document).ready(function() {
     $(".gateCon").length && shoppingToolsGateInit();
     $(".btnActMove").length && showBtnActMove();
 
-
-
 });
 
 
@@ -211,7 +209,6 @@ var showBtnActMove = function() {
 
 $(document).ready(function() {
 	
-	
     toolBar();
 });
 
@@ -267,6 +264,35 @@ function toolBar() {
 
 
 
+function updateBuildOption() {
+	
+	if (0 < $(".build_option").length) {
+		var c = $(".totalList .list03 .con")
+//		  , a = $(".build_option_preview .info_text em")
+//		  , e = $(".build_option_preview .price .num")
+		  , g = 0
+		  , f = 0;
+		c.empty();
+//		a.text("0");
+//		e.text("0");
+		for (var l = $(".build_option .box_l.on"), k = 0; k < l.length; k++) {
+			var h = l[k]
+			  , m = $(h).find("span.h").text();
+			h = $(h).attr("data-price");
+			h = makeComma(h);
+			c.append("\x3cspan price\x3d" + h + '\x3e\x3cem class\x3d"conTitle"\x3e' + m + '\x3c/em\x3e\x3cspan class\x3d"conPrice"\x3e' + h+ "\x3cem\x3e\uc6d0\x3c/em\x3e\x3c/span\x3e\x3c/span\x3e");
+			g++;
+			f += parseInt(h)
+		}
+		
+	}
+	
+}
+
+
+
+
+
 
 /*
 * navi의 total sum을 구하는 함수
@@ -278,7 +304,7 @@ function totalSum(price){
 	var sumPriceStr = makeComma(sumPrice);
 	
 	$('.btn_totalCon_open > .price').text(sumPriceStr);
-	$('.btn_totalCon_open > .price').attr('initprice', sumPrice);
+	//$('.btn_totalCon_open > .price').attr('initprice', sumPrice);
 	
 }
 
@@ -362,9 +388,10 @@ function nextStep(){
 	subUrl += next;
 	console.log("subUrl: "+subUrl);
 	
-	//location.href = subUrl;
+	location.href = subUrl;
 	
 	
 }
+
 
 

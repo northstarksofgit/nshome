@@ -254,11 +254,11 @@
 		"resultMessage": null,
 		"detailMessage": null,
 		"data": {
-			"modelName": null,
-			"carImgPath": null,
-			"trimCode": null,
-			"trimName": null,			
-			"trimPrice" : 0,
+			"modelName": "EV6",
+			"carImgPath": "/content/dam/kia25/build-a-car/car_ev6.png",
+			"trimCode": "LRL",
+			"trimName": "EV6 롱 레인지 라이트(Light)",			
+			"trimPrice" : 54530000,
 			"exteriorColorCode": null,
 			"exteriorColorName": null,
 			"exteriorColorPrice": 0,
@@ -268,7 +268,7 @@
 			"interiorColorPrice": 0,
 			"interiorColorImgPath" : null,
 			"listOfOptions" : null,
-			"totalPrice" : 0
+			"totalPrice" : 54530000
 			
 		}
     },
@@ -286,16 +286,16 @@
 			"trimCode": "LRL",
 			"trimName": "EV6 롱 레인지 라이트(Light)",			
 			"trimPrice" : 54530000,
-			"exteriorColorCode": null,
-			"exteriorColorName": null,
+			"exteriorColorCode": "CB",
+			"exteriorColorName": "스노우 화이트 펄",
 			"exteriorColorPrice": 0,
-			"exteriorColorImgPath" : null,
-			"interiorColorCode":  null,
-			"interiorColorName":  null,
+			"exteriorColorImgPath" : "https://www.kia.com/content/dam/kwcms/kr/ko/images/byo/car_k3_the_new_swp.png",
+			"interiorColorCode": "IN",
+			"interiorColorName": "스틸 그레이",
 			"interiorColorPrice": 0,
-			"interiorColorImgPath" : null,
+			"interiorColorImgPath" : "https://www.kia.com/content/dam/kwcms/kr/ko/images/byo/car_k3_the_new_swp.png",
 			"listOfOptions" : null,
-			"totalPrice" : 566756
+			"totalPrice" : 54530000
 			
 		}
     },
@@ -359,6 +359,7 @@
 			"totalPrice" : 23432424
 		}
 	},
+	
 	"list-of-option": {
         "resultCode": "000",
         "detailCode": null,
@@ -413,10 +414,11 @@
 		"resultMessage": null,
 		"detailMessage": null,
 		"data": {
-			"modelName" : "K3",
-            "modelCode" :"K3",
-			"trimCode": "LRL",
-			"trimName": "1.6 가솔린 트렌디",
+			"premodelName" : "K3",
+            "premodelCode" :"K3",
+            "precarImagePath" :"/content/dam/kia25/build-a-car/new_k9.png", 
+			"pretrimCode": "LRL",
+			"pretrimName": "1.6 가솔린 트렌디",
 			"colorList": [
 					{ 	"colorCode": "M4B", 
 						"colorName": "미네랄 블루", 
@@ -536,6 +538,16 @@
                     	{"siSubCode": "seoguipo_sub", "siSubName": "서귀포시"}
                     ]
                 }
+            ],
+            "transList": [
+            	{ "transCode": "hwasung", "transName": "화성"},
+            	{ "transCode": "dukpyeong", "transName": "덕평"},
+            	{ "transCode": "sohari", "transName": "소하리"},
+            	{ "transCode": "seosan", "transName": "서산"},
+            	{ "transCode": "hwasung", "transName": "충주"},
+            	{ "transCode": "sinteain", "transName": "신태인"},
+            	{ "transCode": "gyeongsan", "transName": "경산"},
+            	{ "transCode": "gyeongju", "transName": "경주"}
             ]
         }
     }

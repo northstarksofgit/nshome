@@ -76,8 +76,13 @@ public class TrimDto {
 	 */
 	private String engineCapacityName;
 
+	/**
+	 * 변속기
+	 */
+	private String transmission;
 	
-	
+
+
 	/**
 	 * getter / setter
 	 */
@@ -192,6 +197,16 @@ public class TrimDto {
 
 	public void setEngineCapacityName(String engineCapacityName) {
 		this.engineCapacityName = engineCapacityName;
+	}
+	
+	
+	public String getTransmission() {
+		return transmission;
+	}
+	
+	
+	public void setTransmission(String transmission) {
+		this.transmission = transmission;
 	}
 	
 

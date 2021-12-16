@@ -1,13 +1,12 @@
 package com.kia25.core.rest.client.service;
 
+import com.kia25.core.rest.client.dto.AreaListDtoResults;
 import com.kia25.core.rest.client.dto.CarGroupListDtoResults;
 import com.kia25.core.rest.client.dto.CategoryListDto;
 import com.kia25.core.rest.client.dto.ColorListDto;
-import com.kia25.core.rest.client.dto.ColorListDtoResults;
 import com.kia25.core.rest.client.dto.ModelListDto;
 import com.kia25.core.rest.client.dto.OptionListDtoResults;
 import com.kia25.core.rest.client.dto.SummaryDto;
-import com.kia25.core.rest.client.dto.TrimListDto;
 
 public interface BuildYourCarService {
 
@@ -22,20 +21,19 @@ public interface BuildYourCarService {
 	ModelListDto getModelListAPI();
 
 	/**
-	 * build002 / carGrouplist 불러오기
+	 * build002 / get carGroup Trim List
 	 */
-//	CarGroupListDto  getCarGroupListAPI();
 	CarGroupListDtoResults  getCarGroupListAPI();
+	
 	/**
-	 * build002 / trimlist 불러오기
-	 
-	TrimListDto getTrimListAPI();
-	*/
+	 * build002 / get transmission Trim List
+	 */
+	CarGroupListDtoResults  getTrasmissionListAPI();
 	
 	/**
 	 * build003 / colorlist 불러오기
 	 */
-	ColorListDtoResults getColorAPI();
+	ColorListDto getColorAPI();
 	
 	/**
 	 * build004 / optionlist 불러오기
@@ -46,5 +44,10 @@ public interface BuildYourCarService {
 	 * navi / summary 불러오기
 	 */
 	SummaryDto getSummaryAPI(String step);
+	
+	/**
+	 * How-to-Buy / arealist 불러오기
+	 */
+	AreaListDtoResults getAreaListAPI();
 	
 }

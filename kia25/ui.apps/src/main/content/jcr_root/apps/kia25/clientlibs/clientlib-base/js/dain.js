@@ -4,24 +4,42 @@
 	
 $(document).ready(function() {
 	
+	// TrimCode
 	var selectedTrimCode = null;
-	var radioInitVal = $("input:radio[name=sample1]");
+	var radioInitVal1 = $("input:radio[name=sample1]");
 	
-	// 페이지 로딩시 제일 먼저 실행해서 showHideEvent 함수에 선택한 trimCode 값 넘겨주는 함수
-	for(var i=0; i< radioInitVal.length; i++){
+	// Transmission
+	var selectedTrans = null;
+	var radioInitVal2 = $("input:radio[name=sample2]");
+	
+	
+	// 페이지 로딩시 제일 먼저 실행해서 TrimShowHideEvent 함수에 선택한 trimCode 값 넘겨주는 함수
+	for(var i=0; i< radioInitVal1.length; i++){
 		
-		if(radioInitVal[i].checked){
+		if(radioInitVal1[i].checked){
 			
-			var radioId = radioInitVal[i].id;
+			var radioId = radioInitVal1[i].id;
 			selectedTrimCode = $('#'+radioId).parent()[0].dataset.trimcode;		
 			
-			showHideEvent(selectedTrimCode);
+			TrimShowHideEvent(selectedTrimCode);
+		}
+	}
+	
+	// TransShowHideEvent 함수에 선택한 transmission 값 넘겨주는 함수
+	for(var i=0; i< radioInitVal2.length; i++){
+		
+		if(radioInitVal2[i].checked){
+			
+			var radioId = radioInitVal2[i].id;
+			selectedTrans = $('#'+radioId).val();		
+			
+			TransShowHideEvent(selectedTrans);
 		}
 	}
 	
 	
 	// 선택된 trim만 show / 나머지는 hide 처리하는 함수 
-	function showHideEvent(_trimCode){
+	function TrimShowHideEvent(_trimCode){
 		
 		var trimlist = $('.trim-list');
 		
@@ -50,6 +68,36 @@ $(document).ready(function() {
 	}
 	
 	
+	// transmission에 따라 선택된 trim만 show / 나머지는 hide 처리하는 함수 
+	function TransShowHideEvent(_trans){
+		
+		var trimClick = $('.trim_click');
+		
+		for(var i = 0; i < trimClick.length; i++){
+			
+			if(trimClick[i].dataset.trans != _trans){
+				
+				trimClick[i].style.display = 'none';
+				
+			} else {
+				
+				trimClick[i].style.display = 'block';
+				
+				var classAdd = $(trimClick[i])[0];
+				
+				// transmission에 속한 첫번째 trim을 on 처리
+				if (classAdd.dataset.seq == 1){
+					$(classAdd).addClass('on');
+					
+					addTrimToNavi();
+					
+					naviTrimCode = classAdd.dataset.trim;
+				}
+			}
+		}
+	}
+	
+	
 	// carGroup 클릭시 실행되는 함수
 	// -> 나머지 trim은 remove on 처리
     $('.form_chk.carGroup').click(function() {
@@ -57,7 +105,7 @@ $(document).ready(function() {
 		$('.trim_click').removeClass('on');
 		selectedTrimCode = $(this)[0].dataset.trimcode;
 		
-		showHideEvent(selectedTrimCode);
+		TrimShowHideEvent(selectedTrimCode);
 		
 		var aa = $('.trim_click');
 		
@@ -88,24 +136,26 @@ $(document).ready(function() {
 	// 변속기 클릭시 변속기에 따른 trimlist 보여주는 함수
 	$('.form_chk.transmission').on('click', function(){
 		
-		var aa = $(this).find('input:radio[name=sample2]').val();
-		console.log(aa);
+		var selectedTransVal = $(this).find('input:radio[name=sample2]').val();
 		
-		var cc = $('.trim_click');
+		var trimClick = $('.trim_click');
 		
-		var trimlist = $('.trim-list');
-		
-		for(var i=0; i < cc.length; i++){
-			var bb = cc[i].dataset.trans;
-			console.log(bb);
+		for(var i=0; i < trimClick.length; i++){
 			
-			if(bb == aa){
+			var transVal = trimClick[i].dataset.trans;
+			
+			if(transVal == selectedTransVal){
 				
+				trimClick[i].style.display = 'block';
 				
+			} else {
+				
+				trimClick[i].style.display = 'none';
 			}
 		}
 		
 	})
+	
 	
 	
 	

@@ -122,7 +122,8 @@ public class Build002Model {
 			int size = carGroupList.size();
 			
 			for(CarGroupDto trans : carGroupList){
-				int seq = 1; 
+				int auto_seq = 1; 
+				int manu_seq = 1; 
 				
 				for(TrimDto transTrim : trans.getTrimList()) {
 					
@@ -138,7 +139,17 @@ public class Build002Model {
 					map.put("bodyTypeName", transTrim.getBodyTypeName());
 					map.put("engineCapacityName", transTrim.getEngineCapacityName());
 					map.put("transmission", transTrim.getTransmission());
-					map.put("seq", seq++);
+					
+					if(transTrim.getTransmission().equals("automatic")) {
+						
+						map.put("seq", auto_seq++);
+						
+					} else {
+						
+						map.put("seq", manu_seq++);
+						
+					}
+					
 					test.add(map);
 				}
 			}

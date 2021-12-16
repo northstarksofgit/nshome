@@ -7,20 +7,25 @@
 
 
 if($(".category").length>0){
+
 	var category = $(".category").offset().top;
 	var carTab = $(".estimate_online_wrap > .inner > div");
 	var carMenu = $(".category .inbox a");
-}
+	
+};
+
+
+
 
 
 $(window).scroll(function() {
 	
-  	var window = $(this).scrollTop();
+  	var windowTop = $(this).scrollTop();
 
 	if($(".category").length>0){
 			
 		//카테고리 fixed
-	    if(category <= window) {
+	    if(category <= windowTop) {
 		
 	      $(".category").addClass("fixed");
 		  
@@ -49,7 +54,7 @@ $(window).scroll(function() {
 
 		for(var i=0; i<carTabTop.length; i++){
 			
-			if(window >= carTabTop[i] && window <= carTabBottom[i]){
+			if(windowTop >= carTabTop[i] && windowTop <= carTabBottom[i]){
 				$(carMenu[i]).addClass("on");
 			}else{
 				$(carMenu[i]).removeClass("on");
@@ -58,8 +63,12 @@ $(window).scroll(function() {
 		}
 
 	}
-	
+
+
 });
+
+
+
 
 
 
@@ -72,6 +81,7 @@ $(document).ready(function() {
 
     $(".build_car").length && buildcarInit();
 	 toolBar();
+	
 
 });
 
@@ -131,8 +141,15 @@ function toolBar() {
 	var MOBILE_WIDTH = 0;
 	
     function c() {
+		
+		/*
+		*  '.estimate_online_wrap' 가 navi에도 있고 build-00n에도 있어서 [0]번째로 설정함
+		*/
+	
         l = $("body").height() - $(window).height() - $(window).scrollTop();
-        l < $("#footer").height() ? a.addClass("normal") : a.removeClass("normal");
+        contentHeight = $(document).height() - $($('.estimate_online_wrap')[0]).scrollTop() - $($('.estimate_online_wrap')[0]).height(); 
+
+        l < contentHeight ? a.addClass("normal") : a.removeClass("normal");
         k < MOBILE_WIDTH && (l < $("#footer").height() ? $(".go_top").css("margin-bottom", "0") : $(".go_top").css("margin-bottom", "50px"))
     }
     var a = $(".estimate_online_wrap .byoTotal")
@@ -204,7 +221,6 @@ function totalSum(price){
 	var sumPriceStr = makeComma(sumPrice);
 	
 	$('.btn_totalCon_open > .price').text(sumPriceStr);
-	//$('.btn_totalCon_open > .price').attr('initprice', sumPrice);
 	
 }
 
@@ -285,7 +301,7 @@ function nextStep(){
 		* 다음 단계에서 트림 출력
 		*/
 		
-		subUrl = subUrl.replace('step=2','step=3').replace('build-your-car-002.html','build-your-car-003.html');
+		subUrl = subUrl.replace('step=2','step=3').replace('002.html','003.html');
 		next = "&trimCode="+naviTrimCode;
 		
 	}
@@ -297,7 +313,7 @@ function nextStep(){
 		/*
 		* 동적으로! 다른 컴포넌트에서 클릭하여 넘어온 값으로 바뀌게 해줘야하는 부분
 		*/
-		subUrl = subUrl.replace('step=3','step=4').replace('build-your-car-003.html','build-your-car-004.html');
+		subUrl = subUrl.replace('step=3','step=4').replace('003.html','004.html');
 		next = "&ext=ABP&int=IN_EV6_BL";
 		
 		
@@ -307,7 +323,7 @@ function nextStep(){
 		*/
 		
 		
-		subUrl = subUrl.replace('step=4','step=5').replace('build-your-car-004.html','build-your-car-005.html');
+		subUrl = subUrl.replace('step=4','step=5').replace('004.html','005.html');
 		next = "&option="+selectedOptList.toString();
 		
 	}

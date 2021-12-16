@@ -13,31 +13,6 @@
                 $(this).hasClass("c_on") && e.eq(a - 1).show()
             })
         }
-        l.on("click", function(a) {
-            a.stopPropagation();
-            a.preventDefault();
-            if (f.hasClass("on"))
-                k.slideUp(400, function() {
-                    f.removeClass("on");
-                    $("body").css("overflow", "");
-                    $(".totalCon").removeClass("over").css("height", "auto");
-                    c()
-                });
-            else {
-                f.addClass("on");
-                k.slideDown(400);
-                a = $(".totalCon_inner").height();
-                var e = .8 * $(window).height()
-                  , g = $(window).height();
-                $("body").css("overflow", "hidden");
-                $(".byoTotal").hasClass("normal") && $(window).scrollTop(0);
-                a > g && $(".totalCon").addClass("over").animate({
-                    height: e + "px"
-                }, 400);
-                c()
-            }
-        });
-
         g.on("click", "div.car_list a.car_a", function(a) {
             a.stopPropagation();
             a.preventDefault();
@@ -67,10 +42,7 @@
             $("." + c.attr("color")).show());
             updateBuildColor()
         });
-        m.eq(0).find("li:first \x3e a").trigger("click");
-        m.eq(1).find("li:first \x3e a").trigger("click")
-    }
-    )();
+
 }
 
 

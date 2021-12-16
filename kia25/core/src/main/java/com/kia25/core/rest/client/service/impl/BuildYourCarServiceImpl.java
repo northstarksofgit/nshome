@@ -10,16 +10,20 @@ import org.slf4j.LoggerFactory;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.kia25.core.rest.client.dto.AreaListDtoResults;
+import com.kia25.core.rest.client.dto.CarGroupListDto;
 import com.kia25.core.rest.client.dto.CarGroupListDtoResults;
 import com.kia25.core.rest.client.dto.CategoryListDto;
 import com.kia25.core.rest.client.dto.CategoryListDtoResults;
 import com.kia25.core.rest.client.dto.ColorListDto;
 import com.kia25.core.rest.client.dto.ColorListDtoResults;
+import com.kia25.core.rest.client.dto.CompleteListDtoResults;
 import com.kia25.core.rest.client.dto.ModelListDto;
 import com.kia25.core.rest.client.dto.ModelListDtoResults;
 import com.kia25.core.rest.client.dto.OptionListDtoResults;
 import com.kia25.core.rest.client.dto.SummaryDto;
 import com.kia25.core.rest.client.dto.SummaryDtoResults;
+import com.kia25.core.rest.client.dto.TrimListDto;
+import com.kia25.core.rest.client.dto.TrimListDtoResults;
 import com.kia25.core.rest.client.service.BuildYourCarService;
 import com.kia25.core.rest.client.service.CommonRestApiService;
 
@@ -76,14 +80,14 @@ public class BuildYourCarServiceImpl implements BuildYourCarService {
 	
 	
 	/**
-	 * get carGroup Trim List
+	 * get carGroup List
 	 */
 	@Override
 //	public CarGroupListDto getCarGroupListAPI() {
 	public CarGroupListDtoResults getCarGroupListAPI() {
 		
 		try {
-			String response = service.getRequest("trim-list-E");
+			String response = service.getRequest("trim-list");
 			LOG.debug("response={}", response);
 			ObjectMapper mapper = new ObjectMapper();
 			
@@ -100,28 +104,27 @@ public class BuildYourCarServiceImpl implements BuildYourCarService {
 		return null;
 	}
 	
-	 /** 
-	  * get transmission Trim List
-	  */
-	@Override
-	public CarGroupListDtoResults getTrasmissionListAPI() {
+	/**
+	 * get trim List
+	 
+	public TrimListDto getTrimListAPI() {
 		
 		try {
-			String response = service.getRequest("trim-list-S");
+			String response = service.getRequest("trim-list");
 			LOG.debug("response={}", response);
 			ObjectMapper mapper = new ObjectMapper();
-
-			CarGroupListDtoResults result = mapper.readValue(response, CarGroupListDtoResults.class);
-			return result;
-
+			
+			TrimListDtoResults results = mapper.readValue(response,  TrimListDtoResults.class);
+			return results.getData();
+			
 		} catch (IOException e) {
 			LOG.error("Error parsing JSON API response.", e);
 			e.printStackTrace();
-
 		}
-
+		
 		return null;
 	}
+	*/
 	
 	/**
 	 * get option List
@@ -149,14 +152,14 @@ public class BuildYourCarServiceImpl implements BuildYourCarService {
 	 * build003 / colorlist 불러오기
 	 */
 	
-	public ColorListDto getColorAPI() {
+	public ColorListDtoResults getColorAPI() {
 
 		try {
 			String response = service.getRequest("color-list");
 			ObjectMapper mapper = new ObjectMapper();
 
 			ColorListDtoResults results = mapper.readValue(response, ColorListDtoResults.class);
-			return results.getData();
+			return results;
 
 		} catch (IOException e) {
 		//	LOG.error("Error parsing JSON API response.", e);
@@ -232,27 +235,38 @@ public class BuildYourCarServiceImpl implements BuildYourCarService {
 		
 		return null;
 	}
-
 	
 	/**
-	 * get area List
+	 * build006 / completelist 불러오기
 	 */
-	public AreaListDtoResults getAreaListAPI() {
-		
+	
+	public CompleteListDtoResults getCompleteAPI() {
+
 		try {
-			String response = service.getRequest("list-of-area");
-			LOG.debug("response={}", response);
+			String response = service.getRequest("complete-list");
 			ObjectMapper mapper = new ObjectMapper();
-			
-			AreaListDtoResults results = mapper.readValue(response,  AreaListDtoResults.class);
-            return results;
-            
+
+			CompleteListDtoResults results = mapper.readValue(response, CompleteListDtoResults.class);
+			return results;
+
 		} catch (IOException e) {
-			LOG.error("Error parsing JSON API response.", e);
+		//	LOG.error("Error parsing JSON API response.", e);
 			e.printStackTrace();
 		}
-		
+
 		return null;
 	}
-}
 
+	@Override
+	public CarGroupListDtoResults getTrasmissionListAPI() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public AreaListDtoResults getAreaListAPI() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+}

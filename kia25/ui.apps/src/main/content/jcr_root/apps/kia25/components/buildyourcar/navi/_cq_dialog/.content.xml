@@ -26,10 +26,13 @@
                                 
                             <step
                                 jcr:primaryType="nt:unstructured"
-                                sling:resourceType="granite/ui/components/coral/foundation/form/textfield"
+                                sling:resourceType="granite/ui/components/coral/foundation/form/numberfield"
                                 fieldDescription="step count"
                                 fieldLabel="Step"
-                                name="./step"/>
+                                name="./step"
+                                min="0"
+                                required="true"/>
+                          	
                                 
                                 
                             <trim

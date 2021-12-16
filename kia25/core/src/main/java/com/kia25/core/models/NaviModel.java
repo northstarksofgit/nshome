@@ -7,6 +7,7 @@ import javax.annotation.PostConstruct;
 import javax.inject.Inject;
 
 import org.apache.sling.api.SlingHttpServletRequest;
+import org.apache.sling.api.resource.Resource;
 import org.apache.sling.api.scripting.SlingScriptHelper;
 import org.apache.sling.models.annotations.DefaultInjectionStrategy;
 import org.apache.sling.models.annotations.Model;
@@ -40,6 +41,13 @@ public class NaviModel {
 	
 	
 	/*
+	 * node에 저장된 toGo url을 가져온다
+	 */
+	@Inject
+	private Resource resource;
+	
+	
+	/*
 	 * summary 데이터
 	 */
 	private SummaryDto summary;
@@ -69,32 +77,13 @@ public class NaviModel {
 		 */
 		String step = request.getParameter("step");
 		
+		
+		/*
+		String step = request.getParameter("step");
+		
 		step = (step == null) ? "0" : step;
-		
-		/*
-		 * 차량 model code
-		 */
-		String modelCode = request.getParameter("modelCode");
-		
-		/*
-		 * trim code
-		 */
-		String trimCode = request.getParameter("trimCode");
-		
-		/*
-		 * 외부 color 코드
-		 */
-		String exteriorCode = request.getParameter("ext");
-		
-		/*
-		 * 내부 color 코드
-		 */
-		String interiorCode = request.getParameter("int");
-		
-		/*
-		 * ?
-		 */
-		String dpcd = request.getParameter("dpcd");
+		*/
+
 		
 		/*
 		 * 선택한 차량 옵션

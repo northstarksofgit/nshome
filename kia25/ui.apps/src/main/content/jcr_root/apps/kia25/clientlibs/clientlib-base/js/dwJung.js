@@ -79,15 +79,15 @@ $(window).scroll(function() {
 
 $(document).ready(function() {
 
-    $(".build_car").length && buildcarInit();
-	 toolBar();
+    $(".build_car").length && naviBarInit();
+	 naviBar();
 	
 
 });
 
 
 
-var buildcarInit = function() {
+var naviBarInit = function() {
     var g = $(".build_car")
       , f = g.find(".byoTotal")
       , l = f.find(".totalBar \x3e a")
@@ -136,10 +136,8 @@ var buildcarInit = function() {
 
 
 
-function toolBar() {
-	
-	var MOBILE_WIDTH = 0;
-	
+function naviBar() {
+		
     function c() {
 		
 		/*
@@ -150,37 +148,29 @@ function toolBar() {
         contentHeight = $(document).height() - $($('.estimate_online_wrap')[0]).scrollTop() - $($('.estimate_online_wrap')[0]).height(); 
 
         l < contentHeight ? a.addClass("normal") : a.removeClass("normal");
-        k < MOBILE_WIDTH && (l < $("#footer").height() ? $(".go_top").css("margin-bottom", "0") : $(".go_top").css("margin-bottom", "50px"))
     }
+
     var a = $(".estimate_online_wrap .byoTotal")
       , e = $(".estimate_online_wrap .btn_totalCon_open")
       , g = $(".estimate_online_wrap .btn_totalCon_close");
-    $(".estimate_online_wrap .slide_box a.box_a");
-    $(".estimate_online_wrap .color_list a.color_a");
+
     e.on("click", function(a) {
         a.preventDefault();
         $(".dimmed:eq(0)").toggle()
     });
+
     g.on("click", function(a) {
         a.preventDefault();
         $(".totalBar \x3e a").click();
         e.focus()
     });
+
     $(".dimmed").on("click", function(a) {
         $(".byoTotal ").hasClass("on") && ($(".totalBar \x3e a").click(),
         $(".dimmed:eq(0)").hide())
     });
-    var f = 800, l, k;
-    $(window).resize(function() {
-        if ($(window).height() != f || 800 != $(window).width())
-            f = $(window).height(),
-            mainLastHWidth = $(window).width(),
-            document.body.style.overflow = "hidden",
-            k = $(window).width(),
-            $(window).height(),
-            document.body.style.overflow = "",
-            c()
-    }).resize();
+
+
     $(window).scroll(function(a) {
         c()
     })
@@ -287,10 +277,11 @@ function nextStep(){
 	
 	/*
 	* 공통적으로 사용되는 url
+	* url 출력 예시 : /content/kia25/us/en/build-your-car/build-your-car-002.html?step=2&modelCode=EV6
 	*/
 	var totalUrl = window.location.href;
 	var subUrl = totalUrl.substr(totalUrl.indexOf('/content'), totalUrl.length);
-	
+
 	/*
 	* 이동할 url 셋팅
 	*/
@@ -334,7 +325,6 @@ function nextStep(){
 	*/		
 		
 	subUrl += next;
-	console.log("subUrl: "+subUrl);
 	
 	location.href = subUrl;
 	

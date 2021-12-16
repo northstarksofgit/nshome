@@ -45,7 +45,7 @@ public class HowToBuyModel {
 	public void activate() throws Exception{
 		
 		areaRestuls = service.getAreaListAPI();
-		areaData = service.getAreaListAPI().getData();
+		areaData = areaRestuls.getData();
 		areaList = areaData.getAreaList();
 		transList = areaData.getTransList();
 		

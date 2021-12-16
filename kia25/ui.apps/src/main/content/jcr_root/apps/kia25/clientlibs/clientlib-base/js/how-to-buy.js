@@ -138,9 +138,40 @@
     	$('.trans-sub').trigger('mouseleave');
     })
     
+    
+    
     /**
      * 탁송방법 select Box 제어 end
      */
     
     
+    /**
+     * 등록비용 select Box 제어 start
+     */
+    
+    $('.regist-item').on('click', function() {
+    	$('.regist-item').removeClass('select-list-selected');
+    	$(this).addClass('select-list-selected');
+    	$('.regist-text').text($(this)[0].title);
+    	$('.regist-sub').trigger('mouseleave');
+    })
+    
+    
+	
+	$('.regist-sub').mouseleave(function() {
+		$('.regist-sub').css('display','none');
+    });
+    /**
+     * 등록비용 select Box 제어 end
+     */
+    
+    
+    
+    /**
+     * 포인트 radio Button 제어 start
+     */
+    $("input:radio[name=buy-count-radio]").click(function() {
+    	var val = $(this)[0].value;
+    	$('#redSavePoint').val(val);
+    })
     

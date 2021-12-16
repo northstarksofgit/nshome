@@ -132,122 +132,131 @@
 		]}
 	},
    "trim-list-E": {
-      "resultCode": "000",
-      "detailCode": null,
-      "resultMessage": null,
-      "detailMessage": null,
-      "data": {
-            "categoryCode": "001",
-            "categoryName": "EV",
-            "modelCode": "EV6",
-            "modelYear": "2021",
-            "carModelName": "EV6",
-
-
-            "carImagePath": "/content/dam/kia25/build-a-car/car_ev6.png",
-            "carGroupList" : [
-                {
-                    "carGroupCode": "EV6-LEV",
-                    "carGroupName": "롱 레인지",
-                    "carImagePath": "/content/dam/kia25/build-a-car/car_ray_m9y.png",
-                    "trimList" : [
-                        {
-                            "trimCode": "LRL",
-                            "trimName": "EV6 롱 레인지 라이트(Light)",
-                            "productCode": "",
-                            "sellingPrice": 53460000,
-                            "bestYn": "",
-                            "gearboxName": "",
-                            "compoundFuelEconomy": "",
-                            "bodyTypeName": "",
-                            "engineCapacityName": ""
-                        },
-                        {
-                            "trimCode": "LRA",
-                            "trimName": "EV6 롱 레인지 에어(Air)",
-                            "productCode": "",
-                            "sellingPrice": 54530000,
-                            "bestYn": "",
-                            "gearboxName": "",
-                            "compoundFuelEconomy": "",
-                            "bodyTypeName": "",
-                            "engineCapacityName": ""
-                        },
-                        {
-                            "trimCode": "LRE",
-                            "trimName": "EV6 롱 레인지 어스(Earth)",
-                            "productCode": "",
-                            "sellingPrice": 59590000,
-                            "bestYn": "",
-                            "gearboxName": "",
-                            "compoundFuelEconomy": "",
-                            "bodyTypeName": "",
-                            "engineCapacityName": ""
-                        }
-                    ]
-                },
-                {
-                    "carGroupCode": "EV6-GEV",
-                    "carGroupName": "롱 레인지 GT-Line",
-                    "carImagePath": "/content/dam/kia25/build-a-car/car_niro_hev_b4u.png",
-                    "trimList" : [
-                        {
-                            "trimCode": "LGT",
-                            "trimName": "롱 레인지 GT-Ling",
-                            "productCode": "",
-                            "sellingPrice": 60490000,
-                            "bestYn": "",
-                            "gearboxName": "",
-                            "compoundFuelEconomy": "",
-                            "bodyTypeName": "",
-                            "engineCapacityName": ""
-                        }
-                    ]
-                },
-                {
-                    "carGroupCode": "EV6-SEV",
-                    "carGroupName": "스탠다드",
-                    "carImagePath": "/content/dam/kia25/build-a-car/car_k8_taxi.png",
-                    "trimList" : [
-                        {
-                            "trimCode": "STL",
-                            "trimName": "EV6 스탠다드 라이트(Light)",
-                            "productCode": "",
-                            "sellingPrice": 49310000,
-                            "bestYn": "",
-                            "gearboxName": "",
-                            "compoundFuelEconomy": "",
-                            "bodyTypeName": "",
-                            "engineCapacityName": ""
-                        },
-                        {
-                            "trimCode": "STA",
-                            "trimName": "EV6 스탠다드 에어(Air)",
-                            "productCode": "",
-                            "sellingPrice": 50370000,
-                            "bestYn": "",
-                            "gearboxName": "",
-                            "compoundFuelEconomy": "",
-                            "bodyTypeName": "",
-                            "engineCapacityName": ""
-                        },
-                        {
-                            "trimCode": "STE",
-                            "trimName": "EV6 스탠다드 어스(Earth)",
-                            "productCode": "",
-                            "sellingPrice": 54900000,
-                            "bestYn": "",
-                            "gearboxName": "",
-                            "compoundFuelEconomy": "",
-                            "bodyTypeName": "",
-                            "engineCapacityName": ""
-                        }
-                    ]
-                }
-            ]
+        "resultCode": "000",
+        "detailCode": null,
+        "resultMessage": null,
+        "detailMessage": null,
+        "data": {
+              "categoryCode": "001",
+              "categoryName": "EV",
+              "modelCode": "EV6",
+              "modelYear": "2021",
+              "carModelName": "EV6",
+              "carImagePath": "/content/dam/kia25/build-a-car/car_ev6.png",
+              "carGroupList" : [
+                  {
+                      "carGroupCode": "EV6-LEV",
+                      "carGroupName": "롱 레인지",
+                      "carImagePath": "/content/dam/kia25/build-a-car/car_ray_m9y.png",
+                      "transmission" : ["automatic"],
+                      "trimList" : [
+                          {
+                              "trimCode": "LRL",
+                              "trimName": "EV6 롱 레인지 라이트(Light)",
+                              "productCode": "",
+                              "sellingPrice": 53460000,
+                              "bestYn": "",
+                              "gearboxName": "",
+                              "compoundFuelEconomy": "",
+                              "bodyTypeName": "",
+                              "engineCapacityName": "",
+                              "transmission" : "automatic"
+                          },
+                          {
+                              "trimCode": "LRA",
+                              "trimName": "EV6 롱 레인지 에어(Air)",
+                              "productCode": "",
+                              "sellingPrice": 54530000,
+                              "bestYn": "",
+                              "gearboxName": "",
+                              "compoundFuelEconomy": "",
+                              "bodyTypeName": "",
+                              "engineCapacityName": "",
+                              "transmission" : "automatic"
+                          },
+                          {
+                              "trimCode": "LRE",
+                              "trimName": "EV6 롱 레인지 어스(Earth)",
+                              "productCode": "",
+                              "sellingPrice": 59590000,
+                              "bestYn": "",
+                              "gearboxName": "",
+                              "compoundFuelEconomy": "",
+                              "bodyTypeName": "",
+                              "engineCapacityName": "",
+                              "transmission" : "automatic"
+                          }
+                      ]
+                  },
+                  {
+                      "carGroupCode": "EV6-GEV",
+                      "carGroupName": "롱 레인지 GT-Line",
+                      "carImagePath": "/content/dam/kia25/build-a-car/car_niro_hev_b4u.png",
+                      "transmission" : ["automatic"],
+                      "trimList" : [
+                          {
+                              "trimCode": "LGT",
+                              "trimName": "롱 레인지 GT-Ling",
+                              "productCode": "",
+                              "sellingPrice": 60490000,
+                              "bestYn": "",
+                              "gearboxName": "",
+                              "compoundFuelEconomy": "",
+                              "bodyTypeName": "",
+                              "engineCapacityName": "",
+                              "transmission" : "automatic"
+                          }
+                      ]
+                  },
+                  {
+                      "carGroupCode": "EV6-SEV",
+                      "carGroupName": "스탠다드",
+                      "carImagePath": "/content/dam/kia25/build-a-car/car_k8_taxi.png",
+                      "transmission" : ["automatic"],
+                      "trimList" : [
+                          {
+                              "trimCode": "STL",
+                              "trimName": "EV6 스탠다드 라이트(Light)",
+                              "productCode": "",
+                              "sellingPrice": 49310000,
+                              "bestYn": "",
+                              "gearboxName": "",
+                              "compoundFuelEconomy": "",
+                              "bodyTypeName": "",
+                              "engineCapacityName": "",
+                              "transmission" : "automatic"
+                          },
+                          {
+                              "trimCode": "STA",
+                              "trimName": "EV6 스탠다드 에어(Air)",
+                              "productCode": "",
+                              "sellingPrice": 50370000,
+                              "bestYn": "",
+                              "gearboxName": "",
+                              "compoundFuelEconomy": "",
+                              "bodyTypeName": "",
+                              "engineCapacityName": "",
+                              "transmission" : "automatic"
+                          },
+                          {
+                              "trimCode": "STE",
+                              "trimName": "EV6 스탠다드 어스(Earth)",
+                              "productCode": "",
+                              "sellingPrice": 54900000,
+                              "bestYn": "",
+                              "gearboxName": "",
+                              "compoundFuelEconomy": "",
+                              "bodyTypeName": "",
+                              "engineCapacityName": "",
+                              "transmission" : "automatic"
+                          }
+                      ]
+                  }
+              ]
+    
+          }
+      },
   
-        }
-    },
 
     "trim-list-S": {
         "resultCode": "000",

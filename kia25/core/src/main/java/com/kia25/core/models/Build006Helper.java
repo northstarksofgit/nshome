@@ -12,13 +12,7 @@ import org.apache.sling.models.annotations.injectorspecific.Self;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import com.kia25.core.rest.client.dto.ColorDto;
-import com.kia25.core.rest.client.dto.ColorListDto;
-import com.kia25.core.rest.client.dto.ColorListDtoResults;
 import com.kia25.core.rest.client.dto.CompleteListDto;
-import com.kia25.core.rest.client.dto.OptionDto;
-import com.kia25.core.rest.client.dto.OptionListDto;
-import com.kia25.core.rest.client.dto.OptionListDtoResults;
 import com.kia25.core.rest.client.service.BuildYourCarService;
 import com.kia25.core.rest.client.service.impl.BuildYourCarServiceImpl;
 

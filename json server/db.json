@@ -148,27 +148,27 @@
                   {
                       "carGroupCode": "EV6-LEV",
                       "carGroupName": "롱 레인지",
-                      "carImagePath": "/content/dam/kia25/build-a-car/car_ray_m9y.png",
+                      "carImagePath": "/content/dam/kia25/build-a-car/car_ray_m9y.png"
                   },
                   {
                       "carGroupCode": "EV6-LEV1",
                       "carGroupName": "롱 레인지1",
-                      "carImagePath": "/content/dam/kia25/build-a-car/car_ray_m9y.png",
+                      "carImagePath": "/content/dam/kia25/build-a-car/car_ray_m9y.png"
                   }
                   ],
               "transmissionList": [{
-                "transmissionCode" : "A"
+                "transmissionCode" : "A",
                 "transmissionName" : "자동"
                 },
                 {
-                "transmissionCode" : "M"
+                "transmissionCode" : "M",
                 "transmissionName" : "수동"
                 }
                 ],
                 "trimList" : [
                     {
                         "carGroupCode": "EV6-LEV",
-                        "transmissionCode" : "M"
+                        "transmissionCode" : "M",
                         "trimCode": "LRL",
                         "trimName": "EV6 롱 레인지 라이트(Light)",
                         "productCode": "",
@@ -182,7 +182,7 @@
                     },
                     {
                         "carGroupCode": "EV6-LEV",
-                        "transmissionCode" : "A"
+                        "transmissionCode" : "A",
                         "trimCode": "LRL",
                         "trimName": "EV6 롱 레인지 라이트(Light)",
                         "productCode": "",
@@ -196,7 +196,7 @@
                     },
                           {
                         "carGroupCode": "EV6-LEV",
-                        "transmissionCode" : "A"
+                        "transmissionCode" : "A",
                               "trimCode": "LRA",
                               "trimName": "EV6 롱 레인지 에어(Air)",
                               "productCode": "",
@@ -210,7 +210,7 @@
                           },
                           {
                         "carGroupCode": "EV6-LEV",
-                        "transmissionCode" : "A"
+                        "transmissionCode" : "A",
                               "trimCode": "LRE",
                               "trimName": "EV6 롱 레인지 어스(Earth)",
                               "productCode": "",
@@ -223,89 +223,8 @@
                               "transmission" : "automatic"
                           }
                       ]
-                  },
-                  
-              ]
-    
-          }
-      },
-  
-
-    "trim-list-S": {
-        "resultCode": "000",
-        "detailCode": null,
-        "resultMessage": null,
-        "detailMessage": null,
-        "data": {
-              "categoryCode": "004",
-              "categoryName": "상용/택시",
-              "modelCode": "Z07",
-              "modelYear": "2020",
-              "carModelName": "성력",
-              "carImagePath": "/content/dam/kia25/build-a-car/car_bongo3powergate.png",
-              "carGroupList" : [
-                  {
-                      "carGroupCode": "Z07-07A",
-                      "carGroupName": "파워게이트",
-                      "carImagePath": "/content/dam/kia25/build-a-car/car_bongo3powergate.png",
-                      "transmission" : ["automatic", "manual"],
-                      "trimList" : [
-                          {
-                              "trimCode": "p2LA",
-                              "trimName": "파워게이트(1톤 베이스) 수직형 (2단) 킹캡 초장축 L",
-                              "productCode": "",
-                              "sellingPrice": 21570000,
-                              "bestYn": "",
-                              "gearboxName": "",
-                              "compoundFuelEconomy": "",
-                              "bodyTypeName": "",
-                              "engineCapacityName": "",
-                              "transmission" : "automatic"
-                          },
-                          {
-                            "trimCode": "P2LM",
-                            "trimName": "파워게이트(1톤 베이스) 수직형 (2단) 킹캡 초장축 L",
-                            "productCode": "",
-                            "sellingPrice": 20440000,
-                            "bestYn": "",
-                            "gearboxName": "",
-                            "compoundFuelEconomy": "",
-                            "bodyTypeName": "",
-                            "engineCapacityName": "",
-                            "transmission" : "manual"
-                        },
-                        {
-                            "trimCode": "P1GLM",
-                            "trimName": "파워게이트(1.2톤 베이스) 수직형 (1단) 킹캡 초장축 GL",
-                            "productCode": "",
-                            "sellingPrice": 24080000,
-                            "bestYn": "",
-                            "gearboxName": "",
-                            "compoundFuelEconomy": "",
-                            "bodyTypeName": "",
-                            "engineCapacityName": "",
-                            "transmission" : "manual"
-                        },
-                        {
-                            "trimCode": "P2GLM",
-                            "trimName": "파워게이트(1.2톤 베이스) 수직형 (2단) 킹캡 초장축 GL",
-                            "productCode": "",
-                            "sellingPrice": 24360000,
-                            "bestYn": "",
-                            "gearboxName": "",
-                            "compoundFuelEconomy": "",
-                            "bodyTypeName": "",
-                            "engineCapacityName": "",
-                            "transmission" : "manual"
-                        }
-                      ]
                   }
-              ]
-    
-          }
       },
-
-	
 	"summary-info-0": {
 		"resultCode": "000",
 		"detailCode": null,

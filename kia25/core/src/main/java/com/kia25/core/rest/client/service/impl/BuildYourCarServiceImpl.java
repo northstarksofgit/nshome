@@ -263,9 +263,24 @@ public class BuildYourCarServiceImpl implements BuildYourCarService {
 		return null;
 	}
 
-	@Override
+	/**
+	 * get area List
+	 */
 	public AreaListDtoResults getAreaListAPI() {
-		// TODO Auto-generated method stub
+		
+		try {
+			String response = service.getRequest("list-of-area");
+			LOG.debug("response={}", response);
+			ObjectMapper mapper = new ObjectMapper();
+			
+			AreaListDtoResults results = mapper.readValue(response,  AreaListDtoResults.class);
+            return results;
+            
+		} catch (IOException e) {
+			LOG.error("Error parsing JSON API response.", e);
+			e.printStackTrace();
+		}
+		
 		return null;
 	}
 

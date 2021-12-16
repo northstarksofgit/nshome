@@ -8,6 +8,7 @@ import javax.inject.Inject;
 
 import org.apache.sling.api.SlingHttpServletRequest;
 import org.apache.sling.api.resource.Resource;
+import org.apache.sling.api.resource.ValueMap;
 import org.apache.sling.api.scripting.SlingScriptHelper;
 import org.apache.sling.models.annotations.DefaultInjectionStrategy;
 import org.apache.sling.models.annotations.Model;
@@ -41,7 +42,7 @@ public class NaviModel {
 	
 	
 	/*
-	 * node에 저장된 toGo url을 가져온다
+	 * node에 저장된 data를 가져온다
 	 */
 	@Inject
 	private Resource resource;
@@ -72,13 +73,26 @@ public class NaviModel {
 		 * 
 		 */
 		
+		
+		ValueMap valueMap = resource.getValueMap();
+		String step = (String) valueMap.getOrDefault("step", null);
+		String url = (String) valueMap.getOrDefault("toGo", null);
+		String trimCheck = (String) valueMap.getOrDefault("trim", null);
+		String colorCheck = (String) valueMap.getOrDefault("color", null);
+		String optionCheck = (String) valueMap.getOrDefault("option", null);
+		
+		LOG.info("step: "+step);
+		LOG.info("url: "+url);
+		LOG.info("trimCheck: "+trimCheck);
+		LOG.info("colorCheck: "+colorCheck);
+		LOG.info("option: "+optionCheck);
+		
+		
+		
+		
+		
 		/*
 		 * 현재 step
-		 */
-		String step = request.getParameter("step");
-		
-		
-		/*
 		String step = request.getParameter("step");
 		
 		step = (step == null) ? "0" : step;
@@ -89,13 +103,16 @@ public class NaviModel {
 		 * 선택한 차량 옵션
 		 * optionParam은 parameter로 넘어온 옵션들
 		 * option은 pram을 , 기준으로 잘라서 배열처리함
+		 * 
+		 * 		String optionParam = request.getParameter("option");
+				String[] option = null;
+				
+				if(optionParam!=null) {
+					option = optionParam.split(",");			
+				}
+		 * 
 		 */
-		String optionParam = request.getParameter("option");
-		String[] option = null;
-		
-		if(optionParam!=null) {
-			option = optionParam.split(",");			
-		}
+
 
 		/*
 		 * summary정보 호출

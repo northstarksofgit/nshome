@@ -89,7 +89,6 @@
 		    	
 		    	<!-- carGroupList에 담긴 transmisson 가져오기 -->
 			    <sly data-sly-test="${detail.carData.carGroupList}">
-<!-- 					<sly data-sly-test="${group.transmission == automatic && group.transmission == manual}"> -->
 					    <span class="form_chk transmission" style="display: block; display:inline-block;">
 					    	<input type="radio" name="sample2" id="sample2_1" value="automatic" checked="">
 					    	<label for="sample2_1" class="form_spr radio_box r_on">자동</label>
@@ -98,10 +97,9 @@
 					    	<input type="radio" name="sample2" id="sample2_2" value="manual" checked="">
 				    		<label for="sample2_2" class="form_spr radio_box">수동</label>
 					    </span>
-<!-- 				    </sly> -->
-				  
 			   </sly>  
 		    </div>
+		    
 		    <div class="build_graph hide">
 		    	<h5 class="tit">고객 선호 차종</h5>
 			    <div class="graph" style="background-position: 0px -10488px;">
@@ -124,7 +122,7 @@
 			 <ul class="box_u">
 				 <sly data-sly-list.trim="${detail.test}"  data-sly-test="${detail.test}" >
 				     <div class="trimselector slide_box trim-list" hid="false" data-car="${trim.carGroupCode}" transmission="auto" style="display: none;">
-					     <li class="box_l trim_click" price="${trim.sellingPrice}" data-seq="${trim.seq}" aimg="https://www.kia.com/content/dam/kwcms/kr/ko/images/byo/car_ev6_standard.png" value="${trim.carGroupCode}" trim="CVJJ5VI31-A" data-trim="${trim.trimCode}" tmp="off">
+					     <li class="box_l trim_click" price="${trim.sellingPrice}" data-seq="${trim.seq}" aimg="https://www.kia.com/content/dam/kwcms/kr/ko/images/byo/car_ev6_standard.png" value="${trim.carGroupCode}" trim="CVJJ5VI31-A" data-trim="${trim.trimCode}" data-trans="${trim.transmission}" tmp="off">
 					         <a href="#" class="box_a">			        
 					             <div class="box">			     
 						         <input type="hidden" id="naviTrimCode" name="naviTrimCode" value="${trim.trimCode}" />

@@ -91,6 +91,20 @@ $(document).ready(function() {
 		var aa = $(this).find('input:radio[name=sample2]').val();
 		console.log(aa);
 		
+		var cc = $('.trim_click');
+		
+		var trimlist = $('.trim-list');
+		
+		for(var i=0; i < cc.length; i++){
+			var bb = cc[i].dataset.trans;
+			console.log(bb);
+			
+			if(bb == aa){
+				
+				
+			}
+		}
+		
 	})
 	
 	

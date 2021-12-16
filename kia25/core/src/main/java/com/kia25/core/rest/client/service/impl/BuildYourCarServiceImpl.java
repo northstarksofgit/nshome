@@ -80,14 +80,14 @@ public class BuildYourCarServiceImpl implements BuildYourCarService {
 	
 	
 	/**
-	 * get carGroup List
+	 * get carGroup Trim List
 	 */
 	@Override
 //	public CarGroupListDto getCarGroupListAPI() {
 	public CarGroupListDtoResults getCarGroupListAPI() {
 		
 		try {
-			String response = service.getRequest("trim-list");
+			String response = service.getRequest("trim-list-E");
 			LOG.debug("response={}", response);
 			ObjectMapper mapper = new ObjectMapper();
 			
@@ -104,27 +104,29 @@ public class BuildYourCarServiceImpl implements BuildYourCarService {
 		return null;
 	}
 	
-	/**
-	 * get trim List
-	 
-	public TrimListDto getTrimListAPI() {
+	 /** 
+	  * get transmission Trim List
+	  */
+	@Override
+	public CarGroupListDtoResults getTrasmissionListAPI() {
 		
 		try {
-			String response = service.getRequest("trim-list");
+			String response = service.getRequest("trim-list-S");
 			LOG.debug("response={}", response);
 			ObjectMapper mapper = new ObjectMapper();
-			
-			TrimListDtoResults results = mapper.readValue(response,  TrimListDtoResults.class);
-			return results.getData();
-			
+
+			CarGroupListDtoResults result = mapper.readValue(response, CarGroupListDtoResults.class);
+			return result;
+
 		} catch (IOException e) {
 			LOG.error("Error parsing JSON API response.", e);
 			e.printStackTrace();
+
 		}
-		
+
 		return null;
 	}
-	*/
+	
 	
 	/**
 	 * get option List
@@ -256,12 +258,7 @@ public class BuildYourCarServiceImpl implements BuildYourCarService {
 
 		return null;
 	}
-
-	@Override
-	public CarGroupListDtoResults getTrasmissionListAPI() {
-		// TODO Auto-generated method stub
-		return null;
-	}
+	
 
 	/**
 	 * get area List

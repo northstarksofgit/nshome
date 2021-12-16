@@ -144,6 +144,7 @@
               "carModelName": "EV6",
               "carImagePath": "/content/dam/kia25/build-a-car/car_ev6.png",
               "carGroupList" : [
+              
                   {
                       "carGroupCode": "EV6-LEV",
                       "carGroupName": "롱 레인지",

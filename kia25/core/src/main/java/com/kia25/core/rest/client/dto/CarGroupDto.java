@@ -25,7 +25,7 @@ public class CarGroupDto {
 	/**
 	 * 변속기
 	 */
-	private String transmission;
+	private List<String> transmission;
 	
 
 
@@ -59,13 +59,13 @@ public class CarGroupDto {
 		this.carImagePath = carImagePath;
 	}
 
-	public String getTransmission() {
-		return transmission;
-	}
-
-	public void setTransmission(String transmission) {
-		this.transmission = transmission;
-	}
+//	public String getTransmission() {
+//		return transmission;
+//	}
+//
+//	public void setTransmission(String transmission) {
+//		this.transmission = transmission;
+//	}
 
 	public List<TrimDto> getTrimList() {
 		return trimList;
@@ -73,6 +73,14 @@ public class CarGroupDto {
 
 	public void setTrimList(List<TrimDto> trimList) {
 		this.trimList = trimList;
+	}
+
+	public List<String> getTransmission() {
+		return transmission;
+	}
+
+	public void setTransmission(List<String> transmission) {
+		this.transmission = transmission;
 	}
 
 	

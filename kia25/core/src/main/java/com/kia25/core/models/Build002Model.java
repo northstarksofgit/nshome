@@ -35,7 +35,7 @@ public class Build002Model {
 	
 	private String reqParam = null;
 	
-	private String modelCode = service.getCarGroupListAPI().getData().getModelCode();
+	//private String modelCode = service.getCarGroupListAPI().getData().getModelCode();
 	
 	
 	/**
@@ -80,7 +80,7 @@ public class Build002Model {
 		reqParam = request.getParameter("modelCode");
 
 		// 차종이 EV6인 경우 
-		if(reqParam.equals(modelCode)) {
+		if(reqParam.equals("EV6")) {
 			
 			carResults = service.getCarGroupListAPI();
 			
@@ -119,9 +119,9 @@ public class Build002Model {
 			carData = carResults.getData();
 			carGroupList = carData.getCarGroupList();
 			
-			int size = transList.size();
+			int size = carGroupList.size();
 			
-			for(CarGroupDto trans : transList){
+			for(CarGroupDto trans : carGroupList){
 				int seq = 1; 
 				
 				for(TrimDto transTrim : trans.getTrimList()) {
@@ -143,7 +143,6 @@ public class Build002Model {
 				}
 			}
 		}
-		
 	}
 	
 	
@@ -198,14 +197,14 @@ public class Build002Model {
 		this.trimList = trimList;
 	}
 	
-	public String getModelCode() {
-		return modelCode;
-	}
-
-
-	public void setModelCode(String modelCode) {
-		this.modelCode = modelCode;
-	}
+//	public String getModelCode() {
+//		return modelCode;
+//	}
+//
+//
+//	public void setModelCode(String modelCode) {
+//		this.modelCode = modelCode;
+//	}
 
 
 	public CarGroupListDtoResults getTransResults() {

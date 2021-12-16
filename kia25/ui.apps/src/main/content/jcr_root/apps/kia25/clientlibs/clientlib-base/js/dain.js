@@ -41,6 +41,8 @@ $(document).ready(function() {
 				if ($(trimlist[i]).find('li')[0].dataset.seq == 1){
 					$(classAdd).addClass('on');
 					
+					addTrimToNavi();
+					
 					naviTrimCode = $(trimlist[i]).find('li')[0].dataset.trim;
 				}
 			}
@@ -76,9 +78,24 @@ $(document).ready(function() {
 		$('.trim_click').removeClass('on');
 		$(this).addClass('on');
 		
+		addTrimToNavi();
+		
 		naviTrimCode = $(this).find('#naviTrimCode').val();
 		
 	})
+	
+	
+	// 변속기 클릭시 변속기에 따른 trimlist 보여주는 함수
+	$('.form_chk.transmission').on('click', function(){
+		
+		var aa = $(this).find('input:radio[name=sample2]').val();
+		console.log(aa);
+		
+	})
+	
+	
+	
+	
 	
 
 

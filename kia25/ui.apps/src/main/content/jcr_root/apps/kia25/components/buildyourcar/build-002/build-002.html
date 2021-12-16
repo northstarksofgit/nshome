@@ -47,7 +47,7 @@
         <!-- // step 끝 -->
 
        <div class="inner build_car">
-		    <div class="build_preview">
+		   <div class="build_preview">
 			  <div class="preview">
 				  <h4 class="hidden">STEP 1 상세차종선택</h4>
 			    <div class="car_name">
@@ -63,7 +63,7 @@
 			        <img src="${detail.carData.carImagePath}" alt="${detail.carData.carModelName}">
 			        <p class="car_desc">※ 본 차량의 이미지는 실제와 다를 수 있습니다.</p>
 			    </div>
-			</div>
+			 </div>
 		    <div class="model sel caroption">
 			    <h5 class="tit">모델 <em class="hidden">선택</em></h5>
 
@@ -84,29 +84,36 @@
 				</sly>
 		    </div>
 
-			    <div class="trans sel transmission">
-				    <h5 class="tit">변속기 <em class="hidden">선택</em></h5>
-				    <span class="form_chk transmission" style="display: none;">
-				    	<input type="radio" name="sample2" id="sample2_1" value="automatic" checked="">
-				    	<label for="sample2_1" class="form_spr radio_box r_on">자동</label>
-				    </span>
-				    <span class="form_chk transmission" style="display: none;">
-				    	<input type="radio" name="sample2" id="sample2_2" value="manual" checked="">
-				    	<label for="sample2_2" class="form_spr radio_box">수동</label>
-				    </span>
+		    <div class="trans sel transmission">
+		    	<h5 class="tit">변속기 <em class="hidden">선택</em></h5>
+		    	
+		    	<!-- carGroupList에 담긴 transmisson 가져오기 -->
+			    <sly data-sly-test="${detail.carData.carGroupList}">
+<!-- 					<sly data-sly-test="${group.transmission == automatic && group.transmission == manual}"> -->
+					    <span class="form_chk transmission" style="display: block; display:inline-block;">
+					    	<input type="radio" name="sample2" id="sample2_1" value="automatic" checked="">
+					    	<label for="sample2_1" class="form_spr radio_box r_on">자동</label>
+					    </span>	
+					    <span class="form_chk transmission" style="display: block; display:inline-block;">
+					    	<input type="radio" name="sample2" id="sample2_2" value="manual" checked="">
+				    		<label for="sample2_2" class="form_spr radio_box">수동</label>
+					    </span>
+<!-- 				    </sly> -->
+				  
+			   </sly>  
+		    </div>
+		    <div class="build_graph hide">
+		    	<h5 class="tit">고객 선호 차종</h5>
+			    <div class="graph" style="background-position: 0px -10488px;">
+			        <span class="rate"><em class="num">57</em>%</span>
 			    </div>
-			    <div class="build_graph hide">
-			    	<h5 class="tit">고객 선호 차종</h5>
-				    <div class="graph" style="background-position: 0px -10488px;">
-				        <span class="rate"><em class="num">57</em>%</span>
-				    </div>
-				    <ol class="rank">
-				        <li><em class="num">1위</em>EV6 롱 레인지 어스(Earth)</li>
-				        <li><em class="num">2위</em>EV6 롱 레인지 에어(Air)</li>
-				        <li><em class="num">3위</em>EV6 롱 레인지 GT-Line</li>
-				    </ol>
-			    </div>
-		    </div>     
+			    <ol class="rank">
+			        <li><em class="num">1위</em>EV6 롱 레인지 어스(Earth)</li>
+			        <li><em class="num">2위</em>EV6 롱 레인지 에어(Air)</li>
+			        <li><em class="num">3위</em>EV6 롱 레인지 GT-Line</li>
+			    </ol>
+		    </div>
+		   </div>     
 	    </div>
 	    <p class="line_wrap"></p>
 	    <div class="inner build_car build_area build_trim">

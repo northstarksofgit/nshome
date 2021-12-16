@@ -271,8 +271,8 @@ function nextStep(){
 	* url의 prameter를 체크하기 위함
 	* url 출력 예시 : ?step=3&car=ev6
 	*/
-	var pramUrl = window.location.search;
-	var params = new URLSearchParams(pramUrl);
+	
+	var params = new URLSearchParams(window.location.search);
 	const step = params.get('step');
 	
 	/*

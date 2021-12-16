@@ -145,10 +145,10 @@
      */
     
     
+    
     /**
      * 등록비용 select Box 제어 start
      */
-    
     $('.regist-item').on('click', function() {
     	$('.regist-item').removeClass('select-list-selected');
     	$(this).addClass('select-list-selected');
@@ -174,4 +174,7 @@
     	var val = $(this)[0].value;
     	$('#redSavePoint').val(val);
     })
+    /**
+     * 포인트 radio Button 제어 end
+     */
     

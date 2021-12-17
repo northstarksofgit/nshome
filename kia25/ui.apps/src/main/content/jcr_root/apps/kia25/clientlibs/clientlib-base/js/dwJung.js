@@ -290,17 +290,13 @@ function nextStep(){
 	
 	// 테스트용 코드 : 추후에 동적으로 바뀌어야하는 부분
 	colorCode = "&ext="+null+"&int="+null;
-	naviTrimCode = "EVE";
+	naviTrimCode = null;
 	
 	
 	//이동할 url 생성
-	toGoUrl += (trimCheck == "true") ? "&trimCode="+naviTrimCode : "";
-	toGoUrl += (colorCheck == "true") ? colorCode : "";
-	toGoUrl += (optionCheck == "true") ? "&option="+selectedOptList.toString() : "";
-	
-	
-	
-	//alert("toGoUrl added: "+toGoUrl);
+	toGoUrl += (trimCheck == "true" && !toGoUrl.includes("trimCode=")) ? "&trimCode="+naviTrimCode : "";
+	toGoUrl += (colorCheck == "true" && !toGoUrl.includes("ext=")) ? colorCode : "";
+	toGoUrl += (optionCheck == "true" && !toGoUrl.includes("option=")) ? "&option="+selectedOptList.toString() : "";
 	
 	location.href = toGoUrl;
 	
@@ -313,7 +309,7 @@ function nextStep(){
 function preStep(){
 	
 	var totalUrl = window.location.href;
-	var preParameter = totalUrl.substring(totalUrl.indexOf('?'), totalUrl.lastIndexOf('&'));
+	var preParameter = totalUrl.substring(totalUrl.indexOf('?'), totalUrl.includes("ext=") && !totalUrl.includes("step=5") ? totalUrl.lastIndexOf('&ext=') : totalUrl.lastIndexOf('&'));
 	var reverse = new URLSearchParams(preParameter);
 	
 	preParameter = preParameter.replace('step='+String(reverse.get('step')),'step='+String(reverse.get('step') - 1))

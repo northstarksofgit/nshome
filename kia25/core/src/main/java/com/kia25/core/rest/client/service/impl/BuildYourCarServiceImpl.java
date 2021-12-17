@@ -191,7 +191,7 @@ public class BuildYourCarServiceImpl implements BuildYourCarService {
 	 */
 
 	@Override
-	public SummaryDto getSummaryAPI(String step) {
+	public SummaryDto getSummaryAPI(String step, String modelCode, String trimCode, String ext, String intCode, String option) {
 		
 		String response = null;
 		

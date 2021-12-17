@@ -76,43 +76,31 @@ public class BuildYourCarServiceImpl implements BuildYourCarService {
 	
 	
 	/**
-	 * build 002 EV6 / get ModelDetail 
+	 * build 002 / get ModelDetail 
 	 */
 	@Override
-	public ModelDetailListDtoResults getModelDetailEAPI(String modelCode) {
+	public ModelDetailListDtoResults getModelDetailAPI(String modelCode) {
+		
+		String response = null;
 		
 		try {
-//			String url = "trim-list-E";
-//			url += "?modelCode=" + modelCode;
+			// 	차종이 EV6인 경우 
+			//	String url = "trim-list-E";
+			//	url += "?modelCode=" + modelCode;
 			
-			String response = service.getRequest("trim-list-E");
-			LOG.debug("response={}", response);
-			ObjectMapper mapper = new ObjectMapper();
+			//  차종이 EV6가 아닌 경우 (성력)
+			//  String url = "trim-list-S";
+			//	url += "?modelCode=" + modelCode;
 			
-			ModelDetailListDtoResults result = mapper.readValue(response, ModelDetailListDtoResults.class);
-			return result;
+			// 차종이 EV6인 경우 
+			if (modelCode.equals("EV6")) {
+				response = service.getRequest("trim-list-E");
+				
+			// 차종이 EV6가 아닌 경우 (성력)
+			} else {
+				response = service.getRequest("trim-list-S");
+			}
 			
-		} catch (IOException e) {
-			LOG.debug("response={}", "error");
-			e.printStackTrace();
-			
-		}
-		
-		return null;
-	}
-	
-	
-	/**
-	 * build 002 성력 / get ModelDetail 
-	 */
-	@Override
-	public ModelDetailListDtoResults getModelDetailSAPI(String modelCode) {
-		
-		try {
-//			String url = "trim-list-S";
-//			url += "?modelCode=" + modelCode;
-			
-			String response = service.getRequest("trim-list-S");
 			LOG.debug("response={}", response);
 			ObjectMapper mapper = new ObjectMapper();
 			

@@ -47,24 +47,15 @@ public class Build002Model {
 		 * 파라미터에서 modelCode 받아와서 변수 선언
 		 */
 		modelCode = request.getParameter("modelCode");
-
-		if(modelCode.equals("EV6")) {
 			
-			// 차종이 EV6인 경우 
-			detailResults = service.getModelDetailEAPI(modelCode);
-			
-		} else {
-			
-			// 차종이 EV6가 아닌 경우 (성력)
-			detailResults = service.getModelDetailSAPI(modelCode);
-		}
-			
-			detailData = detailResults.getData();
-			carGroupList = detailData.getCarGroupList();
-			transmissionList = detailData.getTransmissionList();
-			trimList = detailData.getTrimList();
+		detailResults = service.getModelDetailAPI(modelCode);
 		
-			
+		detailData = detailResults.getData();
+		carGroupList = detailData.getCarGroupList();
+		transmissionList = detailData.getTransmissionList();
+		trimList = detailData.getTrimList();
+	
+		
 //			/**
 //			 * get carGroup Data
 //			 */

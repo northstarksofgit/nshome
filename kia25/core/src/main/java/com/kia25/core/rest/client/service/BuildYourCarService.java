@@ -16,20 +16,11 @@ public interface BuildYourCarService {
 	 */
 	CategoryListDto getCategoryAPI();
 
-	/**
-	 * build002 / modellist 불러오기
-	 */
-	ModelListDto getModelListAPI();
-
-	/**
-	 * build 002 EV6 /  get carGroup / transmission / trim List
-	 */
-	ModelDetailListDtoResults getModelDetailEAPI(String modelCode);
 	
 	/**
-	 * build 002 성력 /  get carGroup / transmission / trim List
+	 * build 002 /  get carGroup / transmission / trim List
 	 */
-	ModelDetailListDtoResults getModelDetailSAPI(String modelCode);
+	ModelDetailListDtoResults getModelDetailAPI(String modelCode);
 	
 	
 	/**

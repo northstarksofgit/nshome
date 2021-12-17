@@ -1,6 +1,6 @@
 package com.kia25.core.rest.client.dto;
 
-public class ModelDetailListDtoResult {
+public class ModelDetailListDtoResults {
 
 	/**
 	 * 결과 코드

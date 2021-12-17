@@ -12,9 +12,9 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import com.kia25.core.rest.client.dto.AreaListDtoResults;
 import com.kia25.core.rest.client.dto.CategoryListDto;
 import com.kia25.core.rest.client.dto.CategoryListDtoResults;
-import com.kia25.core.rest.client.dto.ColorListDto;
 import com.kia25.core.rest.client.dto.ColorListDtoResults;
 import com.kia25.core.rest.client.dto.CompleteListDtoResults;
+import com.kia25.core.rest.client.dto.ModelDetailListDtoResults;
 import com.kia25.core.rest.client.dto.ModelListDto;
 import com.kia25.core.rest.client.dto.ModelListDtoResults;
 import com.kia25.core.rest.client.dto.OptionListDtoResults;
@@ -75,53 +75,52 @@ public class BuildYourCarServiceImpl implements BuildYourCarService {
 	}
 	
 	
-//	/**
-//	 * get carGroup Trim List
-//	 */
-//	@Override
-////	public CarGroupListDto getCarGroupListAPI() {
-//	public CarGroupListDtoResults getCarGroupListAPI() {
-//		
-//		try {
-//			String response = service.getRequest("trim-list-E");
-//			LOG.debug("response={}", response);
-//			ObjectMapper mapper = new ObjectMapper();
-//			
-//			CarGroupListDtoResults result = mapper.readValue(response, CarGroupListDtoResults.class);
-//			return result;
-////			return result.getData();
-//			
-//		} catch (IOException e) {
-//			LOG.debug("response={}", "error");
-//			e.printStackTrace();
-//			
-//		}
-//		
-//		return null;
-//	}
-//	
-//	 /** 
-//	  * get transmission Trim List
-//	  */
-//	@Override
-//	public CarGroupListDtoResults getTrasmissionListAPI() {
-//		
-//		try {
-//			String response = service.getRequest("trim-list-S");
-//			LOG.debug("response={}", response);
-//			ObjectMapper mapper = new ObjectMapper();
-//
-//			CarGroupListDtoResults result = mapper.readValue(response, CarGroupListDtoResults.class);
-//			return result;
-//
-//		} catch (IOException e) {
-//			LOG.error("Error parsing JSON API response.", e);
-//			e.printStackTrace();
-//
-//		}
-//
-//		return null;
-//	}
+	/**
+	 * build 002 EV6 / get ModelDetail 
+	 */
+	@Override
+	public ModelDetailListDtoResults getModelDetailEAPI() {
+		
+		try {
+			String response = service.getRequest("trim-list-E");
+			LOG.debug("response={}", response);
+			ObjectMapper mapper = new ObjectMapper();
+			
+			ModelDetailListDtoResults result = mapper.readValue(response, ModelDetailListDtoResults.class);
+			return result;
+			
+		} catch (IOException e) {
+			LOG.debug("response={}", "error");
+			e.printStackTrace();
+			
+		}
+		
+		return null;
+	}
+	
+	
+	/**
+	 * build 002 성력 / get ModelDetail 
+	 */
+	@Override
+	public ModelDetailListDtoResults getModelDetailSAPI() {
+		
+		try {
+			String response = service.getRequest("trim-list-S");
+			LOG.debug("response={}", response);
+			ObjectMapper mapper = new ObjectMapper();
+			
+			ModelDetailListDtoResults result = mapper.readValue(response, ModelDetailListDtoResults.class);
+			return result;
+			
+		} catch (IOException e) {
+			LOG.debug("response={}", "error");
+			e.printStackTrace();
+			
+		}
+		
+		return null;
+	}
 	
 	
 	/**
@@ -198,23 +197,23 @@ public class BuildYourCarServiceImpl implements BuildYourCarService {
 		
 		try {
 		
-			if(step.equals("2")) {
+			if(step.equals("3")) {
 				
 				response = service.getRequest("summary-info-0");
 				
-			}else if(step.equals("3")) {
+			}else if(step.equals("4")) {
 				//trim까지
 				
 				response = service.getRequest("summary-info-1");
 
 				
-			}else if(step.equals("4")){
+			}else if(step.equals("5")){
 				//color까지
 				
 				response = service.getRequest("summary-info-2");
 				
-			}else {
-				//option까지
+			}else{
+				//how to buy
 			
 				response = service.getRequest("summary-info-3");
 			}
@@ -276,5 +275,6 @@ public class BuildYourCarServiceImpl implements BuildYourCarService {
 		
 		return null;
 	}
+
 
 }

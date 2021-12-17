@@ -90,7 +90,7 @@ public class NaviModel {
 		ValueMap valueMap = resource.getValueMap();
 		
 		
-		step = (String) valueMap.getOrDefault("step", "0");
+		step = (String) valueMap.getOrDefault("step", "2");
 		url = (String) valueMap.getOrDefault("toGo", null);
 		trimCheck = (String) valueMap.getOrDefault("trim", null);
 		colorCheck = (String) valueMap.getOrDefault("color", null);
@@ -98,8 +98,7 @@ public class NaviModel {
 		
 		
 		
-		
-		
+		LOG.info("step: "+step);		
 		
 		
 		/*

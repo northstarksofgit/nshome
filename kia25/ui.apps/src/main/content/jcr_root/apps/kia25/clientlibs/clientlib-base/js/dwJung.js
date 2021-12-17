@@ -266,6 +266,7 @@ function addTrimToNavi(){
 */
 function addHowToBuy(){
 	
+	$('.list_in > p').remove();
 	$('.con_pay').empty();
 	
 	//현금 or 할부

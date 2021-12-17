@@ -24,12 +24,12 @@ public interface BuildYourCarService {
 	/**
 	 * build 002 EV6 /  get carGroup / transmission / trim List
 	 */
-	ModelDetailListDtoResults getModelDetailEAPI();
+	ModelDetailListDtoResults getModelDetailEAPI(String modelCode);
 	
 	/**
 	 * build 002 성력 /  get carGroup / transmission / trim List
 	 */
-	ModelDetailListDtoResults getModelDetailSAPI();
+	ModelDetailListDtoResults getModelDetailSAPI(String modelCode);
 	
 	
 	/**
@@ -40,7 +40,7 @@ public interface BuildYourCarService {
 	/**
 	 * build004 / optionlist 불러오기
 	 */
-	OptionListDtoResults getOptionlListAPI();
+	OptionListDtoResults getOptionlListAPI(String modelCode, String trimCode, String extColorCode, String intColorCode);
 	
 	
 	/**

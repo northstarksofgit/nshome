@@ -79,9 +79,12 @@ public class BuildYourCarServiceImpl implements BuildYourCarService {
 	 * build 002 EV6 / get ModelDetail 
 	 */
 	@Override
-	public ModelDetailListDtoResults getModelDetailEAPI() {
+	public ModelDetailListDtoResults getModelDetailEAPI(String modelCode) {
 		
 		try {
+//			String url = "trim-list-E";
+//			url += "?modelCode=" + modelCode;
+			
 			String response = service.getRequest("trim-list-E");
 			LOG.debug("response={}", response);
 			ObjectMapper mapper = new ObjectMapper();
@@ -103,9 +106,12 @@ public class BuildYourCarServiceImpl implements BuildYourCarService {
 	 * build 002 성력 / get ModelDetail 
 	 */
 	@Override
-	public ModelDetailListDtoResults getModelDetailSAPI() {
+	public ModelDetailListDtoResults getModelDetailSAPI(String modelCode) {
 		
 		try {
+//			String url = "trim-list-S";
+//			url += "?modelCode=" + modelCode;
+			
 			String response = service.getRequest("trim-list-S");
 			LOG.debug("response={}", response);
 			ObjectMapper mapper = new ObjectMapper();
@@ -126,9 +132,15 @@ public class BuildYourCarServiceImpl implements BuildYourCarService {
 	/**
 	 * get option List
 	 */
-	public OptionListDtoResults getOptionlListAPI() {
+	public OptionListDtoResults getOptionlListAPI(String modelCode, String trimCode, String extColorCode, String intColorCode) {
 		
 		try {
+//			String url = "list-of-option/";
+//			url += "modelCode="+modelCode;
+//			url += "&trimCode="+trimCode;
+//			url += "&ext="+extColorCode;
+//			url += "&int="+intColorCode;
+			
 			String response = service.getRequest("list-of-option");
 			LOG.debug("response={}", response);
 			ObjectMapper mapper = new ObjectMapper();

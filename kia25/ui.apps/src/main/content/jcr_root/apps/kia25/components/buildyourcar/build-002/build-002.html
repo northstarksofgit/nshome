@@ -13,31 +13,23 @@
         <div class="step_wrap">
             <ul>
                 <li class="step1">
-                    <a href="/kr/shopping-tools/build-your-car/vehicle-lineup.html">
+                    <a href="/content/kia25/us/build001-test.html">
                         <span>처음으로</span>
                     </a>
                 </li>
                 
                 <li class="step2 on">
-                        
-                        <span class="basic">상세차종 선택</span>
-                    
+                    <span class="basic">상세차종 선택</span>
                 </li>
                 <li class="step3 ">
-                    
-                        <span class="basic">컬러 선택</span>
-                    
+                    <span class="basic">컬러 선택</span>
                 </li>
                 <li class="step4 ">
-                    
-                        <span class="basic">옵션 선택</span>
-                        
+                    <span class="basic">옵션 선택</span>
                 </li>
                 <li class="step5 ">
-                        
-                        <span class="basic">구매 방법</span>
-                        <span class="result"></span>
-                    
+                    <span class="basic">구매 방법</span>
+                    <span class="result"></span>
                 </li>
                 <li class="step6 ">
                     <span class="basic">견적완료</span>
@@ -54,13 +46,13 @@
 
 			 		<!-- 상세 차종 선택 페이지 -->
 		    		<strong class="name">
-		        		${detail.carData.carModelName}
+		        		${detail.detailData.carModelName}
 		        	</strong>	
 			        <button type="button" class="btn_car" onclick="fnOpenSelectCarPop()">다른 차량 선택</button>
 		        </div>
 
 			    <div class="car_img" >
-			        <img src="${detail.carData.carImagePath}" alt="${detail.carData.carModelName}">
+			        <img src="${detail.detailData.carImagePath}" alt="${detail.detailData.carModelName}">
 			        <p class="car_desc">※ 본 차량의 이미지는 실제와 다를 수 있습니다.</p>
 			    </div>
 			 </div>
@@ -68,7 +60,7 @@
 			    <h5 class="tit">모델 <em class="hidden">선택</em></h5>
 
 				<!-- carGroupList에 담긴 값 가져오기 -->
-				<sly data-sly-list.group="${detail.carData.carGroupList}" data-sly-test="${detail.carData.carGroupList}">
+				<sly data-sly-list.group="${detail.detailData.carGroupList}" data-sly-test="${detail.detailData.carGroupList}">
 					<sly data-sly-test="${groupList.count == 1}">
 					        <span class="form_chk carGroup" data-trimCode="${group.carGroupCode}">
 					            <input type="radio" prefer="client" data-carGroup="${group.carGroupCode}" carimage="${group.carImagePath}" value="${group.carGroupCode}" name="sample1" id="sample1_${groupList.count}" checked="checked">
@@ -88,20 +80,17 @@
 		    	<h5 class="tit">변속기 <em class="hidden">선택</em></h5>
 		    	
 		    	<!-- carGroupList에 담긴 transmisson 가져오기 -->
-			    <sly data-sly-list.trans="${detail.carData.carGroupList}" data-sly-test="${detail.carData.carGroupList}">
+			    <sly data-sly-list.trans="${detail.detailData.carGroupList}" data-sly-test="${detail.detailData.carGroupList}">
 			    	<sly data-sly-list.transmission="${trans.transmission}">
 					    <span class="form_chk transmission" style="display: block; display:inline-block;">
-<!-- 						    <sly data-sly-test="${transmission == 'automatic' || transmission == 'manual'}"> -->
-							    <sly data-sly-test="${transmission == 'automatic'}">
-							    	<input type="radio" name="sample2" id="sample2_${transmissionList.count}" value=${transmission} checked="checked">
-							    	<label for="sample2_${transmissionList.count}" class="form_spr radio_box r_on">자동</label>
-							    </sly>	
-							    <sly data-sly-test="${transmission == 'manual'}">
-							    	<input type="radio" name="sample2" id="sample2_${transmissionList.count}" value=${transmission} checked="checked">
-							    	<label for="sample2_${transmissionList.count}" class="form_spr radio_box r_on">수동</label>
-							    </sly>
-<!-- 						    </sly> -->
-						    
+						    <sly data-sly-test="${transmission == 'automatic'}">
+						    	<input type="radio" name="sample2" id="sample2_${transmissionList.count}" value=${transmission} checked="checked">
+						    	<label for="sample2_${transmissionList.count}" class="form_spr radio_box r_on">자동</label>
+						    </sly>	
+						    <sly data-sly-test="${transmission == 'manual'}">
+						    	<input type="radio" name="sample2" id="sample2_${transmissionList.count}" value=${transmission} checked="checked">
+						    	<label for="sample2_${transmissionList.count}" class="form_spr radio_box r_on">수동</label>
+						    </sly>
 					    </span>	
 				     </sly>  
 			   </sly>  
@@ -127,7 +116,7 @@
 		    
 			 <!-- trimList에 담긴 값 가져오기 -->
 			 <ul class="box_u">
-				 <sly data-sly-list.trim="${detail.test}"  data-sly-test="${detail.test}" >
+				 <sly data-sly-list.trim="${detail.detailList}"  data-sly-test="${detail.detailList}" >
 				     <div class="trimselector slide_box trim-list" hid="false" data-car="${trim.carGroupCode}" style="display: none;">
 					     <li class="box_l trim_click" price="${trim.sellingPrice}" data-seq="${trim.seq}" aimg="https://www.kia.com/content/dam/kwcms/kr/ko/images/byo/car_ev6_standard.png" value="${trim.carGroupCode}" trim="CVJJ5VI31-A" data-trim="${trim.trimCode}" data-trans="${trim.transmission}" tmp="off">
 					         <a href="#" class="box_a">			        

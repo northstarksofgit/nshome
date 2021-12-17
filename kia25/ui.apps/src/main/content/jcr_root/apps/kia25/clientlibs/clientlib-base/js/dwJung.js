@@ -268,66 +268,41 @@ function addTrimToNavi(){
 function nextStep(){
 	
 	/*
-	* url의 prameter를 체크하기 위함
-	* url 출력 예시 : ?step=3&car=ev6
+	* step = 2 --> trim Page로 이동
+	* step = 3 --> color Page로 이동
+	* step = 4 --> option page로 이동
+	* step = 5 --> step 종료 페이지(임시)
 	*/
 	
-	var params = new URLSearchParams(window.location.search);
-	const step = params.get('step');
-	
 	/*
-	* 공통적으로 사용되는 url
-	* url 출력 예시 : /content/kia25/us/en/build-your-car/build-your-car-002.html?step=2&modelCode=EV6
+	* 이전 단계의 url 파라미터
+	* preUrl 출력 예시 :  modelCode=EV6
 	*/
 	var totalUrl = window.location.href;
-	var subUrl = totalUrl.substr(totalUrl.indexOf('/content'), totalUrl.length);
-
-	/*
-	* 이동할 url 셋팅
-	*/
-	var next = "";
-	
-	if(step == 2){
-		/* trim 선택 단계 : build 002 page
-		* 다음 단계에서 트림 출력
-		*/
-		
-		subUrl = subUrl.replace('step=2','step=3').replace('002.html','003.html');
-		next = "&trimCode="+naviTrimCode;
-		
-	}
-	else if(step == 3){
-		/* trim까지 출력된 단계 : build 003 page
-		* 다음 단계에서 color까지 출력
-		*/
-		
-		/*
-		* 동적으로! 다른 컴포넌트에서 클릭하여 넘어온 값으로 바뀌게 해줘야하는 부분
-		*/
-		subUrl = subUrl.replace('step=3','step=4').replace('003.html','004.html');
-		next = "&ext=ABP&int=IN_EV6_BL";
-		
-		
-	}else if(step == 4){
-		/* color까지 출력된 단계 : build 004 page
-		*다음 단계에서 option까지 출력
-		*/
-		
-		
-		subUrl = subUrl.replace('step=4','step=5').replace('004.html','005.html');
-		next = "&option="+selectedOptList.toString();
-		
-	}
+	var preUrl = totalUrl.substr(totalUrl.indexOf('&modelCode='), totalUrl.length);
 	
 	
-	/*
-	* 셋팅한 url로 이동
-	*/		
-		
-	subUrl += next;
+	const step = $('.naviNext').attr('step');
+	var toGoUrl = $('.naviNext').attr('toGoUrl') + ".html?step="+step+preUrl;
+	const trimCheck = $('.naviNext').attr('trimCheck');
+	const colorCheck = $('.naviNext').attr('colorCheck');
+	const optionCheck = $('.naviNext').attr('optionCheck');
 	
-	location.href = subUrl;
+	// 테스트용 코드 : 추후에 동적으로 바뀌어야하는 부분
+	colorCode = "&ext=ABP&int=IN_EV6_BL";
+	naviTrimCode = "EVE";
 	
+	
+	//이동할 url 생성
+	toGoUrl += (trimCheck == "true") ? "&trimCode="+naviTrimCode : "";
+	toGoUrl += (colorCheck == "true") ? colorCode : "";
+	toGoUrl += (optionCheck == "true") ? "&option="+selectedOptList.toString() : "";
+	
+	
+	
+	//alert("toGoUrl added: "+toGoUrl);
+	
+	location.href = toGoUrl;
 	
 }
 

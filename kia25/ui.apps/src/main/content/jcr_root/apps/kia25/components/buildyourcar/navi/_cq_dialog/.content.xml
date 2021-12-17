@@ -20,6 +20,7 @@
                             <nextPath
                                 jcr:primaryType="nt:unstructured"
                                 sling:resourceType="granite/ui/components/coral/foundation/form/pathfield"
+                                rootPath="/content/kia25"
                                 fieldDescription="to go path"
                                 fieldLabel="where to go"
                                 name="./toGo"/>

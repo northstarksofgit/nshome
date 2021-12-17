@@ -4,6 +4,8 @@
 
 <sly data-sly-use.model="com.kia25.core.models.NaviModel" data-sly-test.summary="${model.summary}"></sly>
 
+<div class="naviNext" step="${model.step}" toGoUrl="${model.url}" trimCheck="${model.trimCheck}" 
+				   colorCheck="${model.colorCheck}" optionCheck="${model.optionCheck}"></div>
 
 
 <template data-sly-template.formattedPrice="${ @ price}">

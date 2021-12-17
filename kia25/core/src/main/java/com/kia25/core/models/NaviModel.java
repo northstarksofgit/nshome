@@ -53,39 +53,50 @@ public class NaviModel {
 	 */
 	private SummaryDto summary;
 	
+	/*
+	 * 이동할 step
+	 */
+	private String step;
+	
+	/*
+	 * 이동할 url
+	 */
+	private String url;
+	
+	/*
+	 * trim code 사용 여부 
+	 */
+	private String trimCheck;
+	
+	/*
+	 * color code 사용 여부
+	 */
+	private String colorCheck;
+	
+	/*
+	 * option code 사용 여부
+	 */
+	private String optionCheck;
+	
+	
+	
+	
 	
 	@PostConstruct
 	public void activate() throws  Exception {
 		
 		
 		
-		/*
-		 * 스텝별로 넘어오는 파라미터
-		 * 
-		 * 2 step: car=EV6.dpcd=N
-		 * 3 step: car=EV6-LEV.trim=CVJJ5VD31-A.dpcd=N
-		 * 4 step: car=EV6-LEV.trim=CVJJ5VD31-A.dpcd=N.ext=ABP.int=IN_EV6_BL
-		 * 5 step car=EV6-LEV.trim=CVJJ5VI31-A.ext=SWP.int=IN_EV6_BL.dpcd=N.option=4WD,DWP,CVN
-		 * 
-		 * carid(modelCode), dpcd(??), trim(trimCode), ext(exteriorCode), int(interiorCode)
-		 * 
-		 * 테스트용 url : ?car=EV6&trimCode=LRL&option=4WD,DWP,CVN&ext=SWP&int=M4B&dpcd=N
-		 * 
-		 */
-		
-		
 		ValueMap valueMap = resource.getValueMap();
-		String step = (String) valueMap.getOrDefault("step", null);
-		String url = (String) valueMap.getOrDefault("toGo", null);
-		String trimCheck = (String) valueMap.getOrDefault("trim", null);
-		String colorCheck = (String) valueMap.getOrDefault("color", null);
-		String optionCheck = (String) valueMap.getOrDefault("option", null);
 		
-		LOG.info("step: "+step);
-		LOG.info("url: "+url);
-		LOG.info("trimCheck: "+trimCheck);
-		LOG.info("colorCheck: "+colorCheck);
-		LOG.info("option: "+optionCheck);
+		
+		step = (String) valueMap.getOrDefault("step", "0");
+		url = (String) valueMap.getOrDefault("toGo", null);
+		trimCheck = (String) valueMap.getOrDefault("trim", null);
+		colorCheck = (String) valueMap.getOrDefault("color", null);
+		optionCheck = (String) valueMap.getOrDefault("option", null);
+		
+		
 		
 		
 		
@@ -125,6 +136,12 @@ public class NaviModel {
 		
 	}
 
+	
+	
+	
+	
+	
+	
 
 	public SummaryDto getSummary() {
 		return summary;
@@ -134,7 +151,56 @@ public class NaviModel {
 	public void setSummary(SummaryDto summary) {
 		this.summary = summary;
 	}
-	
+
+
+	public String getStep() {
+		return step;
+	}
+
+
+	public void setStep(String step) {
+		this.step = step;
+	}
+
+
+	public String getUrl() {
+		return url;
+	}
+
+
+	public void setUrl(String url) {
+		this.url = url;
+	}
+
+
+	public String getTrimCheck() {
+		return trimCheck;
+	}
+
+
+	public void setTrimCheck(String trimCheck) {
+		this.trimCheck = trimCheck;
+	}
+
+
+	public String getColorCheck() {
+		return colorCheck;
+	}
+
+
+	public void setColorCheck(String colorCheck) {
+		this.colorCheck = colorCheck;
+	}
+
+
+	public String getOptionCheck() {
+		return optionCheck;
+	}
+
+
+	public void setOptionCheck(String optionCheck) {
+		this.optionCheck = optionCheck;
+	}
 	
 	
 

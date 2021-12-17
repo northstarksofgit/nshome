@@ -8,7 +8,7 @@ import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 public class CarGroupDto {
 	
 	/**
-	 * 모델 코드
+	 * carGroup 코드
 	 */
 	private String carGroupCode;
 	
@@ -22,19 +22,10 @@ public class CarGroupDto {
 	 */
 	private String carImagePath;
 	
-	/**
-	 * 변속기
-	 */
-	private List<String> transmission;
-	
-
-
-	private List<TrimDto> trimList;
 	
 	/**
 	 * getter / setter
 	 */
-
 	public String getCarGroupCode() {
 		return carGroupCode;
 	}
@@ -58,32 +49,6 @@ public class CarGroupDto {
 	public void setCarImagePath(String carImagePath) {
 		this.carImagePath = carImagePath;
 	}
-
-//	public String getTransmission() {
-//		return transmission;
-//	}
-//
-//	public void setTransmission(String transmission) {
-//		this.transmission = transmission;
-//	}
-
-	public List<TrimDto> getTrimList() {
-		return trimList;
-	}
-
-	public void setTrimList(List<TrimDto> trimList) {
-		this.trimList = trimList;
-	}
-
-	public List<String> getTransmission() {
-		return transmission;
-	}
-
-	public void setTransmission(List<String> transmission) {
-		this.transmission = transmission;
-	}
-
-	
-	
+		
 
 }

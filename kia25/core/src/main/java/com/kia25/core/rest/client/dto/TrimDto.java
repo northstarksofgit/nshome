@@ -5,23 +5,15 @@ import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class TrimDto {
 	
-//	/**
-//	 * 모델코드
-//	 */
-//	private String modelCode;
-//	
-//	
-//	/**
-//	 * 모델연식코드
-//	 */
-//	private String modelYear;
-//	
-//	
-//	/**
-//	 * carGroup 코드
-//	 */
-//	private String carGroupCode;
-//	
+	/**
+	 * carGroup 코드
+	 */
+	private String carGroupCode;
+
+	/**
+	 * 변속기 코드
+	 */
+	private String transmissionCode;
 	
 	/**
 	 * 트림코드
@@ -76,138 +68,98 @@ public class TrimDto {
 	 */
 	private String engineCapacityName;
 
-	/**
-	 * 변속기
-	 */
-	private String transmission;
-	
 
 
 	/**
 	 * getter / setter
 	 */
-//	public String getModelCode() {
-//		return modelCode;
-//	}
-//
-//	public void setModelCode(String modelCode) {
-//		this.modelCode = modelCode;
-//	}
-//
-//	public String getModelYear() {
-//		return modelYear;
-//	}
-//
-//	public void setModelYear(String modelYear) {
-//		this.modelYear = modelYear;
-//	}
-//
-//	public String getCarGroupCode() {
-//		return carGroupCode;
-//	}
-//	
-//	public void setCarGroupCode(String carGroupCode) {
-//		this.carGroupCode = carGroupCode;
-//	}
+	public String getCarGroupCode() {
+		return carGroupCode;
+	}
+
+	public void setCarGroupCode(String carGroupCode) {
+		this.carGroupCode = carGroupCode;
+	}
+
+	public String getTransmissionCode() {
+		return transmissionCode;
+	}
+
+	public void setTransmissionCode(String transmissionCode) {
+		this.transmissionCode = transmissionCode;
+	}
 
 	public String getTrimCode() {
 		return trimCode;
 	}
 
-
 	public void setTrimCode(String trimCode) {
 		this.trimCode = trimCode;
 	}
-
 
 	public String getTrimName() {
 		return trimName;
 	}
 
-
 	public void setTrimName(String trimName) {
 		this.trimName = trimName;
 	}
-
 
 	public String getProductCode() {
 		return productCode;
 	}
 
-
 	public void setProductCode(String productCode) {
 		this.productCode = productCode;
 	}
-
 
 	public int getSellingPrice() {
 		return sellingPrice;
 	}
 
-
 	public void setSellingPrice(int sellingPrice) {
 		this.sellingPrice = sellingPrice;
 	}
-
 
 	public String getBestYn() {
 		return bestYn;
 	}
 
-
 	public void setBestYn(String bestYn) {
 		this.bestYn = bestYn;
 	}
-
 
 	public String getGearboxName() {
 		return gearboxName;
 	}
 
-
 	public void setGearboxName(String gearboxName) {
 		this.gearboxName = gearboxName;
 	}
-
 
 	public String getCompoundFuelEconomy() {
 		return compoundFuelEconomy;
 	}
 
-
 	public void setCompoundFuelEconomy(String compoundFuelEconomy) {
 		this.compoundFuelEconomy = compoundFuelEconomy;
 	}
-
 
 	public String getBodyTypeName() {
 		return bodyTypeName;
 	}
 
-
 	public void setBodyTypeName(String bodyTypeName) {
 		this.bodyTypeName = bodyTypeName;
 	}
-
 
 	public String getEngineCapacityName() {
 		return engineCapacityName;
 	}
 
-
 	public void setEngineCapacityName(String engineCapacityName) {
 		this.engineCapacityName = engineCapacityName;
 	}
-	
-	
-	public String getTransmission() {
-		return transmission;
-	}
-	
-	
-	public void setTransmission(String transmission) {
-		this.transmission = transmission;
-	}
-	
+
 
 }

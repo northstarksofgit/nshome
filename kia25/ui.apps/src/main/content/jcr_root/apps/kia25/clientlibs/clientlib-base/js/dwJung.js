@@ -289,7 +289,7 @@ function nextStep(){
 	const optionCheck = $('.naviNext').attr('optionCheck');
 	
 	// 테스트용 코드 : 추후에 동적으로 바뀌어야하는 부분
-	colorCode = "&ext=ABP&int=IN_EV6_BL";
+	colorCode = "&ext="+null+"&int="+null;
 	naviTrimCode = "EVE";
 	
 	
@@ -307,4 +307,20 @@ function nextStep(){
 }
 
 
+/*
+* navi의 <이전 클릭시 이전 step으로 넘어가는 함수
+*/
+function preStep(){
+	
+	var totalUrl = window.location.href;
+	var preParameter = totalUrl.substring(totalUrl.indexOf('?'), totalUrl.lastIndexOf('&'));
+	var reverse = new URLSearchParams(preParameter);
+	
+	preParameter = preParameter.replace('step='+String(reverse.get('step')),'step='+String(reverse.get('step') - 1))
+
+	var preUrl = $('.naviNext').attr('preUrl') + ".html"+preParameter;
+
+	location.href = preUrl;
+
+}
 

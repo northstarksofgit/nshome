@@ -4,8 +4,8 @@
 
 <sly data-sly-use.model="com.kia25.core.models.NaviModel" data-sly-test.summary="${model.summary}"></sly>
 
-<div class="naviNext" step="${model.step}" toGoUrl="${model.url}" trimCheck="${model.trimCheck}" 
-				   colorCheck="${model.colorCheck}" optionCheck="${model.optionCheck}"></div>
+<div class="naviNext" step="${model.step}" toGoUrl="${model.nextUrl}" trimCheck="${model.trimCheck}" 
+				   colorCheck="${model.colorCheck}" optionCheck="${model.optionCheck}" preUrl="${model.preUrl}"></div>
 
 
 <template data-sly-template.formattedPrice="${ @ price}">
@@ -22,7 +22,7 @@
             <div class="build_car">
                 <div class="byoTotal">
                     <div class="btn_area">
-                        <a href="javascript:history.back();" class="btnPrev"><span class="ico_prev">이전</span></a>
+                        <a href="javascript:preStep();" class="btnPrev"><span class="ico_prev">이전</span></a>
                         <a href="javascript:nextStep();" class="btnNext btnActMove on"><span class="ico_next">다음</span></a>
                         <!-- javascript:nextStep() -->
                     </div>
@@ -133,7 +133,12 @@
 									  	<div class="list_in">
 									    	<strong>구매방법</strong>
 									    	<p style="display:none;">선택정보가 없습니다.</p>
-									    	<div class="con_pay"><span><em class="tit">지불방법</em><em class="txt">현금구입</em></span><span><em class="tit">차량가</em><em class="txt">과세</em></span></div>
+									    	<div class="con_pay">
+										    	<span><em class="tit">지불방법</em><em class="txt">현금구입</em></span>
+										    	<span><em class="tit">할부</em><em class="txt">과세</em></span>
+										    	<span><em class="tit">할부원금</em><em class="txt">과세</em></span>
+										    	<span><em class="tit">차량가</em><em class="txt">과세</em></span>
+									    	</div>
 										</div>
 										<div class="list_in">
 									  		<strong><em>할인내역 / </em><em>기타비용</em></strong>

@@ -61,7 +61,13 @@ public class NaviModel {
 	/*
 	 * 이동할 url
 	 */
-	private String url;
+	private String nextUrl;
+	
+	/*
+	 * 이전 url
+	 */
+	private String preUrl;
+	
 	
 	/*
 	 * trim code 사용 여부 
@@ -79,19 +85,34 @@ public class NaviModel {
 	private String optionCheck;
 	
 	
-	
+	/*
+	 * parameter로 넘어온 code
+	 */
+	String modelCode;
+	String trimCode;
+	String ext;
+	String intCode;
+	String option;
 	
 	
 	@PostConstruct
 	public void activate() throws  Exception {
 		
 		
+
+		modelCode = request.getParameter("modelCode");
+		trimCode = request.getParameter("modelCode");
+		ext = request.getParameter("ext");
+		intCode = request.getParameter("intCode");
+		option = request.getParameter("option");
+		
 		
 		ValueMap valueMap = resource.getValueMap();
 		
 		
 		step = (String) valueMap.getOrDefault("step", "2");
-		url = (String) valueMap.getOrDefault("toGo", null);
+		nextUrl = (String) valueMap.getOrDefault("toGo", null);
+		preUrl = (String) valueMap.getOrDefault("prePath", null);
 		trimCheck = (String) valueMap.getOrDefault("trim", null);
 		colorCheck = (String) valueMap.getOrDefault("color", null);
 		optionCheck = (String) valueMap.getOrDefault("option", null);
@@ -101,28 +122,6 @@ public class NaviModel {
 		LOG.info("step: "+step);		
 		
 		
-		/*
-		 * 현재 step
-		String step = request.getParameter("step");
-		
-		step = (step == null) ? "0" : step;
-		*/
-
-		
-		/*
-		 * 선택한 차량 옵션
-		 * optionParam은 parameter로 넘어온 옵션들
-		 * option은 pram을 , 기준으로 잘라서 배열처리함
-		 * 
-		 * 		String optionParam = request.getParameter("option");
-				String[] option = null;
-				
-				if(optionParam!=null) {
-					option = optionParam.split(",");			
-				}
-		 * 
-		 */
-
 
 		/*
 		 * summary정보 호출
@@ -132,9 +131,12 @@ public class NaviModel {
 		
 		
 		
-		
 	}
 
+	
+	
+	
+	
 	
 	
 	
@@ -161,15 +163,6 @@ public class NaviModel {
 		this.step = step;
 	}
 
-
-	public String getUrl() {
-		return url;
-	}
-
-
-	public void setUrl(String url) {
-		this.url = url;
-	}
 
 
 	public String getTrimCheck() {
@@ -200,8 +193,31 @@ public class NaviModel {
 	public void setOptionCheck(String optionCheck) {
 		this.optionCheck = optionCheck;
 	}
+
+
+	public String getNextUrl() {
+		return nextUrl;
+	}
+
+
+	public void setNextUrl(String nextUrl) {
+		this.nextUrl = nextUrl;
+	}
+
+
+	public String getPreUrl() {
+		return preUrl;
+	}
+
+
+	public void setPreUrl(String preUrl) {
+		this.preUrl = preUrl;
+	}
 	
 	
 
+	
+	
+	
 
 }

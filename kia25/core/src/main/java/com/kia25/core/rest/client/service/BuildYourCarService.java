@@ -40,7 +40,7 @@ public interface BuildYourCarService {
 	/**
 	 * build004 / optionlist 불러오기
 	 */
-	OptionListDtoResults getOptionlListAPI();
+	OptionListDtoResults getOptionlListAPI(String modelCode, String trimCode, String extColorCode, String intColorCode);
 	
 	
 	/**

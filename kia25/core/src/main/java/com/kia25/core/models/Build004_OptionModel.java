@@ -57,10 +57,10 @@ public class Build004_OptionModel {
 		 * get Print Model-Option List 
 		 */
 //		optionList = buildYourCarService.getOptionlListAPI().getListOfOptions();
-		optionResults = buildYourCarService.getOptionlListAPI();
+		optionResults = buildYourCarService.getOptionlListAPI(modelCode, trimCode, extColorCode, intColorCode);
 		
-		optionList = optionResults.getData().getListOfOptions();
 		optionData = optionResults.getData();
+		optionList = optionData.getListOfOptions();
 	}
 
 

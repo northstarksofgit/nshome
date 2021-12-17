@@ -261,6 +261,44 @@ function addTrimToNavi(){
 }
 
 
+/*
+* 사용자가 선택한 구매 방법이 navi에 반영됨
+*/
+function addHowToBuy(){
+	
+	$('.con_pay').empty();
+	
+	//현금 or 할부
+	var payType = $('input[name=pay_sel_radio]:checked').attr('data-method');
+	
+	//차량가 : 과세(no) 면세(yes)
+	var pricefree = $('input[name=sample3]:checked').attr('pricefree');
+	
+	if(payType == 'cash'){
+		$('.con_pay').append('<span><em class="tit">지불방법</em><em class="txt">현금구입</em></span>');
+	}else{
+		$('.con_pay').append('<span><em class="tit">지불방법</em><em class="txt">오토할부</em></span>');
+		$('.con_pay').append('<span><em class="tit">할부</em><em class="txt">'+$('input[name=pay_date_radio]:checked').attr('data-term')+'개월</em></span>');
+		$('.con_pay').append('<span><em class="tit">할부원금</em><em class="txt">'+makeComma(parseInt($('.initFee').val()+'0000'))+'원</em></span>');
+	}
+	
+	if( pricefree == 'no'){
+		$('.con_pay').append('<span><em class="tit">차량가</em><em class="txt">과세</em></span>');
+	}else{
+		$('.con_pay').append('<span><em class="tit">차량가</em><em class="txt">면세</em></span>');
+	}
+	
+}
+
+
+
+
+
+
+
+
+
+
 
 /*
 * navi의 다음> 클릭시 다음 step으로 넘어가는 함수

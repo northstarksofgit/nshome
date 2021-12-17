@@ -294,6 +294,9 @@ function nextStep(){
 	
 	
 	//이동할 url 생성
+	/*
+	* parameter 가 중복으로 붙지 않게 includes로 포함 여부를 확인한다.
+	*/
 	toGoUrl += (trimCheck == "true" && !toGoUrl.includes("trimCode=")) ? "&trimCode="+naviTrimCode : "";
 	toGoUrl += (colorCheck == "true" && !toGoUrl.includes("ext=")) ? colorCode : "";
 	toGoUrl += (optionCheck == "true" && !toGoUrl.includes("option=")) ? "&option="+selectedOptList.toString() : "";
@@ -309,6 +312,13 @@ function nextStep(){
 function preStep(){
 	
 	var totalUrl = window.location.href;
+	
+	/*
+	* 이전 페이지로 이동할 때 step을 -1해주고
+	* 마지막에 붙은 파라미터를 제거해준다.
+	* 단, color의 경우 파라미터가 두 개이기 때문에 color의 파라미터가 포함되어 있는 경우 ext를 기준으로 url을 잘라주고
+	* step이 5일 때는 color 파라미터가 붙어있어야 하기 때문에 step 파라미터를 체크해준다.
+	*/
 	var preParameter = totalUrl.substring(totalUrl.indexOf('?'), totalUrl.includes("ext=") && !totalUrl.includes("step=5") ? totalUrl.lastIndexOf('&ext=') : totalUrl.lastIndexOf('&'));
 	var reverse = new URLSearchParams(preParameter);
 	

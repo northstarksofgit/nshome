@@ -5,11 +5,7 @@ import java.util.List;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 @JsonIgnoreProperties(ignoreUnknown = true)
-public class CarGroupListDto {
-
-	/**
-	 * build002 컴포넌트 carGroupListDto
-	 */
+public class ModelDetailListDto {
 	
 	/**
 	 * 카테고리 코드
@@ -35,16 +31,6 @@ public class CarGroupListDto {
 	 * 모델 명
 	 */
 	private String carModelName;
-//	
-//	/**
-//	 * 모델 코드
-//	 */
-//	private String carGroupCode;
-//	
-//	/**
-//	 * 전시 대표차 종명
-//	 */
-//	private String carGroupName;
 	
 	/**
 	 * 모델 대표 이미지
@@ -54,49 +40,41 @@ public class CarGroupListDto {
 	
 	private List<CarGroupDto> carGroupList;
 
-
+	private List<TransmissionDto> TransmissionList;
 	
+	private List<TrimDto> trimList;
 
 	
 	/**
 	 * getter / setter 
 	 */
-	
-
 	public String getCategoryCode() {
 		return categoryCode;
 	}
-
 
 	public void setCategoryCode(String categoryCode) {
 		this.categoryCode = categoryCode;
 	}
 
-
 	public String getCategoryName() {
 		return categoryName;
 	}
-
 
 	public void setCategoryName(String categoryName) {
 		this.categoryName = categoryName;
 	}
 
-
 	public String getModelCode() {
 		return modelCode;
 	}
-
 
 	public void setModelCode(String modelCode) {
 		this.modelCode = modelCode;
 	}
 
-
 	public String getModelYear() {
 		return modelYear;
 	}
-
 
 	public void setModelYear(String modelYear) {
 		this.modelYear = modelYear;
@@ -105,54 +83,43 @@ public class CarGroupListDto {
 	public String getCarModelName() {
 		return carModelName;
 	}
-	
-	
+
 	public void setCarModelName(String carModelName) {
 		this.carModelName = carModelName;
 	}
-
-//	public String getCarGroupCode() {
-//		return carGroupCode;
-//	}
-//
-//
-//	public void setCarGroupCode(String carGroupCode) {
-//		this.carGroupCode = carGroupCode;
-//	}
-//
-//
-//	public String getCarGroupName() {
-//		return carGroupName;
-//	}
-//
-//
-//	public void setCarGroupName(String carGroupName) {
-//		this.carGroupName = carGroupName;
-//	}
-
 
 	public String getCarImagePath() {
 		return carImagePath;
 	}
 
-
 	public void setCarImagePath(String carImagePath) {
 		this.carImagePath = carImagePath;
 	}
-
 
 	public List<CarGroupDto> getCarGroupList() {
 		return carGroupList;
 	}
 
-
 	public void setCarGroupList(List<CarGroupDto> carGroupList) {
 		this.carGroupList = carGroupList;
 	}
 
+	public List<TransmissionDto> getTransmissionList() {
+		return TransmissionList;
+	}
 
+	public void setTransmissionList(List<TransmissionDto> transmissionList) {
+		TransmissionList = transmissionList;
+	}
+
+	public List<TrimDto> getTrimList() {
+		return trimList;
+	}
+
+	public void setTrimList(List<TrimDto> trimList) {
+		this.trimList = trimList;
+	}
 	
-	
-	
-	
+
+
 }

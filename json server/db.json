@@ -701,9 +701,16 @@
             "totalPricePrice": "51,298,123",
             "consumptionTaxName": "개별소비세 3.5% 적용금액",
             "consumptionTaxPrice": "- 978,123",
-            "orderPrice": "50,319,183",
-            "listOfOptions": []
-
+            "orderPrice" : "50,319,183",
+			"recognitionPrice": "35,123",
+			"insurancePrice": "2,311",
+			"shippingPrice": "50,356,123",
+			"publoanPrice": "161,111",
+			"publoanPricesum": "161,111",
+			"chwideugPrice": "1,802,123",
+			"allAmountPrice": "52,321,111",
+			"kiaPoint": "100,111",
+			"listOfOptions":[]
         }
     }
 }

@@ -11,18 +11,70 @@
 
 	/**
 	 *  지불방법 클릭 display 제어
+	 *  payMethod :: 지불방법
 	 */
+	var payMethod = "";
     $("input:radio[name=pay_sel_radio]").click(function() {
-
+    	
+    	payMethod = $(this)[0].dataset.method;
+    	
         if($(this).find('input').context.id == "pay_sel_radio_2") {
 			$('.installment').css('display','block');
         } else {
             $('.installment').css('display','none');
         }
-
     })
     
-
+    /**
+     * 할부기간 제어
+     * term :: 할부 기간
+     * taxRate :: 이자율
+     */
+    var term = "";
+    var taxRate = "";
+    $("input:radio[name=pay_date_radio]").click(function() {
+    	
+    	term = $(this)[0].dataset.term;
+    	taxRate = $(this)[0].dataset.taxrate;
+    	
+    })
+    
+    $('.btn_apply').on('click', function(e) {
+    	e.preventDefault();
+    	
+    	
+    	var radioList = $("input:radio[name=pay_date_radio]");
+    	var isChecked = false;
+    	for(var i=0; i<radioList.length; i++) {
+    		if(radioList[i].checked) {
+    			isChecked = true;
+    		}
+    	}
+    	
+    	if(!isChecked) {
+    		alert('할부기간 선택x')
+    		return false;
+    	}
+    	
+    	var principal = $('.initFee').val()*10000;
+    	
+    	if(!principal) {
+    		alert('원금x')
+    		return false;
+    	}
+    	
+    	
+    	var head = ( principal * ((taxRate/100)/12) * (Math.pow(1+((taxRate/100)/12), term)));
+    	var foot =  (Math.pow(1+((taxRate/100)/12), term)) - 1; 
+    	
+    	var totPay = Math.round(head/foot);
+    	
+    	$('.txt.lowdown').text(taxRate + ' %');
+    	$('.txt.monthlyFee').text(totPay + '원 ');
+    })
+    
+    
+    
 	/**
 	 *  페이지 첫 진입 시 탁송방법 display 제어
 	 */

@@ -7,23 +7,23 @@ import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class ColorListDto {
 
-	private List<ColorDto> colorList;
+	private List<ColorDto> interiorList;
 	private List<ColorDto> exteriorList;
 
 	private String trimName;
 
 	private String modelCode;
 
-	public List<ColorDto> getColorList() {
-		return colorList;
+	public List<ColorDto> getInteriorList() {
+		return interiorList;
 	}
 
 	public List<ColorDto> getExteriorList() {
 		return exteriorList;
 	}
 
-	public void setColorList(List<ColorDto> colorList) {
-		this.colorList = colorList;
+	public void setInteriorList(List<ColorDto> interiorList) {
+		this.interiorList = interiorList;
 	}
 
 	public void setExteriorList(List<ColorDto> exteriorList) {

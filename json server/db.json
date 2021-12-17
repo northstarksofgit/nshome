@@ -551,7 +551,7 @@
             "carImagePath": "/content/dam/kia25/build-a-car/new_k9.png",
             "trimCode": "LRL",
             "trimName": "1.6 가솔린 트렌디",
-            "colorList": [
+            "exteriorList": [
                 {
                     "colorCode": "M4B",
                     "colorName": "미네랄 블루",
@@ -608,7 +608,7 @@
                     "productNumber": "https://www.kia.com/content/dam/kwcms/kr/ko/images/byo/color/swp.jpg"
                 }
             ],
-            "exteriorList": [
+            "interiorList": [
                 {
                     "trimCode": "LRL",
                     "carcelImage": "https://www.kia.com/content/dam/kwcms/kr/ko/images/byo/color/swp.jpg",

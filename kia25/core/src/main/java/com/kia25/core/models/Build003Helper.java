@@ -33,19 +33,37 @@ public class Build003Helper {
 
 	private ColorListDtoResults colorAllList;
 
-	private List<ColorDto> colorList;
+	private List<ColorDto> interiorList;
 	private List<ColorDto> exteriorList;
 	private ColorListDto colorData;
 
 	private String modelCode = null;
 	private String trimName = null;
-
+	
+	private String getModelCode = null;
+	private String getTrimCode = null;
+	
+	
+	
+	/*
+	 * colorAllList 한번만 호출하기 위함 colorData inte, exte 이외의 데이터 용 colorList 인테리어용
+	 * exteriorList 익스테러어 용
+	 */
+	
 	@PostConstruct
 	public void activate() throws IOException {
 		colorAllList = service.getColorAPI();
-		colorList = colorAllList.getData().getColorList();
-		exteriorList = colorAllList.getData().getExteriorList();
 		colorData = colorAllList.getData();
+		exteriorList = colorData.getExteriorList();
+		interiorList = colorData.getInteriorList();
+		
+		try {
+			getModelCode = request.getParameter("modelCode").toUpperCase();
+			getTrimCode = request.getParameter("trimCode");
+			 
+		} catch(Exception e) {
+			
+		}
 
 	}
 
@@ -53,8 +71,8 @@ public class Build003Helper {
 		return colorAllList;
 	}
 
-	public List<ColorDto> getColorList() {
-		return colorList;
+	public List<ColorDto> getInteriorList() {
+		return interiorList;
 	}
 
 	public List<ColorDto> getExteriorList() {

@@ -168,7 +168,7 @@ $(document).ready(function() {
 
 	// carGroupCode
 	var selectedCarGroupCode = null;
-	var radioCarGroup = $("input:radio[name=sample1]");
+	var radioCarGroup = $(".carGroup-radio");
 
 	// transmissionCode
 	var selectedTransCode = null;
@@ -178,32 +178,58 @@ $(document).ready(function() {
 	var selectedTrimCode = null;
 	var liTrim = $(".trim_click");
 	
+	
 	// 기본으로 선택된 carGroupCode 값
 	for(var i=0; i < radioCarGroup.length; i++){
 		
-		if(radioCarGroup[i].checked){
-			
-			carGroupId = radioCarGroup[i].id;
-			selectedCarGroupCode = $("#" + carGroupId).val();
-			console.log(selectedCarGroupCode);	
+		if($(radioCarGroup[i]).hasClass('on')){
+			selectedCarGroupCode = $(radioCarGroup[i]).parent()[0].dataset.cargroupcode;
 		}
-		
+
 	}
 	
-	// carGroup 선택시 담기는 carGroup 값
+	// 사용자가 선택한 carGroup 값
 	$('.form_chk.carGroup').click(function() {
 		
 		selectedCarGroupCode = $(this)[0].dataset.cargroupcode;
-		console.log(selectedCarGroupCode);
+		
+		$('.carGroup-radio').removeClass('on');
+		console.log($('.carGroup-radio'));
+		$(this).find('label').addClass('on');
 		
 	})	
 	
 	
+	// 기본으로 선택된 transmissionCode 값
 	for(var i = 0; i < radioTrans.length; i++){
 		
-		
-		
+		if(radioTrans[i].checked){
+			var transId = radioTrans[i].id;
+			selectedTransCode = $("#" + transId).val();
+			
+		}
 	}
+	
+	
+	// 사용자가 선택한 transmission 값
+	$('.form_chk.transmission').click(function(){
+		selectedTransCode = $("#" + transId).val();
+//		console.log(selectedTransCode);
+		
+	})
+	
+	
+	//trim 클릭시 실행되는 함수
+	$('.trim_click').on('click', function(e){
+		e.preventDefault();
+		
+		$('.trim_click').removeClass('on');
+		$(this).addClass('on');
+		
+		naviTrimCode = $(this).find('#naviTrimCode').val();
+		
+	})
+	
 	
 
 

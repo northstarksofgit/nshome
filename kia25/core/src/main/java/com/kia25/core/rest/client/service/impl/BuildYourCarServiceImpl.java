@@ -216,7 +216,7 @@ public class BuildYourCarServiceImpl implements BuildYourCarService {
 			}else if(step.equals("6")){
 				//how to buy
 			
-				response = service.getRequest("summary-info-4");
+				response = service.getRequest("summary-info-3");
 			}
 			
 			LOG.debug("response={}", response);

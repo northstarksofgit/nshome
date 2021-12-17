@@ -123,7 +123,7 @@ public class BuildYourCarServiceImpl implements BuildYourCarService {
 	public OptionListDtoResults getOptionlListAPI(String modelCode, String trimCode, String extColorCode, String intColorCode) {
 		
 		try {
-//			String url = "list-of-option/";
+//			String url = "list-of-option?";
 //			url += "modelCode="+modelCode;
 //			url += "&trimCode="+trimCode;
 //			url += "&ext="+extColorCode;

@@ -68,6 +68,7 @@
     	var foot =  (Math.pow(1+((taxRate/100)/12), term)) - 1; 
     	
     	var totPay = Math.round(head/foot);
+    	totPay = totPay.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
     	
     	$('.txt.lowdown').text(taxRate + ' %');
     	$('.txt.monthlyFee').text(totPay + '원 ');

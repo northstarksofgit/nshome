@@ -129,13 +129,13 @@ public class BuildYourCarServiceImpl implements BuildYourCarService {
 	public OptionListDtoResults getOptionlListAPI(String modelCode, String trimCode, String extColorCode, String intColorCode) {
 		
 		try {
-			String url = "list-of-option/";
-			url += "modelCode="+modelCode;
-			url += "&trimCode="+trimCode;
-			url += "&ext="+extColorCode;
-			url += "&int="+intColorCode;
+//			String url = "list-of-option/";
+//			url += "modelCode="+modelCode;
+//			url += "&trimCode="+trimCode;
+//			url += "&ext="+extColorCode;
+//			url += "&int="+intColorCode;
 			
-			String response = service.getRequest(url);
+			String response = service.getRequest("list-of-option");
 			LOG.debug("response={}", response);
 			ObjectMapper mapper = new ObjectMapper();
 			

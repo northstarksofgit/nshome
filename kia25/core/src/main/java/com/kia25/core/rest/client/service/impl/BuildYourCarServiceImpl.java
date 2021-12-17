@@ -79,9 +79,12 @@ public class BuildYourCarServiceImpl implements BuildYourCarService {
 	 * build 002 EV6 / get ModelDetail 
 	 */
 	@Override
-	public ModelDetailListDtoResults getModelDetailEAPI() {
+	public ModelDetailListDtoResults getModelDetailEAPI(String modelCode) {
 		
 		try {
+//			String url = "trim-list-S";
+//			url += "?modelCode=" + modelCode;
+			
 			String response = service.getRequest("trim-list-E");
 			LOG.debug("response={}", response);
 			ObjectMapper mapper = new ObjectMapper();
@@ -103,9 +106,12 @@ public class BuildYourCarServiceImpl implements BuildYourCarService {
 	 * build 002 성력 / get ModelDetail 
 	 */
 	@Override
-	public ModelDetailListDtoResults getModelDetailSAPI() {
+	public ModelDetailListDtoResults getModelDetailSAPI(String modelCode) {
 		
 		try {
+//			String url = "trim-list-S";
+//			url += "?modelCode=" + modelCode;
+			
 			String response = service.getRequest("trim-list-S");
 			LOG.debug("response={}", response);
 			ObjectMapper mapper = new ObjectMapper();

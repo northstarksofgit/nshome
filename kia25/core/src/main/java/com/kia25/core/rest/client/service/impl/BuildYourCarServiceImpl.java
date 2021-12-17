@@ -82,7 +82,7 @@ public class BuildYourCarServiceImpl implements BuildYourCarService {
 	public ModelDetailListDtoResults getModelDetailEAPI(String modelCode) {
 		
 		try {
-//			String url = "trim-list-S";
+//			String url = "trim-list-E";
 //			url += "?modelCode=" + modelCode;
 			
 			String response = service.getRequest("trim-list-E");

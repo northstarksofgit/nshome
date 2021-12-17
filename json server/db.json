@@ -456,6 +456,43 @@
             "totalPrice": 23432424
         }
     },
+	
+	"summary-info-3": {
+		"resultCode": "000",
+		"detailCode": null,
+		"resultMessage": null,
+		"detailMessage": null,
+		"data": {
+            "modelName": "EV6",
+            "carImgPath": "/content/dam/kia25/build-a-car/car_ev6.png",
+            "trimCode": "LRA",
+            "trimName": "EV6 롱 레인지 에어(Air)",
+            "trimPrice": 54530000,
+            "exteriorColorCode": "CB",
+            "exteriorColorName": "스노우 화이트 펄",
+            "exteriorColorPrice": 1000,
+            "exteriorColorImgPath": "https://www.kia.com/content/dam/kwcms/kr/ko/images/byo/car_k3_the_new_swp.png",
+            "interiorColorCode": "IN",
+            "interiorColorName": "스틸 그레이",
+            "interiorColorPrice": 1000,
+            "interiorColorImgPath": "https://www.kia.com/content/dam/kwcms/kr/ko/images/byo/car_k3_the_new_swp.png",
+            "listOfOptions": [
+                {
+                    "optionCode": "4WD",
+                    "optionName": "듀얼 모터 4WD",
+                    "optionPrice": "3000000"
+                }, {
+                    "optionCode": "DWP",
+                    "optionName": "드라이브 와이즈",
+                    "optionPrice": "1400000"
+
+                }
+            ],
+            "totalPrice": 877345345
+        }
+    },
+	
+	
     "list-of-option": {
         "resultCode": "000",
         "detailCode": null,

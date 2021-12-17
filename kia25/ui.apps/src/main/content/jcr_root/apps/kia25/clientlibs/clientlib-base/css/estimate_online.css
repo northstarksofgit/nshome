@@ -15,8 +15,8 @@ body.total_fixed {overflow:hidden;}
 .estimate_online_wrap .form_chk .radio_box:before {display:none;}
 .estimate_online_wrap .form_chk input {top:0; left:0; opacity:0;}
 .estimate_online_wrap .form_chk label {position:relative; display:block; height:100%; padding-top:9px; box-sizing:border-box; background:#fff; border:1px solid #05141f; font-family:YoonPro740; font-size:14px; text-align:center;}
-.estimate_online_wrap .form_chk>input:checked+label,
-.estimate_online_wrap .form_chk>input + label:hover {background:#05141f; border:1px solid #05141f; color:#fff; text-decoration:none; font-weight:bold; cursor:default;}
+.estimate_online_wrap .form_chk .on {background:#05141f; border:1px solid #05141f; color:#fff; text-decoration:none; font-weight:bold; cursor:default;}
+.estimate_online_wrap .form_chk >input + label:hover {background:#05141f; border:1px solid #05141f; color:#fff; text-decoration:none; font-weight:bold; cursor:default;}
 
 .estimate_online_wrap .form_chk>input:disabled + label,
 .estimate_online_wrap .form_chk>input:disabled + label:hover {padding-top:11px;background:#efefef; border:#d7d7d7; font-weight:normal; color:inherit}

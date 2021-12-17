@@ -7,6 +7,7 @@ import javax.annotation.PostConstruct;
 import org.apache.sling.api.SlingHttpServletRequest;
 import org.apache.sling.models.annotations.Model;
 import org.apache.sling.models.annotations.injectorspecific.OSGiService;
+import org.apache.sling.models.annotations.injectorspecific.Self;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -24,10 +25,11 @@ public class Build001Model {
 	private final static Logger LOG = LoggerFactory.getLogger(Build001Model.class);
 	
 	
-	
-	
 	@OSGiService
 	BuildYourCarService service = new BuildYourCarServiceImpl();
+
+	@Self
+    private SlingHttpServletRequest request;
 	
 	/*
 	 * 차량 카테고리 리스트
@@ -43,7 +45,7 @@ public class Build001Model {
 	
 	@PostConstruct
 	public void activate() throws  Exception {
-
+		
 		
 		
 		//카테고리 리스트를 가져옵니다.

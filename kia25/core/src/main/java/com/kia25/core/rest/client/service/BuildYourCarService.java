@@ -15,7 +15,11 @@ public interface BuildYourCarService {
 	 * build001 / categorylist 불러오기
 	 */
 	CategoryListDto getCategoryAPI();
-
+	
+	/*
+	 * build 001 / modelList 불러오기
+	 */
+	ModelListDto getModelListAPI();
 	
 	/**
 	 * build 002 /  get carGroup / transmission / trim List

@@ -45,7 +45,7 @@ public class Build004_OptionModel {
 	@PostConstruct
 	public void activate() throws Exception {
 		try {
-			modelCode = request.getParameter("car").toUpperCase();
+			modelCode = request.getParameter("modelCode").toUpperCase();
 			trimCode = request.getParameter("trimCode");
 			extColorCode = request.getParameter("ext");
 			intColorCode = request.getParameter("int");

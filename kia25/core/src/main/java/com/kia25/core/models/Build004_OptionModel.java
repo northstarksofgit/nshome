@@ -81,7 +81,12 @@ public class Build004_OptionModel {
 		/**
 		 * get Print Model-Option List 
 		 */
-		optionResults = buildYourCarService.getOptionlListAPI(modelCode, trimCode, extColorCode, intColorCode);
+		optionResults = buildYourCarService.getOptionlListAPI(
+																request.getParameter("modelCode").toUpperCase(), 
+																request.getParameter("trimCode"), 
+																request.getParameter("ext"), 
+																request.getParameter("int")
+															);
 		
 		optionData = optionResults.getData();
 		optionList = optionData.getListOfOptions();

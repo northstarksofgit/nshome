@@ -5,7 +5,7 @@
 	 */
 	$('.bl_type_b.btn_car_view').on('click', function() {
 		$('.car_view_more').css('display') == 'none' ? 
-				$('.car_view_more').css('display','block') : $('.car_view_more').css('display','none');
+			$('.car_view_more').css('display','block') : $('.car_view_more').css('display','none');
 	})
 
 
@@ -15,7 +15,8 @@
 	 */
 	var payMethod = "";
     $("input:radio[name=pay_sel_radio]").click(function() {
-    	
+    	$('.pay_sel_radio').removeClass("on");
+    	$(this).parent().find('label').addClass("on");
     	payMethod = $(this)[0].dataset.method;
     	
         if($(this).find('input').context.id == "pay_sel_radio_2") {
@@ -34,6 +35,8 @@
     var taxRate = "";
     $("input:radio[name=pay_date_radio]").click(function() {
     	
+    	$('.pay_date_on').removeClass("on");
+    	$(this).parent().find('label').addClass("on");
     	term = $(this)[0].dataset.term;
     	taxRate = $(this)[0].dataset.taxrate;
     	
@@ -90,7 +93,9 @@
 	 *  탁송방법 display 제어
 	 */
 	$("input:radio[name=pay_sel_trans]").click(function() {
-
+		
+		$('.pay_sel_on').removeClass("on");
+    	$(this).parent().find('label').addClass("on");
         if($(this).find('input').context.id != "pay_sel_trans_2") {
 			$('.pay_sel.mhet').css('display','block');
         } else {
@@ -218,6 +223,20 @@
      * 등록비용 select Box 제어 end
      */
     
+    $("input:radio[name=sample3]").click(function() {
+    	$('.taxfree_radio').removeClass("on");
+    	$(this).parent().find('label').addClass("on");
+    })
+    
+    $("input:radio[name=sample2]").click(function() {
+    	$('.regist_radio').removeClass("on");
+    	$(this).parent().find('label').addClass("on");
+    })
+    
+    $("input:radio[name=sample4]").click(function() {
+    	$('.register_payment_radio').removeClass("on");
+    	$(this).parent().find('label').addClass("on");
+    })
     
     
     /**

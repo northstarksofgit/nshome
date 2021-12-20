@@ -77,11 +77,11 @@
                     <div class="pay_u type2">
                         <span class="form_chk pay_sel">
                             <input type="radio" name="pay_sel_radio" id="pay_sel_radio_1" data-method="cash" checked="checked">
-                            <label for="pay_sel_radio_1" class="form_spr radio_box r_on">현금</label>
+                            <label for="pay_sel_radio_1" class="form_spr radio_box pay_sel_radio">현금</label>
                         </span>
                         <span class="form_chk pay_sel">
                             <input type="radio" name="pay_sel_radio" id="pay_sel_radio_2" data-method="installment">
-                            <label for="pay_sel_radio_2" class="form_spr radio_box wid">할부(일반형)</label>
+                            <label for="pay_sel_radio_2" class="form_spr radio_box pay_sel_radio wid">할부(일반형)</label>
                         </span>
                     </div>
                     <div class="installment" style="display: none;">
@@ -89,17 +89,17 @@
                         <div class="pay_u type3">
                             <span class="form_chk pay_date">
                                 <input type="radio" name="pay_date_radio" id="pay_date_radio_1" data-taxrate="4.0" data-taxrateb="4.0" data-term="36">
-                                <label for="pay_date_radio_1" class="form_spr radio_box r_on">36개월</label>
+                                <label for="pay_date_radio_1" class="form_spr radio_box pay_date_on">36개월</label>
                             </span>
 
                             <span class="form_chk pay_date">
                                 <input type="radio" name="pay_date_radio" id="pay_date_radio_2" data-taxrate="4.5" data-taxrateb="4.5" data-term="48">
-                                <label for="pay_date_radio_2" class="form_spr radio_box r_on">48개월</label>
+                                <label for="pay_date_radio_2" class="form_spr radio_box pay_date_on">48개월</label>
                             </span>
 
                             <span class="form_chk pay_date">
                                 <input type="radio" name="pay_date_radio" id="pay_date_radio_3" data-taxrate="5.5" data-taxrateb="5.5" data-term="60">
-                                <label for="pay_date_radio_3" class="form_spr radio_box r_on">60개월</label>
+                                <label for="pay_date_radio_3" class="form_spr radio_box pay_date_on">60개월</label>
                             </span>
                         </div>
 
@@ -128,11 +128,11 @@
                     <div class="pay_u type2">
                         <span class="form_chk pay_sel">
                             <input type="radio" name="pay_sel_trans" id="pay_sel_trans_1" value="1" checked="checked">
-                            <label for="pay_sel_trans_1" class="form_spr radio_box r_on">탁송의뢰</label>
+                            <label for="pay_sel_trans_1" class="form_spr radio_box pay_sel_on">탁송의뢰</label>
                         </span>
                         <span class="form_chk pay_sel">
                             <input type="radio" name="pay_sel_trans" id="pay_sel_trans_2" value="2">
-                            <label for="pay_sel_trans_2" class="form_spr radio_box">본인탁송</label>
+                            <label for="pay_sel_trans_2" class="form_spr radio_box pay_sel_on">본인탁송</label>
                         </span>
                         <div class="pay_sel mhet" style="display: block;">
                             <strong class="stit">탁송지</strong>
@@ -241,11 +241,11 @@
                             <div class="pay_info">
                                 <span class="form_chk">
                                     <input type="radio" name="sample3" id="sample3_1" pricefree="no" value="no" checked="checked">
-                                    <label for="sample3_1" class="form_spr radio_box r_on">과세</label>
+                                    <label for="sample3_1" class="form_spr radio_box taxfree_radio">과세</label>
                                 </span>
 
                                 <span class="form_chk"><input type="radio" name="sample3" id="sample3_2" pricefree="yes" value="yes">
-                                    <label for="sample3_2" class="form_spr radio_box">면세</label>
+                                    <label for="sample3_2" class="form_spr radio_box taxfree_radio">면세</label>
                                 </span>
                             </div>
                         </div>
@@ -257,11 +257,11 @@
                             <div class="pay_info">
                                 <span class="form_chk">
                                     <input type="radio" name="sample2" id="sample2_1" taxfree="no" checked="checked">
-                                    <label for="sample2_1" class="form_spr radio_box r_on">과세</label>
+                                    <label for="sample2_1" class="form_spr radio_box regist_radio">과세</label>
                                 </span>
                                 <span class="form_chk">
                                     <input type="radio" name="sample2" id="sample2_2" taxfree="yes">
-                                    <label for="sample2_2" class="form_spr radio_box">면세</label>
+                                    <label for="sample2_2" class="form_spr radio_box regist_radio">면세</label>
                                 </span>
                             </div>
                         </div>
@@ -328,15 +328,15 @@
                             <div class="pay_info">
                                 <span class="form_chk">
                                     <input type="radio" name="sample4" id="sample4_1" payment="buy">
-                                    <label for="sample4_1" class="form_spr radio_box">매입</label>
+                                    <label for="sample4_1" class="form_spr radio_box register_payment_radio">매입</label>
                                 </span>
                                 <span class="form_chk">
                                     <input type="radio" name="sample4" id="sample4_2" payment="dc" checked="checked">
-                                    <label for="sample4_2" class="form_spr radio_box r_on">할인</label>
+                                    <label for="sample4_2" class="form_spr radio_box register_payment_radio">할인</label>
                                 </span> 
                                 <span class="form_chk">
                                     <input type="radio" name="sample4" id="sample4_3" payment="buy">
-                                    <label for="sample4_3" class="form_spr radio_box">면세</label>
+                                    <label for="sample4_3" class="form_spr radio_box register_payment_radio">면세</label>
                                 </span>
                             </div>
                         </div>

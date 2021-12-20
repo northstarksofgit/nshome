@@ -1,7 +1,5 @@
 package com.kia25.core.models;
 
-import java.util.ArrayList;
-import java.util.List;
 
 import javax.annotation.PostConstruct;
 import javax.inject.Inject;
@@ -9,7 +7,6 @@ import javax.inject.Inject;
 import org.apache.sling.api.SlingHttpServletRequest;
 import org.apache.sling.api.resource.Resource;
 import org.apache.sling.api.resource.ValueMap;
-import org.apache.sling.api.scripting.SlingScriptHelper;
 import org.apache.sling.models.annotations.DefaultInjectionStrategy;
 import org.apache.sling.models.annotations.Model;
 import org.apache.sling.models.annotations.injectorspecific.OSGiService;
@@ -17,11 +14,8 @@ import org.apache.sling.models.annotations.injectorspecific.Self;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import com.kia25.core.rest.client.dto.ColorDto;
-import com.kia25.core.rest.client.dto.ModelDto;
-import com.kia25.core.rest.client.dto.OptionDto;
 import com.kia25.core.rest.client.dto.SummaryDto;
-import com.kia25.core.rest.client.dto.TrimDto;
+
 
 import com.kia25.core.rest.client.service.BuildYourCarService;
 import com.kia25.core.rest.client.service.impl.BuildYourCarServiceImpl;
@@ -90,9 +84,9 @@ public class NaviModel {
 	 */
 	String modelCode;
 	String trimCode;
-	String ext;
+	String extCode;
 	String intCode;
-	String option;
+	String optionCode;
 	
 	
 	@PostConstruct
@@ -102,9 +96,9 @@ public class NaviModel {
 
 		modelCode = request.getParameter("modelCode");
 		trimCode = request.getParameter("modelCode");
-		ext = request.getParameter("ext");
+		extCode = request.getParameter("ext");
 		intCode = request.getParameter("intCode");
-		option = request.getParameter("option");
+		optionCode = request.getParameter("option");
 		
 		
 		ValueMap valueMap = resource.getValueMap();
@@ -127,7 +121,7 @@ public class NaviModel {
 		 * summary정보 호출
 		 */
 		
-		summary = service.getSummaryAPI(step, modelCode, trimCode, ext, intCode, option);
+		summary = service.getSummaryAPI(step, modelCode, trimCode, extCode, intCode, optionCode);
 		
 		
 		

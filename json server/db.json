@@ -150,9 +150,6 @@
                 {
                     "transmissionCode": "automatic",
                     "transmissionName": "자동"
-                }, {
-                    "transmissionCode": "manual",
-                    "transmissionName": "수동"
                 }
             ],
             "trimList": [

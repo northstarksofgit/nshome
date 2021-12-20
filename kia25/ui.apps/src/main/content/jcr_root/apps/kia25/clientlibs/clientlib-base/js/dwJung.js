@@ -311,7 +311,7 @@ function addColorToNavi(){
 	}
 	
 	//합계 변경
-	totalSum(parseInt(extPrice+interiorPrice));
+	totalSum(parseInt(extPrice)+parseInt(interiorPrice));
 
 }
 

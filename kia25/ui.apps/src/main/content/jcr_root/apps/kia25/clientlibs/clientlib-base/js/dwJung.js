@@ -261,6 +261,59 @@ function addTrimToNavi(){
 }
 
 
+
+/*
+* 사용자가 선택한 color 정보가 navi에 반됩니다.
+*/
+
+function addColorToNavi(){
+
+	//외장재 저장
+	var ext = $('.exteriorOption');
+
+	for(var i=0; i<ext.length; i++){
+
+		if($(ext[i]).hasClass('on')){
+		
+			//외장재 가격 삽입
+			$('.con_exterior').attr('price1', $(ext[i]).attr('price'));
+			$('.con_exterior').find('.conPrice').html($(ext[i]).attr('price')+'<em>원</em>');
+			
+			//외장재 이미지 삽입
+			$('.con_exterior').find('.colorImg').attr('src', $(ext[i]).find('img').attr('src'));
+
+			//외장재 이름 삽입
+			$('.con_exterior').find('.conTitle').text($(ext[i]).find('.color_info > .name').text());
+
+		}
+
+	}
+
+	//내장재 저장
+	var interior = $('.interiorOption');
+
+	for( var i=0; i<interior.length; i++){
+		
+		if($(interior[i]).hasClass('on')){
+			
+			//내장재 가격 저장
+			$('.con_interior').attr('price2', $(interior[i]).attr('price'));
+			$('.con_interior').find('.conPrice').html($(interior[i]).attr('price')+'<em>원</em>');
+			
+			//내장재 이미지 저장
+			$('.con_interior').find('.colorImg').attr('src', $(interior[i]).find('img').attr('src'));
+			
+			//내장재 이름 저장
+			$('.con_interior').find('.conTitle').text($(interior[i]).find('.color_info > .name').text());
+
+		}
+
+	}
+
+}
+
+
+
 /*
 * 사용자가 선택한 구매 방법이 navi에 반영됨
 */
@@ -290,6 +343,8 @@ function addHowToBuy(){
 	}
 	
 }
+
+
 
 
 

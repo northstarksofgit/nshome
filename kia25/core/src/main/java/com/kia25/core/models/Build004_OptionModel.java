@@ -3,8 +3,11 @@ package com.kia25.core.models;
 import java.util.List;
 
 import javax.annotation.PostConstruct;
+import javax.inject.Inject;
 
 import org.apache.sling.api.SlingHttpServletRequest;
+import org.apache.sling.api.resource.Resource;
+import org.apache.sling.api.resource.ValueMap;
 import org.apache.sling.models.annotations.DefaultInjectionStrategy;
 import org.apache.sling.models.annotations.Model;
 import org.apache.sling.models.annotations.injectorspecific.Self;
@@ -27,6 +30,8 @@ public class Build004_OptionModel {
 	private final static Logger log = LoggerFactory.getLogger(Build004_OptionModel.class);
 	BuildYourCarService buildYourCarService = new BuildYourCarServiceImpl();
 	
+	@Inject
+	private Resource resource;
 	
 	@Self
     private SlingHttpServletRequest request;
@@ -40,15 +45,35 @@ public class Build004_OptionModel {
 	private String extColorCode = null;
 	private String intColorCode = null;
 	
+	private String backToFirst = null;
+	private String backToTrim = null;
+	private String backToColor = null;
 	
 	
 	@PostConstruct
 	public void activate() throws Exception {
+		
+		ValueMap valueMap = resource.getValueMap();
+		
 		try {
-			modelCode = request.getParameter("modelCode").toUpperCase();
-			trimCode = request.getParameter("trimCode");
-			extColorCode = request.getParameter("ext");
-			intColorCode = request.getParameter("int");
+			
+			modelCode = "?modelCode=" + request.getParameter("modelCode").toUpperCase();
+			
+			trimCode = "&trimCode=" + request.getParameter("trimCode");
+			
+			extColorCode = "&ext=" + request.getParameter("ext");
+			intColorCode = "&int" + request.getParameter("int");
+
+			backToFirst = (String) valueMap.getOrDefault("backToFirst", null);
+			backToFirst += ".html";
+			
+			backToTrim = (String) valueMap.getOrDefault("backToTrim", null);
+			backToTrim += ".html=" + modelCode;
+			
+			backToColor = (String) valueMap.getOrDefault("backToColor", null);
+			backToColor += ".html" + modelCode + trimCode;
+			
+			
 		} catch(Exception e) {
 			
 		}
@@ -56,7 +81,6 @@ public class Build004_OptionModel {
 		/**
 		 * get Print Model-Option List 
 		 */
-//		optionList = buildYourCarService.getOptionlListAPI().getListOfOptions();
 		optionResults = buildYourCarService.getOptionlListAPI(modelCode, trimCode, extColorCode, intColorCode);
 		
 		optionData = optionResults.getData();
@@ -94,6 +118,18 @@ public class Build004_OptionModel {
 
 	public OptionListDtoResults getOptionResults() {
 		return optionResults;
+	}
+
+	public String getBackToFirst() {
+		return backToFirst;
+	}
+
+	public String getBackToTrim() {
+		return backToTrim;
+	}
+
+	public String getBackToColor() {
+		return backToColor;
 	}
 
 	

@@ -13,20 +13,20 @@
     <div class="step_wrap">
         <ul>
             <li class="step1">
-                <a href="/content/kia25/us/build001-test.html">
+                <a href="${option.backToFirst}">
                     <span>처음으로</span>
                 </a>
             </li>
 
             <li class="step2 off">
-                <a href="/content/kia25/us/build002-test.html?car=${option.optionData.modelCode}">
+                <a href="${option.backToTrim}">
                     <span class="basic">상세차종 선택</span>
                     <span class="result">${option.optionData.trimName}</span>
                 </a>
             </li>
 
             <li class="step3 off">
-                <a href="/content/kia25/us/build003-test.html?car=${option.optionData.modelCode}&trimCode=${option.optionData.trimCode}">
+                <a href="${option.backToColor}">
                     <span class="basic">컬러 선택</span>
                     <span class="result">${option.optionData.extColorName}</span>
                 </a>

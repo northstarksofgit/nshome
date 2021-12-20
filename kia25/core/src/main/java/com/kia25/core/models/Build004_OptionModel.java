@@ -59,7 +59,7 @@ public class Build004_OptionModel {
 			
 			modelCode = "?modelCode=" + request.getParameter("modelCode").toUpperCase();
 			
-			trimCode = "&trimCode=" + request.getParameter("trimCode");
+			trimCode = modelCode + "&trimCode=" + request.getParameter("trimCode");
 			
 			extColorCode = "&ext=" + request.getParameter("ext");
 			intColorCode = "&int" + request.getParameter("int");
@@ -71,7 +71,7 @@ public class Build004_OptionModel {
 			backToTrim += ".html" + modelCode;
 			
 			backToColor = (String) valueMap.getOrDefault("backToColor", null);
-			backToColor += ".html" + modelCode + trimCode;
+			backToColor += ".html" + trimCode;
 			
 			
 		} catch(Exception e) {

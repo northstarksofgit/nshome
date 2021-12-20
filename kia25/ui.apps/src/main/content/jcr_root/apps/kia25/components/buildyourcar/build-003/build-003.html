@@ -78,7 +78,7 @@
 				<strong class="build_h">외장</strong>
 				<ul class="color_list" data-sly-list="${color.exteriorList}" data-sly-test="${color.exteriorList}">
 
-					<li class="color_l exteriorOption on" price="0" img="${item.colorImgPath}" color="${item.colorCode}">
+					<li class="color_l exteriorOption on" price="${item.colorPrice}" img="${item.colorImgPath}" ex_colorCode="${item.colorCode}">
 						<a href="#" class="color_a" title="선택">
 							<img src="${item.productNumber}" alt="${item.colorName}">
                   			<span class="sel"></span>
@@ -96,7 +96,7 @@
 				<strong class="build_h">내장</strong>
 				<ul class="color_list" data-sly-list="${color.interiorList}" data-sly-test="${color.interiorList}">
 
-					<li class="color_l interiorOption M4B on" price="0" color="K3_BL_PACK" style="display: list-item;">
+					<li class="color_l interiorOption M4B on" price="${item.cellvehiclePrice}" in_colorCode="${item.colorCode}" style="display: list-item;">
 						<a href="#" class="color_a" title="">
 							<img src="${item.carcelImage}" alt="">
 							<span class="sel"></span>

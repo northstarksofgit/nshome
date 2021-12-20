@@ -1777,7 +1777,7 @@ dl.bl_type_note{margin-top:15px}
 }
 .byoTotal .totalBar a .price{float:right;margin:15px 20px 0 0;text-align:right}
 .byoTotal .totalCon{display:none}
-.byoTotal.on .totalCon{display:block;width:100%;position:absolute;padding:0;top:90px;right:0;background:#333;border-bottom:6px solid #bb162b;z-index:1003}
+.byoTotal.on .totalCon{display:block;width:98%;position:absolute;padding:0;top:90px;right:0;background:#333;border-bottom:6px solid #bb162b;z-index:1003}
 .byoTotal.on .totalCon .totalList{display:table;width:100%;margin-top:30px;table-layout:fixed}
 .byoTotal.on .totalCon .totalList:after{display:none}
 .byoTotal.on .totalCon .totalList li{display:table-cell;width:15% \9;min-height:200px;padding-bottom:25px;border-left:1px dotted #484848}

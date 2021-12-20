@@ -142,6 +142,7 @@ function naviBar() {
 		
 		/*
 		*  '.estimate_online_wrap' 가 navi에도 있고 build-00n에도 있어서 [0]번째로 설정함
+		* 위치값이 조금 안 맞는 경우가 있어서 l에 150px 추가해줌
 		*/
 	
         l = $("body").height() - $(window).height() - $(window).scrollTop();
@@ -149,8 +150,6 @@ function naviBar() {
 
         l + 150 < contentHeight ? a.addClass("normal") : a.removeClass("normal");
 
-		console.log("l: "+l);
-		console.log("content: "+contentHeight);
     }
 
 

@@ -248,6 +248,7 @@ public class BuildYourCarServiceImpl implements BuildYourCarService {
 			url += "&trimCode="+trimCode;
 			url += "&ext="+extColorCode;
 			url += "&int="+intColorCode;
+			url += "&option="+optionCode;
 			
 			String response = service.getRequest(url);
 			ObjectMapper mapper = new ObjectMapper();

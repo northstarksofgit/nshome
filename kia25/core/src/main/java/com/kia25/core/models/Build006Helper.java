@@ -30,11 +30,24 @@ public class Build006Helper {
 	private SlingHttpServletRequest request;
 
 	private CompleteListDto completeData;
+	
+	private String getModelCode = null;
+	private String getTrimCode = null;
+	private String getExtCode = null;
+	private String getIntCode = null;
+	private String getOptionCode = null;
+ 
 
 	@PostConstruct
 	public void activate() throws IOException {
+		
+		getModelCode = request.getParameter("modelCode").toUpperCase();
+		getTrimCode = request.getParameter("trimCode");
+		getExtCode = request.getParameter("ext");
+		getIntCode = request.getParameter("int");
+		getOptionCode = request.getParameter("option");
 
-		completeData = service.getCompleteAPI().getData();
+		completeData = service.getCompleteAPI(getModelCode, getTrimCode, getExtCode, getIntCode, getOptionCode).getData();
 	}
 
 	public CompleteListDto getCompleteData() {

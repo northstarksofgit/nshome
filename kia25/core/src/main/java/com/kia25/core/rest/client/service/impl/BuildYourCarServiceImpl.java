@@ -84,21 +84,20 @@ public class BuildYourCarServiceImpl implements BuildYourCarService {
 		String response = null;
 		
 		try {
-			// 	차종이 EV6인 경우 
-			//	String url = "trim-list-E";
-			//	url += "?modelCode=" + modelCode;
-			
-			//  차종이 EV6가 아닌 경우 (성력)
-			//  String url = "trim-list-S";
-			//	url += "?modelCode=" + modelCode;
+			String url = null;
 			
 			// 차종이 EV6인 경우 
 			if (modelCode.equals("EV6")) {
-				response = service.getRequest("trim-list-E");
+				
+				url = "trim-list-E";
+				url += "?modelCode=" + modelCode;
+				response = service.getRequest(url);
 				
 			// 차종이 EV6가 아닌 경우 (성력)
 			} else {
-				response = service.getRequest("trim-list-S");
+				url = "trim-list-S";
+				url += "?modelCode=" + modelCode;
+				response = service.getRequest(url);
 			}
 			
 			LOG.debug("response={}", response);

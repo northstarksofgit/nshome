@@ -6,16 +6,13 @@ $(document).ready(function() {
 
 	// carGroupCode
 	var selectedCarGroupCode = null;
-	var radioCarGroup = $(".carGroup-radio");
 
 	// transmissionCode
 	var selectedTransCode = null;
 	var radioTrans = $(".trans-radio");
 	
 	// trimCode
-	var selectedTrimCode = null;
 	var liTrim = $(".trim_click");
-	
 	
 	
 	// 페이지 로딩시 기본으로 선택된 carGroupCode 값
@@ -28,8 +25,8 @@ $(document).ready(function() {
 		
 		// 페이지 로딩시 기본으로 선택되는 trim
 		trimShowHide(defaultCarGroup, defaultTrans);
-		
-		
+		$('.form_chk.carGroup').trigger('click');
+		trimOn();
 		
 		// 해당하는 trim만 show / 나머지는 hide 해주는 함수 
 		function trimShowHide(selectedCarGroupCode, selectedTransCode){
@@ -44,14 +41,9 @@ $(document).ready(function() {
 					
 					liTrim[i].style.display = 'block';
 					
-					if($(liTrim[i])[0].dataset.seq == 1){
-						$(liTrim[i]).addClass('on');
-					}
-					
 				}	
 			}
 		}
-		
 		
 		
 		// 사용자가 선택한 carGroup 값
@@ -62,15 +54,14 @@ $(document).ready(function() {
 			$(this).find('label').addClass('on');
 			
 			trimShowHide(selectedCarGroupCode, defaultTrans);
+			
+//			$('.form_chk.transmission').trigger('click');
 		})	
 		
 	
-		
-		
 		// 사용자가 선택한 transmission 값
 		$('.form_chk.transmission').click(function(){
 			
-	//		selectedCarGroupCode = $('.form_chk.carGroup').children('label').dataset.cargroupcode;
 			var carGroupList = $('.form_chk.carGroup');
 				
 			for(var i = 0; i < carGroupList.length; i++){
@@ -83,15 +74,23 @@ $(document).ready(function() {
 	
 			selectedTransCode = $(this)[0].dataset.transcode;
 					
-			$('.trans-radio').removeClass('on');
-			$(this).find('label').addClass('on');
+			radioTrans.removeClass('on');
+			
+			for(var i = 0; i < radioTrans.length; i++){
+				
+				if(liTrim[i].style.display == 'block'){
+					
+					radioTrans.addClass('on');
+					break;
+				} else {
+					radioTrans.removeClass('on');
+				}
+				
+			}
 			
 			for(var i = 0; i < liTrim.length; i++){
 				
-	//			console.log(carGroupList[i].dataset.cargroupcode);
-	//			console.log($(this)[i].dataset.transcode);
-				
-				if(carGroupList[i].dataset.cargroupcode == selectedCarGroupCode){
+				if($(liTrim[i]).parent()[0].dataset.car == selectedCarGroupCode){
 					
 					if($(this)[0].dataset.transcode == selectedTransCode){
 						
@@ -108,9 +107,23 @@ $(document).ready(function() {
 					trimShowHide(defaultCarGroup, selectedTransCode);
 				}
 			}
+			trimOn();
 		})
 			
+		
+		// 기본 trimList의 class를 on 시켜주는 함수	
+		function trimOn(){
 			
+			for(var i = 0; i < liTrim.length; i++){
+				
+				if(liTrim[i].style.display == 'block'){
+					
+					// 자바스크립트 방식으로 addClass
+					liTrim[i].classList.add('on');
+					break;
+				}
+			}	
+		}
 		
 		
 		//trim 클릭시 실행되는 함수

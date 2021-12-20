@@ -1,13 +1,13 @@
 package com.kia25.core.models;
 
-import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 
 import javax.annotation.PostConstruct;
+import javax.inject.Inject;
 
 import org.apache.sling.api.SlingHttpServletRequest;
+import org.apache.sling.api.resource.Resource;
+import org.apache.sling.api.resource.ValueMap;
 import org.apache.sling.models.annotations.DefaultInjectionStrategy;
 import org.apache.sling.models.annotations.Model;
 import org.apache.sling.models.annotations.injectorspecific.Self;
@@ -33,6 +33,7 @@ public class Build002Model {
     private SlingHttpServletRequest request;
 	
 	private String modelCode = null;
+	private String backFirstPage = null;
 	
 	private ModelDetailListDtoResults detailResults;
 	private ModelDetailListDto detailData;
@@ -40,81 +41,37 @@ public class Build002Model {
 	private List<TransmissionDto> transmissionList;
 	private List<TrimDto> trimList;
 	
+	
+	@Inject
+	private Resource resource;
+	
 	@PostConstruct
 	public void activate() throws Exception{
 		
-		/**
-		 * 파라미터에서 modelCode 받아와서 변수 선언
-		 */
-		modelCode = request.getParameter("modelCode");
+		try {
 			
-		detailResults = service.getModelDetailAPI(modelCode);
-		
-		detailData = detailResults.getData();
-		carGroupList = detailData.getCarGroupList();
-		transmissionList = detailData.getTransmissionList();
-		trimList = detailData.getTrimList();
+			ValueMap valueMap = resource.getValueMap();
+			backFirstPage = (String)valueMap.getOrDefault("firstPage", null);
+			log.info(backFirstPage);
+			
+			backFirstPage += ".html";
+			
+			/**
+			 * 파라미터에서 modelCode 받아와서 변수 선언
+			 */
+			modelCode = request.getParameter("modelCode");
+			
+			detailResults = service.getModelDetailAPI(modelCode);
+			
+			detailData = detailResults.getData();
+			carGroupList = detailData.getCarGroupList();
+			transmissionList = detailData.getTransmissionList();
+			trimList = detailData.getTrimList();
+			
+		} catch(Exception e) {
+			
+		}
 	
-		
-//			/**
-//			 * get carGroup Data
-//			 */
-//			for(CarGroupDto carGroup : carGroupList){
-//				int carGroupSeq = 1; 
-//				
-//				Map<String, Object> carGroupMap = new HashMap<>();
-//				
-//				carGroupMap.put("carGroupCode", carGroup.getCarGroupCode());
-//				carGroupMap.put("carGroupName", carGroup.getCarGroupName());
-//				carGroupMap.put("carImagePath", carGroup.getCarImagePath());
-//				carGroupMap.put("seq", carGroupSeq++);
-//				detailList.add(carGroupMap);
-//			}	
-//			
-//			/**
-//			 * get transmission Data
-//			 */
-//			for(TransmissionDto trans : transmissionList) {
-//				int autoSeq = 1;
-//				int manuSeq = 1;
-//				
-//				Map<String, Object> transMap = new HashMap<>();
-//				transMap.put("transmissionCode", trans.getTransmissionCode());
-//				transMap.put("transmissionName", trans.getTransmissionName());
-//				
-//				/**
-//				 * transmissionCode 값에 따라서 seq 증가
-//				 */
-//				if(trans.getTransmissionCode().equals("automatic")) {
-//					transMap.put("seq", autoSeq++);
-//				} else {
-//					transMap.put("seq", manuSeq++);
-//				}
-//				
-//			}
-//			
-//			
-//			/**
-//			 * get trim Data
-//			 */
-//			for(TrimDto trim : trimList) {
-//				int trimSeq = 1;
-//				
-//				Map<String, Object> trimMap = new HashMap<>();
-//				trimMap.put("carGroupCode", trim.getCarGroupCode());
-//				trimMap.put("transmissionCode", trim.getTransmissionCode());
-//				trimMap.put("trimCode", trim.getTrimCode());
-//				trimMap.put("trimName", trim.getTrimName());
-//				trimMap.put("productCode", trim.getProductCode());
-//				trimMap.put("sellingPrice", trim.getSellingPrice());
-//				trimMap.put("bestYn", trim.getBestYn());
-//				trimMap.put("gearboxName", trim.getGearboxName());
-//				trimMap.put("compoundFuelEconomy", trim.getCompoundFuelEconomy());
-//				trimMap.put("bodyTypeName", trim.getBodyTypeName());
-//				trimMap.put("engineCapacityName", trim.getEngineCapacityName());
-//				trimMap.put("seq", trimSeq++);
-//				
-//			}
 	}
 
 	
@@ -179,6 +136,16 @@ public class Build002Model {
 
 	public void setTrimList(List<TrimDto> trimList) {
 		this.trimList = trimList;
+	}
+
+
+	public String getBackFirstPage() {
+		return backFirstPage;
+	}
+
+
+	public void setBackFirstPage(String backFirstPage) {
+		this.backFirstPage = backFirstPage;
 	}
 
 

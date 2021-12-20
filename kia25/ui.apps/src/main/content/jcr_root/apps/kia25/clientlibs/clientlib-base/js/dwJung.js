@@ -368,26 +368,32 @@ function nextStep(){
 	var totalUrl = window.location.href;
 	var preUrl = totalUrl.substr(totalUrl.indexOf('&modelCode='), totalUrl.length);
 	
-	
-	const step = $('.naviNext').attr('step');
-	var toGoUrl = $('.naviNext').attr('toGoUrl') + ".html?step="+step+preUrl;
-	const trimCheck = $('.naviNext').attr('trimCheck');
-	const colorCheck = $('.naviNext').attr('colorCheck');
-	const optionCheck = $('.naviNext').attr('optionCheck');
-	
 	// 테스트용 코드 : 추후에 동적으로 바뀌어야하는 부분
 	colorCode = "&ext="+null+"&int="+null;
 	
-	
-	//이동할 url 생성
 	/*
-	* parameter 가 중복으로 붙지 않게 includes로 포함 여부를 확인한다.
+	* dialog한 data
 	*/
-	toGoUrl += (trimCheck == "true" && !toGoUrl.includes("trimCode=")) ? "&trimCode="+naviTrimCode : "";
-	toGoUrl += (colorCheck == "true" && !toGoUrl.includes("ext=")) ? colorCode : "";
-	toGoUrl += (optionCheck == "true" && !toGoUrl.includes("option=")) ? "&option="+selectedOptList.toString() : "";
 	
-	location.href = toGoUrl;
+	const toGoStep = $('.naviNext').attr('toGoStep');
+	var toGoPath = $('.naviNext').attr('toGoPath') + ".html?step="+toGoStep+preUrl;
+	
+	if(toGoStep == "3"){
+		
+		toGoPath += "&trimCode="+naviTrimCode;
+		
+	}else if(toGoStep == "4"){
+		
+		toGoPath += colorCode;
+		
+	}else if(toGoStep == "5"){
+		
+		toGoPath += "&option="+selectedOptList.toString();
+	}
+	
+	
+	location.href = toGoPath;
+
 	
 }
 

@@ -199,23 +199,23 @@ public class BuildYourCarServiceImpl implements BuildYourCarService {
 		
 			if(step.equals("3")) {
 				
-				response = service.getRequest("summary-info-0");
+				response = service.getRequest("summary-info-0"+"?modelCode="+modelCode);
 				
 			}else if(step.equals("4")) {
 				//trim까지
 				
-				response = service.getRequest("summary-info-1");
+				response = service.getRequest("summary-info-1"+"?modelCode="+modelCode+"&trimCode="+trimCode);
 
 				
 			}else if(step.equals("5")){
 				//color까지
 				
-				response = service.getRequest("summary-info-2");
+				response = service.getRequest("summary-info-2"+"?modelCode="+modelCode+"&trimCode="+trimCode+"&exteriorColorCode="+ext+"&interiorColorCode="+intCode);
 				
 			}else{
 				//how to buy
 			
-				response = service.getRequest("summary-info-3");
+				response = service.getRequest("summary-info-3"+"?modelCode="+modelCode+"&trimCode="+trimCode+"&exteriorColorCode="+ext+"&interiorColorCode="+intCode+"&optionCode="+option);
 			}
 			
 			LOG.debug("response={}", response);

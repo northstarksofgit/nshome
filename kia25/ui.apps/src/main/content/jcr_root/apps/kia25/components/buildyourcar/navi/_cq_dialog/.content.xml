@@ -23,7 +23,18 @@
                                 rootPath="/content/kia25"
                                 fieldDescription="to go path"
                                 fieldLabel="where to go"
-                                name="./toGo"/>
+                                name="./toGoPath"/>
+                                
+                                
+                            <nextPathStep
+                                jcr:primaryType="nt:unstructured"
+                                sling:resourceType="granite/ui/components/coral/foundation/form/numberfield"
+                                fieldDescription="step count"
+                                fieldLabel="to go step"
+                                name="./toGoStep"
+                                min="0"
+                                required="true"/>
+                          	
                                 
                            <prePath
                                 jcr:primaryType="nt:unstructured"
@@ -32,43 +43,17 @@
                                 fieldDescription="previous path"
                                 fieldLabel="previous path"
                                 name="./prePath"/>
-                                
-                            <step
+                            
+                                                          
+                            <prePathStep
                                 jcr:primaryType="nt:unstructured"
                                 sling:resourceType="granite/ui/components/coral/foundation/form/numberfield"
                                 fieldDescription="step count"
-                                fieldLabel="to go step"
-                                name="./step"
+                                fieldLabel="previous step"
+                                name="./preStep"
                                 min="0"
                                 required="true"/>
-                          	
                                 
-                                
-                            <trim
-							    jcr:primaryType="nt:unstructured"
-							    sling:resourceType="granite/ui/components/foundation/form/checkbox"
-							    fieldDescription="use trim parameter"
-                                text="use trim"
-							    name="./trim"
-							    value="true"/>
-							    
-                            <color
-							    jcr:primaryType="nt:unstructured"
-							    sling:resourceType="granite/ui/components/foundation/form/checkbox"
-							    text="use color"
-                                fieldDescription="use color parameter"
-							    name="./color"
-							    value="true"/>
-							    
-                            <option
-							    jcr:primaryType="nt:unstructured"
-							    sling:resourceType="granite/ui/components/foundation/form/checkbox"
-							    text="use option"
-                                fieldDescription="use option parameter"
-							    name="./option"
-							    value="true"/>    
-							    
-							    
                         </items>
                     </columns>
                 </items>

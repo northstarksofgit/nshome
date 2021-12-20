@@ -81,7 +81,6 @@ $(document).ready(function() {
 
     $(".build_car").length && naviBarInit();
 	 naviBar();
-	
 
 });
 
@@ -137,8 +136,9 @@ var naviBarInit = function() {
 
 
 function naviBar() {
-		
+	
     function c() {
+	
 		
 		/*
 		*  '.estimate_online_wrap' 가 navi에도 있고 build-00n에도 있어서 [0]번째로 설정함
@@ -147,8 +147,12 @@ function naviBar() {
         l = $("body").height() - $(window).height() - $(window).scrollTop();
         contentHeight = $(document).height() - $($('.estimate_online_wrap')[0]).scrollTop() - $($('.estimate_online_wrap')[0]).height(); 
 
-        l < contentHeight ? a.addClass("normal") : a.removeClass("normal");
+        l + 150 < contentHeight ? a.addClass("normal") : a.removeClass("normal");
+
+		console.log("l: "+l);
+		console.log("content: "+contentHeight);
     }
+
 
     var a = $(".estimate_online_wrap .byoTotal")
       , e = $(".estimate_online_wrap .btn_totalCon_open")
@@ -172,8 +176,9 @@ function naviBar() {
 
 
     $(window).scroll(function(a) {
-        c()
+        c();
     })
+
 };
 
 
@@ -346,16 +351,6 @@ function addHowToBuy(){
 
 
 
-
-
-
-
-
-
-
-
-
-
 /*
 * navi의 다음> 클릭시 다음 step으로 넘어가는 함수
 */
@@ -398,6 +393,8 @@ function nextStep(){
 	location.href = toGoUrl;
 	
 }
+
+
 
 
 /*

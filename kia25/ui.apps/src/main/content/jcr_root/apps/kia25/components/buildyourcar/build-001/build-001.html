@@ -28,100 +28,6 @@
 
 
 
-
-
-
-
-
-
-                <script type="text/javascript">
-                    var couponDownPopupYn = true;
-                    var popCarCode = "";
-
-
-                    function fnopenAlertPop(msg, goBackYn) {
-                        $("#alertPopup").html('<span class="moarea"></span>' + msg);
-                        var openAlertPop = new OpenDimPop_outClick($("#openAlertPop"));
-                        if (goBackYn) {
-                            //$("#popupOk").attr("onclick","closePop('openAlertPop',true,'"+popCarCode+"');");
-                            $("#popupOk").attr("onclick", "closePop('openAlertPop',true);");
-                            $("#popupClose").attr("onclick", "goMainPop();");
-                        } else {
-                            //$("#popupOk").attr("onclick","closePop('openAlertPop',false,'"+popCarCode+"');");
-                            $("#popupOk").attr("onclick", "closePop('openAlertPop',false);");
-                            $("#popupClose").removeAttr("onclick");
-                        }
-                        openAlertPop.open();
-                        setTimeout(function () { $("#openAlertPop").focus() }, 200);
-                        $('.dimmed_outClick').on('click', function () {
-                            openAlertPop.close();
-                            if (goBackYn) {
-                                //history.back();
-                                location.href = "https://www.kia.com/content/kwcms/kr/ko.html";
-                            }
-                            if ((popCarCode == "XCK" || popCarCode == "XRJ") && couponDownPopupYn) {
-                                couponDownPopupOpen();
-                            }
-                        });
-
-                        $("#openAlertPop").find(" > a.closeBtn").on("click", function (e) {
-                            e.stopPropagation();
-                            e.preventDefault();
-                            openAlertPop.close();
-                            if ((popCarCode == "XCK" || popCarCode == "XRJ") && couponDownPopupYn) {
-                                couponDownPopupOpen();
-                            }
-                        });
-                    }
-
-                    function closePop(popId, goBackYn) {
-                        var tmpPop = new OpenDimPop_outClick($("#" + popId));
-                        tmpPop.close();
-                        if (goBackYn) {
-                            //history.back();
-                            location.href = "https://www.kia.com/content/kwcms/kr/ko.html";
-                        }
-                        if ((popCarCode == "XCK" || popCarCode == "XRJ") && couponDownPopupYn) {
-                            couponDownPopupOpen();
-                        }
-                    }
-
-                    function couponDownPopupOpen() {
-
-
-
-                        if (202105010000 <= serverToday() && serverToday() <= 202106302359) {
-                            var couponDownPopupId = "";
-                            if (popCarCode == "XCK") {
-                                couponDownPopupId = "couponDownStinger";
-                                if (serverToday() <= 202105312359) {
-                                    $("#couponStinger").children().attr("src", "https://www.kia.com/content/dam/kwcms/kr/ko/images/shopping-tools/estimate-online/coupon_stinger.jpg");
-                                } else {
-                                    $("#couponStinger").children().attr("src", "https://www.kia.com/content/dam/kwcms/kr/ko/images/shopping-tools/estimate-online/2106_stinger.jpg");
-                                }
-
-                            }
-                            else if (popCarCode == "XRJ") {
-                                if (serverToday() <= 202105312359) {
-                                    couponDownPopupId = "couponDownK9";
-                                } else {
-                                    return;
-                                }
-                            }
-                            var couponDownPopup = new OpenDimPop_outClick($("#" + couponDownPopupId));
-                            couponDownPopup.open();
-                            couponDownPopupYn = false;
-                            $('.dimmed_outClick').on('click', function () {
-                                couponDownPopup.close();
-                            });
-                        }
-                    }
-
-                    function goMainPop() {
-                        location.href = "https://www.kia.com/content/kwcms/kr/ko.html";
-                    }
-                </script>
-
                 <div id="openAlertPop" class="popup_wrap popup popup_alert"
                     style="max-width: 430px; display: none; width: 1890px; position: absolute; left: 721.5px;">
                     <h3 class="hidden">안내</h3>
@@ -215,14 +121,6 @@
 
 
 
-
-                <script type="text/javascript">
-                    $(function ($) {
-                        $("a, input, select, label, textarea").on("focus", function () {
-                            if ($(this).hasClass('closeBtn')) return;
-                        });
-                    }) // 공통영역에 선언한 스크립트(레이어팝업 닫기버튼 포스 이동시 스크롤 이동 문제)로 넣음.
-                </script>
                 <div class="estimate_online_wrap list">
                     <p class="price_view"><a href="/kr/shopping-tools/catalog-price.html"
                             target="_blank">가격표<em>보기</em></a></p>
@@ -245,7 +143,7 @@
 					<!-- dwjung :: car tab 수정 : 2021. 12. 08 -->
 					
                     <div class="inner">
-                    	<sly data-sly-list.cate="${model.categoryList}">
+	                   	<sly data-sly-list.cate="${model.categoryList}">
 	                        <div id="carTab${cateList.count}" class="car_list on">
 	                            <h5 class="hidden">${cate.categoryName}</h5>
 	                            <ul class="car_u">
@@ -268,15 +166,11 @@
 			                                </li>
 					                     </sly> 
 				                     </sly>
-			
 		                         </ul>
-	                        </div>
+	                         </div>
 	                      </sly>
-	                      
-	                      
-
-                </div>
-            </div>
+	          		 </div>
+           		 </div>
 
         </div>
 

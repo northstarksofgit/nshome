@@ -60,9 +60,12 @@ public class Build003Helper {
 		try {
 			getModelCode = request.getParameter("modelCode").toUpperCase();
 			getTrimCode = request.getParameter("trimCode");
+		//	getExtCode = request.getParameter("ext");
+		//	getIntCode = request.getParameter("int");
+		//	getOptionCode = request.getParameter("option");
 			 
 		} catch(Exception e) {
-			
+			e.printStackTrace();
 		}
 
 	}

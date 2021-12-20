@@ -608,14 +608,17 @@
             "interiorList": [
                 {
                     "trimCode": "LRL",
+                    "colorCode": "BL",
                     "carcelImage": "https://www.kia.com/content/dam/kwcms/kr/ko/images/byo/color/swp.jpg",
                     "cellvehiclePrice": "1,000"
                 }, {
                     "trimCode": "LRL",
+                    "colorCode": "GR",
                     "carcelImage": "https://www.kia.com/content/dam/kwcms/kr/ko/images/byo/color/ABT.jpg",
                     "cellvehiclePrice": "2,000"
                 }, {
                     "trimCode": "LRL",
+                    "colorCode": "BL",
                     "carcelImage": "https://www.kia.com/content/dam/kwcms/kr/ko/images/byo/color/allnewk7_abp.jpg",
                     "cellvehiclePrice": "3,000"
                 }

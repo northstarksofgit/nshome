@@ -1,14 +1,14 @@
 $(document).ready(function() {
-    $(".sales_offers").length && offersInit();
-    $(".sales_demonstrator").length && demonstratorInit();
-    $(".branchList");
-    $(".build_car").length && buildcarInit();
-    $(".driving_center").length && drivingCenterInit();
-    $(".catalog_price").length && shoppingtoolsCategoryInit();
-    $(".gateCon").length && shoppingToolsGateInit();
-    $(".btnActMove").length && showBtnActMove()
-});
 
+    $param = $(location).attr('pathname'); // 옵션 선택화면에서 충돌 됨
+
+    if($param == '/content/kia25/us/en/page03.html') {
+
+    $(".build_car").length && buildcarInit();
+
+    }
+
+});
 
    demonstratorInit = function() {
     var c = new OpenDimPop($("#colorLayer"))

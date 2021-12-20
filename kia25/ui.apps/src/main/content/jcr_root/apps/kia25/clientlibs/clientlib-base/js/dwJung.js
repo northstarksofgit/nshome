@@ -17,7 +17,6 @@ if($(".category").length>0){
 
 
 
-
 $(window).scroll(function() {
 	
   	var windowTop = $(this).scrollTop();
@@ -25,15 +24,7 @@ $(window).scroll(function() {
 	if($(".category").length>0){
 			
 		//카테고리 fixed
-	    if(category <= windowTop) {
-		
-	      $(".category").addClass("fixed");
-		  
-
-	    } else {
-		
-	      $(".category").removeClass("fixed");
-	    }
+	    (category <= windowTop) ? $(".category").addClass("fixed") : $(".category").removeClass("fixed");
 
 
 		//carTab 가져오기
@@ -54,11 +45,7 @@ $(window).scroll(function() {
 
 		for(var i=0; i<carTabTop.length; i++){
 			
-			if(windowTop >= carTabTop[i] && windowTop <= carTabBottom[i]){
-				$(carMenu[i]).addClass("on");
-			}else{
-				$(carMenu[i]).removeClass("on");
-			}
+			(windowTop >= carTabTop[i] && windowTop <= carTabBottom[i]) ? $(carMenu[i]).addClass("on") : $(carMenu[i]).removeClass("on");
 
 		}
 
@@ -272,16 +259,23 @@ function addTrimToNavi(){
 
 function addColorToNavi(){
 
+	//가격 저장
+	var extPrice;
+	var interiorPrice;
+
+
 	//외장재 저장
 	var ext = $('.exteriorOption');
 
 	for(var i=0; i<ext.length; i++){
 
 		if($(ext[i]).hasClass('on')){
+
+			extPrice = $(ext[i]).attr('price');
 		
 			//외장재 가격 삽입
-			$('.con_exterior').attr('price1', $(ext[i]).attr('price'));
-			$('.con_exterior').find('.conPrice').html($(ext[i]).attr('price')+'<em>원</em>');
+			$('.con_exterior').attr('price1', makeComma(extPrice));
+			$('.con_exterior').find('.conPrice').html(makeComma(extPrice)+'<em>원</em>');
 			
 			//외장재 이미지 삽입
 			$('.con_exterior').find('.colorImg').attr('src', $(ext[i]).find('img').attr('src'));
@@ -300,9 +294,11 @@ function addColorToNavi(){
 		
 		if($(interior[i]).hasClass('on')){
 			
+			interiorPrice = $(interior[i]).attr('price');
+			
 			//내장재 가격 저장
-			$('.con_interior').attr('price2', $(interior[i]).attr('price'));
-			$('.con_interior').find('.conPrice').html($(interior[i]).attr('price')+'<em>원</em>');
+			$('.con_interior').attr('price2', makeComma(interiorPrice));
+			$('.con_interior').find('.conPrice').html(makeComma(interiorPrice)+'<em>원</em>');
 			
 			//내장재 이미지 저장
 			$('.con_interior').find('.colorImg').attr('src', $(interior[i]).find('img').attr('src'));
@@ -313,6 +309,9 @@ function addColorToNavi(){
 		}
 
 	}
+	
+	//합계 변경
+	totalSum(parseInt(extPrice+interiorPrice));
 
 }
 
@@ -378,7 +377,6 @@ function nextStep(){
 	
 	// 테스트용 코드 : 추후에 동적으로 바뀌어야하는 부분
 	colorCode = "&ext="+null+"&int="+null;
-	naviTrimCode = null;
 	
 	
 	//이동할 url 생성

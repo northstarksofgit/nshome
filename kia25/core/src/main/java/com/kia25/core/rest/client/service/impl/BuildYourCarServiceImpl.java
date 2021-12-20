@@ -88,17 +88,15 @@ public class BuildYourCarServiceImpl implements BuildYourCarService {
 			
 			// 차종이 EV6인 경우 
 			if (modelCode.equals("EV6")) {
-				
 				url = "trim-list-E";
-				url += "?modelCode=" + modelCode;
-				response = service.getRequest(url);
 				
 			// 차종이 EV6가 아닌 경우 (성력)
 			} else {
 				url = "trim-list-S";
-				url += "?modelCode=" + modelCode;
-				response = service.getRequest(url);
 			}
+			
+			url += "?modelCode=" + modelCode;
+			response = service.getRequest(url);
 			
 			LOG.debug("response={}", response);
 			ObjectMapper mapper = new ObjectMapper();

@@ -48,29 +48,25 @@ public class Build002Model {
 	@PostConstruct
 	public void activate() throws Exception{
 		
-		try {
 			
-			ValueMap valueMap = resource.getValueMap();
-			backFirstPage = (String)valueMap.getOrDefault("firstPage", null);
-			log.info(backFirstPage);
-			
-			backFirstPage += ".html";
-			
-			/**
-			 * 파라미터에서 modelCode 받아와서 변수 선언
-			 */
-			modelCode = request.getParameter("modelCode");
-			
-			detailResults = service.getModelDetailAPI(modelCode);
-			
-			detailData = detailResults.getData();
-			carGroupList = detailData.getCarGroupList();
-			transmissionList = detailData.getTransmissionList();
-			trimList = detailData.getTrimList();
-			
-		} catch(Exception e) {
-			
-		}
+		ValueMap valueMap = resource.getValueMap();
+		backFirstPage = (String)valueMap.getOrDefault("firstPage", null);
+		log.info(backFirstPage);
+		
+		backFirstPage += ".html";
+		
+		/**
+		 * 파라미터에서 modelCode 받아와서 변수 선언
+		 */
+		modelCode = request.getParameter("modelCode");
+		
+		detailResults = service.getModelDetailAPI(modelCode);
+		
+		detailData = detailResults.getData();
+		carGroupList = detailData.getCarGroupList();
+		transmissionList = detailData.getTransmissionList();
+		trimList = detailData.getTrimList();
+
 	
 	}
 

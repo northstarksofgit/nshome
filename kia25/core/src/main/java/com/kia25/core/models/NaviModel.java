@@ -47,38 +47,16 @@ public class NaviModel {
 	 */
 	private SummaryDto summary;
 	
-	/*
-	 * 이동할 step
-	 */
-	private String step;
 	
 	/*
-	 * 이동할 url
+	 * dilog한 데이터
 	 */
-	private String nextUrl;
+	private String prePath;
+	private String preStep;
+	private String toGoPath;
+	private String toGoStep;
 	
-	/*
-	 * 이전 url
-	 */
-	private String preUrl;
-	
-	
-	/*
-	 * trim code 사용 여부 
-	 */
-	private String trimCheck;
-	
-	/*
-	 * color code 사용 여부
-	 */
-	private String colorCheck;
-	
-	/*
-	 * option code 사용 여부
-	 */
-	private String optionCheck;
-	
-	
+
 	/*
 	 * parameter로 넘어온 code
 	 */
@@ -103,25 +81,19 @@ public class NaviModel {
 		
 		ValueMap valueMap = resource.getValueMap();
 		
+		prePath = (String) valueMap.getOrDefault("prePath", "/");
+		preStep = (String) valueMap.getOrDefault("preStep", "1");
+		toGoPath = (String) valueMap.getOrDefault("toGoPath", "/");
+		toGoStep  = (String) valueMap.getOrDefault("toGoStep", "1");
 		
-		step = (String) valueMap.getOrDefault("step", "2");
-		nextUrl = (String) valueMap.getOrDefault("toGo", null);
-		preUrl = (String) valueMap.getOrDefault("prePath", null);
-		trimCheck = (String) valueMap.getOrDefault("trim", null);
-		colorCheck = (String) valueMap.getOrDefault("color", null);
-		optionCheck = (String) valueMap.getOrDefault("option", null);
-		
-		
-		
-		LOG.info("step: "+step);		
-		
+		LOG.info("toGoStep: "+toGoStep);		
 		
 
 		/*
 		 * summary정보 호출
 		 */
 		
-		summary = service.getSummaryAPI(step, modelCode, trimCode, extCode, intCode, optionCode);
+		summary = service.getSummaryAPI(toGoStep, modelCode, trimCode, extCode, intCode, optionCode);
 		
 		
 		
@@ -148,67 +120,42 @@ public class NaviModel {
 	}
 
 
-	public String getStep() {
-		return step;
+	public String getPrePath() {
+		return prePath;
 	}
 
 
-	public void setStep(String step) {
-		this.step = step;
+	public void setPrePath(String prePath) {
+		this.prePath = prePath;
 	}
 
 
-
-	public String getTrimCheck() {
-		return trimCheck;
+	public String getPreStep() {
+		return preStep;
 	}
 
 
-	public void setTrimCheck(String trimCheck) {
-		this.trimCheck = trimCheck;
+	public void setPreStep(String preStep) {
+		this.preStep = preStep;
+	}
+
+	public String getToGoPath() {
+		return toGoPath;
+	}
+
+	public void setToGoPath(String toGoPath) {
+		this.toGoPath = toGoPath;
+	}
+
+	public String getToGoStep() {
+		return toGoStep;
+	}
+
+	public void setToGoStep(String toGoStep) {
+		this.toGoStep = toGoStep;
 	}
 
 
-	public String getColorCheck() {
-		return colorCheck;
-	}
-
-
-	public void setColorCheck(String colorCheck) {
-		this.colorCheck = colorCheck;
-	}
-
-
-	public String getOptionCheck() {
-		return optionCheck;
-	}
-
-
-	public void setOptionCheck(String optionCheck) {
-		this.optionCheck = optionCheck;
-	}
-
-
-	public String getNextUrl() {
-		return nextUrl;
-	}
-
-
-	public void setNextUrl(String nextUrl) {
-		this.nextUrl = nextUrl;
-	}
-
-
-	public String getPreUrl() {
-		return preUrl;
-	}
-
-
-	public void setPreUrl(String preUrl) {
-		this.preUrl = preUrl;
-	}
-	
-	
 
 	
 	

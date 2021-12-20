@@ -41,7 +41,7 @@ public interface BuildYourCarService {
 	/**
 	 * build006 / complete-list 불러오기
 	 */
-	CompleteListDtoResults getCompleteAPI();
+	CompleteListDtoResults getCompleteAPI(String modelCode, String trimCode, String extColorCode, String intColorCode, String optionCode);
 	
 	/*
 	 * navi / summary 불러오기

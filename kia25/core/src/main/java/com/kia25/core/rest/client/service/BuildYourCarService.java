@@ -30,7 +30,7 @@ public interface BuildYourCarService {
 	/**
 	 * build003 / colorlist 불러오기
 	 */
-	ColorListDtoResults getColorAPI();
+	ColorListDtoResults getColorAPI(String modelCode, String trimCode);
 	
 	/**
 	 * build004 / optionlist 불러오기

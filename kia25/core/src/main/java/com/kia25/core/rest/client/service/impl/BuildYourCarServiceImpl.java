@@ -123,7 +123,7 @@ public class BuildYourCarServiceImpl implements BuildYourCarService {
 	public OptionListDtoResults getOptionlListAPI(String modelCode, String trimCode, String extColorCode, String intColorCode) {
 		
 		try {
-			String url = "list-of-option?";
+	        String url = "list-of-option?";
 			url += "modelCode="+modelCode;
 			url += "&trimCode="+trimCode;
 			url += "&ext="+extColorCode;
@@ -149,7 +149,7 @@ public class BuildYourCarServiceImpl implements BuildYourCarService {
 	 * build003 / colorlist 불러오기
 	 */
 	
-	public ColorListDtoResults getColorAPI() {
+	public ColorListDtoResults getColorAPI(String modelCode, String trimCode) {
 
 		try {
 			String response = service.getRequest("color-list");
@@ -276,5 +276,6 @@ public class BuildYourCarServiceImpl implements BuildYourCarService {
 		return null;
 	}
 
+ 
 
 }

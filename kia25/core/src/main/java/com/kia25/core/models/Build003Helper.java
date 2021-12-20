@@ -52,10 +52,7 @@ public class Build003Helper {
 	
 	@PostConstruct
 	public void activate() throws IOException {
-		colorAllList = service.getColorAPI();
-		colorData = colorAllList.getData();
-		exteriorList = colorData.getExteriorList();
-		interiorList = colorData.getInteriorList();
+
 		
 		try {
 			getModelCode = request.getParameter("modelCode").toUpperCase();
@@ -63,6 +60,11 @@ public class Build003Helper {
 		//	getExtCode = request.getParameter("ext");
 		//	getIntCode = request.getParameter("int");
 		//	getOptionCode = request.getParameter("option");
+			
+			colorAllList = service.getColorAPI(getModelCode, getTrimCode);
+			colorData = colorAllList.getData();
+			exteriorList = colorData.getExteriorList();
+			interiorList = colorData.getInteriorList();
 			 
 		} catch(Exception e) {
 			e.printStackTrace();

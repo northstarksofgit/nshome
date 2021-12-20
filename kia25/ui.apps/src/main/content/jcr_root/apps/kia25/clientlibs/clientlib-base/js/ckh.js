@@ -118,6 +118,9 @@ $(document).ready(function() {
             $("." + c.attr("color") + ":eq(0)").addClass("on"),
             $("." + c.attr("color")).show());
 
+			$(".inCode").attr("src", c.attr("img"));
+			addColorToNavi();
+
         });
         m.eq(0).find("li:first \x3e a").trigger("click");
         m.eq(1).find("li:first \x3e a").trigger("click")

@@ -68,7 +68,7 @@ public class Build004_OptionModel {
 			backToFirst += ".html";
 			
 			backToTrim = (String) valueMap.getOrDefault("backToTrim", null);
-			backToTrim += ".html=" + modelCode;
+			backToTrim += ".html" + modelCode;
 			
 			backToColor = (String) valueMap.getOrDefault("backToColor", null);
 			backToColor += ".html" + modelCode + trimCode;

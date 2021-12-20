@@ -82,7 +82,7 @@
 			    	
 			    	<!-- transmissonList에 담긴 값 가져오기 -->
 				    <sly data-sly-list.trans="${detail.transmissionList}" data-sly-test="${detail.transmissionList}">
-					    <span class="form_chk transmission" style="display: block; display:inline-block;">
+					    <span class="form_chk transmission" data-transCode="${trans.transmissionCode}" style="display: block; display:inline-block;">
 					    	<sly data-sly-test="${transList.count == 1}">
 						    	<!-- 조건문 + 반복문 -->
 							    <sly data-sly-test="${trans.transmissionCode == 'automatic'}">
@@ -130,7 +130,7 @@
 			 <ul class="box_u">
 				 <sly data-sly-list.trim="${detail.trimList}">
 				     <div class="trimselector slide_box trim-list" hid="false" data-car="${trim.carGroupCode}" style="display: block;">
-					     <li class="box_l trim_click" price="${trim.sellingPrice}" data-seq="${trim.seq}" aimg="https://www.kia.com/content/dam/kwcms/kr/ko/images/byo/car_ev6_standard.png" value="${trim.carGroupCode}" trim="CVJJ5VI31-A" data-trim="${trim.trimCode}" data-trans="${trim.transmission}" tmp="off">
+					     <li class="box_l trim_click" price="${trim.sellingPrice}" data-seq="${trimList.count}" aimg="https://www.kia.com/content/dam/kwcms/kr/ko/images/byo/car_ev6_standard.png" value="${trim.carGroupCode}" trim="CVJJ5VI31-A" data-trim="${trim.trimCode}" data-trans="${trim.transmissionCode}" tmp="off">
 					         <a href="#" class="box_a">			        
 					             <div class="box">			     
 						         <input type="hidden" id="naviTrimCode" name="naviTrimCode" value="${trim.trimCode}" />

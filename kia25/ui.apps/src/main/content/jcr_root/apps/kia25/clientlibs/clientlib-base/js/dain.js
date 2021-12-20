@@ -172,51 +172,110 @@ $(document).ready(function() {
 
 	// transmissionCode
 	var selectedTransCode = null;
-	var radioTrans = $("input:radio[name=sample2]");
+	var radioTrans = $(".trans-radio");
 	
 	// trimCode
 	var selectedTrimCode = null;
 	var liTrim = $(".trim_click");
 	
 	
-	// 기본으로 선택된 carGroupCode 값
-	for(var i=0; i < radioCarGroup.length; i++){
+	
+	// 페이지 로딩시 기본으로 선택된 carGroupCode 값
+	var defaultCarGroup = $(liTrim).parent()[0].dataset.car;
+	
+	// 페이지 로딩시 기본으로 선택된 transmissionCode 값
+	var defaultTrans = $(liTrim)[0].dataset.trans;
+	
+	// 페이지 로딩시 기본으로 선택되는 trim
+	trimShowHide(defaultCarGroup, defaultTrans);
+	
+	
+	
+	// 해당하는 trim만 show / 나머지는 hide 해주는 함수 
+	function trimShowHide(selectedCarGroupCode, selectedTransCode){
 		
-		if($(radioCarGroup[i]).hasClass('on')){
-			selectedCarGroupCode = $(radioCarGroup[i]).parent()[0].dataset.cargroupcode;
+		for(var i = 0; i < liTrim.length; i++){
+			
+			if($(liTrim[i]).parent()[0].dataset.car != selectedCarGroupCode || $(liTrim[i])[0].dataset.trans != selectedTransCode){
+				
+				liTrim[i].style.display = 'none';
+				
+			} else {
+				
+				liTrim[i].style.display = 'block';
+				
+				if($(liTrim[i])[0].dataset.seq == 1){
+					$(liTrim[i]).addClass('on');
+				}
+				
+			}	
 		}
-
 	}
+	
+	
 	
 	// 사용자가 선택한 carGroup 값
 	$('.form_chk.carGroup').click(function() {
 		
 		selectedCarGroupCode = $(this)[0].dataset.cargroupcode;
-		
 		$('.carGroup-radio').removeClass('on');
-		console.log($('.carGroup-radio'));
 		$(this).find('label').addClass('on');
 		
+		trimShowHide(selectedCarGroupCode, defaultTrans);
 	})	
 	
-	
-	// 기본으로 선택된 transmissionCode 값
-	for(var i = 0; i < radioTrans.length; i++){
-		
-		if(radioTrans[i].checked){
-			var transId = radioTrans[i].id;
-			selectedTransCode = $("#" + transId).val();
-			
-		}
-	}
+
 	
 	
 	// 사용자가 선택한 transmission 값
 	$('.form_chk.transmission').click(function(){
-		selectedTransCode = $("#" + transId).val();
-//		console.log(selectedTransCode);
+		
+//		selectedCarGroupCode = $('.form_chk.carGroup').children('label').dataset.cargroupcode;
+		var carGroupList = $('.form_chk.carGroup');
+			
+		for(var i = 0; i < carGroupList.length; i++){
+			
+			if($(carGroupList[i]).children('label').hasClass('on')){
+				
+				selectedCarGroupCode = carGroupList[i].dataset.cargroupcode;
+			}
+		}	
+
+		selectedTransCode = $(this)[0].dataset.transcode;
+				
+		$('.trans-radio').removeClass('on');
+		$(this).find('label').addClass('on');
+		
+		for(var i = 0; i < carGroupList.length; i++){
+			
+//			console.log(carGroupList[i].dataset.cargroupcode);
+//			console.log($(this)[i].dataset.transcode);
+			
+			if(carGroupList[i].dataset.cargroupcode == selectedCarGroupCode){
+				
+				if($(this)[0].dataset.transcode == selectedTransCode){
+					
+					liTrim[i].style.display = 'block';
+	//				trimShowHide(defaultCarGroup, selectedTransCode);
+					
+				} else {
+					liTrim[i].style.display = 'none';
+				}
+	
+			} else {
+				
+				liTrim[i].style.display = 'none';
+//				trimShowHide(defaultCarGroup, selectedTransCode);
+			}
+			
+		}
 		
 	})
+		
+		
+	
+	
+	
 	
 	
 	//trim 클릭시 실행되는 함수
@@ -230,17 +289,7 @@ $(document).ready(function() {
 		
 	})
 	
-	
-
-
 
 
 })
-
-
-
-
-
-
-
 

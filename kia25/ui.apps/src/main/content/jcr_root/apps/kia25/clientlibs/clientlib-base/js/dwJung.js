@@ -222,16 +222,18 @@ function makeComma(str) {
 */
 function addTrimToNavi(){
 	
+	//trim click 저장
+	var trimClick = $('.trim_click');
 
-	for(var i = 0; i<$('.trim_click').length; i++){
+	for(var i = 0; i<trimClick.length; i++){
 		
-		if($($('.trim_click')[i]).hasClass('on')){
+		if($(trimClick[i]).hasClass('on')){
 			
 			// trim name 할당
-			$('.list01 > .list_in > .con > .conTitle').text($($('.trim_click')[i]).find('.h').text());
+			$('.list01 > .list_in > .con > .conTitle').text($(trimClick[i]).find('.h').text());
 
 			// trim price 할당 -- int 로
-			var priceInt = parseInt($($('.trim_click')[i]).attr('price'));
+			var priceInt = parseInt($(trimClick[i]).attr('price'));
 			$('.list01 > .list_in > .con').attr('price', priceInt);
 
 			// trim price 할당 -- str로

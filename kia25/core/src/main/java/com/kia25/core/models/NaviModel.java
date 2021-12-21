@@ -90,7 +90,7 @@ public class NaviModel {
 		prePath = (String) valueMap.getOrDefault("prePath", "/");
 		preStep = (String) valueMap.getOrDefault("preStep", "1");
 		toGoPath = (String) valueMap.getOrDefault("toGoPath", "/");
-		toGoStep  = (String) valueMap.getOrDefault("toGoStep", "1");
+		toGoStep  = (String) valueMap.getOrDefault("toGoStep", "2");
 			
 
 		/*

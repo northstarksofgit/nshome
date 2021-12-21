@@ -56,8 +56,8 @@ $(document).ready(function() {
 			$(this).find('label').addClass('on');
 			trimOn();
 			
-			trimShowHide(selectedCarGroupCode, defaultTrans);
-			
+			trimShowHide(selectedCarGroupCode, selectedTransCode);
+
 //			$('.form_chk.transmission').trigger('click');
 		})	
 		
@@ -132,10 +132,21 @@ $(document).ready(function() {
 
 					$(liTrim[i]).addClass('on');
 					addTrimToNavi();
+					
+					var trimClick = $('.trim_click');
+					
+					for (var i = 0; i < trimClick.length; i++){
+						
+						if($(trimClick[i]).hasClass('on')){
+							
+							naviTrimCode = $(trimClick[i]).find('#naviTrimCode').attr('value');
+							console.log(naviTrimCode);
+						}
+					}
 					break;
+					
 				}
 			}	
-			naviTrimCode = $(this).find('#naviTrimCode').val();
 		}
 		
 		
@@ -147,7 +158,7 @@ $(document).ready(function() {
 			$(this).addClass('on');
 			addTrimToNavi();
 			
-			naviTrimCode = $(this).find('#naviTrimCode').val();
+			naviTrimCode = $(this).find('#naviTrimCode').attr('value');
 		})
 	}
 

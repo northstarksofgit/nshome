@@ -355,10 +355,10 @@ function addHowToBuy(){
 function nextStep(){
 	
 	/*
-	* step = 2 --> trim Page로 이동
-	* step = 3 --> color Page로 이동
-	* step = 4 --> option page로 이동
-	* step = 5 --> step 종료 페이지(임시)
+	* step = 2 --> trim Page
+	* step = 3 --> color Page
+	* step = 4 --> option page
+	* step = 5 --> how to buy page
 	*/
 	
 	/*
@@ -405,22 +405,20 @@ function nextStep(){
 */
 function preStep(){
 	
-	var totalUrl = window.location.href;
+	var currentUrl = window.location.href;
+	
+	var preStep = $('.naviNext').attr('preStep');
 	
 	/*
-	* 이전 페이지로 이동할 때 step을 -1해주고
-	* 마지막에 붙은 파라미터를 제거해준다.
-	* 단, color의 경우 파라미터가 두 개이기 때문에 color의 파라미터가 포함되어 있는 경우 ext를 기준으로 url을 잘라주고
-	* step이 5일 때는 color 파라미터가 붙어있어야 하기 때문에 step 파라미터를 체크해준다.
+	* 이전 페이지로 이동할 때 마지막에 붙은 파라미터를 제거해준다.
+	* 단, color의 경우 파라미터가 두 개이기 때문에 color의 파라미터가 포함되어 있는 경우 ext를 기준으로 url을 잘라준다
 	*/
-	var preParameter = totalUrl.substring(totalUrl.indexOf('?'), totalUrl.includes("ext=") && !totalUrl.includes("step=5") ? totalUrl.lastIndexOf('&ext=') : totalUrl.lastIndexOf('&'));
-	var reverse = new URLSearchParams(preParameter);
 	
-	preParameter = preParameter.replace('step='+String(reverse.get('step')),'step='+String(reverse.get('step') - 1))
-
-	var preUrl = $('.naviNext').attr('preUrl') + ".html"+preParameter;
-
+	var preParameter = currentUrl.substring(currentUrl.indexOf('&modelCode='), preStep == 3 ? currentUrl.lastIndexOf('&ext=') : currentUrl.lastIndexOf('&'));
+	var preUrl = $('.naviNext').attr('prePath') + ".html?step="+preStep+preParameter;
+	
 	location.href = preUrl;
+	
 
 }
 

@@ -48,16 +48,16 @@ public class Build001Model {
 		
 		
 		
-		//카테고리 리스트를 가져옵니다.
+		/*
+		 * 카테고리 리스트를 가져옵니다.
+		 */
 		categoryList = service.getCategoryAPI().getCategoryList();
 		
 		
-		//모델 리스트를 가져옵니다.
+		/*
+		 * 모델 리스트를 가져옵니다.
+		 */
 		modelList = service.getModelListAPI().getModelList();
-		
-		
-		
-	
 		
 		
 	}

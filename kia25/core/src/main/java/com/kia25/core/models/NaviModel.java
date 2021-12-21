@@ -49,7 +49,7 @@ public class NaviModel {
 	
 	
 	/*
-	 * dilog한 데이터
+	 * dialog한 데이터
 	 */
 	private String prePath;
 	private String preStep;

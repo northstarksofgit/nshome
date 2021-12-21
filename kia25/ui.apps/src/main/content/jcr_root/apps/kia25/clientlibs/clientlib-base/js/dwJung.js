@@ -367,9 +367,7 @@ function nextStep(){
 	*/
 	var totalUrl = window.location.href;
 	var preUrl = totalUrl.substr(totalUrl.indexOf('&modelCode='), totalUrl.length);
-	
-	// 테스트용 코드 : 추후에 동적으로 바뀌어야하는 부분
-	colorCode = "&ext="+null+"&int="+null;
+
 	
 	/*
 	* dialog한 data
@@ -384,7 +382,7 @@ function nextStep(){
 		
 	}else if(toGoStep == "4"){
 		
-		toGoPath += colorCode;
+		toGoPath += "&ext="+$('input[name=ext]').val()+"&int="+$('input[name=int]').val();
 		
 	}else if(toGoStep == "5"){
 		

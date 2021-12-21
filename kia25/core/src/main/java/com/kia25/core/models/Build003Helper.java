@@ -1,10 +1,7 @@
 package com.kia25.core.models;
 
 import java.io.IOException;
-import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 
 import javax.annotation.PostConstruct;
 
@@ -105,10 +102,4 @@ public class Build003Helper {
 //	colorGroupMap.put("extColorPath", colorGroup.getColorImgPath());
 //	colorGroupList.add(colorGroupMap);
 //}
-//
-//for (ColorDto color : exteriorList) {
-//	Map<String, Object> colorMap = new HashMap<>();
-//	colorMap.put("trimCode", color.getColorCode());
-//	colorMap.put("trimName", color.getColorName());
-//	colorGroupList.add(colorMap);
-//}
+

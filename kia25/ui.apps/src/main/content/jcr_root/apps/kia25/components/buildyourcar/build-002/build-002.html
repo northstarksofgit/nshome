@@ -9,7 +9,7 @@
 
     <div class="estimate_online_wrap">
 
-        step 시작
+<!--         step 시작 -->
         <div class="step_wrap">
             <ul>
                 <li class="step1">
@@ -35,8 +35,9 @@
                     <span class="basic">견적완료</span>
                 </li>
             </ul>
-        </div>// byoTab
-        // step 끝
+        </div>
+<!--         // byoTab -->
+<!--         // step 끝 -->
 
        <div class="inner build_car">
 		   <div class="build_preview">
@@ -44,7 +45,7 @@
 				  <h4 class="hidden">STEP 1 상세차종선택</h4>
 				    <div class="car_name">
 	
-				 		상세 차종 선택 페이지
+<!-- 				 		상세 차종 선택 페이지 -->
 			    		<strong class="name">
 			        		${detail.detailData.carModelName}
 			        	</strong>	
@@ -60,7 +61,7 @@
 		    <div class="model sel caroption">
 			    <h5 class="tit">모델 <em class="hidden">선택</em></h5>
 
-				carGroupList에 담긴 값 가져오기
+<!-- 				carGroupList에 담긴 값 가져오기 -->
 				<sly data-sly-list.group="${detail.carGroupList}" data-sly-test="${detail.carGroupList}">
 					<sly data-sly-test="${groupList.count == 1}">
 				        <span class="form_chk carGroup" data-carGroupCode="${group.carGroupCode}">
@@ -80,7 +81,7 @@
 			    <div class="trans sel transmission">
 			    	<h5 class="tit">변속기 <em class="hidden">선택</em></h5>
 			    	
-			    	transmissonList에 담긴 값 가져오기
+<!-- 			    	 transmissonList에 담긴 값 가져오기 -->
 				    <sly data-sly-list.trans="${detail.transmissionList}" data-sly-test="${detail.transmissionList}">
 					    <span class="form_chk transmission" data-transCode="${trans.transmissionCode}" style="display: block; display:inline-block;">
 						    <sly data-sly-test="${trans.transmissionCode == 'automatic'}">
@@ -113,7 +114,7 @@
 		     <h5 class="tit">상세 차종 선택</h5>
 		    
 		    
-			 trimList에 담긴 값 가져오기
+<!-- 			 trimList에 담긴 값 가져오기 -->
 			 <ul class="box_u">
 				 <sly data-sly-list.trim="${detail.trimList}">
 				     <div class="trimselector slide_box trim-list" hid="false" data-car="${trim.carGroupCode}" style="display: block;">

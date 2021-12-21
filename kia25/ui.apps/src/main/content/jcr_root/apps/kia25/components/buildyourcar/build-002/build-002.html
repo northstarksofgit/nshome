@@ -64,7 +64,7 @@
 				<sly data-sly-list.group="${detail.carGroupList}" data-sly-test="${detail.carGroupList}">
 					<sly data-sly-test="${groupList.count == 1}">
 				        <span class="form_chk carGroup" data-carGroupCode="${group.carGroupCode}">
-				            <input type="radio" prefer="client" carimage="${group.carImagePath}" value="${group.carGroupCode}" name="sample1" id="sample1_${groupList.count}" checked="checked">
+				            <input type="radio" prefer="client" carimage="${group.carImagePath}" value="${group.carGroupCode}" name="sample1" id="sample1_${groupList.count}">
 				            <label for="sample1_${groupList.count}" class="form_spr carGroup-radio radio_box on">${group.carGroupName}</label>
 				        </span>
 					</sly>    
@@ -84,11 +84,11 @@
 				    <sly data-sly-list.trans="${detail.transmissionList}" data-sly-test="${detail.transmissionList}">
 					    <span class="form_chk transmission" data-transCode="${trans.transmissionCode}" style="display: block; display:inline-block;">
 						    <sly data-sly-test="${trans.transmissionCode == 'automatic'}">
-						    	<input type="radio" name="sample2" id="sample2_${transList.count}" value=${trans.transmissionCode} checked="checked">
+						    	<input type="radio" name="sample2" id="sample2_${transList.count}" value=${trans.transmissionCode}>
 						    	<label for="sample2_${transList.count}" class="form_spr trans-radio radio_box on">${trans.transmissionName}</label>
 						    </sly>
 						    <sly data-sly-test="${trans.transmissionCode == 'manual'}">
-						    	<input type="radio" name="sample2" id="sample2_${transList.count}" value=${trans.transmissionCode} checked="">
+						    	<input type="radio" name="sample2" id="sample2_${transList.count}" value=${trans.transmissionCode}>
 						    	<label for="sample2_${transList.count}" class="form_spr trans-radio radio_box">${trans.transmissionName}</label>
 						    </sly>	
 					    </span>	

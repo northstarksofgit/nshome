@@ -15,9 +15,9 @@ $(document).ready(function() {
 	var liTrim = $(".trim_click");
 	
 	
-	// 페이지 로딩시 기본으로 선택된 carGroupCode 값
 	if(liTrim.length > 0){
 		
+		// 페이지 로딩시 기본으로 선택된 carGroupCode 값
 		var defaultCarGroup = $(liTrim).parent()[0].dataset.car;
 	
 		// 페이지 로딩시 기본으로 선택된 transmissionCode 값
@@ -25,7 +25,10 @@ $(document).ready(function() {
 		
 		// 페이지 로딩시 기본으로 선택되는 trim
 		trimShowHide(defaultCarGroup, defaultTrans);
-		$('.form_chk.carGroup').trigger('click');
+		
+		
+//		$('.form_chk.carGroup').trigger('click');
+//		$('.form_chk.transmission').trigger('click');
 		trimOn();
 		
 		// 해당하는 trim만 show / 나머지는 hide 해주는 함수 
@@ -40,7 +43,6 @@ $(document).ready(function() {
 				} else {
 					
 					liTrim[i].style.display = 'block';
-					
 				}	
 			}
 		}
@@ -52,6 +54,7 @@ $(document).ready(function() {
 			selectedCarGroupCode = $(this)[0].dataset.cargroupcode;
 			$('.carGroup-radio').removeClass('on');
 			$(this).find('label').addClass('on');
+			trimOn();
 			
 			trimShowHide(selectedCarGroupCode, defaultTrans);
 			
@@ -75,13 +78,14 @@ $(document).ready(function() {
 			selectedTransCode = $(this)[0].dataset.transcode;
 					
 			radioTrans.removeClass('on');
+			$(this).children('label').addClass('on');
 			
 			for(var i = 0; i < radioTrans.length; i++){
 				
 				if(liTrim[i].style.display == 'block'){
 					
-					radioTrans.addClass('on');
-					break;
+					$(this).children('label').addClass('on');
+					
 				} else {
 					radioTrans.removeClass('on');
 				}
@@ -95,6 +99,7 @@ $(document).ready(function() {
 					if($(this)[0].dataset.transcode == selectedTransCode){
 						
 						liTrim[i].style.display = 'block';
+						$(this).children('label').addClass('on');
 						trimShowHide(selectedCarGroupCode, selectedTransCode);
 						
 					} else {
@@ -104,7 +109,11 @@ $(document).ready(function() {
 				} else {
 					
 					liTrim[i].style.display = 'none';
+					
+//					radioTrans.removeClass('on');
+					
 					trimShowHide(defaultCarGroup, selectedTransCode);
+//					trimOn();
 				}
 			}
 			trimOn();
@@ -119,24 +128,27 @@ $(document).ready(function() {
 				if(liTrim[i].style.display == 'block'){
 					
 					// 자바스크립트 방식으로 addClass
-					liTrim[i].classList.add('on');
+					//liTrim[i].classList.add('on');
+
+					$(liTrim[i]).addClass('on');
+					addTrimToNavi();
 					break;
 				}
 			}	
+			naviTrimCode = $(this).find('#naviTrimCode').val();
 		}
 		
 		
-		//trim 클릭시 실행되는 함수
+		// trim 클릭시 선택한 trim을 on시켜주는 함수
 		$('.trim_click').on('click', function(e){
 			e.preventDefault();
 			
 			$('.trim_click').removeClass('on');
 			$(this).addClass('on');
+			addTrimToNavi();
 			
 			naviTrimCode = $(this).find('#naviTrimCode').val();
-			
 		})
-	
 	}
 
 })

@@ -83,27 +83,14 @@
 			    	<!-- transmissonList에 담긴 값 가져오기 -->
 				    <sly data-sly-list.trans="${detail.transmissionList}" data-sly-test="${detail.transmissionList}">
 					    <span class="form_chk transmission" data-transCode="${trans.transmissionCode}" style="display: block; display:inline-block;">
-					    	<sly data-sly-test="${transList.count == 1}">
-						    	<!-- 조건문 + 반복문 -->
-							    <sly data-sly-test="${trans.transmissionCode == 'automatic'}">
-							    	<input type="radio" name="sample2" id="sample2_${transList.count}" value=${trans.transmissionCode} checked="checked">
-							    	<label for="sample2_${transList.count}" class="form_spr trans-radio radio_box on">${trans.transmissionName}</label>
-							    </sly>
-							    <sly data-sly-test="${trans.transmissionCode == 'manual'}">
-							    	<input type="radio" name="sample2" id="sample2_${transList.count}" value=${trans.transmissionCode} checked="">
-							    	<label for="sample2_${transList.count}" class="form_spr trans-radio radio_box">${trans.transmissionName}</label>
-							    </sly>	
+						    <sly data-sly-test="${trans.transmissionCode == 'automatic'}">
+						    	<input type="radio" name="sample2" id="sample2_${transList.count}" value=${trans.transmissionCode} checked="checked">
+						    	<label for="sample2_${transList.count}" class="form_spr trans-radio radio_box on">${trans.transmissionName}</label>
 						    </sly>
-						    <sly data-sly-test="${transList.count != 1}">
-						      <sly data-sly-test="${trans.transmissionCode == 'automatic'}">
-							    	<input type="radio" name="sample2" id="sample2_${transList.count}" value=${trans.transmissionCode} checked="checked">
-							    	<label for="sample2_${transList.count}" class="form_spr trans-radio radio_box">${trans.transmissionName}</label>
-							    </sly>
-							    <sly data-sly-test="${trans.transmissionCode == 'manual'}">
-							    	<input type="radio" name="sample2" id="sample2_${transList.count}" value=${trans.transmissionCode} checked="">
-							    	<label for="sample2_${transList.count}" class="form_spr trans-radio radio_box">${trans.transmissionName}</label>
-							    </sly>
-						    </sly>
+						    <sly data-sly-test="${trans.transmissionCode == 'manual'}">
+						    	<input type="radio" name="sample2" id="sample2_${transList.count}" value=${trans.transmissionCode} checked="">
+						    	<label for="sample2_${transList.count}" class="form_spr trans-radio radio_box">${trans.transmissionName}</label>
+						    </sly>	
 					    </span>	
 				   </sly>  
 			    </div>

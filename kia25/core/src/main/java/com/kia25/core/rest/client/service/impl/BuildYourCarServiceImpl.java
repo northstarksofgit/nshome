@@ -90,7 +90,7 @@ public class BuildYourCarServiceImpl implements BuildYourCarService {
 			if (modelCode.equals("EV6")) {
 				url = "trim-list-E";
 				
-			// 차종이 EV6가 아닌 경우 (성력)
+			// 차종이 EV6가 아닌 경우
 			} else {
 				url = "trim-list-S";
 			}
@@ -105,6 +105,7 @@ public class BuildYourCarServiceImpl implements BuildYourCarService {
 			return result;
 			
 		} catch (IOException e) {
+			
 			LOG.debug("response={}", "error");
 			e.printStackTrace();
 			

@@ -33,7 +33,7 @@ public class Build002Model {
     private SlingHttpServletRequest request;
 	
 	private String modelCode = null;
-	private String backFirstPage = null;
+	private String firstPage = null;
 	
 	private ModelDetailListDtoResults detailResults;
 	private ModelDetailListDto detailData;
@@ -48,25 +48,29 @@ public class Build002Model {
 	@PostConstruct
 	public void activate() throws Exception{
 		
+		try {
 			
-		ValueMap valueMap = resource.getValueMap();
-		backFirstPage = (String)valueMap.getOrDefault("firstPage", null);
-		log.info(backFirstPage);
-		
-		backFirstPage += ".html";
-		
-		/**
-		 * 파라미터에서 modelCode 받아와서 변수 선언
-		 */
-		modelCode = request.getParameter("modelCode");
-		
-		detailResults = service.getModelDetailAPI(modelCode);
-		
-		detailData = detailResults.getData();
-		carGroupList = detailData.getCarGroupList();
-		transmissionList = detailData.getTransmissionList();
-		trimList = detailData.getTrimList();
-
+			/**
+			 * 파라미터에서 modelCode 받아와서 변수 선언
+			 */
+			modelCode = request.getParameter("modelCode");
+			
+			detailResults = service.getModelDetailAPI(modelCode);
+			
+			detailData = detailResults.getData();
+			carGroupList = detailData.getCarGroupList();
+			transmissionList = detailData.getTransmissionList();
+			trimList = detailData.getTrimList();
+				
+			ValueMap valueMap = resource.getValueMap();
+			firstPage = (String)valueMap.getOrDefault("firstPage", null);
+			
+			firstPage += ".html";
+			
+			
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
 	
 	}
 
@@ -135,13 +139,13 @@ public class Build002Model {
 	}
 
 
-	public String getBackFirstPage() {
-		return backFirstPage;
+	public String getFirstPage() {
+		return firstPage;
 	}
 
 
-	public void setBackFirstPage(String backFirstPage) {
-		this.backFirstPage = backFirstPage;
+	public void setFirstPage(String firstPage) {
+		this.firstPage = firstPage;
 	}
 
 

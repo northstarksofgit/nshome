@@ -39,34 +39,28 @@ public class Build003Helper {
 
 	private String modelCode = null;
 	private String trimName = null;
-	
+
 	private String getModelCode = null;
 	private String getTrimCode = null;
-	
-	
-	
+
 	/*
 	 * colorAllList 한번만 호출하기 위함 colorData inte, exte 이외의 데이터 용 colorList 인테리어용
 	 * exteriorList 익스테러어 용
 	 */
-	
+
 	@PostConstruct
 	public void activate() throws IOException {
 
-		
 		try {
 			getModelCode = request.getParameter("modelCode").toUpperCase();
 			getTrimCode = request.getParameter("trimCode");
-		//	getExtCode = request.getParameter("ext");
-		//	getIntCode = request.getParameter("int");
-		//	getOptionCode = request.getParameter("option");
-			
+
 			colorAllList = service.getColorAPI(getModelCode, getTrimCode);
 			colorData = colorAllList.getData();
 			exteriorList = colorData.getExteriorList();
 			interiorList = colorData.getInteriorList();
-			 
-		} catch(Exception e) {
+
+		} catch (Exception e) {
 			e.printStackTrace();
 		}
 
@@ -97,3 +91,15 @@ public class Build003Helper {
 	}
 
 }
+//private List<Map<String, Object>> colorGroupList = new ArrayList<Map<String, Object>>();
+
+//for (ColorDto colorGroup : exteriorList) {
+//
+//	Map<String, Object> colorGroupMap = new HashMap<>();
+//
+//	colorGroupMap.put("extColorCode", colorGroup.getColorCode());
+//	colorGroupMap.put("extColorName", colorGroup.getColorName());
+//	colorGroupMap.put("extColorPath", colorGroup.getColorImgPath());
+//	colorGroupList.add(colorGroupMap);
+//}
+

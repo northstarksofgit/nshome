@@ -71,30 +71,33 @@ public class NaviModel {
 	public void activate() throws  Exception {
 		
 		
-
+		/*
+		 * url로 넘어온 파라미터
+		 */
 		modelCode = request.getParameter("modelCode");
-		trimCode = request.getParameter("modelCode");
+		trimCode = request.getParameter("trimCode");
 		extCode = request.getParameter("ext");
-		intCode = request.getParameter("intCode");
+		intCode = request.getParameter("int");
 		optionCode = request.getParameter("option");
 		
-		
+
 		ValueMap valueMap = resource.getValueMap();
+		
+		/*
+		 * dialog한 node에서 가져온 value
+		 */
 		
 		prePath = (String) valueMap.getOrDefault("prePath", "/");
 		preStep = (String) valueMap.getOrDefault("preStep", "1");
 		toGoPath = (String) valueMap.getOrDefault("toGoPath", "/");
 		toGoStep  = (String) valueMap.getOrDefault("toGoStep", "1");
-		
-		LOG.info("toGoStep: "+toGoStep);		
-		
+			
 
 		/*
 		 * summary정보 호출
 		 */
 		
 		summary = service.getSummaryAPI(toGoStep, modelCode, trimCode, extCode, intCode, optionCode);
-		
 		
 		
 	}

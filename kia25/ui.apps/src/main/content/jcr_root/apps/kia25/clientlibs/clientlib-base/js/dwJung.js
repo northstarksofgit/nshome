@@ -197,11 +197,9 @@ function updateBuildOption() {
 */
 function totalSum(price){
 	
-	var initprice = parseInt($('.btn_totalCon_open > .price').attr('initprice'));
-	var sumPrice = price + initprice;
-	var sumPriceStr = makeComma(sumPrice);
+	var sumPrice = price + parseInt($('.btn_totalCon_open > .price').attr('initprice'));
 	
-	$('.btn_totalCon_open > .price').text(sumPriceStr);
+	$('.btn_totalCon_open > .price').text(makeComma(sumPrice));
 	
 }
 
@@ -224,9 +222,8 @@ function makeComma(str) {
 */
 function addTrimToNavi(){
 	
-	var len = $('.trim_click').length;
 
-	for(var i = 0; i<len; i++){
+	for(var i = 0; i<$('.trim_click').length; i++){
 		
 		if($($('.trim_click')[i]).hasClass('on')){
 			
@@ -290,7 +287,7 @@ function addColorToNavi(){
 	//내장재 저장
 	var interior = $('.interiorOption');
 
-	for( var i=0; i<interior.length; i++){
+	for(var i=0; i<interior.length; i++){
 		
 		if($(interior[i]).hasClass('on')){
 			
@@ -339,7 +336,7 @@ function addHowToBuy(){
 		$('.con_pay').append('<span><em class="tit">할부원금</em><em class="txt">'+makeComma(parseInt($('.initFee').val()+'0000'))+'원</em></span>');
 	}
 	
-	if( pricefree == 'no'){
+	if(pricefree == 'no'){
 		$('.con_pay').append('<span><em class="tit">차량가</em><em class="txt">과세</em></span>');
 	}else{
 		$('.con_pay').append('<span><em class="tit">차량가</em><em class="txt">면세</em></span>');
@@ -363,7 +360,6 @@ function nextStep(){
 	
 	/*
 	* 이전 단계의 url 파라미터
-	* preUrl 출력 예시 :  modelCode=EV6
 	*/
 	var totalUrl = window.location.href;
 	var preUrl = totalUrl.substr(totalUrl.indexOf('&modelCode='), totalUrl.length);
@@ -372,9 +368,9 @@ function nextStep(){
 	/*
 	* dialog한 data
 	*/
-	
 	const toGoStep = $('.naviNext').attr('toGoStep');
 	var toGoPath = $('.naviNext').attr('toGoPath') + ".html?step="+toGoStep+preUrl;
+	
 	
 	if(toGoStep == "3"){
 		
@@ -383,12 +379,12 @@ function nextStep(){
 	}else if(toGoStep == "4"){
 		
 		toGoPath += "&ext="+$('input[name=ext]').val()+"&int="+$('input[name=int]').val();
+		toGoPath = toGoPath.replace('#', '');
 		
 	}else if(toGoStep == "5"){
 		
 		toGoPath += "&option="+selectedOptList.toString();
 	}
-	
 	
 	location.href = toGoPath;
 

@@ -146,11 +146,13 @@
     	$('.transfeeSi-sub')[0].style.height = '56px';
     	var parentValue = $(this)[0].dataset.value;
     	var subItemList = $('.transfeeSi-subItem');
-    	
+    	   	
     	for(var i=0; i<subItemList.length; i++) {
     		if(parentValue == $(subItemList[i])[0].dataset.parentvalue) {
+    			console.log("if")
     			$(subItemList[i])[0].style.display = 'block';
     		} else {
+    			console.log("else")
     			$(subItemList[i])[0].style.display = 'none';
     		}
     	}

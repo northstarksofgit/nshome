@@ -38,7 +38,6 @@ public class HowToBuyModel {
 	private AreaListDto areaData;
 	private List<AreaDto> areaList;
 	private List<TransDto> transList;
-	private List<Map<String, Object>> siSubList = new ArrayList<Map<String, Object>>();
 	
 	 
 	@PostConstruct
@@ -48,19 +47,6 @@ public class HowToBuyModel {
 		areaData = areaRestuls.getData();
 		areaList = areaData.getAreaList();
 		transList = areaData.getTransList();
-		
-			
-		for(AreaDto aa : areaList){
-			for(AreaSiSubDto bb : aa.getSiSub()) {
-				
-				Map<String, Object> map = new HashMap<String, Object>();
-				map.put("siCode", aa.getSiCode());
-				
-				map.put("siSubCode", bb.getSiSubCode());
-				map.put("siSubName", bb.getSiSubName());
-				siSubList.add(map);
-			}
-		}
 		
 	}
 	
@@ -80,11 +66,6 @@ public class HowToBuyModel {
 
 	public List<AreaDto> getAreaList() {
 		return areaList;
-	}
-
-
-	public List<Map<String, Object>> getSiSubList() {
-		return siSubList;
 	}
 
 

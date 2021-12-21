@@ -174,19 +174,21 @@
                                         
                                         <ul class="select-list transfeeSi-sub" style="visibility: visible; top: 39px; height: 56px; left: 0px; display: none;">
                                             <li><a title="선택하세요" href="JavaScript:void(0);" class="select-list-link transfeeSi-subItem select-list-selected" style="outline-style: none;">선택하세요</a></li>
-                                            <sly data-sly-list.sub="${how.siSubList}" >
-                                           		<li>
-                                           			<a 
-                                            				title="${sub.siSubName}" 
-                                            				data-value="${sub.siSubCode}" 
-                                            				data-parentValue="${sub.siCode}"
-                                            				href="JavaScript:void(0);" 
-                                            				class="select-list-link transfeeSi-subItem" 
-                                            				style="outline-style: none; display:none;"
-                                            			>${sub.siSubName}
-                                           			</a>
-                                           		</li>
-                                            </sly>
+                                            	<sly data-sly-list.area="${how.areaList}">
+	                                            	<sly data-sly-list.sub="${area.siSub}" >
+	                                           		<li>
+	                                           			<a 
+	                                            			title="${sub.siSubName}" 
+															data-value="${sub.siSubCode}" 
+															data-parentValue="${area.siCode}"
+															href="JavaScript:void(0);" 
+															class="select-list-link transfeeSi-subItem" 
+															style="outline-style: none; display:none;"
+															>${sub.siSubName}
+	                                           			</a>
+	                                           		</li>
+	                                           		</sly>
+                                           		</sly>
                                         </ul>
                                     </div>
                                 </span>

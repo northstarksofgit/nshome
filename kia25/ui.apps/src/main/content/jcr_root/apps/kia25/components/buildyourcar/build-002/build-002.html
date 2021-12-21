@@ -1,274 +1,140 @@
 
-<!-- <sly data-sly-use.detail="com.kia25.core.models.Build002Model"> -->
-
-<!-- <template data-sly-template.formattedPrice="${ @ price}"> -->
-<!-- 	<span data-sly-use.priceFormatter="${'com.kia25.core.models.CurrencyFormatterModel' @ value=price}"> -->
-<!-- 		${priceFormatter.formattedPrice} -->
-<!-- 	</span> -->
-<!-- </template> -->
-
-<!--     <div class="estimate_online_wrap"> -->
-
-<!--         step 시작 -->
-<!--         <div class="step_wrap"> -->
-<!--             <ul> -->
-<!--                 <li class="step1"> -->
-<!--                     <a href="${detail.firstPage}"> -->
-<!--                         <span>처음으로</span> -->
-<!--                     </a> -->
-<!--                 </li> -->
-                
-<!--                 <li class="step2 on"> -->
-<!--                     <span class="basic">상세차종 선택</span> -->
-<!--                 </li> -->
-<!--                 <li class="step3 "> -->
-<!--                     <span class="basic">컬러 선택</span> -->
-<!--                 </li> -->
-<!--                 <li class="step4 "> -->
-<!--                     <span class="basic">옵션 선택</span> -->
-<!--                 </li> -->
-<!--                 <li class="step5 "> -->
-<!--                     <span class="basic">구매 방법</span> -->
-<!--                     <span class="result"></span> -->
-<!--                 </li> -->
-<!--                 <li class="step6 "> -->
-<!--                     <span class="basic">견적완료</span> -->
-<!--                 </li> -->
-<!--             </ul> -->
-<!--         </div>// byoTab -->
-<!--         // step 끝 -->
-
-<!--        <div class="inner build_car"> -->
-<!-- 		   <div class="build_preview"> -->
-<!-- 			  <div class="preview"> -->
-<!-- 				  <h4 class="hidden">STEP 1 상세차종선택</h4> -->
-<!-- 				    <div class="car_name"> -->
-	
-<!-- 				 		상세 차종 선택 페이지 -->
-<!-- 			    		<strong class="name"> -->
-<!-- 			        		${detail.detailData.carModelName} -->
-<!-- 			        	</strong>	 -->
-<!-- 				        <button type="button" class="btn_car" onclick="fnOpenSelectCarPop()">다른 차량 선택</button> -->
-<!-- 			        </div> -->
-	
-<!-- 				    <div class="car_img" > -->
-<!-- 				        <img src="${detail.detailData.carImagePath}" alt="${detail.detailData.carModelName}"> -->
-<!-- 				        <p class="car_desc">※ 본 차량의 이미지는 실제와 다를 수 있습니다.</p> -->
-<!-- 				    </div> -->
-<!-- 				 </div> -->
-			 
-<!-- 		    <div class="model sel caroption"> -->
-<!-- 			    <h5 class="tit">모델 <em class="hidden">선택</em></h5> -->
-
-<!-- 				carGroupList에 담긴 값 가져오기 -->
-<!-- 				<sly data-sly-list.group="${detail.carGroupList}" data-sly-test="${detail.carGroupList}"> -->
-<!-- 					<sly data-sly-test="${groupList.count == 1}"> -->
-<!-- 				        <span class="form_chk carGroup" data-carGroupCode="${group.carGroupCode}"> -->
-<!-- 				            <input type="radio" prefer="client" carimage="${group.carImagePath}" value="${group.carGroupCode}" name="sample1" id="sample1_${groupList.count}"> -->
-<!-- 				            <label for="sample1_${groupList.count}" class="form_spr carGroup-radio radio_box on">${group.carGroupName}</label> -->
-<!-- 				        </span> -->
-<!-- 					</sly>     -->
-<!-- 					<sly data-sly-test="${groupList.count != 1}"> -->
-<!-- 				        <span class="form_chk carGroup" data-carGroupCode="${group.carGroupCode}"> -->
-<!-- 				            <input type="radio" prefer="client" carimage="${group.carImagePath}" value="${group.carGroupCode}" name="sample1" id="sample1_${groupList.count}"> -->
-<!-- 				            <label for="sample1_${groupList.count}" class="form_spr carGroup-radio radio_box">${group.carGroupName}</label> -->
-<!-- 				        </span> -->
-<!-- 					</sly>  -->
-<!-- 				</sly> -->
-<!-- 			 </div> -->
-
-<!-- 			    <div class="trans sel transmission"> -->
-<!-- 			    	<h5 class="tit">변속기 <em class="hidden">선택</em></h5> -->
-			    	
-<!-- 			    	transmissonList에 담긴 값 가져오기 -->
-<!-- 				    <sly data-sly-list.trans="${detail.transmissionList}" data-sly-test="${detail.transmissionList}"> -->
-<!-- 					    <span class="form_chk transmission" data-transCode="${trans.transmissionCode}" style="display: block; display:inline-block;"> -->
-<!-- 						    <sly data-sly-test="${trans.transmissionCode == 'automatic'}"> -->
-<!-- 						    	<input type="radio" name="sample2" id="sample2_${transList.count}" value=${trans.transmissionCode}> -->
-<!-- 						    	<label for="sample2_${transList.count}" class="form_spr trans-radio radio_box on">${trans.transmissionName}</label> -->
-<!-- 						    </sly> -->
-<!-- 						    <sly data-sly-test="${trans.transmissionCode == 'manual'}"> -->
-<!-- 						    	<input type="radio" name="sample2" id="sample2_${transList.count}" value=${trans.transmissionCode}> -->
-<!-- 						    	<label for="sample2_${transList.count}" class="form_spr trans-radio radio_box">${trans.transmissionName}</label> -->
-<!-- 						    </sly>	 -->
-<!-- 					    </span>	 -->
-<!-- 				   </sly>   -->
-<!-- 			    </div> -->
-			    
-<!-- 			    <div class="build_graph hide"> -->
-<!-- 			    	<h5 class="tit">고객 선호 차종</h5> -->
-<!-- 				    <div class="graph" style="background-position: 0px -10488px;"> -->
-<!-- 				        <span class="rate"><em class="num">57</em>%</span> -->
-<!-- 				    </div> -->
-<!-- 				    <ol class="rank"> -->
-<!-- 				        <li><em class="num">1위</em>EV6 롱 레인지 어스(Earth)</li> -->
-<!-- 				        <li><em class="num">2위</em>EV6 롱 레인지 에어(Air)</li> -->
-<!-- 				        <li><em class="num">3위</em>EV6 롱 레인지 GT-Line</li> -->
-<!-- 				    </ol> -->
-<!-- 			    </div> -->
-<!-- 		   </div>      -->
-<!-- 	    </div> -->
-<!-- 	    <p class="line_wrap"></p> -->
-<!-- 	    <div class="inner build_car build_area build_trim"> -->
-<!-- 		     <h5 class="tit">상세 차종 선택</h5> -->
-		    
-		    
-<!-- 			 trimList에 담긴 값 가져오기 -->
-<!-- 			 <ul class="box_u"> -->
-<!-- 				 <sly data-sly-list.trim="${detail.trimList}"> -->
-<!-- 				     <div class="trimselector slide_box trim-list" hid="false" data-car="${trim.carGroupCode}" style="display: block;"> -->
-<!-- 					     <li class="box_l trim_click" price="${trim.sellingPrice}" aimg="https://www.kia.com/content/dam/kwcms/kr/ko/images/byo/car_ev6_standard.png" value="${trim.carGroupCode}" trim="CVJJ5VI31-A" data-trim="${trim.trimCode}" data-trans="${trim.transmissionCode}" tmp="off"> -->
-<!-- 					         <a href="#" class="box_a">			         -->
-<!-- 					             <div class="box">			      -->
-<!-- 						         <input type="hidden" id="naviTrimCode" name="naviTrimCode" value="${trim.trimCode}" /> -->
-<!-- 					                 <span class="h">${trim.trimName}</span>  -->
-<!-- 									 <span class="price"> -->
-<!-- 									 	<sly data-sly-call="${formattedPrice @ price=trim.sellingPrice}"></sly> -->
-<!-- 									 	<em>원</em> -->
-<!-- 									 </span> -->
-<!-- 					             </div> -->
-<!-- 					         </a> -->
-<!-- 					     </li>	  -->
-<!-- 				 	 </div> -->
-<!-- 				 </sly>		 -->
-<!-- 			 </ul> -->
-<!-- 	     </div> -->
-
-<!-- </sly> -->
-
-<!--     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script> -->
-
-
-
-
 <sly data-sly-use.detail="com.kia25.core.models.Build002Model">
 
-    <template data-sly-template.formattedPrice="${ @ price}">
-        <span data-sly-use.priceFormatter="${'com.kia25.core.models.CurrencyFormatterModel' @ value=price}">
-            ${priceFormatter.formattedPrice}
-        </span>
-    </template>
-    
-        <div class="estimate_online_wrap">
-    
-            <!-- step 시작 -->
-            <div class="step_wrap">
-                <ul>
-                    <li class="step1">
-                        <a href="/content/kia25/us/build001-test.html">
-                            <span>처음으로</span>
-                        </a>
-                    </li>
-                    
-                    <li class="step2 on">
-                        <span class="basic">상세차종 선택</span>
-                    </li>
-                    <li class="step3 ">
-                        <span class="basic">컬러 선택</span>
-                    </li>
-                    <li class="step4 ">
-                        <span class="basic">옵션 선택</span>
-                    </li>
-                    <li class="step5 ">
-                        <span class="basic">구매 방법</span>
-                        <span class="result"></span>
-                    </li>
-                    <li class="step6 ">
-                        <span class="basic">견적완료</span>
-                    </li>
-                </ul>
-            </div><!-- // byoTab -->
-            <!-- // step 끝 -->
-    
-           <div class="inner build_car">
-               <div class="build_preview">
-                  <div class="preview">
-                      <h4 class="hidden">STEP 1 상세차종선택</h4>
-                        <div class="car_name">
-        
-                             <!-- 상세 차종 선택 페이지 -->
-                            <strong class="name">
-                                ${detail.detailData.carModelName}
-                            </strong>	
-                            <button type="button" class="btn_car" onclick="fnOpenSelectCarPop()">다른 차량 선택</button>
-                        </div>
-        
-                        <div class="car_img" >
-                            <img src="${detail.detailData.carImagePath}" alt="${detail.detailData.carModelName}">
-                            <p class="car_desc">※ 본 차량의 이미지는 실제와 다를 수 있습니다.</p>
-                        </div>
-                     </div>
-                 
-                <div class="model sel caroption">
-                    <h5 class="tit">모델 <em class="hidden">선택</em></h5>
-    
-                    <!-- carGroupList에 담긴 값 가져오기 -->
-                    <sly data-sly-list.group="${detail.carGroupList}" data-sly-test="${detail.carGroupList}">
-                        <span class="form_chk carGroup" data-carGroupCode="${group.carGroupCode}">
-                            <input type="radio" prefer="client" carimage="${group.carImagePath}" value="${group.carGroupCode}" name="sample1" id="sample1_${groupList.count}" checked="checked">
-                            <label for="sample1_${groupList.count}" class="form_spr carGroup-radio radio_box">${group.carGroupName}</label>
-                        </span>
-                    </sly>
-                 </div>
-    
-                    <div class="trans sel transmission">
-                        <h5 class="tit">변속기 <em class="hidden">선택</em></h5>
-                        
-                        <!-- transmissonList에 담긴 값 가져오기 -->
-                        <sly data-sly-list.trans="${detail.transmissionList}" data-sly-test="${detail.transmissionList}">
-                            <span class="form_chk transmission" data-transCode="${trans.transmissionCode}" style="display: block; display:inline-block;">
-                                <!-- 조건문 + 반복문 -->
-                                <sly data-sly-test="${trans.transmissionCode == 'automatic'}">
-                                    <input type="radio" name="sample2" id="sample2_${transList.count}" value=${trans.transmissionCode} checked="checked">
-                                    <label for="sample2_${transList.count}" class="form_spr trans-radio radio_box">${trans.transmissionName}</label>
-                                </sly>
-                                <sly data-sly-test="${trans.transmissionCode == 'manual'}">
-                                    <input type="radio" name="sample2" id="sample2_${transList.count}" value=${trans.transmissionCode} checked="">
-                                    <label for="sample2_${transList.count}" class="form_spr trans-radio radio_box">${trans.transmissionName}</label>
-                                </sly>	
-                            </span>	
-                       </sly>  
-                    </div>
-                    
-                    <div class="build_graph hide">
-                        <h5 class="tit">고객 선호 차종</h5>
-                        <div class="graph" style="background-position: 0px -10488px;">
-                            <span class="rate"><em class="num">57</em>%</span>
-                        </div>
-                        <ol class="rank">
-                            <li><em class="num">1위</em>EV6 롱 레인지 어스(Earth)</li>
-                            <li><em class="num">2위</em>EV6 롱 레인지 에어(Air)</li>
-                            <li><em class="num">3위</em>EV6 롱 레인지 GT-Line</li>
-                        </ol>
-                    </div>
-               </div>     
-            </div>
-            <p class="line_wrap"></p>
-            <div class="inner build_car build_area build_trim">
-                 <h5 class="tit">상세 차종 선택</h5>
+<template data-sly-template.formattedPrice="${ @ price}">
+	<span data-sly-use.priceFormatter="${'com.kia25.core.models.CurrencyFormatterModel' @ value=price}">
+		${priceFormatter.formattedPrice}
+	</span>
+</template>
+
+    <div class="estimate_online_wrap">
+
+        step 시작
+        <div class="step_wrap">
+            <ul>
+                <li class="step1">
+                    <a href="${detail.firstPage}">
+                        <span>처음으로</span>
+                    </a>
+                </li>
                 
-                
-                 <!-- trimList에 담긴 값 가져오기 -->
-                 <ul class="box_u">
-                     <sly data-sly-list.trim="${detail.trimList}">
-                         <div class="trimselector slide_box trim-list" hid="false" data-car="${trim.carGroupCode}" data-trim="${trim.trimCode}" data-trans="${trim.transmissionCode}" data-price="${trim.sellingPrice}" style="display: none;">
-                             <li class="box_l trim_click" price="${trim.sellingPrice}" data-seq="${trimList.count}" aimg="https://www.kia.com/content/dam/kwcms/kr/ko/images/byo/car_ev6_standard.png" value="${trim.carGroupCode}" trim="CVJJ5VI31-A" tmp="off">
-                                 <a href="#" class="box_a">			        
-                                     <div class="box">			     
-                                     <input type="hidden" id="naviTrimCode" name="naviTrimCode" value="${trim.trimCode}" />
-                                         <span class="h">${trim.trimName}</span> 
-                                         <span class="price">
-                                             <sly data-sly-call="${formattedPrice @ price=trim.sellingPrice}"></sly>
-                                             <em>원</em>
-                                         </span>
-                                     </div>
-                                 </a>
-                             </li>	 
-                          </div>
-                     </sly>		
-                 </ul>
-             </div>
-    
-    </sly>
-    
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+                <li class="step2 on">
+                    <span class="basic">상세차종 선택</span>
+                </li>
+                <li class="step3 ">
+                    <span class="basic">컬러 선택</span>
+                </li>
+                <li class="step4 ">
+                    <span class="basic">옵션 선택</span>
+                </li>
+                <li class="step5 ">
+                    <span class="basic">구매 방법</span>
+                    <span class="result"></span>
+                </li>
+                <li class="step6 ">
+                    <span class="basic">견적완료</span>
+                </li>
+            </ul>
+        </div>// byoTab
+        // step 끝
+
+       <div class="inner build_car">
+		   <div class="build_preview">
+			  <div class="preview">
+				  <h4 class="hidden">STEP 1 상세차종선택</h4>
+				    <div class="car_name">
+	
+				 		상세 차종 선택 페이지
+			    		<strong class="name">
+			        		${detail.detailData.carModelName}
+			        	</strong>	
+				        <button type="button" class="btn_car" onclick="fnOpenSelectCarPop()">다른 차량 선택</button>
+			        </div>
+	
+				    <div class="car_img" >
+				        <img src="${detail.detailData.carImagePath}" alt="${detail.detailData.carModelName}">
+				        <p class="car_desc">※ 본 차량의 이미지는 실제와 다를 수 있습니다.</p>
+				    </div>
+				 </div>
+			 
+		    <div class="model sel caroption">
+			    <h5 class="tit">모델 <em class="hidden">선택</em></h5>
+
+				carGroupList에 담긴 값 가져오기
+				<sly data-sly-list.group="${detail.carGroupList}" data-sly-test="${detail.carGroupList}">
+					<sly data-sly-test="${groupList.count == 1}">
+				        <span class="form_chk carGroup" data-carGroupCode="${group.carGroupCode}">
+				            <input type="radio" prefer="client" carimage="${group.carImagePath}" value="${group.carGroupCode}" name="sample1" id="sample1_${groupList.count}">
+				            <label for="sample1_${groupList.count}" class="form_spr carGroup-radio radio_box on">${group.carGroupName}</label>
+				        </span>
+					</sly>    
+					<sly data-sly-test="${groupList.count != 1}">
+				        <span class="form_chk carGroup" data-carGroupCode="${group.carGroupCode}">
+				            <input type="radio" prefer="client" carimage="${group.carImagePath}" value="${group.carGroupCode}" name="sample1" id="sample1_${groupList.count}">
+				            <label for="sample1_${groupList.count}" class="form_spr carGroup-radio radio_box">${group.carGroupName}</label>
+				        </span>
+					</sly> 
+				</sly>
+			 </div>
+
+			    <div class="trans sel transmission">
+			    	<h5 class="tit">변속기 <em class="hidden">선택</em></h5>
+			    	
+			    	transmissonList에 담긴 값 가져오기
+				    <sly data-sly-list.trans="${detail.transmissionList}" data-sly-test="${detail.transmissionList}">
+					    <span class="form_chk transmission" data-transCode="${trans.transmissionCode}" style="display: block; display:inline-block;">
+						    <sly data-sly-test="${trans.transmissionCode == 'automatic'}">
+						    	<input type="radio" name="sample2" id="sample2_${transList.count}" value=${trans.transmissionCode}>
+						    	<label for="sample2_${transList.count}" class="form_spr trans-radio radio_box on">${trans.transmissionName}</label>
+						    </sly>
+						    <sly data-sly-test="${trans.transmissionCode == 'manual'}">
+						    	<input type="radio" name="sample2" id="sample2_${transList.count}" value=${trans.transmissionCode}>
+						    	<label for="sample2_${transList.count}" class="form_spr trans-radio radio_box">${trans.transmissionName}</label>
+						    </sly>	
+					    </span>	
+				   </sly>  
+			    </div>
+			    
+			    <div class="build_graph hide">
+			    	<h5 class="tit">고객 선호 차종</h5>
+				    <div class="graph" style="background-position: 0px -10488px;">
+				        <span class="rate"><em class="num">57</em>%</span>
+				    </div>
+				    <ol class="rank">
+				        <li><em class="num">1위</em>EV6 롱 레인지 어스(Earth)</li>
+				        <li><em class="num">2위</em>EV6 롱 레인지 에어(Air)</li>
+				        <li><em class="num">3위</em>EV6 롱 레인지 GT-Line</li>
+				    </ol>
+			    </div>
+		   </div>     
+	    </div>
+	    <p class="line_wrap"></p>
+	    <div class="inner build_car build_area build_trim">
+		     <h5 class="tit">상세 차종 선택</h5>
+		    
+		    
+			 trimList에 담긴 값 가져오기
+			 <ul class="box_u">
+				 <sly data-sly-list.trim="${detail.trimList}">
+				     <div class="trimselector slide_box trim-list" hid="false" data-car="${trim.carGroupCode}" style="display: block;">
+					     <li class="box_l trim_click" price="${trim.sellingPrice}" aimg="https://www.kia.com/content/dam/kwcms/kr/ko/images/byo/car_ev6_standard.png" value="${trim.carGroupCode}" trim="CVJJ5VI31-A" data-trim="${trim.trimCode}" data-trans="${trim.transmissionCode}" tmp="off">
+					         <a href="#" class="box_a">			        
+					             <div class="box">			     
+						         <input type="hidden" id="naviTrimCode" name="naviTrimCode" value="${trim.trimCode}" />
+					                 <span class="h">${trim.trimName}</span> 
+									 <span class="price">
+									 	<sly data-sly-call="${formattedPrice @ price=trim.sellingPrice}"></sly>
+									 	<em>원</em>
+									 </span>
+					             </div>
+					         </a>
+					     </li>	 
+				 	 </div>
+				 </sly>		
+			 </ul>
+	     </div>
+
+</sly>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+

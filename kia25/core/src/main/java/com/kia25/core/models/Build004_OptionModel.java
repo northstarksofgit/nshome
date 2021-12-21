@@ -57,6 +57,20 @@ public class Build004_OptionModel {
 		
 		try {
 			
+			/**
+			 * get Print Model-Option List 
+			 */
+			optionResults = buildYourCarService.getOptionlListAPI(
+																	request.getParameter("modelCode").toUpperCase(), 
+																	request.getParameter("trimCode").toUpperCase(), 
+																	request.getParameter("ext").toUpperCase(), 
+																	request.getParameter("int").toUpperCase()
+																);
+			
+			optionData = optionResults.getData();
+			optionList = optionData.getListOfOptions();
+			
+			
 			modelCode = "?modelCode=" + request.getParameter("modelCode").toUpperCase();
 			
 			trimCode = modelCode + "&trimCode=" + request.getParameter("trimCode");
@@ -73,23 +87,13 @@ public class Build004_OptionModel {
 			backToColor = (String) valueMap.getOrDefault("backToColor", null);
 			backToColor += ".html" + trimCode;
 			
+		
 			
 		} catch(Exception e) {
 			
 		}
 		
-		/**
-		 * get Print Model-Option List 
-		 */
-		optionResults = buildYourCarService.getOptionlListAPI(
-																request.getParameter("modelCode").toUpperCase(), 
-																request.getParameter("trimCode"), 
-																request.getParameter("ext"), 
-																request.getParameter("int")
-															);
 		
-		optionData = optionResults.getData();
-		optionList = optionData.getListOfOptions();
 	}
 
 

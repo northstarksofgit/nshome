@@ -46,7 +46,7 @@ public interface BuildYourCarService {
 	/*
 	 * navi / summary 불러오기
 	 */
-	SummaryDto getSummaryAPI(String step, String modelCode, String trimCode, String ext, String intCode, String option);
+	SummaryDto getSummaryAPI(String toGoStep, String modelCode, String trimCode, String extColorCode, String intColorCode, String optionCode);
 	
 	/**
 	 * How-to-Buy / arealist 불러오기

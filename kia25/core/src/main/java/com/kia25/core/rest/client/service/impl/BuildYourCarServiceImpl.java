@@ -194,34 +194,38 @@ public class BuildYourCarServiceImpl implements BuildYourCarService {
 	 */
 
 	@Override
-	public SummaryDto getSummaryAPI(String step, String modelCode, String trimCode, String ext, String intCode, String option) {
+	public SummaryDto getSummaryAPI(String toGoStep, String modelCode, String trimCode, String extColorCode, String intColorCode, String optionCode) {
 		
 		String response = null;
+		String url = "";
 		
 		try {
 		
-			if(step.equals("3")) {
+			if(toGoStep.equals("3")) {
 				
-				response = service.getRequest("summary-info-0"+"?modelCode="+modelCode);
+				url = "summary-info-0?modelCode="+modelCode;
 				
-			}else if(step.equals("4")) {
+			}else if(toGoStep.equals("4")) {
 				//trim까지
 				
-				response = service.getRequest("summary-info-1"+"?modelCode="+modelCode+"&trimCode="+trimCode);
+				url = "summary-info-1?modelCode="+modelCode+"&trimCode="+trimCode;
 
 				
-			}else if(step.equals("5")){
+			}else if(toGoStep.equals("5")){
 				//color까지
 				
-				response = service.getRequest("summary-info-2"+"?modelCode="+modelCode+"&trimCode="+trimCode+"&exteriorColorCode="+ext+"&interiorColorCode="+intCode);
+				url = "summary-info-2?modelCode="+modelCode+"&trimCode="+trimCode+"&exteriorColorCode="+extColorCode+"&interiorColorCode="+intColorCode;
 				
 			}else{
 				//how to buy
 			
-				response = service.getRequest("summary-info-3"+"?modelCode="+modelCode+"&trimCode="+trimCode+"&exteriorColorCode="+ext+"&interiorColorCode="+intCode+"&optionCode="+option);
+				url = "summary-info-3?modelCode="+modelCode+"&trimCode="+trimCode+"&exteriorColorCode="+extColorCode+"&interiorColorCode="+intColorCode+"&optionCode="+optionCode;
 			}
 			
+			response = service.getRequest(url);
+			
 			LOG.debug("response={}", response);
+			
 			ObjectMapper mapper = new ObjectMapper();
 			
 			SummaryDtoResults result = mapper.readValue(response, SummaryDtoResults.class);

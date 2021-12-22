@@ -34,16 +34,6 @@
 		carGroupTrim();
 	})
 	
-	
-//	// carGroup에 따른 이미지 변화 시켜주는 함수
-//	function carImgChange(){
-//		
-//		var a = $('.form_chk.carGroup').data('carimage');
-//		console.log(a);
-//		
-//	}
-	
-	
 	// carGroup에 따른 trimlist 조회하는 함수
 	function carGroupTrim (){
 		$('.trim_click').removeClass('on');

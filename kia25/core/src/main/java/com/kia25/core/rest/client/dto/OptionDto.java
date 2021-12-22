@@ -50,13 +50,13 @@ public class OptionDto {
 	/**
 	 * 사양코드
 	 */
-	private String 	specificationCode;
+//	private String 	specificationCode;
 	
 	
 	/**
 	 * 옵션상품번호
 	 */
-	private String optionProductNumber;
+//	private String optionProductNumber;
 	
 	
 	
@@ -130,24 +130,24 @@ public class OptionDto {
 	}
 
 
-	public String getSpecificationCode() {
-		return specificationCode;
-	}
-
-
-	public void setSpecificationCode(String specificationCode) {
-		this.specificationCode = specificationCode;
-	}
-
-
-	public String getOptionProductNumber() {
-		return optionProductNumber;
-	}
-
-
-	public void setOptionProductNumber(String optionProductNumber) {
-		this.optionProductNumber = optionProductNumber;
-	}
+//	public String getSpecificationCode() {
+//		return specificationCode;
+//	}
+//
+//
+//	public void setSpecificationCode(String specificationCode) {
+//		this.specificationCode = specificationCode;
+//	}
+//
+//
+//	public String getOptionProductNumber() {
+//		return optionProductNumber;
+//	}
+//
+//
+//	public void setOptionProductNumber(String optionProductNumber) {
+//		this.optionProductNumber = optionProductNumber;
+//	}
 
 	
 	

@@ -23,28 +23,32 @@ $(window).scroll(function() {
 
 	if($(".category").length>0){
 			
-		//카테고리 fixed
+
 	    (category <= windowTop) ? $(".category").addClass("fixed") : $(".category").removeClass("fixed");
 
-
-		//carTab 가져오기
-		var carTab = document.querySelectorAll(".estimate_online_wrap > .inner > div");
-		
-		//carTab top 위치 저장하기	
-		var carTabTop = new Array();
-		
-		//div의 bottom 위치 저장하기
+		var carTab = $('.estimate_online_wrap > .inner > div');
+		var carTabTop = new Array();	
 		var carTabBottom = new Array();
 		
 		for(var i=0; i<carTab.length; i++){
-			//첫 화면에서 첫번째 탭이 무조건 선택되어 있게 하기 위함
+			
+			/* carTab top 위치 저장하기	
+			* 첫 화면에서 첫번째 탭이 무조건 선택되어 있게 하기 위함
+			*/
 			i==0 ? carTabTop[i] = 0 : carTabTop[i] = $(carTab[i]).offset().top-29;
+			
+			/*
+			* div의 bottom 위치 저장하기
+			*/
 			carTabBottom[i] = $(carTab[i]).offset().top-29 + carTab[i].offsetHeight;
 		}
 
 
 		for(var i=0; i<carTabTop.length; i++){
 			
+			/*
+			* car tab에 on 적용
+			*/
 			(windowTop >= carTabTop[i] && windowTop <= carTabBottom[i]) ? $(carMenu[i]).addClass("on") : $(carMenu[i]).removeClass("on");
 
 		}
@@ -222,25 +226,33 @@ function makeComma(str) {
 */
 function addTrimToNavi(){
 	
-	//trim click 저장
+
 	var trimClick = $('.trim_click');
 
 	for(var i = 0; i<trimClick.length; i++){
 		
 		if($(trimClick[i]).hasClass('on')){
 			
-			// trim name 할당
+			/*
+			*  trim name 할당
+			*/
 			$('.list01 > .list_in > .con > .conTitle').text($(trimClick[i]).find('.h').text());
 
-			// trim price 할당 -- int 로
+			/*
+			*  trim price 할당 -- int 로
+			*/
 			var priceInt = parseInt($(trimClick[i]).attr('price'));
 			$('.list01 > .list_in > .con').attr('price', priceInt);
 
-			// trim price 할당 -- str로
+			/*
+			*  trim price 할당 -- str로
+			*/
 			var priceStr = makeComma(priceInt);
 			$('.list01 > .list_in > .con > .conPrice').html(priceStr+'<em>원<em>');
 
-			//합계 변경
+			/*
+			* 합계 변경
+			*/
 			$('.btn_totalCon_open > .price').attr('initprice', 0);
 			totalSum(priceInt);
 			
@@ -258,59 +270,71 @@ function addTrimToNavi(){
 
 function addColorToNavi(){
 
-	//가격 저장
+
 	var extPrice;
-	var interiorPrice;
+	var intPrice;
 
-
-	//외장재 저장
 	var ext = $('.exteriorOption');
 
 	for(var i=0; i<ext.length; i++){
 
 		if($(ext[i]).hasClass('on')){
 
-			extPrice = $(ext[i]).attr('price');
 		
-			//외장재 가격 삽입
+			/*
+			* 외장재 가격 삽입
+			*/
+			extPrice = $(ext[i]).attr('price');
 			$('.con_exterior').attr('price1', makeComma(extPrice));
 			$('.con_exterior').find('.conPrice').html(makeComma(extPrice)+'<em>원</em>');
 			
-			//외장재 이미지 삽입
+			/*
+			* 외장재 이미지 삽입
+			*/
 			$('.con_exterior').find('.colorImg').attr('src', $(ext[i]).find('img').attr('src'));
 
-			//외장재 이름 삽입
+			/*
+			* 외장재 이름 삽입
+			*/
 			$('.con_exterior').find('.conTitle').text($(ext[i]).find('.color_info > .name').text());
 
 		}
 
 	}
 
-	//내장재 저장
+
 	var interior = $('.interiorOption');
 
 	for(var i=0; i<interior.length; i++){
 		
 		if($(interior[i]).hasClass('on')){
 			
-			interiorPrice = $(interior[i]).attr('price');
 			
-			//내장재 가격 저장
-			$('.con_interior').attr('price2', makeComma(interiorPrice));
-			$('.con_interior').find('.conPrice').html(makeComma(interiorPrice)+'<em>원</em>');
+			/*
+			* 내장재 가격 저장
+			*/
+			intPrice = $(interior[i]).attr('price');
+			$('.con_interior').attr('price2', makeComma(intPrice));
+			$('.con_interior').find('.conPrice').html(makeComma(intPrice)+'<em>원</em>');
 			
-			//내장재 이미지 저장
+			/*
+			* 내장재 이미지 저장
+			*/
 			$('.con_interior').find('.colorImg').attr('src', $(interior[i]).find('img').attr('src'));
 			
-			//내장재 이름 저장
+			/*
+			* 내장재 이름 저장
+			*/
 			$('.con_interior').find('.conTitle').text($(interior[i]).find('.color_info > .name').text());
 
 		}
 
 	}
 	
-	//합계 변경
-	totalSum(parseInt(extPrice)+parseInt(interiorPrice));
+	/*
+	* 합계 변경
+	*/
+	totalSum(parseInt(extPrice)+parseInt(intPrice));
 
 }
 
@@ -324,23 +348,45 @@ function addHowToBuy(){
 	$('.list_in > p').remove();
 	$('.con_pay').empty();
 	
-	//현금 or 할부
+	/*
+	* 현금 or 할부
+	*/
 	var payType = $('input[name=pay_sel_radio]:checked').attr('data-method');
 	
-	//차량가 : 과세(no) 면세(yes)
+	/*
+	* 차량가 : 과세(no) 면세(yes)
+	*/
 	var pricefree = $('input[name=sample3]:checked').attr('pricefree');
 	
 	if(payType == 'cash'){
+		
+		/*
+		* 현금일 경우
+		*/
 		$('.con_pay').append('<span><em class="tit">지불방법</em><em class="txt">현금구입</em></span>');
+		
 	}else{
+		
+		/*
+		* 할부일 경우
+		*/
 		$('.con_pay').append('<span><em class="tit">지불방법</em><em class="txt">오토할부</em></span>');
 		$('.con_pay').append('<span><em class="tit">할부</em><em class="txt">'+$('input[name=pay_date_radio]:checked').attr('data-term')+'개월</em></span>');
 		$('.con_pay').append('<span><em class="tit">할부원금</em><em class="txt">'+makeComma(parseInt($('.initFee').val()+'0000'))+'원</em></span>');
 	}
 	
 	if(pricefree == 'no'){
+		
+		/*
+		* 과세일 경우
+		*/
 		$('.con_pay').append('<span><em class="tit">차량가</em><em class="txt">과세</em></span>');
+		
 	}else{
+		
+		/*
+		* 면세일 경우
+		*/
 		$('.con_pay').append('<span><em class="tit">차량가</em><em class="txt">면세</em></span>');
 	}
 	

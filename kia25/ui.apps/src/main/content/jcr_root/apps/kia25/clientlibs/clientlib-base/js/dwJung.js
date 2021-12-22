@@ -175,9 +175,8 @@ function naviBar() {
 function updateBuildOption() {
 	
 	if (0 < $(".build_option").length) {
-		var c = $(".totalList .list03 .con")
-		  , g = 0
-		  , f = 0;
+		
+		var c = $(".totalList .list03 .con");
 		c.empty();
 
 		for (var l = $(".build_option .box_l.on"), k = 0; k < l.length; k++) {
@@ -186,8 +185,7 @@ function updateBuildOption() {
 			h = $(h).attr("data-price");
 			h = makeComma(h);
 			c.append("\x3cspan price\x3d" + h + '\x3e\x3cem class\x3d"conTitle"\x3e' + m + '\x3c/em\x3e\x3cspan class\x3d"conPrice"\x3e' + h+ "\x3cem\x3e\uc6d0\x3c/em\x3e\x3c/span\x3e\x3c/span\x3e");
-			g++;
-			f += parseInt(h)
+
 		}
 		
 	}
@@ -396,7 +394,7 @@ function addHowToBuy(){
 
 /*
 * navi의 다음> 클릭시 다음 step으로 넘어가는 함수
-* step이 파라미터로 넘어와야함!!!
+* 필요한 파라미터: step, modelCode, trimCode, int, ext, option
 */
 function nextStep(){
 	
@@ -449,7 +447,7 @@ function nextStep(){
 
 /*
 * navi의 <이전 클릭시 이전 step으로 넘어가는 함수
-* step이 파라미터로 넘어와야함!!!
+* 필요한 파라미터: step, modelCode, trimCode, int, ext, option
 */
 function preStep(){
 	

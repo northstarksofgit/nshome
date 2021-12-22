@@ -1,9 +1,6 @@
 package com.kia25.core.models;
 
-import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 
 import javax.annotation.PostConstruct;
 
@@ -17,7 +14,6 @@ import org.slf4j.LoggerFactory;
 import com.kia25.core.rest.client.dto.AreaDto;
 import com.kia25.core.rest.client.dto.AreaListDto;
 import com.kia25.core.rest.client.dto.AreaListDtoResults;
-import com.kia25.core.rest.client.dto.AreaSiSubDto;
 import com.kia25.core.rest.client.dto.TransDto;
 import com.kia25.core.rest.client.service.BuildYourCarService;
 import com.kia25.core.rest.client.service.impl.BuildYourCarServiceImpl;
@@ -43,10 +39,18 @@ public class HowToBuyModel {
 	@PostConstruct
 	public void activate() throws Exception{
 		
-		areaRestuls = service.getAreaListAPI();
-		areaData = areaRestuls.getData();
-		areaList = areaData.getAreaList();
-		transList = areaData.getTransList();
+		log.info("start How-to-Buy");
+		
+		try {
+			areaRestuls = service.getAreaListAPI();
+			areaData = areaRestuls.getData();
+			areaList = areaData.getAreaList();
+			transList = areaData.getTransList();
+		} catch (Exception e) {
+			
+		}
+		
+		log.info("end How-to-Buy");
 		
 	}
 	

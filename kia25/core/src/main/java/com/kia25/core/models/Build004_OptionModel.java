@@ -14,12 +14,9 @@ import org.apache.sling.models.annotations.injectorspecific.Self;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import com.kia25.core.rest.client.dto.ColorDto;
-import com.kia25.core.rest.client.dto.ModelDto;
 import com.kia25.core.rest.client.dto.OptionDto;
 import com.kia25.core.rest.client.dto.OptionListDto;
 import com.kia25.core.rest.client.dto.OptionListDtoResults;
-import com.kia25.core.rest.client.dto.TrimDto;
 import com.kia25.core.rest.client.service.BuildYourCarService;
 import com.kia25.core.rest.client.service.impl.BuildYourCarServiceImpl;
 
@@ -52,6 +49,8 @@ public class Build004_OptionModel {
 	
 	@PostConstruct
 	public void activate() throws Exception {
+
+		log.info("start Model-Option");
 		
 		ValueMap valueMap = resource.getValueMap();
 		
@@ -70,11 +69,8 @@ public class Build004_OptionModel {
 			optionData = optionResults.getData();
 			optionList = optionData.getListOfOptions();
 			
-			
 			modelCode = "?modelCode=" + request.getParameter("modelCode").toUpperCase();
-			
 			trimCode = modelCode + "&trimCode=" + request.getParameter("trimCode");
-			
 			extColorCode = "&ext=" + request.getParameter("ext");
 			intColorCode = "&int" + request.getParameter("int");
 
@@ -88,11 +84,11 @@ public class Build004_OptionModel {
 			backToColor += ".html" + trimCode;
 			
 		
-			
 		} catch(Exception e) {
 			
 		}
-		
+
+		log.info("end Model-Option");
 		
 	}
 

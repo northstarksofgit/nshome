@@ -85,7 +85,7 @@ public class Build004_OptionModel {
 			
 		
 		} catch(Exception e) {
-			
+			e.printStackTrace();
 		}
 
 		log.info("end Model-Option");

@@ -84,9 +84,8 @@ public class NaviModel {
 		ValueMap valueMap = resource.getValueMap();
 		
 		/*
-		 * dialog한 node에서 가져온 value
+		 * dialog한 data
 		 */
-		
 		prePath = (String) valueMap.getOrDefault("prePath", "/");
 		preStep = (String) valueMap.getOrDefault("preStep", "1");
 		toGoPath = (String) valueMap.getOrDefault("toGoPath", "/");
@@ -94,9 +93,8 @@ public class NaviModel {
 			
 
 		/*
-		 * summary정보 호출
+		 * summary정보 API 호출
 		 */
-		
 		summary = service.getSummaryAPI(toGoStep, modelCode, trimCode, extCode, intCode, optionCode);
 		
 		

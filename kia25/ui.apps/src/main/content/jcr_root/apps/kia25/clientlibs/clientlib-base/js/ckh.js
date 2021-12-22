@@ -2,6 +2,9 @@ $(document).ready(function() {
 		$(".build_car").length && buildcarInit();
 });
 
+	$('input[name=ext]').attr('value', 'M4B');
+	$('input[name=int]').attr('value', 'SW');
+
 demonstratorInit = function() {
 	var c = new OpenDimPop($("#colorLayer"))
 		, a = new OpenDimPop($("#locationLayer"));

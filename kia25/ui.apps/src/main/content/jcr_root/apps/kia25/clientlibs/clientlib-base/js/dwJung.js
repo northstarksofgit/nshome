@@ -412,6 +412,10 @@ function nextStep(){
 	*/
 	var totalUrl = window.location.href;
 	var preUrl = totalUrl.substr(totalUrl.indexOf('&modelCode='), totalUrl.length);
+	
+	if(totalUrl.indexOf('&modelCode=') < 0){
+		alert('url error: 파라미터를 확인해주세요. ');
+	}
 
 	
 	/*
@@ -457,6 +461,11 @@ function preStep(){
 	* 이전 페이지로 이동할 때 마지막에 붙은 파라미터를 제거해준다.
 	* 단, color의 경우 파라미터가 두 개이기 때문에 color의 파라미터가 포함되어 있는 경우 ext를 기준으로 url을 잘라준다
 	*/
+	
+	if(currentUrl.indexOf('&modelCode=') < 0){
+		alert('url error: 파라미터를 확인해주세요. ');
+	}
+	
 	
 	var preParameter = currentUrl.substring(currentUrl.indexOf('&modelCode='), preStep == 3 ? currentUrl.lastIndexOf('&ext=') : currentUrl.lastIndexOf('&'));
 	var preUrl = $('.naviNext').attr('prePath') + ".html?step="+preStep+preParameter;

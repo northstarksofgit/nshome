@@ -34,13 +34,14 @@
 	
 	// carGroup에 따른 trimlist 조회하는 함수
 	function carGroupTrim (){
+		$('.trim_click').removeClass('on');
 		
 		var trimCarGroup = $('.trim-list');
 		var onFlag = true;
 		
 		for(var i = 0; i < trimCarGroup.length; i++){
 			
-			if(selectedCarGroup == trimCarGroup[i].dataset.car){
+			if(selectedCarGroup == trimCarGroup[i].dataset.car && selectedTrans == trimCarGroup[i].dataset.trans){
 				trimCarGroup[i].style.display = 'block';
 				
 				if(onFlag){
@@ -49,7 +50,6 @@
 					if($(trimCarGroup[i]).find('.trim_click').hasClass('on')){
 						addTrimToNavi();
 						naviTrimCode= trimCarGroup[i].dataset.trim;
-						console.log(naviTrimCode);
 					}
 					
 					onFlag = false;
@@ -60,8 +60,6 @@
 			}
 		}
 		
-		
-				
 		transTrim();
 	}
 
@@ -78,6 +76,7 @@
 	
 	// 변속기에 따른 trimlist를 조회하는 함수
 	function transTrim(){
+		$('.trim_click').removeClass('on');
 		
 		var trimTrans = $('.trim-list');
 		var onFlag = true;
@@ -93,7 +92,6 @@
 					if($(trimTrans[i]).find('.trim_click').hasClass('on')){
 						addTrimToNavi();
 						naviTrimCode= trimTrans[i].dataset.trim;
-						console.log(naviTrimCode);
 					}
 					
 					onFlag = false;

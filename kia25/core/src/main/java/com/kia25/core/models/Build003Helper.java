@@ -27,10 +27,10 @@ import org.apache.sling.models.annotations.DefaultInjectionStrategy;
 public class Build003Helper {
 
 	private static final Logger log = LoggerFactory.getLogger(Build003Helper.class);
-	
+
 	@Inject
 	private Resource resource;
-	
+
 	@OSGiService
 	BuildYourCarService service = new BuildYourCarServiceImpl();
 
@@ -48,9 +48,12 @@ public class Build003Helper {
 
 	private String getModelCode = null;
 	private String getTrimCode = null;
-	
+
 	private String modelPage = null;
 	private String trimPage = null;
+	private String colorPage = null;
+	private String optionPage = null;
+	private String shippingPage = null;
 
 	/*
 	 * colorAllList 한번만 호출하기 위함 colorData inte, exte 이외의 데이터 용 colorList 인테리어용
@@ -59,18 +62,19 @@ public class Build003Helper {
 
 	@PostConstruct
 	public void activate() throws IOException {
-		
+
 		ValueMap valueMap = resource.getValueMap();
 
 		try {
+
 			getModelCode = request.getParameter("modelCode").toUpperCase();
 			getTrimCode = request.getParameter("trimCode");
-			
+
 			modelPage = (String) valueMap.getOrDefault("lineupModel", null);
-			modelPage += ".html";
-			
+			modelPage += ".html?step=1";
+
 			trimPage = (String) valueMap.getOrDefault("lineupTrim", null);
-			trimPage += ".html";
+			trimPage += ".html?step=2&modelCode=" + getModelCode;
 
 			colorAllList = service.getColorAPI(getModelCode, getTrimCode);
 			colorData = colorAllList.getData();
@@ -80,7 +84,6 @@ public class Build003Helper {
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
-
 	}
 
 	public ColorListDtoResults getcolorAllList() {
@@ -107,6 +110,27 @@ public class Build003Helper {
 		return trimName;
 	}
 
+	public String getModelPage() {
+		return modelPage;
+	}
+
+	public String getTrimPage() {
+		return trimPage;
+	}
+
+	public String getColorPage() {
+		return colorPage;
+	}
+
+	public String getOptionPage() {
+		return optionPage;
+	}
+
+	public String getShippingPage() {
+		return shippingPage;
+	}
+ 
+
 }
 //private List<Map<String, Object>> colorGroupList = new ArrayList<Map<String, Object>>();
 
@@ -119,4 +143,3 @@ public class Build003Helper {
 //	colorGroupMap.put("extColorPath", colorGroup.getColorImgPath());
 //	colorGroupList.add(colorGroupMap);
 //}
-

@@ -8,16 +8,6 @@ import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 public class CarGroupDto {
 	
 	/**
-	 * 모델 코드
-	 */
-	private String modelCode;
-	
-	/**
-	 * 모델 연식 코드
-	 */
-	private String modelYear;
-	
-	/**
 	 * carGroup 모델 코드
 	 */
 	private String carGroupCode;
@@ -37,21 +27,6 @@ public class CarGroupDto {
 	/**
 	 * getter / setter
 	 */
-	public String getModelCode() {
-		return modelCode;
-	}
-
-	public void setModelCode(String modelCode) {
-		this.modelCode = modelCode;
-	}
-
-	public String getModelYear() {
-		return modelYear;
-	}
-
-	public void setModelYear(String modelYear) {
-		this.modelYear = modelYear;
-	}
 
 	public String getCarGroupCode() {
 		return carGroupCode;

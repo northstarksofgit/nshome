@@ -4,18 +4,7 @@ import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class TrimDto {
-	
-	/**
-	 * 모델 코드
-	 */
-	private String modelCode;
-	
-	
-	/**
-	 * 모델 연식 코드
-	 */
-	private String modelYear;
-	
+
 	
 	/**
 	 * carGroup 코드
@@ -81,22 +70,6 @@ public class TrimDto {
 	/**
 	 * getter / setter
 	 */
-	
-	public String getModelCode() {
-		return modelCode;
-	}
-	
-	public void setModelCode(String modelCode) {
-		this.modelCode = modelCode;
-	}
-	
-	public String getModelYear() {
-		return modelYear;
-	}
-	
-	public void setModelYear(String modelYear) {
-		this.modelYear = modelYear;
-	}
 	
 	public String getCarGroupCode() {
 		return carGroupCode;

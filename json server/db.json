@@ -34,87 +34,68 @@
             "modelList": [
                 {
                     "categoryCode": "001",
-                    "categoryName": "EV",
                     "modelCode": "EV6",
                     "modelYear": "2021",
-                    "carModelName": "EV6",
-                    "carImagePath": "/content/dam/kia25/build-a-car/car_ev6.png",
-                    "carGroupList": null
+                    "modelName": "EV6",
+                    "carImagePath": "/content/dam/kia25/build-a-car/car_ev6.png"
                 }, {
                     "categoryCode": "001",
-                    "categoryName": "EV",
                     "modelCode": "EDE",
                     "modelYear": "2021",
-                    "carModelName": "니로EV",
-                    "carImagePath": "/content/dam/kia25/build-a-car/car_niro-ev_swp.png",
-                    "carGroupList": null
+                    "modelName": "니로EV",
+                    "carImagePath": "/content/dam/kia25/build-a-car/car_niro-ev_swp.png"
                 }, {
                     "categoryCode": "001",
-                    "categoryName": "EV",
                     "modelCode": "YFE",
                     "modelYear": "2021",
-                    "carModelName": "봉고IIIEV",
-                    "carImagePath": "/content/dam/kia25/build-a-car/img_bongo3-ev_ud.png",
-                    "carGroupList": null
+                    "modelName": "봉고IIIEV",
+                    "carImagePath": "/content/dam/kia25/build-a-car/img_bongo3-ev_ud.png"
                 }, {
                     "categoryCode": "001",
-                    "categoryName": "Z5E",
                     "modelCode": "004",
                     "modelYear": "2021",
-                    "carModelName": "탑차EV",
+                    "modelName": "탑차EV",
                     "carImagePath": "/content/dam/kia25/build-a-car/car_bongo3_builttapcha-ev.png",
                     "carGroupList": null
                 }, {
                     "categoryCode": "001",
-                    "categoryName": "Z7E",
                     "modelCode": "005",
                     "modelYear": "2021",
-                    "carModelName": "성력EV",
-                    "carImagePath": "/content/dam/kia25/build-a-car/car_bongo3powergate-ev.png",
-                    "carGroupList": null
+                    "modelName": "성력EV",
+                    "carImagePath": "/content/dam/kia25/build-a-car/car_bongo3powergate-ev.png"
                 }, {
                     "categoryCode": "002",
-                    "categoryName": "승용",
                     "modelCode": "XJA",
                     "modelYear": "2021",
-                    "carModelName": "모닝",
-                    "carImagePath": "/content/dam/kia25/build-a-car/car_morning_b2y.png",
-                    "carGroupList": null
+                    "modelName": "모닝",
+                    "carImagePath": "/content/dam/kia25/build-a-car/car_morning_b2y.png"
                 }, {
                     "categoryCode": "002",
-                    "categoryName": "승용",
                     "modelCode": "XTM",
                     "modelYear": "2021",
-                    "carModelName": "레이",
-                    "carImagePath": "/content/dam/kia25/build-a-car/car_ray_m9y.png",
-                    "carGroupList": null
+                    "modelName": "레이",
+                    "carImagePath": "/content/dam/kia25/build-a-car/car_ray_m9y.png"
 
                 }, {
                     "categoryCode": "003",
-                    "categoryName": "RV",
                     "modelCode": "XDE",
                     "modelYear": "2021",
-                    "carModelName": "니로",
-                    "carImagePath": "/content/dam/kia25/build-a-car/car_niro_hev_b4u.png",
-                    "carGroupList": null
+                    "modelName": "니로",
+                    "carImagePath": "/content/dam/kia25/build-a-car/car_niro_hev_b4u.png"
 
                 }, {
                     "categoryCode": "004",
-                    "categoryName": "상용/택시",
                     "modelCode": "8GL",
                     "modelYear": "2021",
-                    "carModelName": "K8 택시",
-                    "carImagePath": "/content/dam/kia25/build-a-car/car_k8_taxi.png",
-                    "carGroupList": null
+                    "modelName": "K8 택시",
+                    "carImagePath": "/content/dam/kia25/build-a-car/car_k8_taxi.png"
 
                 }, {
                     "categoryCode": "005",
-                    "categoryName": "장애인/렌트",
                     "modelCode": "OTH",
                     "modelYear": "2021",
-                    "carModelName": "K5[장애인전용]",
-                    "carImagePath": "/content/dam/kia25/build-a-car/img_dl3k5.png",
-                    "carGroupList": null
+                    "modelName": "K5[장애인전용]",
+                    "carImagePath": "/content/dam/kia25/build-a-car/img_dl3k5.png"
                 }
             ]
         }

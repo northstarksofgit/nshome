@@ -471,6 +471,7 @@
             "intColorCode": "BLK",
             "listOfOptions": [
                 {
+                	"trimCode": "LRL",
                     "carOptionCode": "",
                     "optionCode": "4WD",
                     "optionName": "듀얼 모터 4WD",
@@ -480,6 +481,7 @@
                     "specificationCode": "",
                     "optionProductNumber": ""
                 }, {
+                	"trimCode": "LRL",
                     "carOptionCode": "",
                     "optionCode": "DWP",
                     "optionName": "드라이브 와이즈",
@@ -489,6 +491,7 @@
                     "specificationCode": "",
                     "optionProductNumber": ""
                 }, {
+                	"trimCode": "LRL",
                     "carOptionCode": "",
                     "optionCode": "CVN",
                     "optionName": "컨비니언스",

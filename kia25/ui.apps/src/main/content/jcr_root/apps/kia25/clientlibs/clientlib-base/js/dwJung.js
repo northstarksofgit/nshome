@@ -237,6 +237,12 @@ function addTrimToNavi(){
 			$('.list01 > .list_in > .con > .conTitle').text($(trimClick[i]).find('.h').text());
 
 			/*
+			* trim img 할당
+			*/
+			$('.list01 > .list_in > .con > .carImg > img').attr('src', $('.carGroupImg').attr('src'));
+
+
+			/*
 			*  trim price 할당 -- int 로
 			*/
 			var priceInt = parseInt($($('.trim-list')[i]).attr('data-price'));

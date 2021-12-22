@@ -28,8 +28,20 @@
 		$('.carGroup-radio').removeClass('on');
 		$(this).find('label').addClass('on');
 
+		var carImgPath = $(this).data('carimage');
+		$('.carGroupImg').attr("src", carImgPath);
+		
 		carGroupTrim();
 	})
+	
+	
+//	// carGroup에 따른 이미지 변화 시켜주는 함수
+//	function carImgChange(){
+//		
+//		var a = $('.form_chk.carGroup').data('carimage');
+//		console.log(a);
+//		
+//	}
 	
 	
 	// carGroup에 따른 trimlist 조회하는 함수
@@ -62,6 +74,7 @@
 		
 		transTrim();
 	}
+	
 
 	
 	// 변속기 클릭 이벤트 
@@ -125,6 +138,8 @@
 			if($(carGroup[i]).find('label').hasClass('on')){
 				
 				selectedCarGroup = $(carGroup)[i].dataset.cargroupcode;
+				addTrimToNavi();
+				naviTrimCode=  $('.trim-list')[i].dataset.trim;
 			} 
 		}
 	}
@@ -138,6 +153,8 @@
 			if($(trans[i]).find('label').hasClass('on')){
 				
 				selectedTrans = $(trans)[i].dataset.transcode;
+				addTrimToNavi();
+				naviTrimCode=  $('.trim-list')[i].dataset.trim;
 			}
 		}
 	}	

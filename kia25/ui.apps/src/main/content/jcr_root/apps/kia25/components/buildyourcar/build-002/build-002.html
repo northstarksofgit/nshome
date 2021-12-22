@@ -53,7 +53,7 @@
 			        </div>
 	
 				    <div class="car_img" >
-				        <img src="${detail.detailData.carImagePath}" alt="${detail.detailData.carModelName}">
+				        <img class="carGroupImg" src="${detail.detailData.carImagePath}" alt="${detail.detailData.carModelName}">
 				        <p class="car_desc">※ 본 차량의 이미지는 실제와 다를 수 있습니다.</p>
 				    </div>
 				 </div>
@@ -64,14 +64,14 @@
 <!-- 				carGroupList에 담긴 값 가져오기 -->
 				<sly data-sly-list.group="${detail.carGroupList}" data-sly-test="${detail.carGroupList}">
 					<sly data-sly-test="${groupList.count == 1}">
-				        <span class="form_chk carGroup" data-carGroupCode="${group.carGroupCode}">
-				            <input type="radio" prefer="client" carimage="${group.carImagePath}" value="${group.carGroupCode}" name="sample1" id="sample1_${groupList.count}">
+				        <span class="form_chk carGroup" data-carGroupCode="${group.carGroupCode}" data-carImage="${group.carImagePath}">
+				            <input type="radio" prefer="client" value="${group.carGroupCode}" name="sample1" id="sample1_${groupList.count}">
 				            <label for="sample1_${groupList.count}" class="form_spr carGroup-radio radio_box on">${group.carGroupName}</label>
 				        </span>
 					</sly>    
 					<sly data-sly-test="${groupList.count != 1}">
-				        <span class="form_chk carGroup" data-carGroupCode="${group.carGroupCode}">
-				            <input type="radio" prefer="client" carimage="${group.carImagePath}" value="${group.carGroupCode}" name="sample1" id="sample1_${groupList.count}">
+				        <span class="form_chk carGroup" data-carGroupCode="${group.carGroupCode}" data-carImage="${group.carImagePath}">
+				            <input type="radio" prefer="client" value="${group.carGroupCode}" name="sample1" id="sample1_${groupList.count}">
 				            <label for="sample1_${groupList.count}" class="form_spr carGroup-radio radio_box">${group.carGroupName}</label>
 				        </span>
 					</sly> 

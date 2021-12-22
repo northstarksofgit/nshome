@@ -6,14 +6,28 @@ import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 public class TrimDto {
 	
 	/**
+	 * 모델 코드
+	 */
+	private String modelCode;
+	
+	
+	/**
+	 * 모델 연식 코드
+	 */
+	private String modelYear;
+	
+	
+	/**
 	 * carGroup 코드
 	 */
 	private String carGroupCode;
 
+	
 	/**
 	 * 변속기 코드
 	 */
 	private String transmissionCode;
+	
 	
 	/**
 	 * 트림코드
@@ -46,12 +60,6 @@ public class TrimDto {
 
 	
 	/**
-	 * 변속기 이름
-	 */
-	private String gearboxName;
-	
-	
-	/**
 	 * 복합연비
 	 */
 	private String compoundFuelEconomy;
@@ -73,9 +81,27 @@ public class TrimDto {
 	/**
 	 * getter / setter
 	 */
+	
+	public String getModelCode() {
+		return modelCode;
+	}
+	
+	public void setModelCode(String modelCode) {
+		this.modelCode = modelCode;
+	}
+	
+	public String getModelYear() {
+		return modelYear;
+	}
+	
+	public void setModelYear(String modelYear) {
+		this.modelYear = modelYear;
+	}
+	
 	public String getCarGroupCode() {
 		return carGroupCode;
 	}
+
 
 	public void setCarGroupCode(String carGroupCode) {
 		this.carGroupCode = carGroupCode;
@@ -127,14 +153,6 @@ public class TrimDto {
 
 	public void setBestYn(String bestYn) {
 		this.bestYn = bestYn;
-	}
-
-	public String getGearboxName() {
-		return gearboxName;
-	}
-
-	public void setGearboxName(String gearboxName) {
-		this.gearboxName = gearboxName;
 	}
 
 	public String getCompoundFuelEconomy() {

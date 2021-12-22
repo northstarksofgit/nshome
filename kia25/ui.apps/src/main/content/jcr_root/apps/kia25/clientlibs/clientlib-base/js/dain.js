@@ -12,6 +12,10 @@
 	var selectedTrim = null;
 	
 	
+// 한 페이지에서 2개의 html(컴포넌트)을 사용하기 때문에 
+// 하나의 페이지를 다 로드 하고 나서 다음 페이지를 실행하게 하기 위해서 ready() 추가해줌
+$(function() {
+		
 	// 기본 carGroupCode 정의하는 함수
 	defaultOnCarGroup();
 	
@@ -20,6 +24,8 @@
 	
 	// 기본 trim 정의하는 함수
 	carGroupTrim();
+	
+})
 
 
 	// cargroup 모델 클릭 이벤트 
@@ -33,6 +39,7 @@
 		
 		carGroupTrim();
 	})
+	
 	
 	// carGroup에 따른 trimlist 조회하는 함수
 	function carGroupTrim (){
@@ -49,11 +56,6 @@
 				if(onFlag){
 					$(trimCarGroup[i]).find('.trim_click').addClass('on');
 					
-					if($(trimCarGroup[i]).find('.trim_click').hasClass('on')){
-						addTrimToNavi();
-						naviTrimCode= trimCarGroup[i].dataset.trim;
-					}
-					
 					onFlag = false;
 				}
 				
@@ -63,6 +65,7 @@
 		}
 		
 		transTrim();
+//		addTrimToNavi();
 	}
 	
 
@@ -92,10 +95,8 @@
 				if(onFlag){
 					$(trimTrans[i]).find('.trim_click').addClass('on');
 					
-					if($(trimTrans[i]).find('.trim_click').hasClass('on')){
 						addTrimToNavi();
 						naviTrimCode= trimTrans[i].dataset.trim;
-					}
 					
 					onFlag = false;
 				}
@@ -128,8 +129,6 @@
 			if($(carGroup[i]).find('label').hasClass('on')){
 				
 				selectedCarGroup = $(carGroup)[i].dataset.cargroupcode;
-				addTrimToNavi();
-				naviTrimCode=  $('.trim-list')[i].dataset.trim;
 			} 
 		}
 	}
@@ -143,8 +142,6 @@
 			if($(trans[i]).find('label').hasClass('on')){
 				
 				selectedTrans = $(trans)[i].dataset.transcode;
-				addTrimToNavi();
-				naviTrimCode=  $('.trim-list')[i].dataset.trim;
 			}
 		}
 	}	

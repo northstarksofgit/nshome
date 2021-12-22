@@ -396,6 +396,7 @@ function addHowToBuy(){
 
 /*
 * navi의 다음> 클릭시 다음 step으로 넘어가는 함수
+* step이 파라미터로 넘어와야함!!!
 */
 function nextStep(){
 	
@@ -444,6 +445,7 @@ function nextStep(){
 
 /*
 * navi의 <이전 클릭시 이전 step으로 넘어가는 함수
+* step이 파라미터로 넘어와야함!!!
 */
 function preStep(){
 	

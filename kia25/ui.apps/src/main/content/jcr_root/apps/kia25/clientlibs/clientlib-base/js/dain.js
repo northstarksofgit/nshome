@@ -45,6 +45,13 @@
 				
 				if(onFlag){
 					$(trimCarGroup[i]).find('.trim_click').addClass('on');
+					
+					if($(trimCarGroup[i]).find('.trim_click').hasClass('on')){
+						addTrimToNavi();
+						naviTrimCode= trimCarGroup[i].dataset.trim;
+						console.log(naviTrimCode);
+					}
+					
 					onFlag = false;
 				}
 				
@@ -53,11 +60,7 @@
 			}
 		}
 		
-		if($(trimCarGroup[i]).find('.trim_click').hasClass('on')){
-			addTrimToNavi();
-			naviTrimCode= trimCarGroup[i].dataset.trim;
-			console.log(naviTrimCode);
-		}
+		
 				
 		transTrim();
 	}
@@ -87,6 +90,11 @@
 				if(onFlag){
 					$(trimTrans[i]).find('.trim_click').addClass('on');
 					
+					if($(trimTrans[i]).find('.trim_click').hasClass('on')){
+						addTrimToNavi();
+						naviTrimCode= trimTrans[i].dataset.trim;
+						console.log(naviTrimCode);
+					}
 					
 					onFlag = false;
 				}
@@ -108,7 +116,6 @@
 		
 		addTrimToNavi();
 		naviTrimCode = selectedTrim;
-		
 	})
 	
 	

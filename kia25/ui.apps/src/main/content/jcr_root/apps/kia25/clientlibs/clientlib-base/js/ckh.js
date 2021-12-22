@@ -1,9 +1,6 @@
 $(document).ready(function() {
 
-	$param = $(location).attr('pathname'); // 옵션 선택화면에서 충돌 됨
-	if ($param == '/content/kia25/us/en/page03.html') {
 		$(".build_car").length && buildcarInit();
-	}
 });
 
 demonstratorInit = function() {
@@ -18,7 +15,6 @@ demonstratorInit = function() {
 				a.open())
 	})
 }
-	, finddealerInit = function() { }
 	, buildcarInit = function() {
 
 		var g = $(".build_car")

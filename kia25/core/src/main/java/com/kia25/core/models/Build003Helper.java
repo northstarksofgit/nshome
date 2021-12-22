@@ -4,8 +4,11 @@ import java.io.IOException;
 import java.util.List;
 
 import javax.annotation.PostConstruct;
+import javax.inject.Inject;
 
 import org.apache.sling.api.SlingHttpServletRequest;
+import org.apache.sling.api.resource.Resource;
+import org.apache.sling.api.resource.ValueMap;
 import org.apache.sling.models.annotations.Model;
 import org.apache.sling.models.annotations.injectorspecific.OSGiService;
 import org.apache.sling.models.annotations.injectorspecific.Self;
@@ -24,7 +27,10 @@ import org.apache.sling.models.annotations.DefaultInjectionStrategy;
 public class Build003Helper {
 
 	private static final Logger log = LoggerFactory.getLogger(Build003Helper.class);
-
+	
+	@Inject
+	private Resource resource;
+	
 	@OSGiService
 	BuildYourCarService service = new BuildYourCarServiceImpl();
 
@@ -42,6 +48,9 @@ public class Build003Helper {
 
 	private String getModelCode = null;
 	private String getTrimCode = null;
+	
+	private String modelPage = null;
+	private String trimPage = null;
 
 	/*
 	 * colorAllList 한번만 호출하기 위함 colorData inte, exte 이외의 데이터 용 colorList 인테리어용
@@ -50,10 +59,18 @@ public class Build003Helper {
 
 	@PostConstruct
 	public void activate() throws IOException {
+		
+		ValueMap valueMap = resource.getValueMap();
 
 		try {
 			getModelCode = request.getParameter("modelCode").toUpperCase();
 			getTrimCode = request.getParameter("trimCode");
+			
+			modelPage = (String) valueMap.getOrDefault("lineupModel", null);
+			modelPage += ".html";
+			
+			trimPage = (String) valueMap.getOrDefault("lineupTrim", null);
+			trimPage += ".html";
 
 			colorAllList = service.getColorAPI(getModelCode, getTrimCode);
 			colorData = colorAllList.getData();

@@ -155,7 +155,7 @@ public class BuildYourCarServiceImpl implements BuildYourCarService {
 			url += "modelCode="+modelCode;
 			url += "&trimCode="+trimCode;
 			
-			String response = service.getRequest(url);
+			String response = service.getRequest("color-list");
 			ObjectMapper mapper = new ObjectMapper();
 
 			ColorListDtoResults results = mapper.readValue(response, ColorListDtoResults.class);

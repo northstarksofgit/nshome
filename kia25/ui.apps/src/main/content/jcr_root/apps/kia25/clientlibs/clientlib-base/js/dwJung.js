@@ -241,7 +241,7 @@ function addTrimToNavi(){
 			/*
 			*  trim price 할당 -- int 로
 			*/
-			var priceInt = parseInt($(trimClick[i]).attr('price'));
+			var priceInt = parseInt($($('.trim-list')[i]).attr('data-price'));
 			$('.list01 > .list_in > .con').attr('price', priceInt);
 
 			/*

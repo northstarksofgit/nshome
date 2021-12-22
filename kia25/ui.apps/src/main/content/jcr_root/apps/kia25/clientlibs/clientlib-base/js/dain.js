@@ -1,166 +1,130 @@
 
 	// navi용 TrimCode 선언
 	var naviTrimCode = null;
+	
+	// carGroup 코드 선언
+	var selectedCarGroup = null;
+	
+	// transmission 코드 선언
+	var selectedTrans = null;
+	
+	// trim 코드 선언
+	var selectedTrim = null;
+	
+	// 기본 carGroupCode 정의하는 함수
+	defaultOnCarGroup();
+	
+	// 기본 transmissionCode 정의하는 함수
+	defaultOnTrans();
+	
+	// 기본 trim 정의하는 함수
+	carGroupTrim();
 
-$(document).ready(function() {
 
-	// carGroupCode
-	var selectedCarGroupCode = null;
+	// cargroup 모델 클릭 이벤트 
+	$('.form_chk.carGroup').on('click', function(){
+		selectedCarGroup = $(this)[0].dataset.cargroupcode;
+		$('.carGroup-radio').removeClass('on');
+		$(this).find('label').addClass('on');
 
-	// transmissionCode
-	var selectedTransCode = null;
-	var radioTrans = $(".trans-radio");
-	
-	// trimCode
-	var liTrim = $(".trim_click");
+		carGroupTrim();
+	})
 	
 	
-	if(liTrim.length > 0){
+	// carGroup에 따른 trimlist 조회하는 함수
+	function carGroupTrim (){
 		
-		// 페이지 로딩시 기본으로 선택된 carGroupCode 값
-		var defaultCarGroup = $(liTrim).parent()[0].dataset.car;
-	
-		// 페이지 로딩시 기본으로 선택된 transmissionCode 값
-		var defaultTrans = $(liTrim)[0].dataset.trans;
+		var trimCarGroup = $('.trim-list');
+		var onFlag = true;
 		
-		// 페이지 로딩시 기본으로 선택되는 trim
-		trimShowHide(defaultCarGroup, defaultTrans);
-		
-		
-//		$('.form_chk.carGroup').trigger('click');
-//		$('.form_chk.transmission').trigger('click');
-		trimOn();
-		
-		// 해당하는 trim만 show / 나머지는 hide 해주는 함수 
-		function trimShowHide(selectedCarGroupCode, selectedTransCode){
+		for(var i = 0; i < trimCarGroup.length; i++){
 			
-			for(var i = 0; i < liTrim.length; i++){
+			if(selectedCarGroup == trimCarGroup[i].dataset.car){
+				trimCarGroup[i].style.display = 'block';
 				
-				if($(liTrim[i]).parent()[0].dataset.car != selectedCarGroupCode || $(liTrim[i])[0].dataset.trans != selectedTransCode){
-					
-					liTrim[i].style.display = 'none';
-					
-				} else {
-					
-					liTrim[i].style.display = 'block';
-				}	
+				if(onFlag){
+					$(trimCarGroup[i]).find('.trim_click').addClass('on');
+					onFlag = false;
+				}
+				
+			} else {
+				trimCarGroup[i].style.display = 'none';
 			}
 		}
 		
+		transTrim();
 		
-		// 사용자가 선택한 carGroup 값
-		$('.form_chk.carGroup').click(function() {
-			
-			selectedCarGroupCode = $(this)[0].dataset.cargroupcode;
-			$('.carGroup-radio').removeClass('on');
-			$(this).find('label').addClass('on');
-			trimOn();
-			
-			trimShowHide(selectedCarGroupCode, selectedTransCode);
-
-//			$('.form_chk.transmission').trigger('click');
-		})	
-		
-	
-		// 사용자가 선택한 transmission 값
-		$('.form_chk.transmission').click(function(){
-			
-			var carGroupList = $('.form_chk.carGroup');
-				
-			for(var i = 0; i < carGroupList.length; i++){
-				
-				if($(carGroupList[i]).children('label').hasClass('on')){
-					
-					selectedCarGroupCode = carGroupList[i].dataset.cargroupcode;
-				}
-			}	
-	
-			selectedTransCode = $(this)[0].dataset.transcode;
-					
-			radioTrans.removeClass('on');
-			$(this).children('label').addClass('on');
-			
-			for(var i = 0; i < radioTrans.length; i++){
-				
-				if(liTrim[i].style.display == 'block'){
-					
-					$(this).children('label').addClass('on');
-					
-				} else {
-					radioTrans.removeClass('on');
-				}
-				
-			}
-			
-			for(var i = 0; i < liTrim.length; i++){
-				
-				if($(liTrim[i]).parent()[0].dataset.car == selectedCarGroupCode){
-					
-					if($(this)[0].dataset.transcode == selectedTransCode){
-						
-						liTrim[i].style.display = 'block';
-						$(this).children('label').addClass('on');
-						trimShowHide(selectedCarGroupCode, selectedTransCode);
-						
-					} else {
-						liTrim[i].style.display = 'none';
-					}
-		
-				} else {
-					
-					liTrim[i].style.display = 'none';
-					
-//					radioTrans.removeClass('on');
-					
-					trimShowHide(defaultCarGroup, selectedTransCode);
-//					trimOn();
-				}
-			}
-			trimOn();
-		})
-			
-		
-		// 기본 trimList의 class를 on 시켜주는 함수	
-		function trimOn(){
-			
-			for(var i = 0; i < liTrim.length; i++){
-				
-				if(liTrim[i].style.display == 'block'){
-					
-					// 자바스크립트 방식으로 addClass
-					//liTrim[i].classList.add('on');
-
-					$(liTrim[i]).addClass('on');
-					addTrimToNavi();
-					
-					var trimClick = $('.trim_click');
-					
-					for (var i = 0; i < trimClick.length; i++){
-						
-						if($(trimClick[i]).hasClass('on')){
-							
-							naviTrimCode = $(trimClick[i]).find('#naviTrimCode').attr('value');
-							console.log(naviTrimCode);
-						}
-					}
-					break;
-					
-				}
-			}	
-		}
-		
-		
-		// trim 클릭시 선택한 trim을 on시켜주는 함수
-		$('.trim_click').on('click', function(e){
-			e.preventDefault();
-			
-			$('.trim_click').removeClass('on');
-			$(this).addClass('on');
-			addTrimToNavi();
-			
-			naviTrimCode = $(this).find('#naviTrimCode').attr('value');
-		})
 	}
 
-})
+	
+	// 변속기 클릭 이벤트 
+	$('.form_chk.transmission').on('click', function(){
+		selectedTrans = $(this)[0].dataset.transcode;
+		$('.trans-radio').removeClass('on');
+		$(this).find('label').addClass('on');	
+		
+		transTrim();
+	})
+
+	
+	// 변속기에 따른 trimlist를 조회하는 함수
+	function transTrim(){
+		
+		var trimTrans = $('.trim-list');
+		var onFlag = true;
+		
+		for(var i = 0; i < trimTrans.length; i++){
+			
+			if(selectedTrans == trimTrans[i].dataset.trans && selectedCarGroup == trimTrans[i].dataset.car){
+				trimTrans[i].style.display = 'block';
+				
+				if(onFlag){
+					$(trimTrans[i]).find('.trim_click').addClass('on');
+					onFlag = false;
+				}
+				
+			} else {
+				trimTrans[i].style.display = 'none';
+			}
+		}
+	}
+	
+	
+	// trim 클릭 이벤트 
+	$('.trim-list').on('click', function(e){
+		e.preventDefault();
+		
+		selectedTrim = $(this)[0].dataset.trim;
+		$('.trim_click').removeClass('on');
+		
+		$(this).find('li').addClass('on');
+	})
+	
+	
+	// 기본값 carGroupCode 
+	function defaultOnCarGroup(){
+		var carGroup = $('.form_chk.carGroup');
+	
+		for(var i = 0; i< carGroup.length; i++ ){
+			if($(carGroup[i]).find('label').hasClass('on')){
+				
+				selectedCarGroup = $(carGroup)[i].dataset.cargroupcode;
+			} 
+		}
+	}
+	
+
+	// 기본값 transmission 
+	function defaultOnTrans (){
+		var trans = $('.form_chk.transmission');
+	
+		for(var i = 0; i < trans.length; i++){
+			if($(trans[i]).find('label').hasClass('on')){
+				
+				selectedTrans = $(trans)[i].dataset.transcode;
+			}
+		}
+	}	
+
+
 

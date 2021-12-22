@@ -11,6 +11,7 @@
 	// trim 코드 선언
 	var selectedTrim = null;
 	
+	
 	// 기본 carGroupCode 정의하는 함수
 	defaultOnCarGroup();
 	
@@ -52,8 +53,13 @@
 			}
 		}
 		
+		if($(trimCarGroup[i]).find('.trim_click').hasClass('on')){
+			addTrimToNavi();
+			naviTrimCode= trimCarGroup[i].dataset.trim;
+			console.log(naviTrimCode);
+		}
+				
 		transTrim();
-		
 	}
 
 	
@@ -80,6 +86,8 @@
 				
 				if(onFlag){
 					$(trimTrans[i]).find('.trim_click').addClass('on');
+					
+					
 					onFlag = false;
 				}
 				
@@ -96,8 +104,11 @@
 		
 		selectedTrim = $(this)[0].dataset.trim;
 		$('.trim_click').removeClass('on');
-		
 		$(this).find('li').addClass('on');
+		
+		addTrimToNavi();
+		naviTrimCode = selectedTrim;
+		
 	})
 	
 	

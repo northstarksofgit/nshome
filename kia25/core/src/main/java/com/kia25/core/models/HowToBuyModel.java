@@ -47,7 +47,7 @@ public class HowToBuyModel {
 			areaList = areaData.getAreaList();
 			transList = areaData.getTransList();
 		} catch (Exception e) {
-			
+			e.printStackTrace();
 		}
 		
 		log.info("end How-to-Buy");

@@ -80,9 +80,9 @@
 				<strong class="build_h">외장</strong>
 				<ul class="color_list" data-sly-list="${color.exteriorList}" data-sly-test="${color.exteriorList}">
 
-					<li class="color_l exteriorOption on" price="${item.colorPrice}" img="${item.colorImgPath}" color="${item.colorCode}">
+					<li class="color_l exteriorOption on" price="${item.colorPrice}" img="${item.carimagepath}" color="${item.colorCode}">
 						<a href="#" class="color_a" title="${item.colorName}">
-							<img src="${item.productNumber}" alt="${item.colorName}">
+							<img src="${item.colorimagepath}" alt="${item.colorName}">
                   			<span class="sel"></span>
 						</a>
 						<span class="box_info color_info">
@@ -102,7 +102,7 @@
 				<ul class="color_list" data-sly-list="${color.interiorList}" data-sly-test="${color.interiorList}">
 					<li class="color_l interiorOption ${ext.colorCode} " price="${item.cellvehiclePrice}" color="${item.colorCode}" style="display: list-item;">
 						<a href="#" class="color_a" title="${item.colorName}">
-							<img src="${item.carcelImage}" alt="">
+							<img src="${item.colorimagepath}" alt="">
 							<span class="sel"></span>
 						</a>
 						<span class="box_info color_info"><span class="name">${item.colorName}</span> <span class="price"><em class="ico_plus">+</em>${item.cellvehiclePrice}<em class="won">원</em></span></span>

@@ -15,13 +15,11 @@ public class ColorDto {
 
 	private String carOptionCode;
 
-	private String colorImgPath;
-
-	private String productNumber;
+	private String carimagepath;
 
 	private String cellvehiclePrice;
 
-	private String carcelImage;
+	private String colorimagepath;
 
 	private String modelName;
 
@@ -71,20 +69,12 @@ public class ColorDto {
 		this.carOptionCode = carOptionCode;
 	}
 
-	public String getColorImgPath() {
-		return colorImgPath;
+	public String getcarimagepath() {
+		return carimagepath;
 	}
 
-	public void setColorImgPath(String colorImgPath) {
-		this.colorImgPath = colorImgPath;
-	}
-
-	public String getProductNumber() {
-		return productNumber;
-	}
-
-	public void setProductNumber(String productNumber) {
-		this.productNumber = productNumber;
+	public void setcarimagepath(String carimagepath) {
+		this.carimagepath = carimagepath;
 	}
 
 	public String getCellvehiclePrice() {
@@ -95,12 +85,21 @@ public class ColorDto {
 		this.cellvehiclePrice = cellvehiclePrice;
 	}
 
-	public String getCarcelImage() {
-		return carcelImage;
+
+	public String getCarimagepath() {
+		return carimagepath;
 	}
 
-	public void setCarcelImage(String carcelImage) {
-		this.carcelImage = carcelImage;
+	public String getColorimagepath() {
+		return colorimagepath;
+	}
+
+	public void setCarimagepath(String carimagepath) {
+		this.carimagepath = carimagepath;
+	}
+
+	public void setColorimagepath(String colorimagepath) {
+		this.colorimagepath = colorimagepath;
 	}
 
 	public String getModelName() {

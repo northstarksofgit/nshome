@@ -487,7 +487,7 @@
                     "carOptionCode": "I",
                     "colorPrice": "3,0000",
                     "colorImgPath": "https://www.kia.com/content/dam/kwcms/kr/ko/images/byo/car_k3_the_new_m4b.png",
-                    "productNumber": "https://www.kia.com/content/dam/kwcms/kr/ko/images/byo/color/sorento_mq4_m4b.jpg"
+                    "colorimagepath": "https://www.kia.com/content/dam/kwcms/kr/ko/images/byo/color/sorento_mq4_m4b.jpg"
                 }, {
                     "colorCode": "ABP",
                     "colorName": "오로라 블랙 펄",
@@ -496,7 +496,7 @@
                     "carOptionCode": "I",
                     "colorPrice": "14,000",
                     "colorImgPath": "https://www.kia.com/content/dam/kwcms/kr/ko/images/byo/car_k3_the_new_abp.png",
-                    "productNumber": "https://www.kia.com/content/dam/kwcms/kr/ko/images/byo/color/allnewk7_abp.jpg"
+                    "colorimagepath": "https://www.kia.com/content/dam/kwcms/kr/ko/images/byo/color/allnewk7_abp.jpg"
                 }, {
                     "colorCode": "GBL",
                     "colorName": "그래비티 블루",
@@ -505,7 +505,7 @@
                     "carOptionCode": "I",
                     "colorPrice": "35,000",
                     "colorImgPath": "https://www.kia.com/content/dam/kwcms/kr/ko/images/byo/car_k3_the_new_b4u.png",
-                    "productNumber": "https://www.kia.com/content/dam/kwcms/kr/ko/images/byo/color/allnewk7_b4u.jpg"
+                    "colorimagepath": "https://www.kia.com/content/dam/kwcms/kr/ko/images/byo/color/allnewk7_b4u.jpg"
                 }, {
                     "colorCode": "ABT",
                     "colorName": "플라티늄 그라파이트",
@@ -514,7 +514,7 @@
                     "carOptionCode": "I",
                     "colorPrice": "75,000",
                     "colorImgPath": "https://www.kia.com/content/dam/kwcms/kr/ko/images/byo/car_k3_the_new_abt.png",
-                    "productNumber": "https://www.kia.com/content/dam/kwcms/kr/ko/images/byo/color/ABT.jpg"
+                    "colorimagepath": "https://www.kia.com/content/dam/kwcms/kr/ko/images/byo/color/ABT.jpg"
                 }, {
                     "colorCode": "KLG",
                     "colorName": "스틸 그레이",
@@ -523,7 +523,7 @@
                     "carOptionCode": "I",
                     "colorPrice": "84,000",
                     "colorImgPath": "https://www.kia.com/content/dam/kwcms/kr/ko/images/byo/car_k3_the_new_klg.png",
-                    "productNumber": "https://www.kia.com/content/dam/kwcms/kr/ko/images/byo/color/KLG.jpg"
+                    "colorimagepath": "https://www.kia.com/content/dam/kwcms/kr/ko/images/byo/color/KLG.jpg"
                 }, {
                     "colorCode": "SWP",
                     "colorName": "스노우 화이트 펄",
@@ -532,7 +532,7 @@
                     "carOptionCode": "I",
                     "colorPrice": "12,000",
                     "colorImgPath": "https://www.kia.com/content/dam/kwcms/kr/ko/images/byo/car_k3_the_new_swp.png",
-                    "productNumber": "https://www.kia.com/content/dam/kwcms/kr/ko/images/byo/color/swp.jpg"
+                    "colorimagepath": "https://www.kia.com/content/dam/kwcms/kr/ko/images/byo/color/swp.jpg"
                 }
             ],
             "interiorList": [
@@ -540,19 +540,19 @@
                     "trimCode": "LRL",
                     "colorCode": "SW",
                     "colorName": "스노우화이트",
-                    "carcelImage": "https://www.kia.com/content/dam/kwcms/kr/ko/images/byo/color/swp.jpg",
+                    "colorimagepath": "https://www.kia.com/content/dam/kwcms/kr/ko/images/byo/color/swp.jpg",
                     "cellvehiclePrice": "1,000"
                 }, {
                     "trimCode": "LRL",
                     "colorCode": "GR",
                     "colorName": "그레이",
-                    "carcelImage": "https://www.kia.com/content/dam/kwcms/kr/ko/images/byo/color/ABT.jpg",
+                    "colorimagepath": "https://www.kia.com/content/dam/kwcms/kr/ko/images/byo/color/ABT.jpg",
                     "cellvehiclePrice": "2,000"
                 }, {
                     "trimCode": "LRL",
                     "colorCode": "BL",
                     "colorName": "블랙",
-                    "carcelImage": "https://www.kia.com/content/dam/kwcms/kr/ko/images/byo/color/allnewk7_abp.jpg",
+                    "colorimagepath": "https://www.kia.com/content/dam/kwcms/kr/ko/images/byo/color/allnewk7_abp.jpg",
                     "cellvehiclePrice": "3,000"
                 }
             ]

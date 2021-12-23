@@ -69,13 +69,6 @@ public class ColorDto {
 		this.carOptionCode = carOptionCode;
 	}
 
-	public String getcarimagepath() {
-		return carimagepath;
-	}
-
-	public void setcarimagepath(String carimagepath) {
-		this.carimagepath = carimagepath;
-	}
 
 	public String getCellvehiclePrice() {
 		return cellvehiclePrice;
@@ -83,23 +76,6 @@ public class ColorDto {
 
 	public void setCellvehiclePrice(String cellvehiclePrice) {
 		this.cellvehiclePrice = cellvehiclePrice;
-	}
-
-
-	public String getCarimagepath() {
-		return carimagepath;
-	}
-
-	public String getColorimagepath() {
-		return colorimagepath;
-	}
-
-	public void setCarimagepath(String carimagepath) {
-		this.carimagepath = carimagepath;
-	}
-
-	public void setColorimagepath(String colorimagepath) {
-		this.colorimagepath = colorimagepath;
 	}
 
 	public String getModelName() {
@@ -133,6 +109,24 @@ public class ColorDto {
 	public void setTrimName(String trimName) {
 		this.trimName = trimName;
 	}
+
+	public String getCarimagepath() {
+		return carimagepath;
+	}
+
+	public String getColorimagepath() {
+		return colorimagepath;
+	}
+
+	public void setCarimagepath(String carimagepath) {
+		this.carimagepath = carimagepath;
+	}
+
+	public void setColorimagepath(String colorimagepath) {
+		this.colorimagepath = colorimagepath;
+	}
+	
+	
 
 	 
 }

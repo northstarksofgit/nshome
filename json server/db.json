@@ -486,8 +486,8 @@
                     "bestYn": "Y",
                     "carOptionCode": "I",
                     "colorPrice": "3,0000",
-                    "colorImgPath": "https://www.kia.com/content/dam/kwcms/kr/ko/images/byo/car_k3_the_new_m4b.png",
-                    "colorimagepath": "https://www.kia.com/content/dam/kwcms/kr/ko/images/byo/color/sorento_mq4_m4b.jpg"
+                    "carimagepath":"https://www.kia.com/content/dam/kwcms/kr/ko/images/byo/car_k3_the_new_m4b.png",
+                    "colorimagepath":"https://www.kia.com/content/dam/kwcms/kr/ko/images/byo/color/sorento_mq4_m4b.jpg"
                 }, {
                     "colorCode": "ABP",
                     "colorName": "오로라 블랙 펄",
@@ -495,7 +495,7 @@
                     "bestYn": "Y",
                     "carOptionCode": "I",
                     "colorPrice": "14,000",
-                    "colorImgPath": "https://www.kia.com/content/dam/kwcms/kr/ko/images/byo/car_k3_the_new_abp.png",
+                    "carimagepath": "https://www.kia.com/content/dam/kwcms/kr/ko/images/byo/car_k3_the_new_abp.png",
                     "colorimagepath": "https://www.kia.com/content/dam/kwcms/kr/ko/images/byo/color/allnewk7_abp.jpg"
                 }, {
                     "colorCode": "GBL",
@@ -504,7 +504,7 @@
                     "bestYn": "Y",
                     "carOptionCode": "I",
                     "colorPrice": "35,000",
-                    "colorImgPath": "https://www.kia.com/content/dam/kwcms/kr/ko/images/byo/car_k3_the_new_b4u.png",
+                    "carimagepath": "https://www.kia.com/content/dam/kwcms/kr/ko/images/byo/car_k3_the_new_b4u.png",
                     "colorimagepath": "https://www.kia.com/content/dam/kwcms/kr/ko/images/byo/color/allnewk7_b4u.jpg"
                 }, {
                     "colorCode": "ABT",
@@ -513,7 +513,7 @@
                     "bestYn": "Y",
                     "carOptionCode": "I",
                     "colorPrice": "75,000",
-                    "colorImgPath": "https://www.kia.com/content/dam/kwcms/kr/ko/images/byo/car_k3_the_new_abt.png",
+                    "carimagepath": "https://www.kia.com/content/dam/kwcms/kr/ko/images/byo/car_k3_the_new_abt.png",
                     "colorimagepath": "https://www.kia.com/content/dam/kwcms/kr/ko/images/byo/color/ABT.jpg"
                 }, {
                     "colorCode": "KLG",
@@ -522,7 +522,7 @@
                     "bestYn": "Y",
                     "carOptionCode": "I",
                     "colorPrice": "84,000",
-                    "colorImgPath": "https://www.kia.com/content/dam/kwcms/kr/ko/images/byo/car_k3_the_new_klg.png",
+                    "carimagepath": "https://www.kia.com/content/dam/kwcms/kr/ko/images/byo/car_k3_the_new_klg.png",
                     "colorimagepath": "https://www.kia.com/content/dam/kwcms/kr/ko/images/byo/color/KLG.jpg"
                 }, {
                     "colorCode": "SWP",
@@ -531,7 +531,7 @@
                     "bestYn": "Y",
                     "carOptionCode": "I",
                     "colorPrice": "12,000",
-                    "colorImgPath": "https://www.kia.com/content/dam/kwcms/kr/ko/images/byo/car_k3_the_new_swp.png",
+                    "carimagepath": "https://www.kia.com/content/dam/kwcms/kr/ko/images/byo/car_k3_the_new_swp.png",
                     "colorimagepath": "https://www.kia.com/content/dam/kwcms/kr/ko/images/byo/color/swp.jpg"
                 }
             ],

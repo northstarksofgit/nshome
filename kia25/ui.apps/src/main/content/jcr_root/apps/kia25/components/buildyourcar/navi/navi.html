@@ -65,33 +65,33 @@
                             
                                 <div class="list_in">
                                     <strong>외장컬러</strong>
-                                    <sly data-sly-test="${!summary.exteriorColorCode}">
+                                    <sly data-sly-test="${!summary.extColorCode}">
                                    		 <p>선택정보가 없습니다.</p>
                                    	</sly>
-                                   	<sly data-sly-test="${summary.exteriorColorCode}">
-	                                     <div class="con con_exterior" price1="${summary.exteriorColorPrice}">
+                                   	<sly data-sly-test="${summary.extColorCode}">
+	                                     <div class="con con_exterior" price1="${summary.extColorPrice}">
 	                                         <span>
-	                                             <span class="colorArea"><img src="${summary.exteriorColorImgPath}" alt="" class="colorImg"></span>
-	                                             <em class="conTitle">${model.summary.exteriorColorName}</em>
+	                                             <span class="colorArea"><img src="${summary.extColorImgPath}" alt="" class="colorImg"></span>
+	                                             <em class="conTitle">${model.summary.extColorName}</em>
 	                                         </span>
-	                                         <span class="conPrice"><sly data-sly-call="${formattedPrice @ price=summary.exteriorColorPrice}"></sly><em>원</em></span>
+	                                         <span class="conPrice"><sly data-sly-call="${formattedPrice @ price=summary.extColorPrice}"></sly><em>원</em></span>
 	                                     </div>
                                  	</sly>
                                 </div>
                                 
                                 <div class="list_in">
                                     <strong>내장컬러</strong>
-                                    <sly data-sly-test="${!summary.interiorColorCode}">
+                                    <sly data-sly-test="${!summary.intColorCode}">
                                    		 <p>선택정보가 없습니다.</p>
                                    	</sly>
                                    	
-                                   	<sly data-sly-test="${summary.interiorColorCode}">
-	                                     <div class="con con_interior" price2="${summary.interiorColorPrice}">
+                                   	<sly data-sly-test="${summary.intColorCode}">
+	                                     <div class="con con_interior" price2="${summary.intColorPrice}">
 	                                         <span>
-	                                             <span class="colorArea"><img src="${summary.interiorColorImgPath}" alt="" class="colorImg"></span>
-	                                             <em class="conTitle">${model.summary.interiorColorName}</em>
+	                                             <span class="colorArea"><img src="${summary.intColorImgPath}" alt="" class="colorImg"></span>
+	                                             <em class="conTitle">${model.summary.intColorName}</em>
 	                                         </span>
-	                                         <span class="conPrice"><sly data-sly-call="${formattedPrice @ price=summary.interiorColorPrice}"></sly><em>원</em></span>
+	                                         <span class="conPrice"><sly data-sly-call="${formattedPrice @ price=summary.intColorPrice}"></sly><em>원</em></span>
 	                                     </div>
                                  	</sly>
                                 </div>

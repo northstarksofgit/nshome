@@ -194,21 +194,21 @@ public class BuildYourCarServiceImpl implements BuildYourCarService {
 	 */
 
 	@Override
-	public SummaryDto getSummaryAPI(String toGoStep, String modelCode, String trimCode, String extColorCode, String intColorCode, String optionCode) {
+	public SummaryDto getSummaryAPI(String currentStep, String modelCode, String trimCode, String extColorCode, String intColorCode, String optionCode) {
 		
 		String response = null;
 		String url = "";
 		
 		try {
 		
-			if(toGoStep.equals("3")) {
+			if(currentStep.equals("3")) {
 				/*
 				 * step 2 => trim page, trim page의 toGoStep이 3이기 때문에 3으로 맞춰줌
 				 */
 				
 				url = "summary-info-0?modelCode="+modelCode;
 				
-			}else if(toGoStep.equals("4")) {
+			}else if(currentStep.equals("4")) {
 				/*
 				 * step 3 => color page, color page의 toGoStep이 4이기 때문에 4로 맞춰줌
 				 */
@@ -216,7 +216,7 @@ public class BuildYourCarServiceImpl implements BuildYourCarService {
 				url = "summary-info-1?modelCode="+modelCode+"&trimCode="+trimCode;
 
 				
-			}else if(toGoStep.equals("5")){
+			}else if(currentStep.equals("5")){
 				/*
 				 * step 4 => option page, option page의 toGoStep이 5이기 때문에 5로 맞춰줌
 				 */

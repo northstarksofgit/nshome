@@ -52,9 +52,8 @@ public class NaviModel {
 	 * dialog한 데이터
 	 */
 	private String prePath;
-	private String preStep;
-	private String toGoPath;
-	private String toGoStep;
+	private String nextPath;
+	private String currentStep;
 	
 
 	/*
@@ -87,15 +86,14 @@ public class NaviModel {
 		 * dialog한 data
 		 */
 		prePath = (String) valueMap.getOrDefault("prePath", "/");
-		preStep = (String) valueMap.getOrDefault("preStep", "1");
-		toGoPath = (String) valueMap.getOrDefault("toGoPath", "/");
-		toGoStep  = (String) valueMap.getOrDefault("toGoStep", "2");
+		nextPath = (String) valueMap.getOrDefault("nextPath", "/");
+		currentStep  = (String) valueMap.getOrDefault("currentStep", "2");
 			
 
 		/*
 		 * summary정보 API 호출
 		 */
-		summary = service.getSummaryAPI(toGoStep, modelCode, trimCode, extCode, intCode, optionCode);
+		summary = service.getSummaryAPI(currentStep, modelCode, trimCode, extCode, intCode, optionCode);
 		
 		
 	}
@@ -131,34 +129,25 @@ public class NaviModel {
 	}
 
 
-	public String getPreStep() {
-		return preStep;
+	public String getNextPath() {
+		return nextPath;
 	}
 
 
-	public void setPreStep(String preStep) {
-		this.preStep = preStep;
+	public void setNextPath(String nextPath) {
+		this.nextPath = nextPath;
 	}
 
-	public String getToGoPath() {
-		return toGoPath;
-	}
-
-	public void setToGoPath(String toGoPath) {
-		this.toGoPath = toGoPath;
-	}
-
-	public String getToGoStep() {
-		return toGoStep;
-	}
-
-	public void setToGoStep(String toGoStep) {
-		this.toGoStep = toGoStep;
+	public String getCurrentStep() {
+		return currentStep;
 	}
 
 
+	public void setCurrentStep(String currentStep) {
+		this.currentStep = currentStep;
+	}
 
-	
+
 	
 	
 

@@ -409,6 +409,52 @@ function nextStep(){
 	* step = 3 --> color Page
 	* step = 4 --> option page
 	* step = 5 --> how to buy page
+	*/
+	
+	/*
+	* dialog한 data
+	*/
+	
+	const nextStep = parseInt($('.naviDia').attr('toGoStep'))+1;
+	const prePath = $('.naviDia').attr('prePath');
+	const nextPath = $('.naviDia').attr('nextPath');
+	const currentStep = $('.naviDia').attr('currentStep');
+	const modelCode = $('.naviDia').attr('modelCode');
+	const trimCode = $('.naviDia').attr('trimCode');
+	const intCode = $('.naviDia').attr('intCode');
+	const optionCode = $('.naviDia').attr('optionCode');
+	
+	console.log("modelCode: "+modelCode);
+	
+	
+	
+	/*
+	var nextPath= $('.naviDia').attr('toGoPath') + ".html?step="+nextStep;
+	
+	
+	if(nextStep == "3"){
+		
+		nextStep += "&trimCode="+naviTrimCode;
+		
+	}else if(nextStep == "4"){
+		
+		nextStep += "&ext="+$('input[name=ext]').val()+"&int="+$('input[name=int]').val();
+		nextStep = toGoPath.replace('#', '');
+		
+	}else if(nextStep == "5"){
+		
+		nextStep += "&option="+selectedOptList.toString();
+	}
+	location.href = toGoPath;
+	*/
+	
+	
+	
+	
+	
+	
+	
+	
 	
 	
 	/*

@@ -59,11 +59,11 @@ public class NaviModel {
 	/*
 	 * parameter로 넘어온 code
 	 */
-	String modelCode;
-	String trimCode;
-	String extCode;
-	String intCode;
-	String optionCode;
+	private String modelCode;
+	private String trimCode;
+	private String extCode;
+	private String intCode;
+	private String optionCode;
 	
 	
 	@PostConstruct
@@ -78,7 +78,7 @@ public class NaviModel {
 		extCode = request.getParameter("ext");
 		intCode = request.getParameter("int");
 		optionCode = request.getParameter("option");
-		
+
 
 		ValueMap valueMap = resource.getValueMap();
 		
@@ -89,6 +89,7 @@ public class NaviModel {
 		nextPath = (String) valueMap.getOrDefault("nextPath", "/");
 		currentStep  = (String) valueMap.getOrDefault("currentStep", "2");
 			
+
 
 		/*
 		 * summary정보 API 호출
@@ -145,6 +146,29 @@ public class NaviModel {
 
 	public void setCurrentStep(String currentStep) {
 		this.currentStep = currentStep;
+	}
+
+
+
+	public String getModelCode() {
+		return modelCode;
+	}
+
+
+	public String getTrimCode() {
+		return trimCode;
+	}
+
+	public String getExtCode() {
+		return extCode;
+	}
+
+	public String getIntCode() {
+		return intCode;
+	}
+
+	public String getOptionCode() {
+		return optionCode;
 	}
 
 

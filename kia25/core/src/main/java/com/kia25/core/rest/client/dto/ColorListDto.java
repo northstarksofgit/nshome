@@ -12,7 +12,7 @@ public class ColorListDto {
 
 	private String trimName;
 
-	private String modelCode;
+	private String modelName;
 
 	public List<ColorDto> getInteriorList() {
 		return interiorList;
@@ -34,16 +34,18 @@ public class ColorListDto {
 		return trimName;
 	}
 
+	public String getModelName() {
+		return modelName;
+	}
+
 	public void setTrimName(String trimName) {
 		this.trimName = trimName;
 	}
 
-	public String getModelCode() {
-		return modelCode;
+	public void setModelName(String modelName) {
+		this.modelName = modelName;
 	}
 
-	public void setModelCode(String modelCode) {
-		this.modelCode = modelCode;
-	}
+	
 
 }

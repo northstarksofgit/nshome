@@ -43,7 +43,7 @@ public class Build003Helper {
 	private List<ColorDto> exteriorList;
 	private ColorListDto colorData;
 
-	private String modelCode = null;
+	private String modelName = null;
 	private String trimName = null;
 
 	private String getModelCode = null;
@@ -102,8 +102,8 @@ public class Build003Helper {
 		return colorData;
 	}
 
-	public String getModelCode() {
-		return modelCode;
+	public String getModelName() {
+		return modelName;
 	}
 
 	public String getTrimName() {

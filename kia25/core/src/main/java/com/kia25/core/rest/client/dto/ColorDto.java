@@ -15,11 +15,9 @@ public class ColorDto {
 
 	private String carOptionCode;
 
-	private String carimagepath;
+	private String carImagePath;
 
-	private String cellvehiclePrice;
-
-	private String colorimagepath;
+	private String colorImagePath;
 
 	private String modelName;
 
@@ -33,100 +31,88 @@ public class ColorDto {
 		return colorCode;
 	}
 
-	public void setColorCode(String colorCode) {
-		this.colorCode = colorCode;
-	}
-
 	public String getColorName() {
 		return colorName;
-	}
-
-	public void setColorName(String colorName) {
-		this.colorName = colorName;
 	}
 
 	public String getBestYn() {
 		return bestYn;
 	}
 
-	public void setBestYn(String bestYn) {
-		this.bestYn = bestYn;
-	}
-
 	public String getColorPrice() {
 		return colorPrice;
-	}
-
-	public void setColorPrice(String colorPrice) {
-		this.colorPrice = colorPrice;
 	}
 
 	public String getCarOptionCode() {
 		return carOptionCode;
 	}
 
-	public void setCarOptionCode(String carOptionCode) {
-		this.carOptionCode = carOptionCode;
+	public String getCarImagePath() {
+		return carImagePath;
 	}
 
-
-	public String getCellvehiclePrice() {
-		return cellvehiclePrice;
-	}
-
-	public void setCellvehiclePrice(String cellvehiclePrice) {
-		this.cellvehiclePrice = cellvehiclePrice;
+	public String getColorImagePath() {
+		return colorImagePath;
 	}
 
 	public String getModelName() {
 		return modelName;
 	}
 
-	public void setModelName(String modelName) {
-		this.modelName = modelName;
-	}
-
 	public String getModelCode() {
 		return modelCode;
-	}
-
-	public void setModelCode(String modelCode) {
-		this.modelCode = modelCode;
 	}
 
 	public String getTrimCode() {
 		return trimCode;
 	}
 
-	public void setTrimCode(String trimCode) {
-		this.trimCode = trimCode;
-	}
-
 	public String getTrimName() {
 		return trimName;
+	}
+
+	public void setColorCode(String colorCode) {
+		this.colorCode = colorCode;
+	}
+
+	public void setColorName(String colorName) {
+		this.colorName = colorName;
+	}
+
+	public void setBestYn(String bestYn) {
+		this.bestYn = bestYn;
+	}
+
+	public void setColorPrice(String colorPrice) {
+		this.colorPrice = colorPrice;
+	}
+
+	public void setCarOptionCode(String carOptionCode) {
+		this.carOptionCode = carOptionCode;
+	}
+
+	public void setCarImagePath(String carImagePath) {
+		this.carImagePath = carImagePath;
+	}
+
+	public void setColorImagePath(String colorImagePath) {
+		this.colorImagePath = colorImagePath;
+	}
+
+	public void setModelName(String modelName) {
+		this.modelName = modelName;
+	}
+
+	public void setModelCode(String modelCode) {
+		this.modelCode = modelCode;
+	}
+
+	public void setTrimCode(String trimCode) {
+		this.trimCode = trimCode;
 	}
 
 	public void setTrimName(String trimName) {
 		this.trimName = trimName;
 	}
 
-	public String getCarimagepath() {
-		return carimagepath;
-	}
-
-	public String getColorimagepath() {
-		return colorimagepath;
-	}
-
-	public void setCarimagepath(String carimagepath) {
-		this.carimagepath = carimagepath;
-	}
-
-	public void setColorimagepath(String colorimagepath) {
-		this.colorimagepath = colorimagepath;
-	}
-	
-	
-
-	 
 }

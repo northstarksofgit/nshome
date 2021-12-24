@@ -87,9 +87,8 @@ public class NaviModel {
 		 * dialog한 data
 		 */
 		prePath = (String) valueMap.getOrDefault("prePath", "/");
-		preStep = (String) valueMap.getOrDefault("preStep", "1");
-		toGoPath = (String) valueMap.getOrDefault("toGoPath", "/");
-		toGoStep  = (String) valueMap.getOrDefault("toGoStep", "2");
+		toGoPath = (String) valueMap.getOrDefault("nextPath", "/");
+		toGoStep  = (String) valueMap.getOrDefault("currentStep", "2");
 			
 
 		/*

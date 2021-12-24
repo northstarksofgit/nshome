@@ -409,11 +409,12 @@ function nextStep(){
 	* step = 3 --> color Page
 	* step = 4 --> option page
 	* step = 5 --> how to buy page
-	*/
+	
 	
 	/*
 	* 이전 단계의 url 파라미터
-	*/
+	
+	/*
 	var totalUrl = window.location.href;
 	var preUrl = totalUrl.substr(totalUrl.indexOf('&modelCode='), totalUrl.length);
 	
@@ -424,7 +425,7 @@ function nextStep(){
 	
 	/*
 	* dialog한 data
-	*/
+	
 	const toGoStep = $('.naviNext').attr('toGoStep');
 	var toGoPath = $('.naviNext').attr('toGoPath') + ".html?step="+toGoStep+preUrl;
 	
@@ -444,6 +445,7 @@ function nextStep(){
 	}
 	
 	location.href = toGoPath;
+	*/
 
 	
 }

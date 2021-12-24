@@ -1,6 +1,6 @@
 package com.kia25.core.rest.client.dto;
 
-import java.math.BigDecimal;
+
 import java.util.List;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
@@ -36,42 +36,42 @@ public class SummaryDto {
 	/*
 	 * 선택한 외장 컬러 코드
 	 */
-	private String exteriorColorCode;
+	private String extColorCode;
 	
 	/*
 	 * 선택한 외장 컬러 이름
 	 */
-	private String exteriorColorName;
+	private String extColorName;
 	
 	/*
 	 * 선택한 외장 컬러 가격
 	 */
-	private int exteriorColorPrice;
+	private int extColorPrice;
 	
 	/*
 	 * 선택한 외장 컬러 이미지
 	 */
-	private String exteriorColorImgPath;
+	private String extColorImgPath;
 	
 	/*
 	 * 선택한 내장 컬러 코드
 	 */
-	private String interiorColorCode;
+	private String intColorCode;
 	
 	/*
 	 * 선택한 내장 컬러 이름
 	 */
-	private String interiorColorName;
+	private String intColorName;
 	
 	/*
 	 * 선택한 내장 컬러 가격
 	 */
-	private int interiorColorPrice; 
+	private int intColorPrice; 
 	
 	/*
 	 * 선택한 내장 컬러 이미지
 	 */
-	private String interiorColorImgPath;
+	private String intColorImgPath;
 	
 	/*
 	 * 선택한 옵션
@@ -127,69 +127,6 @@ public class SummaryDto {
 		this.trimPrice = trimPrice;
 	}
 
-	public String getExteriorColorCode() {
-		return exteriorColorCode;
-	}
-
-	public void setExteriorColorCode(String exteriorColorCode) {
-		this.exteriorColorCode = exteriorColorCode;
-	}
-
-	public String getExteriorColorName() {
-		return exteriorColorName;
-	}
-
-	public void setExteriorColorName(String exteriorColorName) {
-		this.exteriorColorName = exteriorColorName;
-	}
-
-	public int getExteriorColorPrice() {
-		return exteriorColorPrice;
-	}
-
-	public void setExteriorColorPrice(int exteriorColorPrice) {
-		this.exteriorColorPrice = exteriorColorPrice;
-	}
-
-	public String getExteriorColorImgPath() {
-		return exteriorColorImgPath;
-	}
-
-	public void setExteriorColorImgPath(String exteriorColorImgPath) {
-		this.exteriorColorImgPath = exteriorColorImgPath;
-	}
-
-	public String getInteriorColorCode() {
-		return interiorColorCode;
-	}
-
-	public void setInteriorColorCode(String interiorColorCode) {
-		this.interiorColorCode = interiorColorCode;
-	}
-
-	public String getInteriorColorName() {
-		return interiorColorName;
-	}
-
-	public void setInteriorColorName(String interiorColorName) {
-		this.interiorColorName = interiorColorName;
-	}
-
-	public int getInteriorColorPrice() {
-		return interiorColorPrice;
-	}
-
-	public void setInteriorColorPrice(int interiorColorPrice) {
-		this.interiorColorPrice = interiorColorPrice;
-	}
-
-	public String getInteriorColorImgPath() {
-		return interiorColorImgPath;
-	}
-
-	public void setInteriorColorImgPath(String interiorColorImgPath) {
-		this.interiorColorImgPath = interiorColorImgPath;
-	}
 
 	public List<OptionDto> getListOfOptions() {
 		return listOfOptions;
@@ -205,6 +142,70 @@ public class SummaryDto {
 
 	public void setTotalPrice(int totalPrice) {
 		this.totalPrice = totalPrice;
+	}
+
+	public String getExtColorCode() {
+		return extColorCode;
+	}
+
+	public void setExtColorCode(String extColorCode) {
+		this.extColorCode = extColorCode;
+	}
+
+	public String getExtColorName() {
+		return extColorName;
+	}
+
+	public void setExtColorName(String extColorName) {
+		this.extColorName = extColorName;
+	}
+
+	public int getExtColorPrice() {
+		return extColorPrice;
+	}
+
+	public void setExtColorPrice(int extColorPrice) {
+		this.extColorPrice = extColorPrice;
+	}
+
+	public String getExtColorImgPath() {
+		return extColorImgPath;
+	}
+
+	public void setExtColorImgPath(String extColorImgPath) {
+		this.extColorImgPath = extColorImgPath;
+	}
+
+	public String getIntColorCode() {
+		return intColorCode;
+	}
+
+	public void setIntColorCode(String intColorCode) {
+		this.intColorCode = intColorCode;
+	}
+
+	public String getIntColorName() {
+		return intColorName;
+	}
+
+	public void setIntColorName(String intColorName) {
+		this.intColorName = intColorName;
+	}
+
+	public int getIntColorPrice() {
+		return intColorPrice;
+	}
+
+	public void setIntColorPrice(int intColorPrice) {
+		this.intColorPrice = intColorPrice;
+	}
+
+	public String getIntColorImgPath() {
+		return intColorImgPath;
+	}
+
+	public void setIntColorImgPath(String intColorImgPath) {
+		this.intColorImgPath = intColorImgPath;
 	}
 
 	

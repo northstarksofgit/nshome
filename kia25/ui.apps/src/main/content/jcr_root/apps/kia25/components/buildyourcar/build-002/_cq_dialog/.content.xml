@@ -7,9 +7,9 @@
         jcr:primaryType="nt:unstructured"
         sling:resourceType="granite/ui/components/coral/foundation/tabs">
         <items jcr:primaryType="nt:unstructured">
-            <tab1
+            <navigation_x0020_property
                 jcr:primaryType="nt:unstructured"
-                jcr:title="tab1"
+                jcr:title="navigation property"
                 sling:resourceType="granite/ui/components/coral/foundation/fixedcolumns">
                 <items jcr:primaryType="nt:unstructured">
                     <columns
@@ -26,7 +26,7 @@
                         </items>
                     </columns>
                 </items>
-            </tab1>
+            </navigation_x0020_property>
         </items>
     </content>
 </jcr:root>

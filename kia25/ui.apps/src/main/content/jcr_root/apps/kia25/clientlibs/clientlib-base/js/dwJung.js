@@ -415,83 +415,49 @@ function nextStep(){
 	* dialog한 data
 	*/
 	
-	const nextStep = parseInt($('.naviDia').attr('toGoStep'))+1;
-	const prePath = $('.naviDia').attr('prePath');
-	const nextPath = $('.naviDia').attr('nextPath');
-	const currentStep = $('.naviDia').attr('currentStep');
+	const nextStep = parseInt($('.naviDia').attr('currentStep'))+1;
+	var nextPath = $('.naviDia').attr('nextPath');
 	const modelCode = $('.naviDia').attr('modelCode');
 	const trimCode = $('.naviDia').attr('trimCode');
 	const intCode = $('.naviDia').attr('intCode');
+	const extCode = $('.naviDia').attr('extCode');
 	const optionCode = $('.naviDia').attr('optionCode');
-	
-	console.log("modelCode: "+modelCode);
-	
-	
-	
-	/*
-	var nextPath= $('.naviDia').attr('toGoPath') + ".html?step="+nextStep;
 	
 	
 	if(nextStep == "3"){
 		
-		nextStep += "&trimCode="+naviTrimCode;
+		nextPath += ".html?step="+nextStep+"&modelCode="+modelCode;
+		nextPath += "&trimCode="+naviTrimCode;
 		
 	}else if(nextStep == "4"){
 		
-		nextStep += "&ext="+$('input[name=ext]').val()+"&int="+$('input[name=int]').val();
-		nextStep = toGoPath.replace('#', '');
+		nextPath += ".html?step="+nextStep+"&modelCode="+modelCode;
+		nextPath += "&trimCode="+trimCode;
+		nextPath += "&ext="+$('input[name=ext]').val()+"&int="+$('input[name=int]').val();
+		nextPath = nextPath.replace('#', '');
 		
 	}else if(nextStep == "5"){
 		
-		nextStep += "&option="+selectedOptList.toString();
-	}
-	location.href = toGoPath;
-	*/
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	/*
-	* 이전 단계의 url 파라미터
-	
-	/*
-	var totalUrl = window.location.href;
-	var preUrl = totalUrl.substr(totalUrl.indexOf('&modelCode='), totalUrl.length);
-	
-	if(totalUrl.indexOf('&modelCode=') < 0){
-		alert('url error: 파라미터를 확인해주세요. ');
-	}
-
-	
-	/*
-	* dialog한 data
-	
-	const toGoStep = $('.naviNext').attr('toGoStep');
-	var toGoPath = $('.naviNext').attr('toGoPath') + ".html?step="+toGoStep+preUrl;
-	
-	
-	if(toGoStep == "3"){
+		nextPath += ".html?step="+nextStep+"&modelCode="+modelCode;
+		nextPath += "&trimCode="+trimCode;
+		nextPath += "&ext="+extCode+"&int="+intCode;
+		nextPath += "&option="+selectedOptList.toString();
+	}else{
 		
-		toGoPath += "&trimCode="+naviTrimCode;
-		
-	}else if(toGoStep == "4"){
-		
-		toGoPath += "&ext="+$('input[name=ext]').val()+"&int="+$('input[name=int]').val();
-		toGoPath = toGoPath.replace('#', '');
-		
-	}else if(toGoStep == "5"){
-		
-		toGoPath += "&option="+selectedOptList.toString();
+		nextPath += ".html?step="+nextStep+"&modelCode="+modelCode;
+		nextPath += "&trimCode="+trimCode;
+		nextPath += "&ext="+extCode+"&int="+intCode;
+		nextPath += "&option="+optionCode;
 	}
 	
-	location.href = toGoPath;
-	*/
+	
+	
+	alert("next: "+nextPath);
+	alert("nextStep: "+nextStep);
+	
+	location.href = nextPath;
+	
+	
 
 	
 }

@@ -201,24 +201,24 @@ public class BuildYourCarServiceImpl implements BuildYourCarService {
 		
 		try {
 		
-			if(currentStep.equals("3")) {
+			if(currentStep.equals("2")) {
 				/*
-				 * step 2 => trim page, trim page의 toGoStep이 3이기 때문에 3으로 맞춰줌
+				 * step 2 => trim page
 				 */
 				
 				url = "summary-info-0?modelCode="+modelCode;
 				
-			}else if(currentStep.equals("4")) {
+			}else if(currentStep.equals("3")) {
 				/*
-				 * step 3 => color page, color page의 toGoStep이 4이기 때문에 4로 맞춰줌
+				 * step 3 => color page
 				 */
 				
 				url = "summary-info-1?modelCode="+modelCode+"&trimCode="+trimCode;
 
 				
-			}else if(currentStep.equals("5")){
+			}else if(currentStep.equals("4")){
 				/*
-				 * step 4 => option page, option page의 toGoStep이 5이기 때문에 5로 맞춰줌
+				 * step 4 => option page
 				 */
 				
 				url = "summary-info-2?modelCode="+modelCode+"&trimCode="+trimCode+"&exteriorColorCode="+extColorCode+"&interiorColorCode="+intColorCode;

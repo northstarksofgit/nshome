@@ -7,7 +7,7 @@
         jcr:primaryType="nt:unstructured"
         sling:resourceType="granite/ui/components/coral/foundation/tabs">
         <items jcr:primaryType="nt:unstructured">
-            <tab1
+            <pathTap
                 jcr:primaryType="nt:unstructured"
                 jcr:title="Set the Path"
                 sling:resourceType="granite/ui/components/coral/foundation/fixedcolumns">
@@ -19,37 +19,37 @@
                             <modelPage
                                 jcr:primaryType="nt:unstructured"
                                 sling:resourceType="granite/ui/components/coral/foundation/form/pathfield"
-                                fieldLabel="Select Model"
+                                fieldLabel="Set the Model Page"
                                 name="./lineupModel"
                                 rootPath="/content/kia25"/>
                             <trimPage
                                 jcr:primaryType="nt:unstructured"
                                 sling:resourceType="granite/ui/components/coral/foundation/form/pathfield"
-                                fieldLabel="Select Trim"
+                                fieldLabel="Set the Trim Page"
                                 name="./lineupTrim"
                                 rootPath="/content/kia25"/>
                             <colorPage
                                 jcr:primaryType="nt:unstructured"
                                 sling:resourceType="granite/ui/components/coral/foundation/form/pathfield"
-                                fieldLabel="Select Color"
+                                fieldLabel="Set the Color Page"
                                 name="./lineupColor"
                                 rootPath="/content/kia25"/>
                             <optionPage
                                 jcr:primaryType="nt:unstructured"
                                 sling:resourceType="granite/ui/components/coral/foundation/form/pathfield"
-                                fieldLabel="Select Option"
+                                fieldLabel="Set the Option Page"
                                 name="./lineupOption"
                                 rootPath="/content/kia25"/>
                             <shippingPage
                                 jcr:primaryType="nt:unstructured"
                                 sling:resourceType="granite/ui/components/coral/foundation/form/pathfield"
-                                fieldLabel="Select Shipping"
+                                fieldLabel="Set the Shpping Page"
                                 name="./lineupShipping"
                                 rootPath="/content/kia25"/>
                         </items>
                     </columns>
                 </items>
-            </tab1>
+            </pathTap>
         </items>
     </content>
 </jcr:root>

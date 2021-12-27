@@ -74,3 +74,54 @@ demonstratorInit = function() {
 		)();
 
 	};
+	
+	// Page6 Script
+	$(function() {
+
+		$(window).resize(function(){
+		    var _winWid   = document.documentElement.clientWidth || document.body.clientWidth || window.innerWidth;
+		    if (_winWid < 768){
+		      $('.estimate_online_wrap .note_box').addClass('mo');
+		    }else{
+		      $('.estimate_online_wrap .note_box').removeClass('mo');
+		      $('.estimate_online_wrap .note_box .bu_list').removeAttr('style');
+		    }
+		  });
+		  //toggle
+		  $('.build_estimate .btn_toggle').click(function(){
+
+		    var item = $(this).closest('.box_inner').find('.ainArg');
+		    if($(this).hasClass('on')){
+		      $(this).removeClass('on');
+		      item.removeClass('on').slideUp();
+		      $(this).find('em.hidden').text('열기');
+		    }else{
+		      $(this).toggleClass('on');
+		      if(item.hasClass('on')){
+		        item.removeClass('on').slideUp();
+		        $(this).find('em.hidden').text('열기');
+		      }else {
+		        item.addClass('on').slideDown();
+		        $(this).find('em.hidden').text('닫기');
+		      }
+		    }
+		  });
+	
+		  $('.note_box .btn_toggle').click(function(){
+		    var item = $(this).next('.bu_list');
+		    if($(this).hasClass('on')){
+		      $(this).removeClass('on');
+		      item.removeClass('on').slideUp();
+		      $(this).find('em').text('열기');
+		    }else{
+		      $(this).toggleClass('on');
+		      if(item.hasClass('on')){
+		        item.removeClass('on').slideUp();
+		        $(this).find('em').text('열기');
+		      }else {
+		        item.addClass('on').slideDown();
+		        $(this).find('em').text('닫기');
+		      }
+		    }
+		  });
+	});

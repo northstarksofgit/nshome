@@ -1,60 +1,5 @@
 <sly data-sly-use.complet="com.kia25.core.models.Build006Helper"></sly>
-
-<script type="text/javascript">
-
-	 
-    
-	$(function() {
-
-		$(window).resize(function(){
-		    var _winWid   = document.documentElement.clientWidth || document.body.clientWidth || window.innerWidth;
-		    if (_winWid < 768){
-		      $('.estimate_online_wrap .note_box').addClass('mo');
-		    }else{
-		      $('.estimate_online_wrap .note_box').removeClass('mo');
-		      $('.estimate_online_wrap .note_box .bu_list').removeAttr('style');
-		    }
-		  });
-		  //toggle
-		  $('.build_estimate .btn_toggle').click(function(){
-
-		    var item = $(this).closest('.box_inner').find('.ainArg');
-		    if($(this).hasClass('on')){
-		      $(this).removeClass('on');
-		      item.removeClass('on').slideUp();
-		      $(this).find('em.hidden').text('열기');
-		    }else{
-		      $(this).toggleClass('on');
-		      if(item.hasClass('on')){
-		        item.removeClass('on').slideUp();
-		        $(this).find('em.hidden').text('열기');
-		      }else {
-		        item.addClass('on').slideDown();
-		        $(this).find('em.hidden').text('닫기');
-		      }
-		    }
-		  });
-	
-		  $('.note_box .btn_toggle').click(function(){
-		    var item = $(this).next('.bu_list');
-		    if($(this).hasClass('on')){
-		      $(this).removeClass('on');
-		      item.removeClass('on').slideUp();
-		      $(this).find('em').text('열기');
-		    }else{
-		      $(this).toggleClass('on');
-		      if(item.hasClass('on')){
-		        item.removeClass('on').slideUp();
-		        $(this).find('em').text('열기');
-		      }else {
-		        item.addClass('on').slideDown();
-		        $(this).find('em').text('닫기');
-		      }
-		    }
-		  });
-	});
-	
-</script>
+ 
 <div class="estimate_online_wrap">
 	<!-- step 시작 -->
 	<div class="step_wrap">
@@ -328,8 +273,7 @@
 		<!-- e:이달의 구매혜택 -->
 	</div>
 	<div class="inner tcenter">
-		<a href="#" onClick="alert('그만좀눌리라.. \n마이묵었다아이가~')" class="btn_again">다시
-			견적내기</a>
+		<a href="${complet.modelPage}" class="btn_again">다시견적내기</a>
 	</div>
 	<br>
 	<!-- s:온라인견적 참고사항-->

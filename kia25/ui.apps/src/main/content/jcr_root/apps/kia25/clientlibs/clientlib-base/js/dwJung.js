@@ -451,14 +451,7 @@ function nextStep(){
 	}
 	
 	
-	
-	alert("next: "+nextPath);
-	alert("nextStep: "+nextStep);
-	
 	location.href = nextPath;
-	
-	
-
 	
 }
 
@@ -471,25 +464,36 @@ function nextStep(){
 */
 function preStep(){
 	
-	var currentUrl = window.location.href;
+	const previStep = parseInt($('.naviDia').attr('currentStep'))-1;
+	var prePath = $('.naviDia').attr('prePath');
+	const modelCode = $('.naviDia').attr('modelCode');
+	const trimCode = $('.naviDia').attr('trimCode');
+	const intCode = $('.naviDia').attr('intCode');
+	const extCode = $('.naviDia').attr('extCode');
+
 	
-	var preStep = $('.naviNext').attr('preStep');
-	
-	/*
-	* 이전 페이지로 이동할 때 마지막에 붙은 파라미터를 제거해준다.
-	* 단, color의 경우 파라미터가 두 개이기 때문에 color의 파라미터가 포함되어 있는 경우 ext를 기준으로 url을 잘라준다
-	*/
-	
-	if(currentUrl.indexOf('&modelCode=') < 0){
-		alert('url error: 파라미터를 확인해주세요. ');
+	if(previStep == "1"){
+		
+		prePath += ".html?step="+previStep;
+		
+	}else if(previStep == "2"){
+		
+		prePath += ".html?step="+previStep+"&modelCode="+modelCode;
+		
+	}else if(previStep == "3"){
+		
+		prePath += ".html?step="+previStep+"&modelCode="+modelCode;
+		prePath += "&trimCode="+trimCode;
+	}else{
+		
+		prePath += ".html?step="+previStep+"&modelCode="+modelCode;
+		prePath += "&trimCode="+trimCode;
+		prePath += "&ext="+extCode+"&int="+intCode;
 	}
 	
 	
-	var preParameter = currentUrl.substring(currentUrl.indexOf('&modelCode='), preStep == 3 ? currentUrl.lastIndexOf('&ext=') : currentUrl.lastIndexOf('&'));
-	var preUrl = $('.naviNext').attr('prePath') + ".html?step="+preStep+preParameter;
-	
-	location.href = preUrl;
-	
+	location.href = prePath;
+
 
 }
 

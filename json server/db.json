@@ -540,20 +540,20 @@
                     "trimCode": "LRL",
                     "colorCode": "SW",
                     "colorName": "스노우화이트",
-                    "colorimagepath": "https://www.kia.com/content/dam/kwcms/kr/ko/images/byo/color/swp.jpg",
-                    "cellvehiclePrice": "1,000"
+                    "colorImagePath": "https://www.kia.com/content/dam/kwcms/kr/ko/images/byo/color/swp.jpg",
+                    "colorPrice": "1,000"
                 }, {
                     "trimCode": "LRL",
                     "colorCode": "GR",
                     "colorName": "그레이",
-                    "colorimagepath": "https://www.kia.com/content/dam/kwcms/kr/ko/images/byo/color/ABT.jpg",
-                    "cellvehiclePrice": "2,000"
+                    "colorImagePath": "https://www.kia.com/content/dam/kwcms/kr/ko/images/byo/color/ABT.jpg",
+                    "colorPrice": "2,000"
                 }, {
                     "trimCode": "LRL",
                     "colorCode": "BL",
                     "colorName": "블랙",
-                    "colorimagepath": "https://www.kia.com/content/dam/kwcms/kr/ko/images/byo/color/allnewk7_abp.jpg",
-                    "cellvehiclePrice": "3,000"
+                    "colorImagePath": "https://www.kia.com/content/dam/kwcms/kr/ko/images/byo/color/allnewk7_abp.jpg",
+                    "colorPrice": "3,000"
                 }
             ]
 

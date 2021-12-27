@@ -62,6 +62,7 @@ public class Build006Helper {
 			getIntCode = request.getParameter("int");
 			getOptionCode = request.getParameter("option");
 
+			modelPage = (String) valueMap.getOrDefault("lineupModel", null);
 			modelPage += ".html?step=1";
 
 			trimPage = (String) valueMap.getOrDefault("lineupTrim", null);

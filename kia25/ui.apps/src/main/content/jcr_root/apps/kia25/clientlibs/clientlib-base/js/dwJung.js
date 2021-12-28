@@ -497,3 +497,47 @@ function preStep(){
 
 }
 
+
+
+
+/*
+* crud page 관련 js
+*/
+
+
+$('input[type="checkbox"]').on('click', function(){ 
+                                            $(this).parents('tr').toggleClass('checkedTr');
+                            });
+
+$('.modal').on('click', function(){
+                                $('.modal').css('display', 'none');
+                                $('.modal').find('.onModal').removeClass('onModal');
+                        });
+
+$('.onModal').on('click', function(){
+                                return false;
+                           });
+
+
+$('.btn.reg.model').on('click', function(){ 
+                                    $('.modal').css('display', 'block');
+                                    $('.model.regBox').addClass('onModal');
+                                })
+
+$('.btn.update.model').on('click', function(){ 
+                                    $('.modal').css('display', 'block');
+                                    $('.model.modBox').addClass('onModal');
+                                })
+
+$('.btn.reg.cate').on('click', function(){ 
+                                            $('.modal').css('display', 'block');
+                                            $('.cate.regBox').addClass('onModal');
+                                        })
+
+$('.btn.update.cate').on('click', function(){ 
+                                    $('.modal').css('display', 'block');
+                                    $('.cate.modBox').addClass('onModal');
+                                })
+
+
+

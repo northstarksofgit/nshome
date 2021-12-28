@@ -24,3 +24,150 @@
 .byoTotal.on .totalCon {
     top: auto !important;
 }
+
+
+
+/*
+* CRUD 관련 CSS
+*/
+
+.contentBox{
+    padding: 15px;
+}
+
+.btn{
+    display: inline-block;
+    border: 1px solid black;
+    padding:5px 5px 5px 5px;
+    height: 25px;
+    background-color: darkgrey;
+    color: white;
+    font-weight: bold;
+    cursor: pointer;
+
+}
+
+.search{
+    display: inline-block;
+    height: 30px;
+    width: 300px;
+    text-align: center;
+    font-size: 18px;
+}
+
+
+.modelTbl, .categoryTbl{
+    border-spacing: 0;
+    margin: 10px 10px 10px 0px;
+    width: 900px;
+    text-align: center;
+}
+
+.modelTbl thead, .categoryTbl thead{
+    background-color: darkgrey;
+    color: white;
+    font-weight: bold;
+}
+
+.modelTbl tbody tr:hover, .categoryTbl tbody tr:hover{
+    background-color: gainsboro;
+    font-weight: bold;
+}
+
+.modelTbl thead tr td, .modelTbl tbody tr td, .categoryTbl thead tr td, .categoryTbl tbody tr td{
+    border: 1px solid black;
+    padding: 5px;
+}
+
+.chk{
+    transform : scale(2.0);
+}
+
+.categoryTbl{
+    margin-bottom: 10px;
+}
+
+.reg{
+    margin-left: 805px;
+
+}
+
+.checkedTr{
+    background-color: gainsboro;
+    font-weight: bold;
+}
+
+.condition{
+    height: 35px;
+    width: 150px;
+    text-align: center;
+    font-size: 15px;
+}
+
+.radio{
+    transform : scale(1.5);
+    margin-left: 15px;
+    margin-right: 8px;
+}
+
+.modal{
+    position: absolute;
+    top: 0;
+    left: 0;
+    background-color: rgba(0, 0, 0, 0.4);
+    width: 100%;
+    height: 100%;
+    display: none;
+}
+
+
+.regBox, .modBox{
+    display: none;
+}
+
+.onModal{
+
+    display: block;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    -webkit-transform: translate(-50%, -50%);
+    -moz-transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+    -o-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+
+    width: 500px;
+    height: 500px;
+    background-color: rgb(255, 255, 255);
+
+}
+
+.onModal h2{
+    text-align: center;
+    margin-top: 50px;
+}
+
+.onModal input{
+    display: block;
+    height: 25px;
+    width: 300px;
+    text-align: center;
+    font-size: 18px;
+    margin-left: 111px;
+    margin-top: 20px;
+    border: 1px solid black;
+}
+
+.onModal p{
+    text-align: center;
+    font-size: 18px;
+}
+
+.onModal .confirm{
+    width: 230px;
+    margin-left: 153px;
+    margin-top: 20px;
+    text-align: center;
+}
+

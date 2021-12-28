@@ -30,19 +30,14 @@
 
             <tbody>
 
-                <tr>
-                    <td><input type="checkbox" class="chk"></td>
-                    <td>카테고리 코드</td>
-                    <td>카테고리 이름</td>
-                    <td><div class="btn update cate">수정</div></td>
-                </tr>
-
-                <tr>
-                    <td><input type="checkbox" class="chk"></td>
-                    <td>카테고리 코드</td>
-                    <td>카테고리 이름</td>
-                    <td><div class="btn update cate">수정</div></td>
-                </tr>
+               	<sly data-sly-list="${model.categoryList}">
+	                <tr>
+	                    <td><input type="checkbox" class="chk"></td>
+	                    <td>${item.categoryCode}</td>
+	                    <td>${item.categoryName}</td>
+	                    <td><div class="btn update cate">수정</div></td>
+	                </tr>
+				</sly>
                 
             </tbody>
 
@@ -69,12 +64,13 @@
         
         <br>
         카테고리: 
-        <input class="radioCURD" type="radio" name="cateSort" value="" checked>전체
-        <input class="radioCURD" type="radio" name="cateSort" value="">EV6
-        <input class="radioCURD" type="radio" name="cateSort" value="">승용
-        <input class="radioCURD" type="radio" name="cateSort" value="">RV
-        <input class="radioCURD" type="radio" name="cateSort" value="">상용/택시
-        <input class="radioCURD" type="radio" name="cateSort" value="">장애인/렌트
+        <sly data-sly-list="${model.categoryList}">
+        	<input class="radioCURD" type="radio" name="cateSort" value="${item.categoryCode}" index="${itemList.count}">${item.categoryName}
+        </sly>
+        
+        <form name="findCate" method="GET" action="/content/kia25/us/en/build-your-car/crud-page.html">
+        	<input type="text" class="categoryCode" name="categoryCode">
+        </form>
 
         <table class="modelTbl">
             <thead>

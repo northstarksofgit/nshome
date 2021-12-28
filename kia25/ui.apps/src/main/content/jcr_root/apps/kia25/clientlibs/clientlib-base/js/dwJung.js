@@ -539,3 +539,32 @@ $('.btn.update.cate').on('click', function(){
                                     $('.cate.modBox').addClass('onModal');
                                 });
 
+
+/*
+* 라디오 버튼 기본 체크
+*/
+
+if($('.radioCURD').length >0 ){
+	
+	var radio = $('.radioCURD');
+	
+	if($(radio[i]).attr('index') == 1){
+		$(radio[i]).prop('checked', true);
+		$('.categoryCode').val($('.radioCURD:checked').val());
+
+	}
+}
+
+
+/*
+* 라디오 버튼 on change 이벤트
+*/
+$('.radioCURD').change( function() {
+	
+	$('.categoryCode').val($('.radioCURD:checked').val());
+	$('form[name=findCate]').submit();
+
+});
+
+
+

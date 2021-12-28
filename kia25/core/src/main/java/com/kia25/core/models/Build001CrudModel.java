@@ -30,21 +30,50 @@ public class Build001CrudModel {
 	@Self
     private SlingHttpServletRequest request;
 	
+	
+	private List<CategoryDto> categoryList;
+	
+	
+	
 	@PostConstruct
 	public void activate() throws  Exception {
 		
-		List<CategoryDto> result = service.getCategoryAPI();
 		
-		if(result == null) {
-			LOG.info("null");
-		}else {
-			LOG.info("not null");
-			
-			for(CategoryDto c: result ) {
-				LOG.info(c.getCategoryName());
-			}
-		}
+		/*
+		 * 카테고리 리스트 출력
+		 */
+		categoryList = service.getCategoryAPI();
+		
+		
+		/*
+		 * 모델 리스트 출력
+		 */
+		String categoryCode = request.getParameter("categoryCode");
+		
+		LOG.info(categoryCode);
 		
 	}
+
+	
+	
+	
+	
+	
+	
+	
+	
+	
+
+
+	public List<CategoryDto> getCategoryList() {
+		return categoryList;
+	}
+	
+	
+	
+	
+	
+	
+	
 
 }

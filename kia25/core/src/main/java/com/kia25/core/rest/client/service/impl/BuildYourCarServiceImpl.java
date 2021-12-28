@@ -194,46 +194,27 @@ public class BuildYourCarServiceImpl implements BuildYourCarService {
 	 */
 
 	@Override
-	public SummaryDto getSummaryAPI(String currentStep, String modelCode, String trimCode, String extColorCode, String intColorCode, String optionCode) {
+	public SummaryDto getSummaryAPI(String modelCode, String trimCode, String extColorCode, String intColorCode, String optionCode) {
 		
 		String response = null;
 		String url = "";
-		
-		try {
-		
-			if(currentStep.equals("2")) {
-				/*
-				 * step 2 => trim page
-				 */
-				
-				url = "summary-info-0?modelCode="+modelCode;
-				
-			}else if(currentStep.equals("3")) {
-				/*
-				 * step 3 => color page
-				 */
-				
-				url = "summary-info-1?modelCode="+modelCode+"&trimCode="+trimCode;
 
-				
-			}else if(currentStep.equals("4")){
-				/*
-				 * step 4 => option page
-				 */
-				
-				url = "summary-info-2?modelCode="+modelCode+"&trimCode="+trimCode+"&exteriorColorCode="+extColorCode+"&interiorColorCode="+intColorCode;
-				
-			}else{
-				/*
-				 * step 5 => how to buy page
-				 */
+		try {
+
 			
-				url = "summary-info-3?modelCode="+modelCode+"&trimCode="+trimCode+"&exteriorColorCode="+extColorCode+"&interiorColorCode="+intColorCode+"&optionCode="+optionCode;
-			}
+			// 2021 12 28 기준 : data가 유효한 트림 코드 LRL
+			
+			url = "summary-info?modelCode="+modelCode;
+			url	+= trimCode!=null? "&trimCode="+trimCode : "";
+			url	+= extColorCode != null ? "&extColorCode="+extColorCode : "";
+			url += intColorCode != null ? "&intColorCode="+intColorCode : "";
+			url += optionCode != null ? "&optionCode="+optionCode: "";
+			
 			
 			response = service.getRequest(url);
 			
-			LOG.debug("response={}", response);
+			LOG.error("response={}", response);
+			LOG.error("url="+url);
 			
 			ObjectMapper mapper = new ObjectMapper();
 			
@@ -241,7 +222,7 @@ public class BuildYourCarServiceImpl implements BuildYourCarService {
 			
 			return result.getData();
 		
-		} catch (IOException e) {
+		} catch (Exception e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}

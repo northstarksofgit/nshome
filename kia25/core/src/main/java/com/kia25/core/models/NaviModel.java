@@ -90,11 +90,12 @@ public class NaviModel {
 		currentStep  = (String) valueMap.getOrDefault("currentStep", "2");
 			
 
+		LOG.info("aaaasdad");
 
 		/*
 		 * summary정보 API 호출
 		 */
-		summary = service.getSummaryAPI(currentStep, modelCode, trimCode, extCode, intCode, optionCode);
+		summary = service.getSummaryAPI(modelCode, trimCode, extCode, intCode, optionCode);
 		
 		
 	}

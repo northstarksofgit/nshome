@@ -1,12 +1,12 @@
-<sly data-sly-use.how="com.kia25.core.models.HowToBuyModel"></sly>
+<sly data-sly-use.option="com.kia25.core.models.Build004_CRUD"></sly>
 
-<p>area component</p>
+<p>${option.optionList.size}</p>
 <hr>
 <div>
-	<sly data-sly-test="${how.transList}">
-        <ul data-sly-list.trns="${how.transList}" >
-            	<li> 시 코드 : ${trns.transCode}</li>
-            	<li> 시 이름 : ${trns.transName}</li>
+	<sly data-sly-test="${option.optionList}">
+        <ul data-sly-list.opt="${option.optionList}" >
+            	<li> 시 코드 : ${opt.trimCode}</li>
+            	<li> 시 이름 : ${opt.optionCode}</li>
         </ul>
     </sly>
 </div>

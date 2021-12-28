@@ -26,19 +26,34 @@
                 <sly data-sly-test="${option.optionList}">
                     <sly data-sly-list.opt="${option.optionList}" >
                     	<tr>
-                            <td>${opt.optionCode}</td>
-							<td>${opt.optionName}</td>
-							<td><sly data-sly-call="${formattedPrice @ price=opt.optionPrice}"></sly></td>
-                            <td>${opt.bestYn}</td>
-                            <td>${opt.optionImagePath}</td>
-                            <td>${opt.carOptionCode != null ? opt.carOptionCode : '-'}</td>
-                            <td>${opt.specificationCode != null ? opt.specificationCode : '-'}</td>
-                            <td>${opt.optionProductNumber != null ? opt.optionProductNumber : '-'}</td>
+                            <td data-field="optionCode" data-value="${opt.optionCode}">${opt.optionCode}</td>
+							<td data-field="optionName" data-value="${opt.optionName}">${opt.optionName}</td>
+							<td data-field="optionPrice" data-value="${opt.optionPrice}"><sly data-sly-call="${formattedPrice @ price=opt.optionPrice}"></sly></td>
+                            <td data-field="bestYn" data-value="${opt.bestYn}">${opt.bestYn}</td>
+                            <td data-field="optionImagePath" data-value="${opt.optionImagePath}">${opt.optionImagePath}</td>
+                            <td data-field="carOptionCode" data-value="${opt.carOptionCode != null ? opt.carOptionCode : 'null'}">${opt.carOptionCode != null ? opt.carOptionCode : '-'}</td>
+                            <td data-field="specificationCode" data-value="${opt.specificationCode != null ? opt.specificationCode : 'null'}">${opt.specificationCode != null ? opt.specificationCode : '-'}</td>
+                            <td data-field="optionProductNumber" data-value="${opt.optionProductNumber != null ? opt.optionProductNumber : 'null'}">${opt.optionProductNumber != null ? opt.optionProductNumber : '-'}</td>
+                            <td style="text-align: center;">	
+                            	<button class="btn btn-edit">Edit</button>
+                            	<button class="btn btn-delete">Delete</button>
+                            </td>
 						</tr>
                     </sly>
                 </sly>
 			</tbody>
 		</table>
+		
+		<div id="myModal" class="modal">
+
+		  <!-- Modal content -->
+		  <div class="modal-content">
+		    <span class="close">&times;</span>
+		    <p>Some text in the Modal..</p>
+		  </div>
+		
+		</div>
+		
 		<div class="col-lg-12" id="ex1_Result1" ></div> 
 		<div class="col-lg-12" id="ex1_Result2" ></div> 
 	</div>

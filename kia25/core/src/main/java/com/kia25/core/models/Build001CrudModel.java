@@ -14,6 +14,7 @@ import org.slf4j.LoggerFactory;
 
 import com.kia25.core.rest.client.dto.CategoryDto;
 import com.kia25.core.rest.client.dto.CategoryListDto;
+import com.kia25.core.rest.client.dto.ModelDto;
 import com.kia25.core.rest.client.service.BuildYourCarService;
 import com.kia25.core.rest.client.service.CrudService;
 import com.kia25.core.rest.client.service.impl.BuildYourCarServiceImpl;
@@ -32,8 +33,8 @@ public class Build001CrudModel {
 	
 	
 	private List<CategoryDto> categoryList;
-	
-	
+	private List<ModelDto> modelList;
+ 	
 	
 	@PostConstruct
 	public void activate() throws  Exception {
@@ -50,7 +51,10 @@ public class Build001CrudModel {
 		 */
 		String categoryCode = request.getParameter("categoryCode");
 		
-		LOG.info(categoryCode);
+		modelList = (categoryCode != null) ? 
+				service.getModelListAPI(categoryCode) : 
+				service.getModelListAPI("001");
+		
 		
 	}
 
@@ -67,6 +71,11 @@ public class Build001CrudModel {
 
 	public List<CategoryDto> getCategoryList() {
 		return categoryList;
+	}
+
+
+	public List<ModelDto> getModelList() {
+		return modelList;
 	}
 	
 	

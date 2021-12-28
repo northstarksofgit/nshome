@@ -13,6 +13,7 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import com.kia25.core.rest.client.dto.CategoryDto;
 import com.kia25.core.rest.client.dto.CategoryListDto;
 import com.kia25.core.rest.client.dto.CategoryListDtoResults;
+import com.kia25.core.rest.client.dto.ModelDto;
 import com.kia25.core.rest.client.dto.ModelListDto;
 import com.kia25.core.rest.client.dto.ModelListDtoResults;
 import com.kia25.core.rest.client.dto.OptionDto;
@@ -50,16 +51,16 @@ public class CrudServiceImpl implements CrudService{
 	}
 
 	@Override
-	public ModelListDto getModelListAPI() {
+	public List<ModelDto> getModelListAPI(String categoryCode) {
 		
 		try {
 			
-			String response = service.getRequest("build-your-car/model-list");
+			String response = service.getRequest("db/model/list?categoryCode="+categoryCode);
 			LOG.debug("response={}", response);
 			ObjectMapper mapper = new ObjectMapper();
 			
-			ModelListDtoResults results = mapper.readValue(response,  ModelListDtoResults.class);
-            return results.getData();
+			List<ModelDto> results = mapper.readValue(response, new TypeReference<List<ModelDto>>(){});
+            return results;
             
 		} catch (IOException e) {
 			LOG.error("Error parsing JSON API response.", e);

@@ -104,10 +104,10 @@
     font-size: 15px;
 }
 
-.radio{
-    transform : scale(1.5);
-    margin-left: 15px;
-    margin-right: 8px;
+.radioCURD{
+    transform : scale(1.5) !important;
+    margin-left: 15px !important;
+    margin-right: 8px !important;
 }
 
 .modal{

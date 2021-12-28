@@ -38,7 +38,7 @@ public class BuildYourCarServiceImpl implements BuildYourCarService {
 	public CategoryListDto getCategoryAPI() {
 		
 		try {
-			String response = service.getRequest("category-list");
+			String response = service.getRequest("build-your-car/category-list");
 			LOG.debug("response={}", response);
 			ObjectMapper mapper = new ObjectMapper();
 			
@@ -59,7 +59,7 @@ public class BuildYourCarServiceImpl implements BuildYourCarService {
 	public ModelListDto getModelListAPI() {
 		
 		try {
-			String response = service.getRequest("model-list");
+			String response = service.getRequest("build-your-car/model-list");
 			LOG.debug("response={}", response);
 			ObjectMapper mapper = new ObjectMapper();
 			
@@ -121,7 +121,7 @@ public class BuildYourCarServiceImpl implements BuildYourCarService {
 	public OptionListDtoResults getOptionlListAPI(String modelCode, String trimCode, String extColorCode, String intColorCode) {
 		
 		try {
-	        String url = "option-list?";
+	        String url = "build-your-car/option-list?";
 			url += "modelCode="+modelCode;
 			url += "&trimCode="+trimCode;
 			url += "&ext="+extColorCode;
@@ -204,7 +204,7 @@ public class BuildYourCarServiceImpl implements BuildYourCarService {
 			
 			// 2021 12 28 기준 : data가 유효한 트림 코드 LRL
 			
-			url = "summary-info?modelCode="+modelCode;
+			url = "build-your-car/summary-info?modelCode="+modelCode;
 			url	+= trimCode!=null? "&trimCode="+trimCode : "";
 			url	+= extColorCode != null ? "&extColorCode="+extColorCode : "";
 			url += intColorCode != null ? "&intColorCode="+intColorCode : "";

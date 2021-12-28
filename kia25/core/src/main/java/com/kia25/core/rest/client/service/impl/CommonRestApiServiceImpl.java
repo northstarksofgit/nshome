@@ -33,7 +33,7 @@ public class CommonRestApiServiceImpl implements CommonRestApiService {
     @Property(label = "Service endpoint URL", description = "URL of the API service endpoint, e.g. http://hostname/. Must end with '/'.", value = "http://localhost:3000/")
     private static final String PROP_ENDPOINT_URL = "endpoint.url";
 	
-	private String endPointUrl = "http://192.168.31.86:9090/build-your-car/";
+	private String endPointUrl = "http://192.168.31.86:9090/";
 
     @Activate
     private void activate(ComponentContext ctx) {

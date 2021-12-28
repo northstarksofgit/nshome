@@ -90,8 +90,6 @@ public class NaviModel {
 		currentStep  = (String) valueMap.getOrDefault("currentStep", "2");
 			
 
-		LOG.info("aaaasdad");
-
 		/*
 		 * summary정보 API 호출
 		 */

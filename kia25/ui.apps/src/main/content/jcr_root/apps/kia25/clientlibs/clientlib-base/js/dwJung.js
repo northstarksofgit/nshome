@@ -522,22 +522,20 @@ $('.onModal').on('click', function(){
 $('.btn.reg.model').on('click', function(){ 
                                     $('.modal').css('display', 'block');
                                     $('.model.regBox').addClass('onModal');
-                                })
+                                });
 
 $('.btn.update.model').on('click', function(){ 
                                     $('.modal').css('display', 'block');
                                     $('.model.modBox').addClass('onModal');
-                                })
+                                });
 
 $('.btn.reg.cate').on('click', function(){ 
                                             $('.modal').css('display', 'block');
                                             $('.cate.regBox').addClass('onModal');
-                                        })
+                                        });
 
 $('.btn.update.cate').on('click', function(){ 
                                     $('.modal').css('display', 'block');
                                     $('.cate.modBox').addClass('onModal');
-                                })
-
-
+                                });
 

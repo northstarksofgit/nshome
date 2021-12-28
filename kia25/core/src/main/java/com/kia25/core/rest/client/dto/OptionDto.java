@@ -44,22 +44,21 @@ public class OptionDto {
 	/**
 	 * 옵션이미지경로
 	 */
-	private String optionalImgPath;
+	private String optionImagePath;
 
 	
 	/**
 	 * 사양코드
 	 */
-//	private String 	specificationCode;
+	private String 	specificationCode;
 	
 	
 	/**
 	 * 옵션상품번호
 	 */
-//	private String optionProductNumber;
-	
-	
-	
+	private String optionProductNumber;
+
+
 	public String getTrimCode() {
 		return trimCode;
 	}
@@ -120,35 +119,38 @@ public class OptionDto {
 	}
 
 
-	public String getOptionalImgPath() {
-		return optionalImgPath;
+	public String getOptionImagePath() {
+		return optionImagePath;
 	}
 
 
-	public void setOptionalImgPath(String optionalImgPath) {
-		this.optionalImgPath = optionalImgPath;
+	public void setOptionImagePath(String optionImagePath) {
+		this.optionImagePath = optionImagePath;
 	}
 
 
-//	public String getSpecificationCode() {
-//		return specificationCode;
-//	}
-//
-//
-//	public void setSpecificationCode(String specificationCode) {
-//		this.specificationCode = specificationCode;
-//	}
-//
-//
-//	public String getOptionProductNumber() {
-//		return optionProductNumber;
-//	}
-//
-//
-//	public void setOptionProductNumber(String optionProductNumber) {
-//		this.optionProductNumber = optionProductNumber;
-//	}
+	public String getSpecificationCode() {
+		return specificationCode;
+	}
 
+
+	public void setSpecificationCode(String specificationCode) {
+		this.specificationCode = specificationCode;
+	}
+
+
+	public String getOptionProductNumber() {
+		return optionProductNumber;
+	}
+
+
+	public void setOptionProductNumber(String optionProductNumber) {
+		this.optionProductNumber = optionProductNumber;
+	}
+
+
+	
+	
 	
 	
 	

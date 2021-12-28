@@ -31,15 +31,6 @@ public class Build004_CRUD {
 	
 	private OptionDto optionList[];
 	
-	private String modelCode = null;
-	private String trimCode = null;
-	private String extColorCode = null;
-	private String intColorCode = null;
-	
-	private String backToFirst = null;
-	private String backToTrim = null;
-	private String backToColor = null;
-	
 	
 	@PostConstruct
 	public void activate() throws Exception {
@@ -54,11 +45,12 @@ public class Build004_CRUD {
 			 * get Print Model-Option List 
 			 */
 			optionList = service.getOptionListAPI(
-																	null, 
-																	request.getParameter("trimCode").toUpperCase(), 
-																	null, 
-																	null
-																);
+													null, 
+													request.getParameter("trimCode").toUpperCase(), 
+													null, 
+													null
+												);
+
 		
 		} catch(Exception e) {
 			e.printStackTrace();
@@ -69,32 +61,8 @@ public class Build004_CRUD {
 	}
 
 
-	public String getModelCode() {
-		return modelCode;
-	}
-
-	public String getTrimCode() {
-		return trimCode;
-	}
-
-	public String getExtColorCode() {
-		return extColorCode;
-	}
-
-	public String getIntColorCode() {
-		return intColorCode;
-	}
-
-	public String getBackToFirst() {
-		return backToFirst;
-	}
-
-	public String getBackToTrim() {
-		return backToTrim;
-	}
-
-	public String getBackToColor() {
-		return backToColor;
+	public OptionDto[] getOptionList() {
+		return optionList;
 	}
 
 	

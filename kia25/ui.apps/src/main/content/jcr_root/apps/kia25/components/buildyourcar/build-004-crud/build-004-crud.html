@@ -1,71 +1,42 @@
 <sly data-sly-use.clientLib="/libs/granite/sightly/templates/clientlib.html"  data-sly-call="${clientLib.all @ categories='kia25.base'}"></sly>
 <sly data-sly-use.option="com.kia25.core.models.Build004_CRUD"></sly>
 
+<template data-sly-template.formattedPrice="${ @ price}" data-sly-use.priceFormatter="${'com.kia25.core.models.CurrencyFormatterModel' @ value=price}">
+		${priceFormatter.formattedPrice}<em>원</em>
+</template>
 
+<p>${option.optionList.size}</p>
 <div class="row">
 		<table id="example-table-1" width="100%" class="table table-bordered table-hover text-center">
 			<thead>
 				<tr>
-					<th>Option Code</th>
-					<th>Option Name</th>
-					<th>Option Price</th>
-					<th>Best Y/N</th>
-					<th>Option Image Path</th>
+					<th>옵션 코드</th>
+					<th>옵션 명</th>
+					<th>옵션 가격</th>
+					<th>추천 여부</th>
+					<th>옵션 이미지</th>
 					<th>Car Option Code</th>
-					<th>Sepcification Code</th>
-					<th>Option Product Number</th>
+					<th>사양코드</th>
+					<th>옵션상품번호</th>
 					<th>Action</th>
 				</tr>
 			</thead>
-			<tbody>				
-				<tr>
-					<td>1</td>
-					<td>user01</td>
-					<td>홍길동</td>
-					<td>honm</td>
-					<td>1</td>
-					<td>user01</td>
-					<td>홍길동</td>
-					<td>hong@</td>
-					<td>
-						<div class="btn-div">
-							<button class="button-action btn-edit" data-optionCode="1">Edit</button>
-							<button class="button-action btn-delete">Delete</button>
-						</div>
-					</td>
-				</tr>
-				<tr>
-					<td>2</td>
-					<td>user02</td>
-					<td>김사부</td>
-					<td>kim</td>
-					<td>2</td>
-					<td>user02</td>
-					<td>김사부</td>
-					<td>kim@nm</td>
-					<td>
-						<div class="btn-div">
-							<button class="button-action btn-edit" data-optionCode="2">Edit</button>
-							<button class="button-action btn-delete">Delete</button>
-						</div>
-					</td>
-				</tr>
-				<tr>
-					<td>3</td>
-					<td>user03</td>
-					<td>존</td>
-					<td>Joom</td>
-					<td>3</td>
-					<td>user03</td>
-					<td>존</td>
-					<td>J.com</td>
-					<td>
-						<div class="btn-div">
-							<button class="button-action btn-edit" data-optionCode="3">Edit</button>
-							<button class="button-action btn-delete">Delete</button>
-						</div>
-					</td>
-				</tr>
+			<tbody>		
+
+                <sly data-sly-test="${option.optionList}">
+                    <sly data-sly-list.opt="${option.optionList}" >
+                    	<tr>
+                            <td>${opt.optionCode}</td>
+							<td>${opt.optionName}</td>
+							<td><sly data-sly-call="${formattedPrice @ price=opt.optionPrice}"></sly></td>
+                            <td>${opt.bestYn}</td>
+                            <td>${opt.optionImagePath}</td>
+                            <td>${opt.carOptionCode != null ? opt.carOptionCode : '-'}</td>
+                            <td>${opt.specificationCode != null ? opt.specificationCode : '-'}</td>
+                            <td>${opt.optionProductNumber != null ? opt.optionProductNumber : '-'}</td>
+						</tr>
+                    </sly>
+                </sly>
 			</tbody>
 		</table>
 		<div class="col-lg-12" id="ex1_Result1" ></div> 

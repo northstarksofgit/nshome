@@ -15,6 +15,7 @@ import com.kia25.core.rest.client.dto.CategoryListDto;
 import com.kia25.core.rest.client.dto.CategoryListDtoResults;
 import com.kia25.core.rest.client.dto.ModelListDto;
 import com.kia25.core.rest.client.dto.ModelListDtoResults;
+import com.kia25.core.rest.client.dto.OptionDto;
 import com.kia25.core.rest.client.service.CommonRestApiService;
 import com.kia25.core.rest.client.service.CrudService;
 
@@ -68,4 +69,27 @@ public class CrudServiceImpl implements CrudService{
 		return null;
 	}
 
+	
+	@Override
+	public OptionDto[] getOptionListAPI(String modelCode, String trimCode, String extColorCode, String intColorCode) {
+		
+		try {
+			String url = "db/option/list?trimCode="+trimCode;
+			
+			LOG.debug("URL   =    {}", url);
+			
+			String response = service.getRequest(url);
+			LOG.debug("response={}", response);
+			ObjectMapper mapper = new ObjectMapper();
+			
+			OptionDto results[] = mapper.readValue(response,  OptionDto[].class);
+            return results;
+            
+		} catch (IOException e) {
+			LOG.error("Error parsing JSON API response.", e);
+			e.printStackTrace();
+		}
+		
+		return null;
+	}
 }

@@ -5,6 +5,7 @@ import java.util.List;
 import com.kia25.core.rest.client.dto.CategoryDto;
 import com.kia25.core.rest.client.dto.CategoryListDto;
 import com.kia25.core.rest.client.dto.ModelListDto;
+import com.kia25.core.rest.client.dto.OptionDto;
 
 public interface CrudService {
 
@@ -18,4 +19,6 @@ public interface CrudService {
 	 */
 	ModelListDto getModelListAPI();
 	
+	
+	OptionDto[] getOptionListAPI(String modelCode, String trimCode, String extColorCode, String intColorCode);
 }

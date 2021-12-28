@@ -1,17 +1,20 @@
-<!--
 <sly data-sly-use.clientLib="/libs/granite/sightly/templates/clientlib.html"  data-sly-call="${clientLib.all @ categories='kia25.base'}"></sly>
-<sly data-sly-use.option="com.kia25.core.models.Build004_OptionModel"></sly>
--->
+<sly data-sly-use.option="com.kia25.core.models.Build004_CRUD"></sly>
 
 
 <div class="row">
 		<table id="example-table-1" width="100%" class="table table-bordered table-hover text-center">
 			<thead>
 				<tr>
-					<th>No. </th>
-					<th>아이디</th>
-					<th>이름</th>
-					<th>이메일</th>
+					<th>Option Code</th>
+					<th>Option Name</th>
+					<th>Option Price</th>
+					<th>Best Y/N</th>
+					<th>Option Image Path</th>
+					<th>Car Option Code</th>
+					<th>Sepcification Code</th>
+					<th>Option Product Number</th>
+					<th>Action</th>
 				</tr>
 			</thead>
 			<tbody>				
@@ -19,19 +22,49 @@
 					<td>1</td>
 					<td>user01</td>
 					<td>홍길동</td>
-					<td>hong@gmail.com</td>
+					<td>honm</td>
+					<td>1</td>
+					<td>user01</td>
+					<td>홍길동</td>
+					<td>hong@</td>
+					<td>
+						<div class="btn-div">
+							<button class="button-action btn-edit" data-optionCode="1">Edit</button>
+							<button class="button-action btn-delete">Delete</button>
+						</div>
+					</td>
 				</tr>
 				<tr>
 					<td>2</td>
 					<td>user02</td>
 					<td>김사부</td>
-					<td>kim@naver.com</td>
+					<td>kim</td>
+					<td>2</td>
+					<td>user02</td>
+					<td>김사부</td>
+					<td>kim@nm</td>
+					<td>
+						<div class="btn-div">
+							<button class="button-action btn-edit" data-optionCode="2">Edit</button>
+							<button class="button-action btn-delete">Delete</button>
+						</div>
+					</td>
 				</tr>
 				<tr>
 					<td>3</td>
 					<td>user03</td>
 					<td>존</td>
-					<td>John@gmail.com</td>
+					<td>Joom</td>
+					<td>3</td>
+					<td>user03</td>
+					<td>존</td>
+					<td>J.com</td>
+					<td>
+						<div class="btn-div">
+							<button class="button-action btn-edit" data-optionCode="3">Edit</button>
+							<button class="button-action btn-delete">Delete</button>
+						</div>
+					</td>
 				</tr>
 			</tbody>
 		</table>

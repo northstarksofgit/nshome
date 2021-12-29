@@ -63,8 +63,8 @@ public class NaviModel {
 	private String modelCode;
 	private String modelYear;
 	private String trimCode;
-	private String extCode;
-	private String intCode;
+	private String extColorCode;
+	private String intColorCode;
 	private String optionCode;
 	
 	
@@ -78,8 +78,8 @@ public class NaviModel {
 		modelCode = request.getParameter("modelCode");
 		modelYear = request.getParameter("modelYear");
 		trimCode = request.getParameter("trimCode");
-		extCode = request.getParameter("extColorCode");
-		intCode = request.getParameter("intColorCode");
+		extColorCode = request.getParameter("extColorCode");
+		intColorCode = request.getParameter("intColorCode");
 		optionCode = request.getParameter("option");
 
 
@@ -100,12 +100,12 @@ public class NaviModel {
 		if(Integer.parseInt(currentStep) == 2) {
 			
 			LOG.info("Summary API call 1");
-			summary = service.getSummaryAPI(modelCode, modelYear, trimCode, extCode, intCode, optionCode);
+			summary = service.getSummaryAPI(modelCode, modelYear, trimCode, extColorCode, intColorCode, optionCode);
 			
 		}else if(Integer.parseInt(currentStep) > 2 && !trimCode.equals("null")) {
 			
 			LOG.info("Summary API call 2");			
-			summary = service.getSummaryAPI(modelCode, modelYear, trimCode, extCode, intCode, optionCode);
+			summary = service.getSummaryAPI(modelCode, modelYear, trimCode, extColorCode, intColorCode, optionCode);
 		}
 		
 		
@@ -178,12 +178,12 @@ public class NaviModel {
 		return trimCode;
 	}
 
-	public String getExtCode() {
-		return extCode;
+	public String getExtColorCode() {
+		return extColorCode;
 	}
 
-	public String getIntCode() {
-		return intCode;
+	public String getIntColorCode() {
+		return intColorCode;
 	}
 
 	public String getOptionCode() {

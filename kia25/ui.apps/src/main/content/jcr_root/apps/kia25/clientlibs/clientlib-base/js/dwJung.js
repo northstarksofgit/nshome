@@ -418,6 +418,7 @@ function nextStep(){
 	const nextStep = parseInt($('.naviDia').attr('currentStep'))+1;
 	var nextPath = $('.naviDia').attr('nextPath');
 	const modelCode = $('.naviDia').attr('modelCode');
+	const modelYear = $('.naviDia').attr('modelYear');
 	const trimCode = $('.naviDia').attr('trimCode');
 	const intCode = $('.naviDia').attr('intCode');
 	const extCode = $('.naviDia').attr('extCode');
@@ -426,27 +427,27 @@ function nextStep(){
 	
 	if(nextStep == "3"){
 		
-		nextPath += ".html?step="+nextStep+"&modelCode="+modelCode;
+		nextPath += ".html?step="+nextStep+"&modelCode="+modelCode+"&modelYear="+modelYear;
 		nextPath += "&trimCode="+naviTrimCode;
 		
 	}else if(nextStep == "4"){
 		
-		nextPath += ".html?step="+nextStep+"&modelCode="+modelCode;
+		nextPath += ".html?step="+nextStep+"&modelCode="+modelCode+"&modelYear="+modelYear;
 		nextPath += "&trimCode="+trimCode;
-		nextPath += "&ext="+$('input[name=ext]').val()+"&int="+$('input[name=int]').val();
+		nextPath += "&extColorCode="+$('input[name=ext]').val()+"&intColorCode="+$('input[name=int]').val();
 		nextPath = nextPath.replace('#', '');
 		
 	}else if(nextStep == "5"){
 		
-		nextPath += ".html?step="+nextStep+"&modelCode="+modelCode;
+		nextPath += ".html?step="+nextStep+"&modelCode="+modelCode+"&modelYear="+modelYear;
 		nextPath += "&trimCode="+trimCode;
-		nextPath += "&ext="+extCode+"&int="+intCode;
+		nextPath += "&extColorCode="+extCode+"&intColorCode="+intCode;
 		nextPath += "&option="+selectedOptList.toString();
 	}else{
 		
-		nextPath += ".html?step="+nextStep+"&modelCode="+modelCode;
+		nextPath += ".html?step="+nextStep+"&modelCode="+modelCode+"&modelYear="+modelYear;
 		nextPath += "&trimCode="+trimCode;
-		nextPath += "&ext="+extCode+"&int="+intCode;
+		nextPath += "&extColorCode="+extCode+"&intColorCode="+intCode;
 		nextPath += "&option="+optionCode;
 	}
 	

@@ -185,7 +185,7 @@ public class BuildYourCarServiceImpl implements BuildYourCarService {
 	 */
 
 	@Override
-	public SummaryDto getSummaryAPI(String modelCode, String trimCode, String extColorCode, String intColorCode, String optionCode) {
+	public SummaryDto getSummaryAPI(String modelCode, String modelYear, String trimCode, String extColorCode, String intColorCode, String optionCode) {
 		
 		String response = null;
 		String url = "";
@@ -195,6 +195,7 @@ public class BuildYourCarServiceImpl implements BuildYourCarService {
 			// 2021 12 28 기준 : data가 유효한 트림 코드 LRL
 			
 			url = "build-your-car/summary-info?modelCode="+modelCode;
+			url += "&modelYear="+modelYear;
 			url	+= trimCode!=null? "&trimCode="+trimCode : "";
 			url	+= extColorCode != null ? "&extColorCode="+extColorCode : "";
 			url += intColorCode != null ? "&intColorCode="+intColorCode : "";
@@ -203,8 +204,8 @@ public class BuildYourCarServiceImpl implements BuildYourCarService {
 			
 			response = service.getRequest(url);
 			
-			LOG.error("response={}", response);
-			LOG.error("url="+url);
+			LOG.debug("response={}", response);
+			LOG.info("summary url="+url);
 			
 			ObjectMapper mapper = new ObjectMapper();
 			

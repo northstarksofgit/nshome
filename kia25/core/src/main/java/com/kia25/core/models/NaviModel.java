@@ -4,6 +4,7 @@ package com.kia25.core.models;
 import javax.annotation.PostConstruct;
 import javax.inject.Inject;
 
+import org.apache.lucene.search.FieldCache.IntParser;
 import org.apache.sling.api.SlingHttpServletRequest;
 import org.apache.sling.api.resource.Resource;
 import org.apache.sling.api.resource.ValueMap;
@@ -60,6 +61,7 @@ public class NaviModel {
 	 * parameter로 넘어온 code
 	 */
 	private String modelCode;
+	private String modelYear;
 	private String trimCode;
 	private String extCode;
 	private String intCode;
@@ -74,9 +76,10 @@ public class NaviModel {
 		 * url로 넘어온 파라미터
 		 */
 		modelCode = request.getParameter("modelCode");
+		modelYear = request.getParameter("modelYear");
 		trimCode = request.getParameter("trimCode");
-		extCode = request.getParameter("ext");
-		intCode = request.getParameter("int");
+		extCode = request.getParameter("extColorCode");
+		intCode = request.getParameter("intColorCode");
 		optionCode = request.getParameter("option");
 
 
@@ -93,9 +96,19 @@ public class NaviModel {
 		/*
 		 * summary정보 API 호출
 		 */
-		if (trimCode != null) {
-			summary = service.getSummaryAPI(modelCode, trimCode, extCode, intCode, optionCode);
+
+		if(Integer.parseInt(currentStep) == 2) {
+			
+			LOG.info("Summary API call 1");
+			summary = service.getSummaryAPI(modelCode, modelYear, trimCode, extCode, intCode, optionCode);
+			
+		}else if(Integer.parseInt(currentStep) > 2 && !trimCode.equals("null")) {
+			
+			LOG.info("Summary API call 2");			
+			summary = service.getSummaryAPI(modelCode, modelYear, trimCode, extCode, intCode, optionCode);
 		}
+		
+		
 		
 		
 	}
@@ -110,6 +123,11 @@ public class NaviModel {
 	
 	
 	
+
+	public String getModelYear() {
+		return modelYear;
+	}
+
 
 	public SummaryDto getSummary() {
 		return summary;

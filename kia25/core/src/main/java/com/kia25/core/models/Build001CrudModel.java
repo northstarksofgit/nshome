@@ -49,12 +49,16 @@ public class Build001CrudModel {
 		/*
 		 * 모델 리스트 출력
 		 */
-		String categoryCode = request.getParameter("categoryCode");
+		String categoryCode = request.getParameter("cateSort");
 		
 		modelList = (categoryCode != null) ? 
 				service.getModelListAPI(categoryCode) : 
 				service.getModelListAPI("001");
 		
+		
+		
+		
+		LOG.info((String)request.getParameter("cateSort"));
 		
 	}
 

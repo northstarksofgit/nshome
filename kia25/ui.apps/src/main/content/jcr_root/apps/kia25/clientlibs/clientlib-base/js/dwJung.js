@@ -467,6 +467,7 @@ function preStep(){
 	const previStep = parseInt($('.naviDia').attr('currentStep'))-1;
 	var prePath = $('.naviDia').attr('prePath');
 	const modelCode = $('.naviDia').attr('modelCode');
+	const modelYear = $('.naviDia').attr('modelYear');
 	const trimCode = $('.naviDia').attr('trimCode');
 	const intCode = $('.naviDia').attr('intCode');
 	const extCode = $('.naviDia').attr('extCode');
@@ -478,17 +479,17 @@ function preStep(){
 		
 	}else if(previStep == "2"){
 		
-		prePath += ".html?step="+previStep+"&modelCode="+modelCode;
+		prePath += ".html?step="+previStep+"&modelCode="+modelCode+"&modelYear="+modelYear;
 		
 	}else if(previStep == "3"){
 		
-		prePath += ".html?step="+previStep+"&modelCode="+modelCode;
+		prePath += ".html?step="+previStep+"&modelCode="+modelCode+"&modelYear="+modelYear;
 		prePath += "&trimCode="+trimCode;
 	}else{
 		
-		prePath += ".html?step="+previStep+"&modelCode="+modelCode;
+		prePath += ".html?step="+previStep+"&modelCode="+modelCode+"&modelYear="+modelYear;
 		prePath += "&trimCode="+trimCode;
-		prePath += "&ext="+extCode+"&int="+intCode;
+		prePath += "&extColorCode="+extCode+"&intColorCode="+intCode;
 	}
 	
 	
@@ -561,7 +562,7 @@ if($('.radioCURD').length >0 ){
 */
 $('.radioCURD').change( function() {
 	
-	$('.categoryCode').val($('.radioCURD:checked').val());
+	//$('.categoryCode').val($('.radioCURD:checked').val());
 	$('form[name=findCate]').submit();
 
 });

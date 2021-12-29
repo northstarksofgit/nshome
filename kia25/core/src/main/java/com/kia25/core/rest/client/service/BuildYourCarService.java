@@ -48,6 +48,8 @@ public interface BuildYourCarService {
 	 */
 	SummaryDto getSummaryAPI(String modelCode, String modelYear, String trimCode, String extColorCode, String intColorCode, String optionCode);
 	
+	ModelListDto getModelAPI();
+	
 	/**
 	 * How-to-Buy / arealist 불러오기
 	 */

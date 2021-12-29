@@ -4,10 +4,12 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.apache.http.entity.ContentType;
 import org.apache.sling.models.annotations.injectorspecific.OSGiService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.kia25.core.rest.client.dto.CategoryDto;
@@ -50,6 +52,30 @@ public class CrudServiceImpl implements CrudService{
 		return null;
 	}
 
+	@Override
+	public String saveCategory(CategoryDto categoryDto) {
+		// TODO Auto-generated method stub
+        ObjectMapper mapper = new ObjectMapper();
+        try {
+            String json = mapper.writeValueAsString(categoryDto);
+            LOG.debug("Serialized contract = '{}'.", json);
+            String response = service.sendPostRequest("db/category/save", json, ContentType.APPLICATION_JSON);
+            LOG.debug("postContract: response = '{}'.", response);
+//            JsonParser parser = new JsonParser();
+//            JsonElement jsonResponse = parser.parse(response);
+//            JsonObject jsonObj = jsonResponse.getAsJsonObject();
+//            JsonObject data = jsonObj.getAsJsonObject("data");
+//            String categorySeq = data.get("categorySeq").getAsString();
+            return "OK";
+        } catch (JsonProcessingException e) {
+            LOG.error("Error serializing object to JSON.", e);
+        } catch (IOException e) {
+            LOG.error("Error submitting contract.", e);
+        }
+		return "OK";
+	}
+	
+	
 	@Override
 	public List<ModelDto> getModelListAPI(String categoryCode) {
 		

@@ -24,7 +24,7 @@ import com.kia25.core.rest.client.service.BuildYourCarService;
 import com.kia25.core.rest.client.service.CommonRestApiService;
 
 @Component(immediate = true)
-@Service(value = BuildYourCarService.class)
+@Service
 public class BuildYourCarServiceImpl implements BuildYourCarService {
 
 	private static final Logger LOG = LoggerFactory.getLogger(BuildYourCarServiceImpl.class);
@@ -35,6 +35,7 @@ public class BuildYourCarServiceImpl implements BuildYourCarService {
 	/**
 	 * get category List
 	 */
+	@Override
 	public CategoryListDto getCategoryAPI() {
 		
 		try {
@@ -56,6 +57,7 @@ public class BuildYourCarServiceImpl implements BuildYourCarService {
 	/**
 	 * get Model List
 	 */
+	@Override
 	public ModelListDto getModelListAPI() {
 		
 		try {
@@ -109,6 +111,7 @@ public class BuildYourCarServiceImpl implements BuildYourCarService {
 	/**
 	 * get option List
 	 */
+	@Override
 	public OptionListDtoResults getOptionlListAPI(String modelCode, String trimCode, String extColorCode, String intColorCode) {
 		
 		try {
@@ -137,7 +140,7 @@ public class BuildYourCarServiceImpl implements BuildYourCarService {
 	/**
 	 * build003 / colorlist 불러오기
 	 */
-	
+	@Override
 	public ColorListDtoResults getColorAPI(String modelCode, String trimCode) {
 
 		try {
@@ -160,6 +163,7 @@ public class BuildYourCarServiceImpl implements BuildYourCarService {
 		return null;
 	}
 	
+	@Override
 	public ModelListDto getModelAPI() {
 
 		try {
@@ -224,7 +228,7 @@ public class BuildYourCarServiceImpl implements BuildYourCarService {
 	/**
 	 * build006 / completelist 불러오기
 	 */
-	
+	@Override
 	public CompleteListDtoResults getCompleteAPI(String modelCode, String trimCode, String extColorCode, String intColorCode, String optionCode) {
 
 		try {
@@ -254,6 +258,7 @@ public class BuildYourCarServiceImpl implements BuildYourCarService {
 	/**
 	 * get area List
 	 */
+	@Override
 	public AreaListDtoResults getAreaListAPI() {
 		
 		try {
@@ -272,6 +277,5 @@ public class BuildYourCarServiceImpl implements BuildYourCarService {
 		return null;
 	}
 
- 
 
 }

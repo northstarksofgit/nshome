@@ -8,10 +8,12 @@ import org.apache.felix.scr.annotations.Component;
 import org.apache.felix.scr.annotations.Properties;
 import org.apache.felix.scr.annotations.Property;
 import org.apache.felix.scr.annotations.Service;
-
 import org.apache.http.HttpEntity;
 import org.apache.http.client.methods.CloseableHttpResponse;
 import org.apache.http.client.methods.HttpGet;
+import org.apache.http.client.methods.HttpPost;
+import org.apache.http.entity.ContentType;
+import org.apache.http.entity.StringEntity;
 import org.apache.http.impl.client.CloseableHttpClient;
 import org.apache.http.impl.client.HttpClients;
 import org.apache.http.util.EntityUtils;
@@ -30,7 +32,7 @@ public class CommonRestApiServiceImpl implements CommonRestApiService {
 
 	private static final Logger LOG = LoggerFactory.getLogger(CommonRestApiServiceImpl.class);
 
-    @Property(label = "Service endpoint URL", description = "URL of the API service endpoint, e.g. http://hostname/. Must end with '/'.", value = "http://localhost:3000/")
+    @Property(label = "Service endpoint URL", description = "URL of the API service endpoint, e.g. http://hostname/. Must end with '/'.", value = "http://192.168.31.86:9090/")
     private static final String PROP_ENDPOINT_URL = "endpoint.url";
 	
 	private String endPointUrl = "http://192.168.31.86:9090/";
@@ -43,6 +45,7 @@ public class CommonRestApiServiceImpl implements CommonRestApiService {
 
     }
     
+    @Override
 	public String getRequest(final String url) throws IOException {
         LOG.debug("Getting '{}'.", endPointUrl + url);
         long startTime = System.currentTimeMillis();
@@ -72,4 +75,37 @@ public class CommonRestApiServiceImpl implements CommonRestApiService {
             throw new IOException("Error in the request to '{" + url + "}'", e);
         }
 	}
+	
+	
+    @Override
+	public String sendPostRequest(final String url, final String body, final ContentType contentType)
+            throws IOException {
+        LOG.debug("Posting to '{}'.", url);
+        long startTime = System.currentTimeMillis();
+      
+        try (CloseableHttpClient httpClient = HttpClients.createDefault()) {
+            HttpPost request = new HttpPost(url);
+            request.setEntity(new StringEntity(body, contentType));
+            CloseableHttpResponse response = httpClient.execute(request);
+            
+            long endTime = System.currentTimeMillis();
+            LOG.debug("Result Time : {}.", endTime - startTime);
+
+            int responseCode = response.getStatusLine().getStatusCode();
+            LOG.debug("POST request response = '{}'.", response.getStatusLine());
+            HttpEntity entity = response.getEntity();
+            if (responseCode >= 200 && responseCode < 300) {
+                return entity != null ? EntityUtils.toString(entity) : null;
+            } else {
+                LOG.error("Error in the request to '{" + url + "}, body{" + body + "}'");               
+                String responsemsg = EntityUtils.toString(entity);
+                LOG.debug("Response = " + responsemsg);
+                throw new IOException("Error in the request to '{" + url + "}'");
+            }
+
+        } catch (IOException e) {
+            throw new IOException("Error in the request to '{" + url + "}'", e);
+        }
+    }
+	
 }

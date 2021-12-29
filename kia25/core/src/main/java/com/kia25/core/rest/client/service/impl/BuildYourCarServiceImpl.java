@@ -24,7 +24,7 @@ import com.kia25.core.rest.client.service.BuildYourCarService;
 import com.kia25.core.rest.client.service.CommonRestApiService;
 
 @Component(immediate = true)
-@Service(value = BuildYourCarService.class)
+@Service
 public class BuildYourCarServiceImpl implements BuildYourCarService {
 
 	private static final Logger LOG = LoggerFactory.getLogger(BuildYourCarServiceImpl.class);
@@ -35,6 +35,7 @@ public class BuildYourCarServiceImpl implements BuildYourCarService {
 	/**
 	 * get category List
 	 */
+	@Override
 	public CategoryListDto getCategoryAPI() {
 		
 		try {
@@ -56,6 +57,7 @@ public class BuildYourCarServiceImpl implements BuildYourCarService {
 	/**
 	 * get Model List
 	 */
+	@Override
 	public ModelListDto getModelListAPI() {
 		
 		try {
@@ -109,6 +111,7 @@ public class BuildYourCarServiceImpl implements BuildYourCarService {
 	/**
 	 * get option List
 	 */
+	@Override
 	public OptionListDtoResults getOptionlListAPI(String modelCode, String trimCode, String extColorCode, String intColorCode) {
 		
 		try {
@@ -137,8 +140,13 @@ public class BuildYourCarServiceImpl implements BuildYourCarService {
 	/**
 	 * build003 / colorlist 불러오기
 	 */
+<<<<<<< HEAD
 	
 	public ColorListDtoResults getColorAPI(String modelCode, String trimCode, String modelYear) {
+=======
+	@Override
+	public ColorListDtoResults getColorAPI(String modelCode, String trimCode) {
+>>>>>>> c78f04e0a3d78bccbece8428106863e0af4623e1
 
 		try {
 			
@@ -161,6 +169,7 @@ public class BuildYourCarServiceImpl implements BuildYourCarService {
 		return null;
 	}
 	
+	@Override
 	public ModelListDto getModelAPI() {
 
 		try {
@@ -186,7 +195,7 @@ public class BuildYourCarServiceImpl implements BuildYourCarService {
 	 */
 
 	@Override
-	public SummaryDto getSummaryAPI(String modelCode, String trimCode, String extColorCode, String intColorCode, String optionCode) {
+	public SummaryDto getSummaryAPI(String modelCode, String modelYear, String trimCode, String extColorCode, String intColorCode, String optionCode) {
 		
 		String response = null;
 		String url = "";
@@ -196,6 +205,7 @@ public class BuildYourCarServiceImpl implements BuildYourCarService {
 			// 2021 12 28 기준 : data가 유효한 트림 코드 LRL
 			
 			url = "build-your-car/summary-info?modelCode="+modelCode;
+			url += "&modelYear="+modelYear;
 			url	+= trimCode!=null? "&trimCode="+trimCode : "";
 			url	+= extColorCode != null ? "&extColorCode="+extColorCode : "";
 			url += intColorCode != null ? "&intColorCode="+intColorCode : "";
@@ -204,8 +214,8 @@ public class BuildYourCarServiceImpl implements BuildYourCarService {
 			
 			response = service.getRequest(url);
 			
-			LOG.error("response={}", response);
-			LOG.error("url="+url);
+			LOG.debug("response={}", response);
+			LOG.info("summary url="+url);
 			
 			ObjectMapper mapper = new ObjectMapper();
 			
@@ -224,8 +234,13 @@ public class BuildYourCarServiceImpl implements BuildYourCarService {
 	/**
 	 * build006 / completelist 불러오기
 	 */
+<<<<<<< HEAD
 	
 	public CompleteListDtoResults getCompleteAPI(String modelCode, String trimCode, String extColorCode, String intColorCode, String optionCode, String modelYear) {
+=======
+	@Override
+	public CompleteListDtoResults getCompleteAPI(String modelCode, String trimCode, String extColorCode, String intColorCode, String optionCode) {
+>>>>>>> c78f04e0a3d78bccbece8428106863e0af4623e1
 
 		try {
 			
@@ -255,6 +270,7 @@ public class BuildYourCarServiceImpl implements BuildYourCarService {
 	/**
 	 * get area List
 	 */
+	@Override
 	public AreaListDtoResults getAreaListAPI() {
 		
 		try {
@@ -273,6 +289,5 @@ public class BuildYourCarServiceImpl implements BuildYourCarService {
 		return null;
 	}
 
- 
 
 }

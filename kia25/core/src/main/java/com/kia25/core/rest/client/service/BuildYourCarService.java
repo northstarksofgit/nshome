@@ -30,7 +30,7 @@ public interface BuildYourCarService {
 	/**
 	 * build003 / colorlist 불러오기
 	 */
-	ColorListDtoResults getColorAPI(String modelCode, String trimCode);
+	ColorListDtoResults getColorAPI(String modelCode, String trimCode, String modelYear);
 	
 	/**
 	 * build004 / optionlist 불러오기
@@ -41,7 +41,7 @@ public interface BuildYourCarService {
 	/**
 	 * build006 / complete-list 불러오기
 	 */
-	CompleteListDtoResults getCompleteAPI(String modelCode, String trimCode, String extColorCode, String intColorCode, String optionCode);
+	CompleteListDtoResults getCompleteAPI(String modelCode, String trimCode, String extColorCode, String intColorCode, String optionCode, String modelYear);
 	
 	/*
 	 * navi / summary 불러오기

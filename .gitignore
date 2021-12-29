@@ -108,3 +108,6 @@ kia25/ui.content/src/main/resources/META-INF/MANIFEST.MF
 kia25/ui.apps/src/main/content/jcr_root/apps/kia25/clientlibs/clientlib-base/js/ckh.js.dir/.content.xml
 json server/api.bat
 json server/db-1639974350689.json
+kia25/core/src/main/java/com/kia25/core/models/GetRepository.java
+kia25/core/src/main/java/com/kia25/core/models/GetRepository_static.java
+kia25/core/src/main/java/com/kia25/core/models/GetRepositorySearch.java

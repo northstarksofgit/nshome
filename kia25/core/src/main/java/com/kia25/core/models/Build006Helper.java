@@ -37,11 +37,12 @@ public class Build006Helper {
 
 	private CompleteListDto completeData;
 
-	private String getModelCode = null;
-	private String getTrimCode = null;
-	private String getExtCode = null;
-	private String getIntCode = null;
-	private String getOptionCode = null;
+	private String modelCode = null;
+	private String trimCode = null;
+	private String extCode = null;
+	private String intCode = null;
+	private String optionCode = null;
+	private String modelYear = null;
 
 	private String modelPage = null;
 	private String trimPage = null;
@@ -56,28 +57,29 @@ public class Build006Helper {
 
 		try {
 
-			getModelCode = request.getParameter("modelCode").toUpperCase();
-			getTrimCode = request.getParameter("trimCode");
-			getExtCode = request.getParameter("ext");
-			getIntCode = request.getParameter("int");
-			getOptionCode = request.getParameter("option");
+			modelCode = request.getParameter("modelCode").toUpperCase();
+			trimCode = request.getParameter("trimCode");
+			extCode = request.getParameter("ext");
+			intCode = request.getParameter("int");
+			optionCode = request.getParameter("option");
+			modelYear = request.getParameter("modelYear");
 
 			modelPage = (String) valueMap.getOrDefault("lineupModel", null);
 			modelPage += ".html?step=1";
 
 			trimPage = (String) valueMap.getOrDefault("lineupTrim", null);
-			trimPage += ".html?step=2&modelCode=" + getModelCode;
+			trimPage += ".html?step=2&modelCode=" + modelCode;
 
 			colorPage = (String) valueMap.getOrDefault("lineupColor", null);
-			colorPage += ".html?step=3&modelCode=" + getModelCode + "&trimCode=" + getTrimCode;
+			colorPage += ".html?step=3&modelCode=" + modelCode + "&trimCode=" + trimCode;
 			
 			optionPage = (String) valueMap.getOrDefault("lineupOption", null);
-			optionPage += ".html?step=4&modelCode=" + getModelCode + "&trimCode=" + getTrimCode + "&ext=" + getExtCode + "&int=" + getIntCode;
+			optionPage += ".html?step=4&modelCode=" + modelCode + "&trimCode=" + trimCode + "&ext=" + extCode + "&int=" + intCode;
 			
 			shippingPage = (String) valueMap.getOrDefault("lineupShipping", null);
-			shippingPage += ".html?step=5&modelCode=" + getModelCode + "&trimCode=" + getTrimCode + "&ext=" + getExtCode + "&int=" + getIntCode + "&option=" + getOptionCode;
+			shippingPage += ".html?step=5&modelCode=" + modelCode + "&trimCode=" + trimCode + "&ext=" + extCode + "&int=" + intCode + "&option=" + optionCode;
 
-			completeData = service.getCompleteAPI(getModelCode, getTrimCode, getExtCode, getIntCode, getOptionCode)
+			completeData = service.getCompleteAPI(modelCode, trimCode, extCode, intCode, optionCode, modelYear)
 					.getData();
 
 		} catch (Exception e) {

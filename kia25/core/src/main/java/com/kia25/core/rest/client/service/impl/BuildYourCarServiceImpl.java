@@ -138,13 +138,14 @@ public class BuildYourCarServiceImpl implements BuildYourCarService {
 	 * build003 / colorlist 불러오기
 	 */
 	
-	public ColorListDtoResults getColorAPI(String modelCode, String trimCode) {
+	public ColorListDtoResults getColorAPI(String modelCode, String trimCode, String modelYear) {
 
 		try {
 			
 			String url = "build-your-car/color-list?";
 			url += "modelCode="+modelCode;
 			url += "&trimCode="+trimCode;
+			url += "&modelYear="+modelYear;
 			
 			String response = service.getRequest(url);
 			ObjectMapper mapper = new ObjectMapper();
@@ -224,7 +225,7 @@ public class BuildYourCarServiceImpl implements BuildYourCarService {
 	 * build006 / completelist 불러오기
 	 */
 	
-	public CompleteListDtoResults getCompleteAPI(String modelCode, String trimCode, String extColorCode, String intColorCode, String optionCode) {
+	public CompleteListDtoResults getCompleteAPI(String modelCode, String trimCode, String extColorCode, String intColorCode, String optionCode, String modelYear) {
 
 		try {
 			
@@ -234,6 +235,7 @@ public class BuildYourCarServiceImpl implements BuildYourCarService {
 			url += "&ext="+extColorCode;
 			url += "&int="+intColorCode;
 			url += "&option="+optionCode;
+			url += "&modelYear="+modelYear;
 			
 			String response = service.getRequest(url);
 			ObjectMapper mapper = new ObjectMapper();

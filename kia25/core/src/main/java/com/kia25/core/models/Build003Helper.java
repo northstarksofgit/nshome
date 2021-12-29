@@ -46,8 +46,9 @@ public class Build003Helper {
 	private String modelName = null;
 	private String trimName = null;
 
-	private String getModelCode = null;
-	private String getTrimCode = null;
+	private String modelCode = null;
+	private String trimCode = null;
+	private String modelYear = null;
 
 	private String modelPage = null;
 	private String trimPage = null;
@@ -67,16 +68,17 @@ public class Build003Helper {
 
 		try {
 
-			getModelCode = request.getParameter("modelCode").toUpperCase();
-			getTrimCode = request.getParameter("trimCode");
+			modelCode = request.getParameter("modelCode").toUpperCase();
+			trimCode = request.getParameter("trimCode");
+			modelYear = request.getParameter("modelYear");
 
 			modelPage = (String) valueMap.getOrDefault("lineupModel", null);
-			modelPage += ".html?step=1";
+			modelPage += ".html";
 
 			trimPage = (String) valueMap.getOrDefault("lineupTrim", null);
-			trimPage += ".html?step=2&modelCode=" + getModelCode;
+			trimPage += ".html?modelCode=" + modelCode;
 
-			colorAllList = service.getColorAPI(getModelCode, getTrimCode);
+			colorAllList = service.getColorAPI(modelCode, trimCode, modelYear);
 			colorData = colorAllList.getData();
 			exteriorList = colorData.getExteriorList();
 			interiorList = colorData.getInteriorList();
@@ -110,6 +112,10 @@ public class Build003Helper {
 		return trimName;
 	}
 
+	public String getModelYear() {
+		return modelYear;
+	}
+
 	public String getModelPage() {
 		return modelPage;
 	}
@@ -129,7 +135,6 @@ public class Build003Helper {
 	public String getShippingPage() {
 		return shippingPage;
 	}
- 
 
 }
 //private List<Map<String, Object>> colorGroupList = new ArrayList<Map<String, Object>>();

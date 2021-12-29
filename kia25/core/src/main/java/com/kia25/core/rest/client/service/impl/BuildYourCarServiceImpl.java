@@ -79,21 +79,12 @@ public class BuildYourCarServiceImpl implements BuildYourCarService {
 	 * build 002 / get ModelDetail 
 	 */
 	@Override
-	public ModelDetailListDtoResults getModelDetailAPI(String modelCode) {
+	public ModelDetailListDtoResults getModelDetailAPI(String modelCode, String modelYear) {
 		
 		String response = null;
 		
 		try {
-			String url = null;
-			
-			// 차종이 EV6인 경우 
-			if (modelCode.equals("EV6")) {
-				url = "trim-list-E";
-				
-			// 차종이 EV6가 아닌 경우
-			} else {
-				url = "trim-list-S";
-			}
+			String url = "build-your-car/trim-list";
 			
 			url += "?modelCode=" + modelCode;
 			response = service.getRequest(url);
@@ -151,7 +142,7 @@ public class BuildYourCarServiceImpl implements BuildYourCarService {
 
 		try {
 			
-			String url = "color-list?";
+			String url = "build-your-car/color-list?";
 			url += "modelCode="+modelCode;
 			url += "&trimCode="+trimCode;
 			
@@ -172,7 +163,7 @@ public class BuildYourCarServiceImpl implements BuildYourCarService {
 	public ModelListDto getModelAPI() {
 
 		try {
-			String response = service.getRequest("model-list");
+			String response = service.getRequest("build-your-car/model-list");
 			LOG.debug("response={}", response);
 			ObjectMapper mapper = new ObjectMapper();
 
@@ -198,7 +189,6 @@ public class BuildYourCarServiceImpl implements BuildYourCarService {
 		
 		String response = null;
 		String url = "";
-
 		try {
 
 			
@@ -238,7 +228,7 @@ public class BuildYourCarServiceImpl implements BuildYourCarService {
 
 		try {
 			
-			String url = "complete-list?";
+			String url = "build-your-car/complete-list?";
 			url += "modelCode="+modelCode;
 			url += "&trimCode="+trimCode;
 			url += "&ext="+extColorCode;
@@ -266,7 +256,7 @@ public class BuildYourCarServiceImpl implements BuildYourCarService {
 	public AreaListDtoResults getAreaListAPI() {
 		
 		try {
-			String response = service.getRequest("list-of-area");
+			String response = service.getRequest("build-your-car/list-of-area");
 			LOG.debug("response={}", response);
 			ObjectMapper mapper = new ObjectMapper();
 			

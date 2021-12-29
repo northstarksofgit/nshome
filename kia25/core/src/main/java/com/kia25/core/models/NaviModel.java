@@ -93,7 +93,9 @@ public class NaviModel {
 		/*
 		 * summary정보 API 호출
 		 */
-		summary = service.getSummaryAPI(modelCode, trimCode, extCode, intCode, optionCode);
+		if (trimCode != null) {
+			summary = service.getSummaryAPI(modelCode, trimCode, extCode, intCode, optionCode);
+		}
 		
 		
 	}

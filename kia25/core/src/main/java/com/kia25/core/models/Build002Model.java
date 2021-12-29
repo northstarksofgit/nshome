@@ -33,6 +33,7 @@ public class Build002Model {
     private SlingHttpServletRequest request;
 	
 	private String modelCode = null;
+	private String modelYear = null;
 	private String firstPage = null;
 	
 	private ModelDetailListDtoResults detailResults;
@@ -54,8 +55,9 @@ public class Build002Model {
 			 * 파라미터에서 modelCode 받아와서 변수 선언
 			 */
 			modelCode = request.getParameter("modelCode");
+			modelYear = request.getParameter("modelYear");
 			
-			detailResults = service.getModelDetailAPI(modelCode);
+			detailResults = service.getModelDetailAPI(modelCode, modelYear);
 			
 			detailData = detailResults.getData();
 			carGroupList = detailData.getCarGroupList();
@@ -89,6 +91,16 @@ public class Build002Model {
 	}
 	
 	
+	public String getModelYear() {
+		return modelYear;
+	}
+
+
+	public void setModelYear(String modelYear) {
+		this.modelYear = modelYear;
+	}
+
+
 	public ModelDetailListDtoResults getDetailResults() {
 		return detailResults;
 	}

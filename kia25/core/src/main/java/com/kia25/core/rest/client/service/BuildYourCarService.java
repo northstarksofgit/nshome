@@ -24,7 +24,7 @@ public interface BuildYourCarService {
 	/**
 	 * build 002 /  get carGroup / transmission / trim List
 	 */
-	ModelDetailListDtoResults getModelDetailAPI(String modelCode);
+	ModelDetailListDtoResults getModelDetailAPI(String modelCode, String modelYear);
 	
 	
 	/**

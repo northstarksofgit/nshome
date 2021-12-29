@@ -43,5 +43,10 @@ public class Build003CrudModel {
 		}
 
 	}
+	
+	public List<ColorDto> getColorList() {
+		return colorList;
+	}
+	
 
 }

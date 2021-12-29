@@ -2,8 +2,6 @@
 
 <sly data-sly-use.model="com.kia25.core.models.Build001CrudModel"></sly>
 
-
-
 <div class="contentBox">
 
         <form action="">
@@ -64,13 +62,12 @@
         
         <br>
         카테고리: 
+       
         <sly data-sly-list="${model.categoryList}">
-        	<input class="radioCURD" type="radio" name="cateSort" value="${item.categoryCode}" index="${itemList.count}">${item.categoryName}
+        	<input class="radioCURD" type="radio" name="cateSort" index="${itemList.count}" value="${item.categoryCode}" >${item.categoryName}
         </sly>
-        
-        <form name="findCate" method="GET" action="/content/kia25/us/en/build-your-car/crud-page.html">
-        	<input type="text" class="categoryCode" name="categoryCode">
-        </form>
+     
+        	
 
         <table class="modelTbl">
             <thead>
@@ -86,25 +83,18 @@
             </thead>
             
             <tbody>
-                <tr>
-                    <td> <input type="checkbox" class="chk"> </td>
-                    <td>카테고리 코드</td>
-                    <td>모델 코드</td>
-                    <td>모델 년도</td>
-                    <td>모델 이름</td>
-                    <td>모델 이미지</td>
-                    <td><div class="btn update model">수정</div></td>
-                </tr>
+               	<sly data-sly-list="${model.modelList}">
+	                <tr>
+	                    <td> <input type="checkbox" class="chk"> </td>
+	                    <td>${item.categoryCode}</td>
+	                    <td>${item.modelCode}</td>
+	                    <td>${item.modelYear}</td>
+	                    <td>${item.modelName}</td>
+	                    <td><img style="height:100px;" src="${item.carImagePath}"></td>
+	                    <td><div class="btn update model">수정</div></td>
+	                </tr>
+				</sly>
 
-                <tr>
-                    <td> <input type="checkbox" class="chk"> </td>
-                    <td>카테고리 코드</td>
-                    <td>모델 코드</td>
-                    <td>모델 년도</td>
-                    <td>모델 이름</td>
-                    <td>모델 이미지</td>
-                    <td><div class="btn update model">수정</div></td>
-                </tr>
             </tbody>
         </table>
 

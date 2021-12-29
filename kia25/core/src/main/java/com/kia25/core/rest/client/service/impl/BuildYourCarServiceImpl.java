@@ -140,13 +140,9 @@ public class BuildYourCarServiceImpl implements BuildYourCarService {
 	/**
 	 * build003 / colorlist 불러오기
 	 */
-<<<<<<< HEAD
-	
-	public ColorListDtoResults getColorAPI(String modelCode, String trimCode, String modelYear) {
-=======
 	@Override
-	public ColorListDtoResults getColorAPI(String modelCode, String trimCode) {
->>>>>>> c78f04e0a3d78bccbece8428106863e0af4623e1
+	public ColorListDtoResults getColorAPI(String modelCode, String trimCode, String modelYear) {
+
 
 		try {
 			
@@ -234,13 +230,8 @@ public class BuildYourCarServiceImpl implements BuildYourCarService {
 	/**
 	 * build006 / completelist 불러오기
 	 */
-<<<<<<< HEAD
-	
-	public CompleteListDtoResults getCompleteAPI(String modelCode, String trimCode, String extColorCode, String intColorCode, String optionCode, String modelYear) {
-=======
 	@Override
-	public CompleteListDtoResults getCompleteAPI(String modelCode, String trimCode, String extColorCode, String intColorCode, String optionCode) {
->>>>>>> c78f04e0a3d78bccbece8428106863e0af4623e1
+	public CompleteListDtoResults getCompleteAPI(String modelCode, String trimCode, String extColorCode, String intColorCode, String optionCode, String modelYear) {
 
 		try {
 			

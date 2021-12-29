@@ -39,7 +39,7 @@ public class CategoryServlet extends SlingAllMethodsServlet {
             String result = crudService.saveCategory(categoryDto);
             LOG.trace("response {}", result);
             if (result != null) {
-                response.setHeader("Location", redirect + "?active=3.0");
+                response.setHeader("Location", redirect);
                 response.setContentType("application/json");
                 PrintWriter out = response.getWriter();
                 out.println("{}");
@@ -49,7 +49,7 @@ public class CategoryServlet extends SlingAllMethodsServlet {
             }
         } catch (IOException e) {
             LOG.error("{} ({})", e, e.getMessage());
-            response.setHeader("Location", redirect + "?active=3.0");
+            response.setHeader("Location", redirect);
             response.setContentType("application/json");
             PrintWriter out = response.getWriter();
             out.println(e.getMessage());

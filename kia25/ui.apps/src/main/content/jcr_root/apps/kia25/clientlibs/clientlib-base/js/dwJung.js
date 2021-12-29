@@ -508,7 +508,7 @@ function preStep(){
 
 
 $('input[type="checkbox"]').on('click', function(){ 
-                                            $(this).parents('tr').toggleClass('checkedTr');
+                                $(this).parents('tr').toggleClass('checkedTr');
                             });
 
 $('.modal').on('click', function(){
@@ -529,16 +529,28 @@ $('.btn.reg.model').on('click', function(){
 $('.btn.update.model').on('click', function(){ 
                                     $('.modal').css('display', 'block');
                                     $('.model.modBox').addClass('onModal');
+
+									$('.onModal > .categoryCode').val($(this).attr('categoryCode'));
+									$('.onModal > .modelCode').val($(this).attr('modelCode'));
+									$('.onModal > .modelYear').val($(this).attr('modelYear'));
+									$('.onModal > .modelName').val($(this).attr('modelName'));
+
                                 });
 
 $('.btn.reg.cate').on('click', function(){ 
                                             $('.modal').css('display', 'block');
                                             $('.cate.regBox').addClass('onModal');
+
                                         });
 
 $('.btn.update.cate').on('click', function(){ 
+									
+									
                                     $('.modal').css('display', 'block');
                                     $('.cate.modBox').addClass('onModal');
+
+									$('.onModal > .categoryCode').val($(this).attr('categoryCode'));
+									$('.onModal > .categoryName').val($(this).attr('categoryName'));
                                 });
 
 
@@ -563,8 +575,42 @@ if($('.radioCURD').length >0 ){
 */
 $('.radioCURD').change( function() {
 	
-	//$('.categoryCode').val($('.radioCURD:checked').val());
-	$('form[name=findCate]').submit();
+	$.ajax({
+		type: "POST", 
+		url:"/services/db/category/list",
+		//url:"http://192.168.31.86:9090/db/model/list?categoryCode="+$('.radioCURD:checked').val(),
+	
+		success : function(result){
+			
+			console.log(result);
+			
+			/*
+			$('.modelTbl > tbody').empty();
+			
+			for(var i=0; i < result.length; i++){
+				$('.modelTbl > tbody').append(
+												`
+												<tr>
+													<td> <input type="checkbox" class="chk"> </td>
+													<td>${result[i].categoryCode}</td>
+													<td>${result[i].modelCode}</td>
+													<td>${result[i].modelYear}</td>
+													<td>${result[i].modelName}</td>
+													<td><img style="height:100px;" src="${result[i].carImagePath}"></td>
+													<td><div class="btn update model">수정</div></td>
+												</tr>
+												`
+			)}
+			
+			checkPlz();
+			*/
+			
+		},
+		
+		error : function(a, b, c){
+			console.log("error");
+		}
+	});
 
 });
 

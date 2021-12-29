@@ -35,7 +35,7 @@
 	                    <td><input type="checkbox" class="chk"></td>
 	                    <td>${item.categoryCode}</td>
 	                    <td>${item.categoryName}</td>
-	                    <td><div class="btn update cate">수정</div></td>
+	                    <td><div class="btn update cate" categoryCode="${item.categoryCode}" categoryName="${item.categoryName}">수정</div></td>
 	                </tr>
 				</sly>
                 
@@ -64,15 +64,10 @@
         
         <br>
         카테고리: 
-        <form name="findCate" method="GET" action="/content/kia25/us/en/build-your-car/crud-page.html">
-	        <sly data-sly-list="${model.categoryList}">
-	        	<input class="radioCURD" type="radio" name="cateSort" index="${itemList.count}" value="${item.categoryCode}" >${item.categoryName}
-	        </sly>
-        </form>
+        <sly data-sly-list="${model.categoryList}">
+        	<input class="radioCURD" type="radio" name="cateSort" index="${itemList.count}" value="${item.categoryCode}" >${item.categoryName}
+        </sly>
         
-        <a href="/content/kia25/us/en/build-your-car/crud-page.html">aa</a>
-        
-        	
 
         <table class="modelTbl">
             <thead>
@@ -96,7 +91,7 @@
 	                    <td>${item.modelYear}</td>
 	                    <td>${item.modelName}</td>
 	                    <td><img style="height:100px;" src="${item.carImagePath}"></td>
-	                    <td><div class="btn update model">수정</div></td>
+	                    <td><div class="btn update model" categoryCode="${item.categoryCode}" modelCode="${item.modelCode}" modelYear="${item.modelYear}" modelName="${item.modelName}">수정</div></td>
 	                </tr>
 				</sly>
 
@@ -126,8 +121,8 @@
 
             <div class="cate modBox">
                 <h2>카테고리 수정</h2>
-                <input type="text" placeholder="카테고리 코드">
-                <input type="text" placeholder="카테고리 이름"> 
+                <p>카테고리 코드: </p><input type="text" class="categoryCode">
+                <p>카테고리 이름: </p><input type="text" class="categoryName"> 
                 <div class="btn confirm">확인</div>
             </div>
         </form>
@@ -149,10 +144,10 @@
         <form action="">
             <div class="model modBox">
                 <h2>모델 수정</h2>
-                <input type="text" placeholder="카테고리 코드">
-                <input type="text" placeholder="모델 코드"> 
-                <input type="text" placeholder="모델 년도"> 
-                <input type="text" placeholder="모델 이름"> 
+                <p>카테고리 코드: </p><input type="text" class="categoryCode">
+                <p>모델 코드: </p><input type="text" class="modelCode"> 
+                <p>모델 년도: </p><input type="text" class="modelYear"> 
+                <p>모델 이름: </p><input type="text" class="modelName"> 
                 <p>모델 이미지: </p><input type="file"> 
                 <div class="btn confirm">확인</div>
             </div>

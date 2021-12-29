@@ -15,6 +15,7 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import com.kia25.core.rest.client.dto.CategoryDto;
 import com.kia25.core.rest.client.dto.CategoryListDto;
 import com.kia25.core.rest.client.dto.CategoryListDtoResults;
+import com.kia25.core.rest.client.dto.ColorDto;
 import com.kia25.core.rest.client.dto.ModelDto;
 import com.kia25.core.rest.client.dto.ModelListDto;
 import com.kia25.core.rest.client.dto.ModelListDtoResults;
@@ -86,6 +87,25 @@ public class CrudServiceImpl implements CrudService{
 			ObjectMapper mapper = new ObjectMapper();
 			
 			List<ModelDto> results = mapper.readValue(response, new TypeReference<List<ModelDto>>(){});
+            return results;
+            
+		} catch (IOException e) {
+			LOG.error("Error parsing JSON API response.", e);
+			e.printStackTrace();
+		}
+		
+		return null;
+	}
+	
+	public List<ColorDto> getColorAPI(String modelCode, String trimCode, String modelYear) {
+		
+		try {
+			
+			String response = service.getRequest("db/color/list?modelCode"+modelCode+"&trimCode="+trimCode+"&modelYear="+modelYear);
+			LOG.debug("response={}", response);
+			ObjectMapper mapper = new ObjectMapper();
+			
+			List<ColorDto> results = mapper.readValue(response, new TypeReference<List<ColorDto>>(){});
             return results;
             
 		} catch (IOException e) {

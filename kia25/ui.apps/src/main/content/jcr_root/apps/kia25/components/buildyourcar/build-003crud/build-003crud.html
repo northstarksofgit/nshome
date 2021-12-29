@@ -1,0 +1,54 @@
+ <sly data-sly-use.clientLib="/libs/granite/sightly/templates/clientlib.html"  data-sly-call="${clientLib.all @ categories='kia25.base'}"></sly>
+<sly data-sly-use.color="com.kia25.core.models.Build003CrudModel"></sly>
+
+<div class="row">
+		<table id="example-table-1" width="100%" class="table table-bordered table-hover text-center">
+			<thead>
+				<tr>
+					<th>컬러 코드</th>
+					<th>컬러 명</th>
+					<th>컬러 가격</th>
+					<th>추천 여부</th>
+					<th>컬러 이미지</th>
+					<th>차량 이미지</th>					
+					<th>Action</th>
+				</tr>
+			</thead>
+			<tbody>		
+
+                <sly data-sly-test="${color.colorList}">
+                    <sly data-sly-list="${color.colorList}" >
+                    	<tr>
+                            <td data-field="colorCode" data-value="${item.colorCode}">${item.colorCode}</td>
+							<td data-field="colorName" data-value="${item.colorName}">${item.colorName}</td>
+							<td data-field="colorPrice" data-value="${item.colorPrice}"><sly data-sly-call="${formattedPrice @ price=item.colorPrice}"></sly></td>
+                            <td data-field="bestYn" data-value="${item.bestYn}">${item.bestYn}</td>
+                            <td data-field="colorImagePath" data-value="${item.colorImagePath}">${item.colorImagePath}</td>
+                            <td data-field="carImagePath" data-value="${item.carImagePath != null ? item.carImagePath : 'null'}">${item.carImagePath != null ? item.carImagePath : '-'}</td>                            
+                            <td style="text-align: center;">	
+                            	<button class="btn btn-edit">Edit</button>
+                            	<button class="btn btn-delete">Delete</button>
+                            </td>
+						</tr>
+                    </sly>
+                </sly>
+			</tbody>
+		</table>
+		
+		<div id="myModal" class="modal">
+
+		  <!-- Modal content -->
+		  <div class="modal-content">
+		    <span class="close">&times;</span>
+		    <p>Some text in the Modal..</p>
+		  </div>
+		
+		</div>
+		
+		<div class="col-lg-12" id="ex1_Result1" ></div> 
+		<div class="col-lg-12" id="ex1_Result2" ></div> 
+	</div>
+
+
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>

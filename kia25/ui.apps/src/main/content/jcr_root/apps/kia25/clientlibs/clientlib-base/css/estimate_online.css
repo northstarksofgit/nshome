@@ -933,7 +933,7 @@ body.total_fixed {overflow:hidden;}
 .estimate_online_wrap .point_wrap .point_box {padding-bottom:20px; margin-bottom:25px; border-bottom:1px solid rgba(5,20,31,0.2); }
 .estimate_online_wrap .point_wrap .point_box:after {display:block; clear:both; content:'';}
 .estimate_online_wrap .point_wrap .point_box h5 {display:inline-block;}
-.estimate_online_wrap .point_wrap .point_box .build_total {float:right; width:194px; height:40px; padding:13px 10px 0 10px; box-sizing:border-box; background:#fff; border:1px solid #cdd0d2; font-family:YoonPro740; font-size:14px; color:#697279;} /* newfont */
+.estimate_online_wrap .point_wrap .point_box .build_total {float:right; width:194px; height:40px; padding:0px 10px 0 10px; box-sizing:border-box; background:#fff; border:1px solid #cdd0d2; font-family:YoonPro740; font-size:14px; color:#697279;} /* newfont */
 .estimate_online_wrap .point_wrap .line_wrap {display:none;}
 .estimate_online_wrap .note_box .point_box .build_total span {font-family:YoonPro740; font-family:bold; font-size:22px; color:#05141f; vertical-align:text-bottom;}
 .estimate_online_wrap .bu_list li {position:relative; padding:0 0 5px 10px;font-family:YoonPro740; font-size:13px; color:#697279}
@@ -950,7 +950,7 @@ body.total_fixed {overflow:hidden;}
 /*.estimate_online_wrap .arr_list li .cont {margin-right:10px}*/
 
 .estimate_online_wrap .btn_again {position:relative; display:inline-block;; width:160px; height:40px; padding-top:12px; background:#05141f; box-sizing:border-box; text-align:center; font-family:YoonPro740; font-size:14px;  color:#fff; text-decoration:none} /* newfont */
-.estimate_online_wrap .btn_again:before {position:relative; display:inline-block; width:17px; height:18px; margin-right:5px; background:url(/content/dam/kwcms/kr/ko/images/shopping-tools/estimate-online/sp_tabmenu.png) no-repeat -3px -25px; background-size:140px; content:''; vertical-align:middle;}
+.estimate_online_wrap .btn_again:before {position:relative; display:inline-block; width:17px; height:18px; margin-right:5px; background:url(/content/dam/kwcms/kr/ko/images/shopping-tools/estimate-online/sp_tabmenu.png) no-repeat -3px -25px; background-size:140px; vertical-align:middle;}
 
 @media (max-width: 1024px){
 .estimate_online_wrap .build_preview .sales_box_wrap {padding:0;}

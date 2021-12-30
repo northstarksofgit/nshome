@@ -564,29 +564,32 @@ if($('.radioCURD').length >0 ){
 	
 	if($(radio[i]).attr('index') == 1){
 		$(radio[i]).prop('checked', true);
-		$('.categoryCode').val($('.radioCURD:checked').val());
 
 	}
 }
 
 
 /*
-* 라디오 버튼 on change 이벤트
+* 라디오 버튼 on change 이벤트 => categort code에 맞는 model list 출력
 */
 $('.radioCURD').change( function() {
 	
 	$.ajax({
+		
 		type: "POST", 
-		url:"/services/category",
-//		url:$('.contentBox').data('url'),
-
-		//url:"http://192.168.31.86:9090/db/model/list?categoryCode="+$('.radioCURD:checked').val(),
+		url:"/services/model/list",
+		dataType: "json",
+				
+		data: {
+			"categoryCode" : $('.radioCURD:checked').val()
+		},
+		
 	
 		success : function(result){
 			
 			console.log(result);
 			
-			/*
+			
 			$('.modelTbl > tbody').empty();
 			
 			for(var i=0; i < result.length; i++){
@@ -604,8 +607,10 @@ $('.radioCURD').change( function() {
 												`
 			)}
 			
-			checkPlz();
-			*/
+			$('input[type="checkbox"]').on('click', function(){ 
+                                $(this).parents('tr').toggleClass('checkedTr');
+                            });
+			
 			
 		},
 		

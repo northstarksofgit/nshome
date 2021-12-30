@@ -13,7 +13,6 @@ import org.apache.sling.api.SlingHttpServletRequest;
 import org.apache.sling.api.SlingHttpServletResponse;
 import org.apache.sling.api.servlets.HttpConstants;
 import org.apache.sling.api.servlets.SlingAllMethodsServlet;
-import org.osgi.framework.Constants;
 import org.osgi.service.component.annotations.Component;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -22,7 +21,8 @@ import com.kia25.core.rest.client.dto.CategoryDto;
 import com.kia25.core.rest.client.service.CrudService;
 
 @Component(service = Servlet.class, property = {
-		"sling.servlet.methods=" + HttpConstants.METHOD_POST, "sling.servlet.paths=" + "/services/category" })
+		"sling.servlet.methods=" + HttpConstants.METHOD_POST, 
+		"sling.servlet.paths=" + "/services/category"})
 public class CategoryServlet extends SlingAllMethodsServlet {
 	
     private static final Logger LOG = LoggerFactory.getLogger(CategoryServlet.class);
@@ -30,17 +30,9 @@ public class CategoryServlet extends SlingAllMethodsServlet {
     @Reference
     CrudService crudService;
 
-    
     @Override
     protected void doPost(SlingHttpServletRequest request, SlingHttpServletResponse response) throws ServletException, IOException {
-        
-    	LOG.info("doPost started");
-    	
-    	response.getWriter().write("{ \"doPost success\": true }");
-    	
-    	/*
-    	
-    	String redirect = request.getParameter("redirect");
+        String redirect = request.getParameter("redirect");
         try {
             CategoryDto categoryDto = new CategoryDto();
             
@@ -54,7 +46,7 @@ public class CategoryServlet extends SlingAllMethodsServlet {
                 response.setHeader("Location", redirect);
                 response.setContentType("application/json");
                 PrintWriter out = response.getWriter();
-                out.println("'result': 'service'");
+                out.println("{}");
                 return;
             } else {
             	response.sendError(HttpServletResponse.SC_BAD_REQUEST);
@@ -66,23 +58,6 @@ public class CategoryServlet extends SlingAllMethodsServlet {
             PrintWriter out = response.getWriter();
             out.println(e.getMessage());
         }
-        */
-    }
-   
-    
-    /*
-    @Override
-    protected void doGet(SlingHttpServletRequest request, SlingHttpServletResponse response) throws ServletException, IOException {
-    	
-    	"sling.servlet.methods=" + HttpConstants.METHOD_GET 으로 바꿔주면 doGET을 사용.
-    	
-    	LOG.info("doGET started");
-    	
-    	response.setStatus(HttpServletResponse.SC_ACCEPTED);
-    	response.getWriter().write("{ \"success\": true }");
-    	
-  
     }
 
-    */
 }

@@ -577,7 +577,9 @@ $('.radioCURD').change( function() {
 	
 	$.ajax({
 		type: "POST", 
-		url:"/services/db/category/list",
+		url:"/services/category",
+//		url:$('.contentBox').data('url'),
+
 		//url:"http://192.168.31.86:9090/db/model/list?categoryCode="+$('.radioCURD:checked').val(),
 	
 		success : function(result){
@@ -608,7 +610,9 @@ $('.radioCURD').change( function() {
 		},
 		
 		error : function(a, b, c){
-			console.log("error");
+			console.log(a);
+			console.log(b);
+			console.log(c);
 		}
 	});
 

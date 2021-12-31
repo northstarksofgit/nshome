@@ -1,5 +1,6 @@
 package com.kia25.core.rest.client.service;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import com.kia25.core.rest.client.dto.CategoryDto;
@@ -28,4 +29,9 @@ public interface CrudService {
 	
 	
 	OptionDto[] getOptionListAPI(String modelCode, String trimCode, String extColorCode, String intColorCode);
+
+	/*
+	 * 카테고리 삭제
+	 */
+	String deleteCategory(CategoryDto categoryDto);
 }

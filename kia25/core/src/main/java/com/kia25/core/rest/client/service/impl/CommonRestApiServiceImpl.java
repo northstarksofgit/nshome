@@ -1,6 +1,7 @@
 package com.kia25.core.rest.client.service.impl;
 
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.Dictionary;
 
 import org.apache.felix.scr.annotations.Activate;
@@ -9,6 +10,8 @@ import org.apache.felix.scr.annotations.Properties;
 import org.apache.felix.scr.annotations.Property;
 import org.apache.felix.scr.annotations.Service;
 import org.apache.http.HttpEntity;
+import org.apache.http.NameValuePair;
+import org.apache.http.client.entity.UrlEncodedFormEntity;
 import org.apache.http.client.methods.CloseableHttpResponse;
 import org.apache.http.client.methods.HttpGet;
 import org.apache.http.client.methods.HttpPost;
@@ -16,11 +19,13 @@ import org.apache.http.entity.ContentType;
 import org.apache.http.entity.StringEntity;
 import org.apache.http.impl.client.CloseableHttpClient;
 import org.apache.http.impl.client.HttpClients;
+import org.apache.http.message.BasicNameValuePair;
 import org.apache.http.util.EntityUtils;
 import org.osgi.service.component.ComponentContext;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import com.kia25.core.rest.client.dto.CategoryDto;
 import com.kia25.core.rest.client.service.CommonRestApiService;
 
 @Component(metatype = true, label = "Northstar API", description ="Northstar API Service using the REST API")
@@ -78,33 +83,51 @@ public class CommonRestApiServiceImpl implements CommonRestApiService {
 	
 	
     @Override
-	public String sendPostRequest(final String url, final String body, final ContentType contentType)
+	public String sendPostRequest(final String url, final ArrayList<NameValuePair> postParameters)
             throws IOException {
-        LOG.debug("Posting to '{}'.", url);
+    	
+        LOG.info("Posting to '{}'.", endPointUrl+url);
+        LOG.info("postParameters: {}", postParameters);
+        
         long startTime = System.currentTimeMillis();
       
         try (CloseableHttpClient httpClient = HttpClients.createDefault()) {
-            HttpPost request = new HttpPost(url);
-            request.setEntity(new StringEntity(body, contentType));
+        	
+        	
+        	/*
+        	 * 요청할 URL 결합
+        	 */
+            HttpPost request = new HttpPost(endPointUrl+url);
+            
+            /*
+             * urlEncoded 방식으로 request
+             */
+            request.setEntity(new UrlEncodedFormEntity(postParameters, "UTF-8"));
+            
+            LOG.info("request: {}", request.getEntity());
+            
             CloseableHttpResponse response = httpClient.execute(request);
             
             long endTime = System.currentTimeMillis();
-            LOG.debug("Result Time : {}.", endTime - startTime);
+            LOG.info("Result Time : {}.", endTime - startTime);
 
             int responseCode = response.getStatusLine().getStatusCode();
-            LOG.debug("POST request response = '{}'.", response.getStatusLine());
+            LOG.info("POST request response = '{}'.", response.getStatusLine());
+            
             HttpEntity entity = response.getEntity();
+            
             if (responseCode >= 200 && responseCode < 300) {
                 return entity != null ? EntityUtils.toString(entity) : null;
+                
             } else {
-                LOG.error("Error in the request to '{" + url + "}, body{" + body + "}'");               
+                LOG.error("Error in the request to '{" +endPointUrl+ url + "}, postParameters{" + postParameters + "}'");               
                 String responsemsg = EntityUtils.toString(entity);
-                LOG.debug("Response = " + responsemsg);
-                throw new IOException("Error in the request to '{" + url + "}'");
+                LOG.info("Response = " + responsemsg);
+                throw new IOException("Error in the request to '{" + endPointUrl+url + "}'");
             }
 
         } catch (IOException e) {
-            throw new IOException("Error in the request to '{" + url + "}'", e);
+            throw new IOException("Error in the request to '{" + endPointUrl+url + "}'", e);
         }
     }
 	

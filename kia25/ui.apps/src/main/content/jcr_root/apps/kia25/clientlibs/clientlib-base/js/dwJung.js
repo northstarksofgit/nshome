@@ -514,21 +514,31 @@ $('input[type="checkbox"]').on('click', function(){
 $('.modal').on('click', function(){
                                 $('.modal').css('display', 'none');
                                 $('.modal').find('.onModal').removeClass('onModal');
+								 return false;
                         });
 
-$('.onModal').on('click', function(){
-                                return false;
-                           });
+
 
 
 $('.btn.reg.model').on('click', function(){ 
                                     $('.modal').css('display', 'block');
                                     $('.model.regBox').addClass('onModal');
+
+									$('.onModal').on('click', function(){
+                             	 			return false;
+                           			});
+
+
                                 });
 
 $('.btn.update.model').on('click', function(){ 
                                     $('.modal').css('display', 'block');
                                     $('.model.modBox').addClass('onModal');
+									
+									$('.onModal').on('click', function(){
+                             	 			return false;
+                           			});
+
 
 									$('.onModal > .categoryCode').val($(this).attr('categoryCode'));
 									$('.onModal > .modelCode').val($(this).attr('modelCode'));
@@ -541,6 +551,10 @@ $('.btn.reg.cate').on('click', function(){
                                             $('.modal').css('display', 'block');
                                             $('.cate.regBox').addClass('onModal');
 
+											$('.onModal').on('click', function(){
+	                             	 			return false;
+                           					});
+
                                         });
 
 $('.btn.update.cate').on('click', function(){ 
@@ -548,6 +562,10 @@ $('.btn.update.cate').on('click', function(){
 									
                                     $('.modal').css('display', 'block');
                                     $('.cate.modBox').addClass('onModal');
+
+									$('.onModal').on('click', function(){
+                             	 			return false;
+                           			});
 
 									$('.onModal > .categoryCode').val($(this).attr('categoryCode'));
 									$('.onModal > .categoryName').val($(this).attr('categoryName'));
@@ -625,3 +643,87 @@ $('.radioCURD').change( function() {
 
 
 
+
+/*
+* 카테고리 등록 이벤트
+*/
+$('.cate.regBox > .confirm').on('click',function(){
+
+	
+	if($('input[name=categoryRegCode]').val() == undefined
+	  || $('input[name=categoryRegName]').val() == undefined){
+		
+		alert('항목을 모두 입력하여주세요');
+		
+		retrun;
+	}
+	
+
+	$.ajax({
+			
+			type: "POST", 
+			url:"/services/category/save",
+			dataType: "text",
+					
+			data: {
+				"categoryCode" : $('input[name=categoryRegCode]').val(),
+				"categoryName" : $('input[name=categoryRegName]').val()
+			},
+			
+		
+			success : function(result){
+				alert(result);
+				location.reload();
+			},
+			
+			error : function(a, b, c){
+				console.log(a);
+				console.log(b);
+				console.log(c);
+			}
+		});
+	
+});
+
+
+
+
+
+/*
+* 카테고리 삭제 이벤트
+*/
+$('.btn.delete.cate').on('click', function(){
+	
+	var box = $('input[name=categoryChk]:checked');
+	var chk = new Array();
+	for(var i=0; i < box.length; i++){		
+		chk[i] = $(box[i]).attr('categorycode');
+	}
+	
+	$.ajax({
+			
+			type: "POST", 
+			url:"/services/category/delete",
+			dataType: "text",
+					
+			data: {
+				"categoryCode" : chk.join()
+			},
+			
+		
+			success : function(result){
+				console.log(result);
+//				location.reload();
+			},
+			
+			error : function(a, b, c){
+				console.log(a);
+				console.log(b);
+				console.log(c);
+			}
+		});
+	
+	
+	
+	
+})

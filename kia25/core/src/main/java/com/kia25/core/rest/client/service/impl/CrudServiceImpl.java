@@ -4,7 +4,9 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.apache.http.NameValuePair;
 import org.apache.http.entity.ContentType;
+import org.apache.http.message.BasicNameValuePair;
 import org.apache.sling.models.annotations.injectorspecific.OSGiService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -53,27 +55,38 @@ public class CrudServiceImpl implements CrudService{
 		return null;
 	}
 
+	
+	
 	@Override
 	public String saveCategory(CategoryDto categoryDto) {
+		
 		// TODO Auto-generated method stub
         ObjectMapper mapper = new ObjectMapper();
+        
         try {
-            String json = mapper.writeValueAsString(categoryDto);
-            LOG.debug("Serialized contract = '{}'.", json);
-            String response = service.sendPostRequest("db/category/save", json, ContentType.APPLICATION_JSON);
+            
+        	/*
+        	 * api-test.http 파일 참고 ==> contentType이 urlEncoded임을 확임
+        	 * 따라서 UrlEncodedFormEntity 객체 생성을 위한 postParameter를 mapping 함
+        	 */
+        	
+            ArrayList<NameValuePair> postParameters = new ArrayList<NameValuePair>();
+            postParameters.add(new BasicNameValuePair("categoryCode", categoryDto.getCategoryCode() ));
+            postParameters.add(new BasicNameValuePair("categoryName", categoryDto.getCategoryName() ));
+        	
+            String response = service.sendPostRequest("db/category/save", postParameters);
+            
             LOG.debug("postContract: response = '{}'.", response);
-//            JsonParser parser = new JsonParser();
-//            JsonElement jsonResponse = parser.parse(response);
-//            JsonObject jsonObj = jsonResponse.getAsJsonObject();
-//            JsonObject data = jsonObj.getAsJsonObject("data");
-//            String categorySeq = data.get("categorySeq").getAsString();
+        
             return "OK";
+            
         } catch (JsonProcessingException e) {
             LOG.error("Error serializing object to JSON.", e);
         } catch (IOException e) {
             LOG.error("Error submitting contract.", e);
         }
-		return "OK";
+        
+		return "NO";
 	}
 	
 	
@@ -138,5 +151,33 @@ public class CrudServiceImpl implements CrudService{
 		}
 		
 		return null;
+	}
+
+
+
+	@Override
+	public String deleteCategory(CategoryDto categoryDto) {
+		// TODO Auto-generated method stub
+        ObjectMapper mapper = new ObjectMapper();
+        
+        try {
+            
+        	ArrayList<NameValuePair> postParameters = new ArrayList<NameValuePair>();
+        	
+            postParameters.add(new BasicNameValuePair("categoryCode", categoryDto.getCategoryCode() ));
+        	
+            String response = service.sendPostRequest("db/category/delete", postParameters);
+            
+            LOG.debug("postContract: response = '{}'.", response);
+        
+            return "OK";
+            
+        } catch (JsonProcessingException e) {
+            LOG.error("Error serializing object to JSON.", e);
+        } catch (IOException e) {
+            LOG.error("Error submitting contract.", e);
+        }
+        
+		return "NO";
 	}
 }

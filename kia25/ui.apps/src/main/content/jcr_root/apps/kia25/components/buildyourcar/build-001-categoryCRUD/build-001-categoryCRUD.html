@@ -32,7 +32,7 @@
 
                	<sly data-sly-list="${model.categoryList}">
 	                <tr>
-	                    <td><input type="checkbox" class="chk"></td>
+	                    <td><input type="checkbox" name="categoryChk" class="chk" categoryCode="${item.categoryCode}"></td>
 	                    <td>${item.categoryCode}</td>
 	                    <td>${item.categoryName}</td>
 	                    <td><div class="btn update cate" categoryCode="${item.categoryCode}" categoryName="${item.categoryName}">수정</div></td>
@@ -108,14 +108,14 @@
 
     <div class="modal">
 
-        <form action="">
-            <div class="cate regBox">
-                <h2>카테고리 등록</h2>
-                <input type="text" placeholder="카테고리 코드">
-                <input type="text" placeholder="카테고리 이름"> 
-                <div class="btn confirm">확인</div>
-            </div>
-        </form>
+       
+        <div class="cate regBox">
+            <h2>카테고리 등록</h2>
+            <input type="text" name="categoryRegCode" placeholder="카테고리 코드">
+            <input type="text" name="categoryRegName" placeholder="카테고리 이름"> 
+            <div class="btn confirm">확인</div>
+        </div>
+        
 
         <form action="">
 

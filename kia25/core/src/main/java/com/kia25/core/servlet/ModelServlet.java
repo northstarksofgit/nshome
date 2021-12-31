@@ -40,7 +40,7 @@ public class ModelServlet extends SlingAllMethodsServlet {
     @Override
     protected void doPost(SlingHttpServletRequest request, SlingHttpServletResponse response) throws ServletException, IOException {
         
-    	LOG.info("doPost started");
+    	LOG.info("ModelServlet doPost started");
     	
     	/*
     	 * URL path별로 사용할 API분기 처리
@@ -60,7 +60,15 @@ public class ModelServlet extends SlingAllMethodsServlet {
 
     }
 
-
+    
+    
+    
+    
+    
+    
+    
+    
+    
 	private void getModelList(SlingHttpServletRequest request, SlingHttpServletResponse response) throws IOException {
 		
 		

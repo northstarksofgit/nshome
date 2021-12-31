@@ -87,8 +87,6 @@ public class CategoryServlet extends SlingAllMethodsServlet {
 		
 		String[] categoryCode = parameter.split(",");
 		
-		ArrayList<CategoryDto> categoryList = new ArrayList<>();
-		
 		for(String s : categoryCode) {
 			
 			CategoryDto categoryDto = new CategoryDto();

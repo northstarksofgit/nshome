@@ -2,6 +2,7 @@ package com.kia25.core.servlet;
 
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.servlet.Servlet;
@@ -19,6 +20,8 @@ import org.osgi.service.component.annotations.Component;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import com.fasterxml.jackson.core.type.TypeReference;
+import com.fasterxml.jackson.databind.ObjectMapper;
 import com.google.gson.Gson;
 import com.kia25.core.rest.client.dto.CategoryDto;
 import com.kia25.core.rest.client.dto.ModelDto;
@@ -28,7 +31,8 @@ import com.kia25.core.rest.client.service.impl.CrudServiceImpl;
 @Component(service = Servlet.class, property = {
 		"sling.servlet.methods=" + HttpConstants.METHOD_POST, 
 		"sling.servlet.paths=" + "/services/model/list",
-		"sling.servlet.paths=" + "/services/model/save" })
+		"sling.servlet.paths=" + "/services/model/save",
+		"sling.servlet.paths=" + "/services/model/delete" })
 public class ModelServlet extends SlingAllMethodsServlet {
 	
     private static final Logger LOG = LoggerFactory.getLogger(ModelServlet.class);
@@ -55,6 +59,13 @@ public class ModelServlet extends SlingAllMethodsServlet {
     		 * get model list
     		 */
     		getModelList(request, response);
+    		
+    	}else if(path.equals("delete")) {
+    		
+    		/*
+    		 * delete model
+    		 */
+    		deleteModel(request, response);
     	}
 
 
@@ -69,6 +80,46 @@ public class ModelServlet extends SlingAllMethodsServlet {
     
     
     
+	private void deleteModel(SlingHttpServletRequest request, SlingHttpServletResponse response) throws IOException {
+		
+		ObjectMapper mapper = new ObjectMapper();
+	
+		String result = "";
+		String redirect = request.getParameter("redirect");
+		String parameter = request.getParameter("data");
+		
+		LOG.info("param: "+parameter);
+		
+		ArrayList<ModelDto> modelList = mapper.readValue(parameter, new TypeReference<ArrayList<ModelDto>>(){});
+		
+		for(ModelDto m :  modelList) {
+			result = crudService.deleteModel(m);
+		}
+		
+		
+        if (result != null) {
+            response.setHeader("Location", redirect);
+            PrintWriter out = response.getWriter();
+            out.println(result);
+            return;
+            
+        } else {
+        	response.sendError(HttpServletResponse.SC_BAD_REQUEST);
+        }
+		
+		
+		
+	}
+
+
+
+
+
+
+
+
+
+
 	private void getModelList(SlingHttpServletRequest request, SlingHttpServletResponse response) throws IOException {
 		
 		

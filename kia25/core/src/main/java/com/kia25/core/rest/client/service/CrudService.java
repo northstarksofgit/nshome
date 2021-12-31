@@ -34,4 +34,9 @@ public interface CrudService {
 	 * 카테고리 삭제
 	 */
 	String deleteCategory(CategoryDto categoryDto);
+
+	/*
+	 * 모델 삭제
+	 */
+	String deleteModel(ModelDto modelDto);
 }

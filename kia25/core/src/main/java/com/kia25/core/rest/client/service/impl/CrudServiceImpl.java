@@ -32,6 +32,9 @@ public class CrudServiceImpl implements CrudService{
 	@OSGiService
 	private CommonRestApiService service = new CommonRestApiServiceImpl();
 
+	/*
+	 * 카테고리 리스트 출력
+	 */
 	@Override
 	public List<CategoryDto> getCategoryAPI() {
 		
@@ -56,13 +59,12 @@ public class CrudServiceImpl implements CrudService{
 	}
 
 	
-	
+	/*
+	 *  새로운 키테고리 저장
+	 */
 	@Override
 	public String saveCategory(CategoryDto categoryDto) {
 		
-		// TODO Auto-generated method stub
-        ObjectMapper mapper = new ObjectMapper();
-        
         try {
             
         	/*
@@ -89,7 +91,9 @@ public class CrudServiceImpl implements CrudService{
 		return "NO";
 	}
 	
-	
+	/*
+	 * 모델리스트 출력
+	 */
 	@Override
 	public List<ModelDto> getModelListAPI(String categoryCode) {
 		
@@ -154,12 +158,12 @@ public class CrudServiceImpl implements CrudService{
 	}
 
 
-
+	/*
+	 * 카테고리 삭제
+	 */
 	@Override
 	public String deleteCategory(CategoryDto categoryDto) {
-		// TODO Auto-generated method stub
-        ObjectMapper mapper = new ObjectMapper();
-        
+
         try {
             
         	ArrayList<NameValuePair> postParameters = new ArrayList<NameValuePair>();
@@ -168,7 +172,7 @@ public class CrudServiceImpl implements CrudService{
         	
             String response = service.sendPostRequest("db/category/delete", postParameters);
             
-            LOG.debug("postContract: response = '{}'.", response);
+            LOG.debug("response = '{}'.", response);
         
             return "OK";
             
@@ -179,5 +183,35 @@ public class CrudServiceImpl implements CrudService{
         }
         
 		return "NO";
+	}
+
+	
+	/*
+	 * 모델 삭제 
+	 */
+	@Override
+	public String deleteModel(ModelDto modelDto) {
+		
+        try {
+            
+        	ArrayList<NameValuePair> postParameters = new ArrayList<NameValuePair>();
+        	
+            postParameters.add(new BasicNameValuePair("modelCode", modelDto.getModelCode() ));
+            postParameters.add(new BasicNameValuePair("modelYear", modelDto.getModelYear() ));
+        	
+            String response = service.sendPostRequest("db/model/delete", postParameters);
+            
+            LOG.debug("response = '{}'.", response);
+        
+            return "OK";
+            
+        } catch (JsonProcessingException e) {
+            LOG.error("Error serializing object to JSON.", e);
+        } catch (IOException e) {
+            LOG.error("Error submitting contract.", e);
+        }
+        
+		return "NO";
+		
 	}
 }

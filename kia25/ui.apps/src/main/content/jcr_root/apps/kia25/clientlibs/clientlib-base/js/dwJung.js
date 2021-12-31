@@ -587,6 +587,12 @@ if($('.radioCURD').length >0 ){
 }
 
 
+
+/*
+* ajax 공통화 필요
+*/
+
+
 /*
 * 라디오 버튼 on change 이벤트 => categort code에 맞는 model list 출력
 */
@@ -713,7 +719,7 @@ $('.btn.delete.cate').on('click', function(){
 		
 			success : function(result){
 				console.log(result);
-//				location.reload();
+				location.reload();
 			},
 			
 			error : function(a, b, c){
@@ -723,7 +729,49 @@ $('.btn.delete.cate').on('click', function(){
 			}
 		});
 	
-	
-	
-	
 })
+
+
+
+
+/*
+* 모델 삭제 이벤트
+*/
+$('.btn.delete.model').on('click', function(){
+	
+	var box = $('input[name=modelChk]:checked');
+	var chk = [];
+	
+	for(var i=0; i < box.length; i++){
+		var data = {
+					modelCode: $(box[i]).attr('modelCode'),
+					modelYear: $(box[i]).attr('modelYear')}		
+		chk.push(data);
+	}
+	
+	
+	$.ajax({
+		
+		type: "POST", 
+		url:"/services/model/delete",
+		dataType: "json",
+     	traditional: true,
+		data: {
+			data: JSON.stringify(chk)
+		},
+		
+		success : function(result){
+			console.log(result);
+			//location.reload();
+		},
+		
+		error : function(a, b, c){
+			console.log(a);
+			console.log(b);
+			console.log(c);
+		}
+	});
+	
+	
+	
+});

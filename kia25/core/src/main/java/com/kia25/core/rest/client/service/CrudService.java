@@ -32,8 +32,15 @@ public interface CrudService {
 	 * @param trimCode
 	 * @return
 	 */
-	
 	OptionDto[] getOptionListAPI(String trimCode);
+	
+	/**
+	 * Save Option
+	 * @param optionDto
+	 * @return
+	 */
+	String saveOption(OptionDto optionDto);
+	
 	/**
 	 * Delete Option 
 	 * @param optionDto

@@ -28,7 +28,7 @@ public interface CrudService {
 	List<ColorDto> getColorAPI(String modelCode, String trimCode, String modelYear);
 	
 	
-	OptionDto[] getOptionListAPI(String modelCode, String trimCode, String extColorCode, String intColorCode);
+	OptionDto[] getOptionListAPI(String trimCode);
 
 	/*
 	 * 카테고리 삭제

@@ -44,12 +44,7 @@ public class Build004_CRUD {
 			/**
 			 * get Print Model-Option List 
 			 */
-			optionList = service.getOptionListAPI(
-													null, 
-													request.getParameter("trimCode").toUpperCase(), 
-													null, 
-													null
-												);
+			optionList = service.getOptionListAPI(request.getParameter("trimCode").toUpperCase());
 
 		
 		} catch(Exception e) {

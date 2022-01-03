@@ -135,7 +135,7 @@ public class CrudServiceImpl implements CrudService{
 
 	
 	@Override
-	public OptionDto[] getOptionListAPI(String modelCode, String trimCode, String extColorCode, String intColorCode) {
+	public OptionDto[] getOptionListAPI(String trimCode) {
 		
 		try {
 			String url = "db/option/list?trimCode="+trimCode;

@@ -592,11 +592,43 @@ if($('.radioCURD').length >0 ){
 * ajax 공통화 필요
 */
 
+/*
+* 카테고리 리스트 갱신
+*/
+function getCategoryList(){
+	
+	$.ajax({
+	
+		type: "POST", 
+		url:"/services/category/list",
+		dataType: "json",
+		
+		success : function(result){
+			console.log(result);
+			
+			$('.categoryTbl > tbody > tr').empty();
+			
+			
+		},
+		
+		error : function(a, b, c){
+			console.log(a);
+			console.log(b);
+			console.log(c);
+		}
+	});
+}
+
+
+
+
+
+
 
 /*
-* 라디오 버튼 on change 이벤트 => categort code에 맞는 model list 출력
+* model list 갱신
 */
-$('.radioCURD').change( function() {
+function getModelList(){
 	
 	$.ajax({
 		
@@ -610,23 +642,20 @@ $('.radioCURD').change( function() {
 		
 	
 		success : function(result){
-			
-			console.log(result);
-			
-			
+
 			$('.modelTbl > tbody').empty();
 			
 			for(var i=0; i < result.length; i++){
 				$('.modelTbl > tbody').append(
 												`
 												<tr>
-													<td> <input type="checkbox" class="chk"> </td>
+													<td> <input type="checkbox" name="modelChk" class="chk" modelCode="${result[i].modelCode}" modelYear="${result[i].modelYear}"> </td>
 													<td>${result[i].categoryCode}</td>
 													<td>${result[i].modelCode}</td>
 													<td>${result[i].modelYear}</td>
 													<td>${result[i].modelName}</td>
 													<td><img style="height:100px;" src="${result[i].carImagePath}"></td>
-													<td><div class="btn update model">수정</div></td>
+													<td><div class="btn update model" categoryCode="${result[i].categoryCode}" modelCode="${result[i].modelCode}" modelYear="${result[i].modelYear}" modelName="${result[i].modelName}">수정</div></td>
 												</tr>
 												`
 			)}
@@ -645,6 +674,16 @@ $('.radioCURD').change( function() {
 		}
 	});
 
+}
+
+
+/*
+* 라디오 버튼 on change 이벤트 => categort code에 맞는 model list 출력
+*/
+$('.radioCURD').change( function() {
+	
+	getModelList();
+	
 });
 
 
@@ -783,7 +822,7 @@ $('.btn.delete.model').on('click', function(){
 		chk.push(data);
 	}
 	
-	
+	console.log(chk);
 	
 	$.ajax({
 		
@@ -799,7 +838,7 @@ $('.btn.delete.model').on('click', function(){
 		success : function(result){
 			
 			alert(result);
-			location.reload();
+			getModelList();
 		},
 		
 		error : function(a, b, c){

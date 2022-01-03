@@ -138,12 +138,10 @@ public class CrudServiceImpl implements CrudService{
 	public OptionDto[] getOptionListAPI(String trimCode) {
 		
 		try {
-			String url = "db/option/list?trimCode="+trimCode;
-			
-			LOG.debug("URL   =    {}", url);
-			
-			String response = service.getRequest(url);
-			LOG.debug("response={}", response);
+			LOG.info("db/option/list?trimCode="+trimCode);
+			String response = service.getRequest("db/option/list?trimCode="+trimCode);
+//			String url = "db/option/list?trimCode="+trimCode;
+//			String response = service.getRequest(response);
 			ObjectMapper mapper = new ObjectMapper();
 			
 			OptionDto results[] = mapper.readValue(response,  OptionDto[].class);

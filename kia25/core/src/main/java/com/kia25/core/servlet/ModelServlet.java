@@ -3,6 +3,7 @@ package com.kia25.core.servlet;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.ArrayList;
+import java.util.Comparator;
 import java.util.List;
 
 import javax.servlet.Servlet;
@@ -125,7 +126,25 @@ public class ModelServlet extends SlingAllMethodsServlet {
 		
 		List<ModelDto> result = crudService.getModelListAPI(request.getParameter("categoryCode"));
 
-        String json = new Gson().toJson(result);
+		result.sort(new Comparator<ModelDto>() {
+			
+            @Override
+            public int compare(ModelDto arg0, ModelDto arg1) {
+                   
+                   String age0 = arg0.getModelCode();
+                   String age1 = arg1.getModelCode();
+                   
+                   if (age0.compareTo(age1) == 0)
+                         return 0;
+                   else if (age0.compareTo(age1) > 0)
+                         return 1;
+                   else
+                         return -1;
+            }
+        });
+		
+		
+		String json = new Gson().toJson(result);
 	    
         response.setContentType("application/json");
         PrintWriter out = response.getWriter();

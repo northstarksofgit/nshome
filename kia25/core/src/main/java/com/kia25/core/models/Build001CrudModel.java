@@ -1,5 +1,6 @@
 package com.kia25.core.models;
 
+import java.util.Comparator;
 import java.util.List;
 
 import javax.annotation.PostConstruct;
@@ -45,6 +46,27 @@ public class Build001CrudModel {
 		 */
 		categoryList = service.getCategoryAPI();
 		
+		categoryList.sort(new Comparator<CategoryDto>() {
+			
+            @Override
+            public int compare(CategoryDto arg0, CategoryDto arg1) {
+                   
+                   String age0 = arg0.getCategoryCode();
+                   String age1 = arg1.getCategoryCode();
+                   
+                   if (age0.compareTo(age1) == 0)
+                         return 0;
+                   else if (age0.compareTo(age1) > 0)
+                         return 1;
+                   else
+                         return -1;
+            }
+        });
+		
+		
+		
+		
+		
 		
 		/*
 		 * 모델 리스트 출력
@@ -56,9 +78,27 @@ public class Build001CrudModel {
 				service.getModelListAPI("001");
 		
 		
+		modelList.sort(new Comparator<ModelDto>() {
+			
+              @Override
+              public int compare(ModelDto arg0, ModelDto arg1) {
+                    
+                     String age0 = arg0.getModelCode();
+                     String age1 = arg1.getModelCode();
+                     
+                     if (age0.compareTo(age1) == 0)
+                           return 0;
+                     else if (age0.compareTo(age1) > 0)
+                           return 1;
+                     else
+                           return -1;
+              }
+       });
+
+
 		
 		
-		LOG.info((String)request.getParameter("cateSort"));
+		LOG.info("build 001 CRUD model");
 		
 	}
 

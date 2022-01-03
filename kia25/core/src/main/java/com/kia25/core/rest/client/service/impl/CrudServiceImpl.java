@@ -222,12 +222,16 @@ public class CrudServiceImpl implements CrudService{
 		
 		try {
 			ArrayList<NameValuePair> postParameters = new ArrayList<NameValuePair>();
-            postParameters.add(new BasicNameValuePair("trimCode", optionDto.getTrimCode() ));
-            postParameters.add(new BasicNameValuePair("carOptionCode", optionDto.getCarOptionCode() ));
-            postParameters.add(new BasicNameValuePair("optionCode", optionDto.getOptionCode() ));
+			postParameters.add(new BasicNameValuePair("trimCode", optionDto.getTrimCode()));
+            postParameters.add(new BasicNameValuePair("carOptionCode", optionDto.getCarOptionCode()));
+            postParameters.add(new BasicNameValuePair("optionCode", optionDto.getOptionCode()));
+            postParameters.add(new BasicNameValuePair("optionName", optionDto.getOptionName()));
+            postParameters.add(new BasicNameValuePair("bestYn", optionDto.getBestYn()));
+            postParameters.add(new BasicNameValuePair("optionPrice", String.valueOf(optionDto.getOptionPrice())));
+            postParameters.add(new BasicNameValuePair("optionImagePath", optionDto.getOptionImagePath()));
 			
 			
-			String response = service.sendPostRequest("db/option/delete" , postParameters);
+			String response = service.sendPostRequest("db/option/save" , postParameters);
 //			
             return "success";
             

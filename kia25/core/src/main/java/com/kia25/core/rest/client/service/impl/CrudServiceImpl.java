@@ -109,11 +109,11 @@ public class CrudServiceImpl implements CrudService{
 		return null;
 	}
 	
-	public List<ColorDto> getColorListAPI(String modelCode, String trimCode, String modelYear) {
+	public List<ColorDto> getColorListAPI(String modelCode, String trimCode, String carOptionCode, String modelYear) {
 		
 		try {
 			
-			String response = service.getRequest("db/color/list?modelCode"+modelCode+"&trimCode="+trimCode+"&modelYear="+modelYear);
+			String response = service.getRequest("db/color/list?modelCode"+modelCode+"&trimCode="+trimCode+"&carOptionCode="+carOptionCode+"&modelYear="+modelYear);
 			LOG.debug("response={}", response);
 			ObjectMapper mapper = new ObjectMapper();
 			
@@ -122,6 +122,55 @@ public class CrudServiceImpl implements CrudService{
             
 		} catch (IOException e) {
 			LOG.error("Error parsing JSON API response.", e);
+			e.printStackTrace();
+		}
+		
+		return null;
+	}
+	
+	/**
+	 * insert Color
+	 */
+	public String saveColor(ColorDto colorDto) {
+
+		try {
+			ArrayList<NameValuePair> postParameters = new ArrayList<NameValuePair>();
+            postParameters.add(new BasicNameValuePair("trimCode", colorDto.getTrimCode() ));
+            postParameters.add(new BasicNameValuePair("carOptionCode", colorDto.getCarOptionCode() ));
+            postParameters.add(new BasicNameValuePair("colorCode", colorDto.getColorCode() ));
+            postParameters.add(new BasicNameValuePair("colorName", colorDto.getColorName() ));
+            postParameters.add(new BasicNameValuePair("bestYn", colorDto.getBestYn() ));
+            postParameters.add(new BasicNameValuePair("colorPrice", colorDto.getColorPrice() ));
+            postParameters.add(new BasicNameValuePair("colorImagePath", colorDto.getColorImagePath() ));
+            postParameters.add(new BasicNameValuePair("carImagePath", colorDto.getCarImagePath() ));
+			
+			String response = service.sendPostRequest("db/color/save" , postParameters);
+            
+		} catch (IOException e) {
+			LOG.error("Error parsing JSON API save.", e);
+			e.printStackTrace();
+		}
+		
+		return null;
+	}
+	
+		
+	/**
+	 * delete Color
+	 */
+	public String deleteColor(ColorDto colorDto) {
+
+		try {
+			ArrayList<NameValuePair> postParameters = new ArrayList<NameValuePair>();
+			postParameters.add(new BasicNameValuePair("trimCode", colorDto.getTrimCode() ));
+			postParameters.add(new BasicNameValuePair("carOptionCode", colorDto.getCarOptionCode() ));
+			postParameters.add(new BasicNameValuePair("colorCode", colorDto.getColorCode() ));
+            
+			
+			String response = service.sendPostRequest("db/color/delete" , postParameters);
+            
+		} catch (IOException e) {
+			LOG.error("Error parsing JSON API Delete.", e);
 			e.printStackTrace();
 		}
 		

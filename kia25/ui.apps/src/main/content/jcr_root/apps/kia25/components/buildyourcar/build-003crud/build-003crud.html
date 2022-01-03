@@ -16,8 +16,6 @@ body,html{margin:0;font-size:1pc;font-family:Helvetica Neue,Helvetica,Arial,sans
         <thead>
             <tr>
                 <th>순서</th>
-                <th>트림 코드</th>
-                <th>내/외장재 구분 </th>
                 <th>컬러 코드</th>
                 <th>컬러명</th>
                 <th>컬러 가격</th>                
@@ -27,11 +25,9 @@ body,html{margin:0;font-size:1pc;font-family:Helvetica Neue,Helvetica,Arial,sans
             </tr>
         </thead>
         <tbody>
-            <sly data-sly-list.colorinlist="${color.colorList @ begin=0, end=4}">
+            <sly data-sly-list.colorinlist="${color.colorList @ begin=0, end=10}">
                 <tr>
                     <td align="center">${colorinlistList.count}</td>
-                    <td align="center">${colorinlist.trimCode} </td>
-                    <td align="center">${colorinlist.carOptionCode} </td>
                     <td align="center">${colorinlist.colorCode}</td>
                     <td>${colorinlist.colorName} </td>
                     <td align="right">${'###,###' @ format=colorinlist.colorPrice, type='number'} </td>                    
@@ -53,12 +49,10 @@ body,html{margin:0;font-size:1pc;font-family:Helvetica Neue,Helvetica,Arial,sans
         </tbody>
     </table>
     
-    <form name="Frm">        
+    <form name="Frm" method="post">        
     <table id="example-table-1" width="100%">
         <thead>
             <tr>
-                <th>트림 코드</th>
-                <th>내/외장재 구분 </th>
                 <th>컬러 코드</th>
                 <th>컬러 명</th>
                 <th>컬러 가격</th>
@@ -69,8 +63,6 @@ body,html{margin:0;font-size:1pc;font-family:Helvetica Neue,Helvetica,Arial,sans
         </thead>
         <tbody>
                 <tr>
-                    <td><input type="text" name="trimCode" id="trimCode" style="width:100%;"></td>
-                    <td><input type="text" name="carOptionCode" id="carOptionCode" style="width:100%;"></td>
                     <td><input type="text" name="colorCode" id="colorCode" style="width:100%;"></td>
                     <td><input type="text" name="colorName" id="colorName" style="width:100%;"></td>
                     <td><input type="text" name="colorPrice" id="colorPrice" style="width:100%;"></td>
@@ -80,6 +72,9 @@ body,html{margin:0;font-size:1pc;font-family:Helvetica Neue,Helvetica,Arial,sans
                         <button class="btn btn-edit" onclick="areaInsert();">INSERT</button>
                         <button class="btn btn-delete" onclick="areaUpdate();">UPDATE</button>
                         <button class="btn btn-delete" onClick="areaDel()">Delete</button>
+                        <input type="hidden" name="trimCode" id="trimCode"  value="LRA">
+                        <input type="hidden" name="carOptionCode" id="carOptionCode" value="E">
+                        <input type="hidden" name="carImagePath" id="carImagePath" value="http://www.kia.com">
                     </td>
                 </tr>
         </tbody>
@@ -102,16 +97,12 @@ $("button").click(function() {
 
 function areaCopy(Count){
 	var f = document.Frm;
-	var trimCodeList = document.getElementsByName("trimCodeList")[Count];
-	var carOptionCodeList = document.getElementsByName("carOptionCodeList")[Count];
 	var colorCodeList = document.getElementsByName("colorCodeList")[Count];
 	var colorNameList = document.getElementsByName("colorNameList")[Count];
 	var colorPriceList = document.getElementsByName("colorPriceList")[Count];
 	var colorImagePathList = document.getElementsByName("colorImagePathList")[Count];
 	var bestYnList = document.getElementsByName("bestYnList")[Count];
 
-	f.trimCode.value = trimCodeList.value;
-	f.carOptionCode.value = carOptionCodeList.value;
 	f.colorCode.value = colorCodeList.value;	
 	f.colorName.value = colorNameList.value;
 	f.colorPrice.value = colorPriceList.value;
@@ -122,24 +113,23 @@ function areaCopy(Count){
 
 function areaInsert(){
 	var f = document.Frm;
-	if (f.trimCode.value.trim() == ""){ 
+	if (f.colorCode.value.trim() == ""){ 
 		alert("입력해주세요"); 
-		f.trimCode.focus(); 
+		f.colorCode.focus(); 
 		return false;
 	}
 
-	//f.mode.value = "add";
-	//f.action = "";
-	//f.target = "hiddenZone";
-	// f.submit();
+	f.action = "http://192.168.31.86:9090/db/color/save";
+	f.target = "hiddenZone";
+	f.submit();
 }
 
 function areaUpdate(){
 	var f = document.Frm;
-	var Obj = document.getElementsByName("trimCodeList")[Count];
-	if (f.trimCode.value.trim() == ""){ 
-		alert("입력해주세요"); 
-		f.trimCode.focus(); 
+	
+	if (f.colorCode.value.trim() == ""){ 
+		alert("colorCode 입력해주세요"); 
+		f.colorCode.focus(); 
 		return false;
 	}
 
@@ -152,13 +142,18 @@ function areaUpdate(){
 function areaDel(){
 	var f = document.Frm;
 	
-	if (!confirm("영역을 삭제 하시겠습니까?")){
+	if (f.colorCode.value.trim() == ""){ 
+		alert("목록에서 선택하세요"); 
 		return false;
 	}
-	//f.mode.value = "del";
-	//f.action = "";
-	//f.target = "hiddenZone";
-	//f.submit();
+	
+	if (!confirm("삭제?")){
+		return false;
+	}
+	
+	f.action = "http://192.168.31.86:9090/db/color/delete";
+	f.target = "hiddenZone";
+	f.submit();
 }
 
 </script>

@@ -22,6 +22,7 @@ import com.kia25.core.rest.client.dto.CategoryDto;
 import com.kia25.core.rest.client.service.CrudService;
 import com.kia25.core.rest.client.service.impl.CrudServiceImpl;
 
+<<<<<<< Updated upstream
 @Component(service = Servlet.class, property = {
 		"sling.servlet.methods=" + HttpConstants.METHOD_POST, 
 		"sling.servlet.paths=" + "/services/category/save",
@@ -87,6 +88,45 @@ public class CategoryServlet extends SlingAllMethodsServlet {
     
     
     
+=======
+@Component(service = Servlet.class, property = { "sling.servlet.methods=" + HttpConstants.METHOD_POST,
+		"sling.servlet.paths=" + "/services/category/save", "sling.servlet.paths=" + "/services/category/delete" })
+public class CategoryServlet extends SlingAllMethodsServlet {
+
+	private static final Logger LOG = LoggerFactory.getLogger(CategoryServlet.class);
+
+	@Reference
+	CrudService crudService = new CrudServiceImpl();
+
+	@Override
+	protected void doPost(SlingHttpServletRequest request, SlingHttpServletResponse response)
+			throws ServletException, IOException {
+
+		LOG.info("Category Servlet doPost started");
+
+		/*
+		 * URL path별로 사용할 API분기 처리
+		 */
+		String path = request.getRequestURI();
+		path = path.substring(path.lastIndexOf("/") + 1);
+
+		if (path.equals("save")) {
+
+			/*
+			 * new category save
+			 */
+			saveCategory(request, response);
+
+		} else if (path.equals("delete")) {
+
+			/*
+			 * delete category
+			 */
+			deleteCategory(request, response);
+		}
+
+	}
+>>>>>>> Stashed changes
 
 	private void updateCategory(SlingHttpServletRequest request, SlingHttpServletResponse response) throws IOException {
 		
@@ -124,83 +164,72 @@ public class CategoryServlet extends SlingAllMethodsServlet {
 
 
 	private void deleteCategory(SlingHttpServletRequest request, SlingHttpServletResponse response) throws IOException {
-		
+
 		String result = "";
 		String redirect = request.getParameter("redirect");
-		String parameter = (String)request.getParameter("categoryCode");
-		
+		String parameter = (String) request.getParameter("categoryCode");
+
 		String[] categoryCode = parameter.split(",");
-		
-		for(String s : categoryCode) {
-			
+
+
+		ArrayList<CategoryDto> categoryList = new ArrayList<>();
+
+		for (String s : categoryCode) {
+
 			CategoryDto categoryDto = new CategoryDto();
 			categoryDto.setCategoryCode(s);
-			
+
 			result = crudService.deleteCategory(categoryDto);
 		}
-		
-        if (result != null) {
-            response.setHeader("Location", redirect);
-            response.setContentType("application/json");
-            PrintWriter out = response.getWriter();
-            out.println(result);
-            return;
-            
-        } else {
-        	response.sendError(HttpServletResponse.SC_BAD_REQUEST);
-        }
-        
-	   
-		
+
+		if (result != null) {
+			response.setHeader("Location", redirect);
+			response.setContentType("application/json");
+			PrintWriter out = response.getWriter();
+			out.println(result);
+			return;
+
+		} else {
+			response.sendError(HttpServletResponse.SC_BAD_REQUEST);
+		}
+
 	}
-
-
-
-
-
-
-
 
 	private void saveCategory(SlingHttpServletRequest request, SlingHttpServletResponse response) throws IOException {
 
 		String redirect = request.getParameter("redirect");
-		
-		
-	    try {
-	        CategoryDto categoryDto = new CategoryDto();
-	        
-	        categoryDto.setCategoryCode((String)request.getParameter("categoryCode"));
-	        categoryDto.setCategoryName((String)request.getParameter("categoryName"));
 
-	        LOG.info("category {}", categoryDto.getCategoryCode());
-	        
-	        String result = crudService.saveCategory(categoryDto);
-	        
-	        LOG.info("response {}", result);
-	        
-	        if (result != null) {
-	            response.setHeader("Location", redirect);
-	            response.setContentType("application/json");
-	            PrintWriter out = response.getWriter();
-	            out.println(result);
-	            return;
-	            
-	        } else {
-	        	response.sendError(HttpServletResponse.SC_BAD_REQUEST);
-	        }
-	        
-	    } catch (IOException e) {
-	        LOG.error("{} ({})", e, e.getMessage());
-	        response.setHeader("Location", redirect);
-	        response.setContentType("application/json");
-	        PrintWriter out = response.getWriter();
-	        out.println(e.getMessage());
-	    }
-		 
-		
+		try {
+			CategoryDto categoryDto = new CategoryDto();
+
+			categoryDto.setCategoryCode((String) request.getParameter("categoryCode"));
+			categoryDto.setCategoryName((String) request.getParameter("categoryName"));
+
+			LOG.info("category {}", categoryDto.getCategoryCode());
+
+			String result = crudService.saveCategory(categoryDto);
+
+			LOG.info("response {}", result);
+
+			if (result != null) {
+				response.setHeader("Location", redirect);
+				response.setContentType("application/json");
+				PrintWriter out = response.getWriter();
+				out.println(result);
+				return;
+
+			} else {
+				response.sendError(HttpServletResponse.SC_BAD_REQUEST);
+			}
+
+		} catch (IOException e) {
+			LOG.error("{} ({})", e, e.getMessage());
+			response.setHeader("Location", redirect);
+			response.setContentType("application/json");
+			PrintWriter out = response.getWriter();
+			out.println(e.getMessage());
+		}
+
 	}
-    
-    
-    
 
 }

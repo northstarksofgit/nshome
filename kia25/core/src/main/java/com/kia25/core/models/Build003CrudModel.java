@@ -35,7 +35,7 @@ public class Build003CrudModel {
 			String trimCode = request.getParameter("trimCode")==null ? "" : request.getParameter("trimCode");
 			String modelYear = request.getParameter("modelYear")==null ? "" : request.getParameter("modelYear");
 
-			colorList = (service.getColorAPI(modelCode, trimCode, modelYear));
+			colorList = (service.getColorListAPI(modelCode, trimCode, modelYear));
 
 		} catch (Exception ex) {
 			ex.printStackTrace();

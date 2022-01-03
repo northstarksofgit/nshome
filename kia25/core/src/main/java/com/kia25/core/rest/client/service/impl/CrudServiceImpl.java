@@ -114,7 +114,7 @@ public class CrudServiceImpl implements CrudService{
 		return null;
 	}
 	
-	public List<ColorDto> getColorAPI(String modelCode, String trimCode, String modelYear) {
+	public List<ColorDto> getColorListAPI(String modelCode, String trimCode, String modelYear) {
 		
 		try {
 			
@@ -276,14 +276,5 @@ public class CrudServiceImpl implements CrudService{
 		return "OK";
 		
 	}
-	
-	
-	
-	
-	
-	
-	
-	
-	
 	
 }

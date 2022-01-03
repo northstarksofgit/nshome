@@ -26,6 +26,7 @@ public class ColorDto {
 	private String trimCode;
 
 	private String trimName;
+	
 
 	public String getColorCode() {
 		return colorCode;
@@ -114,5 +115,5 @@ public class ColorDto {
 	public void setTrimName(String trimName) {
 		this.trimName = trimName;
 	}
-
+	
 }

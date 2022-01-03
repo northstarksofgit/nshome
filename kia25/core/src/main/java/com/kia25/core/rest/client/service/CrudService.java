@@ -25,7 +25,7 @@ public interface CrudService {
 	/**
 	 * build003 / colorlist 불러오기
 	 */
-	List<ColorDto> getColorAPI(String modelCode, String trimCode, String modelYear);
+	List<ColorDto> getColorListAPI(String modelCode, String trimCode, String modelYear);
 	
 	/**
 	 * get Option List
@@ -52,6 +52,7 @@ public interface CrudService {
 	 * 카테고리 삭제
 	 */
 	String deleteCategory(CategoryDto categoryDto);
+
 
 	/*
 	 * 모델 삭제

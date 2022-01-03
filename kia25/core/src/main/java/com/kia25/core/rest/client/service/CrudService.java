@@ -30,7 +30,7 @@ public interface CrudService {
 	
 	OptionDto[] getOptionListAPI(String trimCode);
 	
-	String deleteOption(String trimCode, String carOptionCode, String optionCode);
+	String deleteOption(OptionDto optionDto);
 
 	/*
 	 * 카테고리 삭제

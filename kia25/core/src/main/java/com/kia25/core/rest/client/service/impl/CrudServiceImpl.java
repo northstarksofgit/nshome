@@ -215,8 +215,25 @@ public class CrudServiceImpl implements CrudService{
 
 
 	@Override
-	public String deleteOption(String trimCode, String carOptionCode, String optionCode) {
-		// TODO Auto-generated method stub
+	public String deleteOption(OptionDto optionDto) {
+		
+		
+		try {
+			ArrayList<NameValuePair> postParameters = new ArrayList<NameValuePair>();
+            postParameters.add(new BasicNameValuePair("trimCode", optionDto.getTrimCode() ));
+            postParameters.add(new BasicNameValuePair("carOptionCode", optionDto.getCarOptionCode() ));
+            postParameters.add(new BasicNameValuePair("optionCode", optionDto.getOptionCode() ));
+			
+			
+			String response = service.sendPostRequest("db/option/delete" , postParameters);
+//			
+            return "success";
+            
+		} catch (IOException e) {
+			LOG.error("Error parsing JSON API response.", e);
+			e.printStackTrace();
+		}
+		
 		return null;
 	}
 

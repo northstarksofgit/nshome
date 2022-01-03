@@ -5,7 +5,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 import org.apache.http.NameValuePair;
-import org.apache.http.entity.ContentType;
 import org.apache.http.message.BasicNameValuePair;
 import org.apache.sling.models.annotations.injectorspecific.OSGiService;
 import org.slf4j.Logger;
@@ -15,12 +14,8 @@ import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.kia25.core.rest.client.dto.CategoryDto;
-import com.kia25.core.rest.client.dto.CategoryListDto;
-import com.kia25.core.rest.client.dto.CategoryListDtoResults;
 import com.kia25.core.rest.client.dto.ColorDto;
 import com.kia25.core.rest.client.dto.ModelDto;
-import com.kia25.core.rest.client.dto.ModelListDto;
-import com.kia25.core.rest.client.dto.ModelListDtoResults;
 import com.kia25.core.rest.client.dto.OptionDto;
 import com.kia25.core.rest.client.service.CommonRestApiService;
 import com.kia25.core.rest.client.service.CrudService;
@@ -137,10 +132,15 @@ public class CrudServiceImpl implements CrudService{
 	 * get Option List
 	 */
 	@Override
-	public OptionDto[] getOptionListAPI(String trimCode) {
+	public OptionDto[] getOptionListAPI(OptionDto optionParams) {
 		
 		try {
-			String response = service.getRequest("db/option/list?trimCode="+trimCode);
+			
+			ArrayList<NameValuePair> postParameters = new ArrayList<NameValuePair>();
+			postParameters.add(new BasicNameValuePair("trimCode", optionParams.getTrimCode()));
+            postParameters.add(new BasicNameValuePair("carOptionCode", optionParams.getCarOptionCode()));
+            
+			String response = service.sendPostRequest("db/option/list", postParameters);
 
 			ObjectMapper mapper = new ObjectMapper();
 			

@@ -604,9 +604,27 @@ function getCategoryList(){
 		dataType: "json",
 		
 		success : function(result){
-			console.log(result);
+			
 			
 			$('.categoryTbl > tbody > tr').empty();
+			
+			for(var i=0; i < result.length; i++){
+				$('.categoryTbl > tbody').append(
+				
+				`
+					<tr>
+	                    <td><input type="checkbox" name="categoryChk" class="chk" categoryCode="${result[i].categoryCode}"></td>
+	                    <td>${result[i].categoryCode}</td>
+	                    <td>${result[i].categoryName}</td>
+	                    <td><div class="btn update cate" categoryCode="${result[i].categoryCode}" categoryName="${result[i].categoryName}">수정</div></td>
+	                </tr>
+				
+				`
+				
+				
+				);
+
+			}
 			
 			
 		},
@@ -718,7 +736,7 @@ $('.cate.regBox > .confirm').on('click',function(){
 		
 			success : function(result){
 				alert(result);
-				location.reload();
+				getCategoryList();
 			},
 			
 			error : function(a, b, c){
@@ -792,7 +810,7 @@ $('.btn.delete.cate').on('click', function(){
 		
 			success : function(result){
 				alert(result);
-				location.reload();
+				getCategoryList();
 			},
 			
 			error : function(a, b, c){

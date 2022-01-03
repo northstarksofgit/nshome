@@ -133,15 +133,15 @@ public class CrudServiceImpl implements CrudService{
 		return null;
 	}
 
-	
+	/**
+	 * get Option List
+	 */
 	@Override
 	public OptionDto[] getOptionListAPI(String trimCode) {
 		
 		try {
-			LOG.info("db/option/list?trimCode="+trimCode);
 			String response = service.getRequest("db/option/list?trimCode="+trimCode);
-//			String url = "db/option/list?trimCode="+trimCode;
-//			String response = service.getRequest(response);
+
 			ObjectMapper mapper = new ObjectMapper();
 			
 			OptionDto results[] = mapper.readValue(response,  OptionDto[].class);
@@ -214,6 +214,9 @@ public class CrudServiceImpl implements CrudService{
 	}
 
 
+	/**
+	 * Delete Option
+	 */
 	@Override
 	public String deleteOption(OptionDto optionDto) {
 		

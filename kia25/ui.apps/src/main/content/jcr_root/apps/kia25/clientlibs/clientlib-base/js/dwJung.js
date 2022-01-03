@@ -872,6 +872,17 @@ $('.btn.delete.model').on('click', function(){
 
 
 
+/*
+* 검색 버튼 클릭시 필터 작동
+*/
+$('.sConfirm').on('click', function(){
+
+	categoryFilter();
+
+})
+
+
+
 
 
 /*
@@ -888,6 +899,11 @@ function categoryFilter(){
 	
 	var compared = [];
 	var result = [];
+	
+	if(selected=='none' || $('input[name=categoryCon]').val() == ''){
+		alert('검색 조건을 입력하세요');
+		return;
+	}
 	
 	
 	for(var i=0; i<orgin.length; i++){

@@ -212,4 +212,33 @@ public class CrudServiceImpl implements CrudService{
 		return "NO";
 		
 	}
+
+
+	@Override
+	public String deleteOption(String trimCode, String carOptionCode, String optionCode) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	
+	/*
+	 * 카테고리 수정
+	 */
+
+	@Override
+	public String updateCategory(CategoryDto categoryDto) {
+		
+		return "OK";
+		
+	}
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
 }

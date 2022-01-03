@@ -567,7 +567,7 @@ $('.btn.update.cate').on('click', function(){
                              	 			return false;
                            			});
 
-									$('.onModal > .categoryCode').val($(this).attr('categoryCode'));
+									$('.onModal > .categoryCode').text($(this).attr('categoryCode'));
 									$('.onModal > .categoryName').val($(this).attr('categoryName'));
                                 });
 
@@ -692,6 +692,40 @@ $('.cate.regBox > .confirm').on('click',function(){
 });
 
 
+/*
+* 카테고리 수정 이벤트
+*/
+
+$('.cate.modBox > .btn.confirm').on('click', function(){
+	
+	/*
+	* 미구현
+	*/
+	
+	$.ajax({
+		
+		type: "POST", 
+		url:"/services/category/update",
+		dataType: "text",
+				
+		data: {
+			"categoryCode" : $(this).siblings('.categoryCode').text(),
+			"categoryName" : $(this).siblings('.categoryName').val()
+		},
+		
+		success : function(result){
+			console.log(result);
+			
+		},
+		
+		error : function(a, b, c){
+			console.log(a);
+			console.log(b);
+			console.log(c);
+		}
+	});
+	
+})
 
 
 

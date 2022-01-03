@@ -25,7 +25,8 @@ import com.kia25.core.rest.client.service.impl.CrudServiceImpl;
 @Component(service = Servlet.class, property = {
 		"sling.servlet.methods=" + HttpConstants.METHOD_POST, 
 		"sling.servlet.paths=" + "/services/category/save",
-		"sling.servlet.paths=" + "/services/category/delete"})
+		"sling.servlet.paths=" + "/services/category/delete",
+		"sling.servlet.paths=" + "/services/category/update"})
 public class CategoryServlet extends SlingAllMethodsServlet {
 	
     private static final Logger LOG = LoggerFactory.getLogger(CategoryServlet.class);
@@ -59,6 +60,14 @@ public class CategoryServlet extends SlingAllMethodsServlet {
     		 * delete category
     		 */
     		deleteCategory(request, response);
+    		
+    	}else if(path.equals("update")) {
+    		
+    		/*
+    		 * update category
+    		 */
+    		
+    		updateCategory(request, response);
     	}
 
     	
@@ -78,6 +87,41 @@ public class CategoryServlet extends SlingAllMethodsServlet {
     
     
     
+
+	private void updateCategory(SlingHttpServletRequest request, SlingHttpServletResponse response) throws IOException {
+		
+		String result = "";
+		String redirect = request.getParameter("redirect");
+		
+		CategoryDto categoryDto = new CategoryDto();
+		
+		categoryDto.setCategoryCode(request.getParameter("categoryCode"));
+		categoryDto.setCategoryName(request.getParameter("categoryName"));
+		
+		
+		result = crudService.updateCategory(categoryDto);
+
+		
+        if (result != null) {
+            response.setHeader("Location", redirect);
+            response.setContentType("text");
+            PrintWriter out = response.getWriter();
+            out.println(result);
+            return;
+            
+        } else {
+        	response.sendError(HttpServletResponse.SC_BAD_REQUEST);
+        }
+        
+		
+	}
+
+
+
+
+
+
+
 
 	private void deleteCategory(SlingHttpServletRequest request, SlingHttpServletResponse response) throws IOException {
 		

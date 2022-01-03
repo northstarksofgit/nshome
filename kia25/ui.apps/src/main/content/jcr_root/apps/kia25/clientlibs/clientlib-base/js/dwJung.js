@@ -869,3 +869,46 @@ $('.btn.delete.model').on('click', function(){
 	
 	
 });
+
+
+
+
+
+/*
+* 카테고리 필터
+*/
+
+
+function categoryFilter(){
+	
+	var orgin = $('.categoryTbl > tbody > tr');
+	
+	var selected = $('select[name=categoryCon] option:selected').val();
+	var condition = $('input[name=categoryCon]').val();
+	
+	var compared = [];
+	var result = [];
+	
+	
+	for(var i=0; i<orgin.length; i++){
+		
+		var data = {
+		categorycode: $(orgin[i]).find('.btn.update.cate').attr('categorycode'),
+		categoryname: $(orgin[i]).find('.btn.update.cate').attr('categoryname')};
+					
+		compared.push(data);
+		
+	}
+			
+	
+	if(selected == "categoryName"){
+		result = compared.filter((category, index, target) => {return category.categoryname.includes(condition)});
+		
+	}else{	
+		result = compared.filter((category, index, target) => {return category.categorycode.includes(condition)});
+	}
+	
+	
+	console.log(result);
+	
+}

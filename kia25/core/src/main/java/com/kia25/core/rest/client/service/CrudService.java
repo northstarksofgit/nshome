@@ -27,9 +27,18 @@ public interface CrudService {
 	 */
 	List<ColorDto> getColorAPI(String modelCode, String trimCode, String modelYear);
 	
+	/**
+	 * get Option List
+	 * @param trimCode
+	 * @return
+	 */
 	
 	OptionDto[] getOptionListAPI(String trimCode);
-	
+	/**
+	 * Delete Option 
+	 * @param optionDto
+	 * @return
+	 */
 	String deleteOption(OptionDto optionDto);
 
 	/*

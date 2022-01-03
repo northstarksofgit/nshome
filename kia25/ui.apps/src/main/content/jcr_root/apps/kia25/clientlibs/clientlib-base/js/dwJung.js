@@ -718,7 +718,7 @@ $('.btn.delete.cate').on('click', function(){
 			
 		
 			success : function(result){
-				console.log(result);
+				alert(result);
 				location.reload();
 			},
 			
@@ -750,19 +750,22 @@ $('.btn.delete.model').on('click', function(){
 	}
 	
 	
+	
 	$.ajax({
 		
 		type: "POST", 
 		url:"/services/model/delete",
-		dataType: "json",
+		dataType: "text",
+		
      	traditional: true,
 		data: {
-			data: JSON.stringify(chk)
+			data: JSON.stringify(chk)	
 		},
 		
 		success : function(result){
-			console.log(result);
-			//location.reload();
+			
+			alert(result);
+			location.reload();
 		},
 		
 		error : function(a, b, c){

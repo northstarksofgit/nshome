@@ -573,9 +573,8 @@ $('.btn.update.cate').on('click', function(){
 
 
 
-/*
-* ajax 공통화 필요
-*/
+
+
 
 /*
 * 카테고리 리스트 가져오기
@@ -863,9 +862,79 @@ $('.radioCURD').change( function() {
 
 
 /*
+* ajax 공통화 필요
+*/
+
+
+
+function postAjax(url, dataType, data, traditional, func){
+	
+	$.ajax({
+		
+		type: "POST", 
+		url: url,
+		dataType: dataType,
+     	traditional: traditional,
+		data: data,
+		
+		success : function(result){
+			
+			func(result);
+		},
+		
+		error : function(a, b, c){
+			console.log(a);
+			console.log(b);
+			console.log(c);
+		}
+	});
+	
+}
+
+
+
+
+
+/*
 * model list 가져오기
 */
 function getModelList(){
+	
+	var url = "/services/model/list";
+	var dataType = "json";
+	
+	var data = {
+			"categoryCode" : $('.radioCURD:checked').val()
+		};
+		
+	var traditional = false;
+	
+	function func(result){
+		$('.modelTbl > tbody').empty();
+			
+			for(var i=0; i < result.length; i++){
+				$('.modelTbl > tbody').append(
+												`
+												<tr>
+													<td> <input type="checkbox" name="modelChk" class="chk" modelCode="${result[i].modelCode}" modelYear="${result[i].modelYear}"> </td>
+													<td>${result[i].categoryCode}</td>
+													<td>${result[i].modelCode}</td>
+													<td>${result[i].modelYear}</td>
+													<td>${result[i].modelName}</td>
+													<td><img style="height:100px;" src="${result[i].carImagePath}"></td>
+													<td><div class="btn update model" categoryCode="${result[i].categoryCode}" modelCode="${result[i].modelCode}" modelYear="${result[i].modelYear}" modelName="${result[i].modelName}">수정</div></td>
+												</tr>
+												`
+			)}
+			
+			$('input[type="checkbox"]').on('click', function(){ 
+                                $(this).parents('tr').toggleClass('checkedTr');
+                            });
+	}
+	
+	 postAjax(url, dataType, data, traditional, func);
+	
+	/*
 	
 	$.ajax({
 		
@@ -910,6 +979,8 @@ function getModelList(){
 			console.log(c);
 		}
 	});
+	
+	*/
 
 }
 
@@ -1115,6 +1186,7 @@ function modelFilter(){
 	
 	
 }
+
 
 
 

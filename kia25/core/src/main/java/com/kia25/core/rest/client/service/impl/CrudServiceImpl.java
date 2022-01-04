@@ -111,6 +111,9 @@ public class CrudServiceImpl implements CrudService{
 		return null;
 	}
 	
+	/**
+	 * List Color
+	 */
 	public List<ColorDto> getColorListAPI(String modelCode, String trimCode, String carOptionCode, String modelYear) {
 		
 		try {
@@ -173,6 +176,28 @@ public class CrudServiceImpl implements CrudService{
             
 		} catch (IOException e) {
 			LOG.error("Error parsing JSON API Delete.", e);
+			e.printStackTrace();
+		}
+		
+		return null;
+	}
+	
+	/**
+	 * Search Color
+	 */
+	public List<ColorDto> searchColorListAPI(String modelCode, String trimCode, String carOptionCode, String modelYear, String searchWord) {
+		
+		try {
+			
+			String response = service.getRequest("db/color/list?modelCode"+modelCode+"&trimCode="+trimCode+"&carOptionCode="+carOptionCode+"&modelYear="+modelYear+"&searchWord="+searchWord);
+			LOG.debug("response={}", response);
+			ObjectMapper mapper = new ObjectMapper();
+			
+			List<ColorDto> results = mapper.readValue(response, new TypeReference<List<ColorDto>>(){});
+            return results;
+            
+		} catch (IOException e) {
+			LOG.error("Error parsing JSON API response.", e);
 			e.printStackTrace();
 		}
 		

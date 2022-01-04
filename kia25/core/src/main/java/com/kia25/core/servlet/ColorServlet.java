@@ -63,20 +63,27 @@ public class ColorServlet extends SlingAllMethodsServlet {
 			/*
 			 * save model
 			 */
+			
 			listColor();
+			
 
 		} else if (path.equals("save")) {
 
 			/*
-			 * delete model
+			 * save model
 			 */
+			
 			saveColor(request, response);
+			
+			
 		} else if (path.equals("delete")) {
 
 			/*
 			 * delete model
 			 */
+			
 			deleteColor(request, response);
+			
 		}
 
 	}
@@ -85,7 +92,16 @@ public class ColorServlet extends SlingAllMethodsServlet {
 
 		try {
 
-			/* 리스트 페이지 호출문제 고민 */
+			String modelCode = request.getParameter("modelCode")==null ? "" : request.getParameter("modelCode");
+			String trimCode = request.getParameter("trimCode")==null ? "" : request.getParameter("trimCode");
+			String carOptionCode = request.getParameter("carOptionCode")==null ? "" : request.getParameter("carOptionCode");
+			String modelYear = request.getParameter("modelYear")==null ? "" : request.getParameter("modelYear");
+			String searchWord = request.getParameter("searchWord")==null ? "" : request.getParameter("searchWord");
+
+		 	colorList = (crudService.searchColorListAPI(modelCode, trimCode, carOptionCode, modelYear, searchWord));
+		 	
+		 	LOG.info("###### List started #####");
+			System.out.println("listColor message");
 			
 		} catch (Exception ex) {
 			ex.printStackTrace();
@@ -103,6 +119,8 @@ public class ColorServlet extends SlingAllMethodsServlet {
 		String parameter = request.getParameter("data");
 
 		LOG.info("param: " + parameter);
+		LOG.info("###### Save started #####");
+		System.out.println("saveColor message");
 
 		ArrayList<ColorDto> colorList = mapper.readValue(parameter, new TypeReference<ArrayList<ColorDto>>() {});
 
@@ -131,6 +149,8 @@ public class ColorServlet extends SlingAllMethodsServlet {
 		String parameter = request.getParameter("data");
 
 		LOG.info("param: " + parameter);
+		LOG.info("###### Delete started #####");
+		System.out.println("deleteColor message");
 
 		ArrayList<ColorDto> colorList = mapper.readValue(parameter, new TypeReference<ArrayList<ColorDto>>() {});
 

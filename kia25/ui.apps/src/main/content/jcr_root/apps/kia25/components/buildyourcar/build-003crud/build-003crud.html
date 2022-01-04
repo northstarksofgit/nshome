@@ -6,19 +6,30 @@ body,html{margin:0;font-size:1pc;font-family:Helvetica Neue,Helvetica,Arial,sans
 <!-- http://localhost:4502/content/kia25/us/en/page03_crud.html?modelCode=EV6&trimCode=LRA&carOptionCode=E&modelYear=2021 -->
 
 <div class="row">
-	<table id="example-table-1" width="100%">
-        <thead>
-            <tr>
-            <td>컬러명</td><td><input type="text" id="searchWord" style="width:100%;"></td><td><button class="btn btn-edit" style="width:30%;" value="search">search</button></td>
-            </tr>
-        </thead>
-    </table>
-            
+	<form name="FrmSearch" method="post">  
+	  <input type="hidden" name="trimCode" id="trimCode"  value="">
+		<table id="example-table-1" width="100%">
+	        <thead>
+	            <tr>
+	            <td>검 색</td>
+	            <td>
+		            <select name="carOptionCode" id="carOptionCode">
+		            <option value="E">외장재</option>
+		            <option value="I">내장재</option>
+		            </select>
+	            	<input type="text" id="searchWord" name="searchWord" style="width:80%;">
+	            </td>
+	            <td><button class="btn btn-edit" style="width:30%;" value="search" onclick="topSearch(); return false;" >search</button></td>
+	            </tr>
+	        </thead>
+	    </table>
+	</form>
     
     <table id="example-table-1" width="100%">
         <thead>
             <tr>
                 <th>순서</th>
+                <th>차량 이미지</th>
                 <th>컬러 코드</th>
                 <th>컬러명</th>
                 <th>컬러 가격</th>                
@@ -31,6 +42,7 @@ body,html{margin:0;font-size:1pc;font-family:Helvetica Neue,Helvetica,Arial,sans
             <sly data-sly-list.colorinlist="${color.colorList @ begin=0, end=10}">
                 <tr>
                     <td align="center">${colorinlistList.count}</td>
+                    <td align="center"><img src="${colorinlist.carImagePath}" width="80"></td>
                     <td align="center">${colorinlist.colorCode}</td>
                     <td>${colorinlist.colorName} </td>
                     <td align="right">${'###,###' @ format=colorinlist.colorPrice, type='number'} </td>                    
@@ -41,6 +53,7 @@ body,html{margin:0;font-size:1pc;font-family:Helvetica Neue,Helvetica,Arial,sans
                     </td>
                 </tr>
                 <input type="hidden" id="trimCodeList" name="trimCodeList" value="${colorinlist.trimCode}">
+                <input type="hidden" id="carImagePathList"  name="carImagePathList" value="${colorinlist.carImagePath}">
                 <input type="hidden" id="carOptionCodeList"  name="carOptionCodeList" value="${colorinlist.carOptionCode}">
                 <input type="hidden" id="colorCodeList" name="colorCodeList" value="${colorinlist.colorCode}">
                 <input type="hidden" id="colorNameList" name="colorNameList" value="${colorinlist.colorName}">
@@ -56,6 +69,7 @@ body,html{margin:0;font-size:1pc;font-family:Helvetica Neue,Helvetica,Arial,sans
     <table id="example-table-1" width="100%">
         <thead>
             <tr>
+                <th>차량 이미지</th>
                 <th>컬러 코드</th>
                 <th>컬러 명</th>
                 <th>컬러 가격</th>
@@ -66,17 +80,17 @@ body,html{margin:0;font-size:1pc;font-family:Helvetica Neue,Helvetica,Arial,sans
         </thead>
         <tbody>
                 <tr>
+                    <td><input type="text" name="carImagePath" id="carImagePath" style="width:100%;"></td>
                     <td><input type="text" name="colorCode" id="colorCode" style="width:100%;"></td>
                     <td><input type="text" name="colorName" id="colorName" style="width:100%;"></td>
                     <td><input type="text" name="colorPrice" id="colorPrice" style="width:100%;"></td>
                     <td><input type="text" name="bestYn" id="bestYn" style="width:100%;"></td>
                     <td><input type="text" name="colorImagePath" id="colorImagePath" style="width:100%;"></td>
                     <td style="text-align: center;" >
-                        <button class="btn btn-edit" onclick="areaSave();">Save</button>
-                        <button class="btn btn-delete" onClick="areaDel()">Delete</button>
+                        <button class="btn btn-edit" onclick="areaSave(); return false;">Save</button>
+                        <button class="btn btn-delete" onClick="areaDel(); return false;">Delete</button>
                         <input type="hidden" name="trimCode" id="trimCode"  value="">
                         <input type="hidden" name="carOptionCode" id="carOptionCode" value="">
-                        <input type="hidden" name="carImagePath" id="carImagePath" value="">
                     </td>
                 </tr>
         </tbody>
@@ -99,12 +113,14 @@ $("button").click(function() {
 
 function areaCopy(Count){
 	var f = document.Frm;
+	var carImagePathList = document.getElementsByName("carImagePathList")[Count];
 	var colorCodeList = document.getElementsByName("colorCodeList")[Count];
 	var colorNameList = document.getElementsByName("colorNameList")[Count];
 	var colorPriceList = document.getElementsByName("colorPriceList")[Count];
 	var colorImagePathList = document.getElementsByName("colorImagePathList")[Count];
 	var bestYnList = document.getElementsByName("bestYnList")[Count];
 
+	f.carImagePath.value = carImagePathList.value;
 	f.colorCode.value = colorCodeList.value;	
 	f.colorName.value = colorNameList.value;
 	f.colorPrice.value = colorPriceList.value;
@@ -115,13 +131,9 @@ function areaCopy(Count){
 	var params = new URLSearchParams(search);
 	var gettrimCode = params.get('trimCode');
 	var getcarOptionCode = params.get('carOptionCode');
-	var getcarImagePath = "https://www.kia.com/content/dam/kwcms/kr/ko/images/byo/color/allnewk7_abp.jpg";
-	 
-	console.log(gettrimCode);
-	
+
 	f.trimCode.value = gettrimCode;
 	f.carOptionCode.value = getcarOptionCode;
-	f.carImagePath.value = getcarImagePath;
 	return false;
 }
 
@@ -157,6 +169,38 @@ function areaDel(){
 	f.submit();
 	
 	window.parent.location.reload();
+}
+
+function topSearch(){
+	var f = document.FrmSearch;
+	
+	var search = location.search
+	var params = new URLSearchParams(search);
+	var gettrimCode = params.get('trimCode');
+	
+	f.trimCode.value = gettrimCode;
+	
+	if (f.searchWord.value.trim() == ""){ 
+		alert("searchWord - 입력"); 
+		return false;
+	}
+	
+	/* if (!confirm("진짜해?")){
+		return false;
+	}
+	
+	if (!confirm("다시 생각해바!!")){
+		return false;
+	}
+	
+	alert("궁서체로 입력되지 않아 \n시스템이 정중히 거부하였습니다.");
+	return false; */
+	
+	f.action = "http://192.168.31.86:9090/db/color/list";
+	//f.target = "hiddenZone";
+	f.submit();
+	
+	//window.parent.location.reload();
 }
 
 </script>

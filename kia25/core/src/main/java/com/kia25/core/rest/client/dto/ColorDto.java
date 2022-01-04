@@ -26,7 +26,8 @@ public class ColorDto {
 	private String trimCode;
 
 	private String trimName;
-	
+
+	private String searchWord;
 
 	public String getColorCode() {
 		return colorCode;
@@ -115,5 +116,13 @@ public class ColorDto {
 	public void setTrimName(String trimName) {
 		this.trimName = trimName;
 	}
-	
+
+	public String getSearchWord() {
+		return searchWord;
+	}
+
+	public void setSearchWord(String searchWord) {
+		this.searchWord = searchWord;
+	}
+
 }

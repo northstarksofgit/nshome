@@ -40,6 +40,11 @@ public interface CrudService {
 	String deleteColor(ColorDto colorDto);
 	
 	/**
+	 * build003 / searchcolorlist 목록 불러오기
+	 */
+	List<ColorDto> searchColorListAPI(String modelCode, String trimCode, String carOptionCode, String modelYear, String searchWord);
+	
+	/**
 	 * get Option List
 	 * @param trimCode
 	 * @return

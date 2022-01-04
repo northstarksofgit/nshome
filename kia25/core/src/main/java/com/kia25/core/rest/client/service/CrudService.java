@@ -7,6 +7,7 @@ import com.kia25.core.rest.client.dto.CategoryDto;
 import com.kia25.core.rest.client.dto.ColorDto;
 import com.kia25.core.rest.client.dto.ModelDto;
 import com.kia25.core.rest.client.dto.OptionDto;
+import com.kia25.core.rest.client.dto.TrimDto;
 
 public interface CrudService {
 
@@ -58,7 +59,15 @@ public interface CrudService {
 	 * @return
 	 */
 	String deleteOption(OptionDto optionDto);
-
+	
+	/**
+	 * get Trim Data
+	 * @param trimCode
+	 * @return
+	 */
+	TrimDto getSelectTrimAPT(String trimCode);
+	
+	
 	/*
 	 * 카테고리 삭제
 	 */
@@ -74,4 +83,5 @@ public interface CrudService {
 	 * 카테고리 수정
 	 */
 	String updateCategory(CategoryDto categoryDto);
+
 }

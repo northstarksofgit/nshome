@@ -14,9 +14,11 @@ import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.kia25.core.rest.client.dto.CategoryDto;
+import com.kia25.core.rest.client.dto.CategoryListDtoResults;
 import com.kia25.core.rest.client.dto.ColorDto;
 import com.kia25.core.rest.client.dto.ModelDto;
 import com.kia25.core.rest.client.dto.OptionDto;
+import com.kia25.core.rest.client.dto.TrimDto;
 import com.kia25.core.rest.client.service.CommonRestApiService;
 import com.kia25.core.rest.client.service.CrudService;
 
@@ -329,5 +331,26 @@ public class CrudServiceImpl implements CrudService{
 		return "OK";
 		
 	}
+
+
+	@Override
+	public TrimDto getSelectTrimAPT(String trimCode) {
+		
+		try {
+			
+			String response = service.getRequest("db/trim/select?trimCode=" + trimCode);
+			ObjectMapper mapper = new ObjectMapper();
+			
+			TrimDto results = mapper.readValue(response,  TrimDto.class);
+			return results;
+			
+		}catch (Exception e) {
+			e.printStackTrace();
+		}
+
+		return null;
+	}
+	
+	
 	
 }

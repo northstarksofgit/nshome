@@ -1,62 +1,80 @@
 <sly data-sly-use.clientLib="/libs/granite/sightly/templates/clientlib.html"  data-sly-call="${clientLib.all @ categories='kia25.base'}"></sly>
-<sly data-sly-use.option="com.kia25.core.models.Build004_CRUD"></sly>
+<!-- <sly data-sly-use.option="com.kia25.core.models.Build004_CRUD"></sly> -->
 
 <template data-sly-template.formattedPrice="${ @ price}" data-sly-use.priceFormatter="${'com.kia25.core.models.CurrencyFormatterModel' @ value=price}">
-		${priceFormatter.formattedPrice}<em>원</em>
+	${priceFormatter.formattedPrice}<em>원</em>
 </template>
 
 <p>${option.optionList.size}</p>
 <div class="row">
-		<table id="example-table-1" width="100%" class="table table-bordered table-hover text-center">
-			<thead>
-				<tr>
-					<th>옵션 코드</th>
-					<th>옵션 명</th>
-					<th>옵션 가격</th>
-					<th>추천 여부</th>
-					<th>옵션 이미지</th>
-					<th>Car Option Code</th>
-					<th>사양코드</th>
-					<th>옵션상품번호</th>
-					<th>Action</th>
-				</tr>
-			</thead>
-			<tbody>		
-
-                <sly data-sly-test="${option.optionList}">
-                    <sly data-sly-list.opt="${option.optionList}" >
-                    	<tr>
-                            <td data-field="optionCode" data-value="${opt.optionCode}">${opt.optionCode}</td>
-							<td data-field="optionName" data-value="${opt.optionName}">${opt.optionName}</td>
-							<td data-field="optionPrice" data-value="${opt.optionPrice}"><sly data-sly-call="${formattedPrice @ price=opt.optionPrice}"></sly></td>
-                            <td data-field="bestYn" data-value="${opt.bestYn}">${opt.bestYn}</td>
-                            <td data-field="optionImagePath" data-value="${opt.optionImagePath}">${opt.optionImagePath}</td>
-                            <td data-field="carOptionCode" data-value="${opt.carOptionCode != null ? opt.carOptionCode : 'null'}">${opt.carOptionCode != null ? opt.carOptionCode : '-'}</td>
-                            <td data-field="specificationCode" data-value="${opt.specificationCode != null ? opt.specificationCode : 'null'}">${opt.specificationCode != null ? opt.specificationCode : '-'}</td>
-                            <td data-field="optionProductNumber" data-value="${opt.optionProductNumber != null ? opt.optionProductNumber : 'null'}">${opt.optionProductNumber != null ? opt.optionProductNumber : '-'}</td>
-                            <td style="text-align: center;">	
-                            	<button class="btn btn-edit">Edit</button>
-                            	<button class="btn btn-delete">Delete</button>
-                            </td>
-						</tr>
-                    </sly>
-                </sly>
-			</tbody>
-		</table>
-		
-		<div id="myModal" class="modal">
-
-		  <!-- Modal content -->
-		  <div class="modal-content">
-		    <span class="close">&times;</span>
-		    <p>Some text in the Modal..</p>
-		  </div>
-		
-		</div>
-		
-		<div class="col-lg-12" id="ex1_Result1" ></div> 
-		<div class="col-lg-12" id="ex1_Result2" ></div> 
+	<div class="search-bar">
+		<span class="trim-info"></span>
+		<input type="text" class="search-input" placeholder="옵션명" onkeyup="enterkey();">
+		<select id="soflow">
+			<option data-value="O" value="O" selected>옵션</option>
+			<option data-value="P" value="P" >패키지</option>
+		</select>
+		<button class="btn-hm btn-search">Search</button>
 	</div>
+	<table id="example-table-1" width="100%" class="table table-bordered table-hover text-center opt-table">
+		<thead>
+			<tr class="opt-tr">
+				<th class="opt-th">옵션 코드</th>
+				<th class="opt-th">옵션 명</th>
+				<th class="opt-th">옵션 가격</th>
+				<th class="opt-th">추천 여부</th>
+				<th class="opt-th">옵션 이미지</th>
+				<th class="opt-th">Car Option Code</th>
+				<th class="opt-th">사양코드</th>
+				<th class="opt-th">옵션상품번호</th>
+				<th class="opt-th">Action</th>
+			</tr>
+		</thead>
+		<tbody class="option-list-table"></tbody>
+	</table>
+		
+	<div id="myModal" class="modal">
+	  <div class="modal-content">
+	    <div class="modal-btn">
+	    	<button class="btn-hm btn-confirm"></button>
+               <button class="btn-hm btn-cancel">Cancel</button>
+	    </div>
+	    <p class="modal-header"></p>
+	    
+	    <div class="wrapper wrapper-form">
+		    <form class="form-area">
+		        <div class="input-box">
+		          <input type="text" class="modal-form" name="optionCode" maxlength="5" onKeyup="this.value=this.value.replace(/[^a-zA-Z0-9]/g,'').toUpperCase();" value="" required="required">
+		          <label class="label-desc" desc="Option Code" for="optionCode">Option Code</label>
+		        </div>
+		        <div class="input-box">
+		          <input type="text" class="modal-form" name="optionName" value="" required="required">
+		          <label class="label-desc" desc="Option Name" for="optionName">Option Name</label>
+		        </div>
+		        <div class="input-box">
+		          <input type="text" class="modal-form" name="optionPrice" onKeyup="this.value=this.value.replace(/[^0-9]/g,'');" value="" required="required">
+		          <label class="label-desc" desc="Option Price" for="optionPrice">Option Price</label>
+		        </div>
+		        <div class="input-box">
+		          <input type="text" class="modal-form" name="bestYn" maxlength="1" onKeyup="this.value=this.value.replace(/[^nNyY]/g,'').toUpperCase();" value="" required="required">
+		          <label class="label-desc" desc="Best Y/N" for="bestYn">Best Y/N (y 또는 n 값만)</label>
+		        </div>
+		        <div class="input-box">
+		          <input type="text" class="modal-form" name="optionImagePath" value="" required="required">
+		          <label class="label-desc" desc="Option Image Path" for="optionImagePath">Option Image Path</label>
+		        </div>
+		        <div class="input-box">
+		          <input type="text" class="modal-form" name="carOptionCode" onKeyup="this.value=this.value.replace(/[^oOpP]/g,'').toUpperCase();" maxlength="1" value="" required="required">
+		          <label class="label-desc" desc="Car Option Code" for="carOptionCode">Car Option Code (o 또는 p 값만)</label>
+		        </div>
+	      	</form>
+      	</div>
+	  </div>
+	</div>
+	<div class="modal-btn">
+    	<button class="btn-hm btn-add">Add</button>
+    </div>
+</div>
 
 
 

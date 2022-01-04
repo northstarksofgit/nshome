@@ -606,26 +606,23 @@ function getCategoryList(){
 		success : function(result){
 			
 			
-			$('.categoryTbl > tbody > tr').empty();
+			$('.categoryTbl > tbody').empty();
 			
 			for(var i=0; i < result.length; i++){
 				$('.categoryTbl > tbody').append(
 				
-				`
-					<tr>
-	                    <td><input type="checkbox" name="categoryChk" class="chk" categoryCode="${result[i].categoryCode}"></td>
-	                    <td>${result[i].categoryCode}</td>
-	                    <td>${result[i].categoryName}</td>
-	                    <td><div class="btn update cate" categoryCode="${result[i].categoryCode}" categoryName="${result[i].categoryName}">수정</div></td>
-	                </tr>
-				
-				`
-				
-				
+					`
+						<tr>
+		                    <td><input type="checkbox" name="categoryChk" class="chk" categoryCode="${result[i].categoryCode}"></td>
+		                    <td>${result[i].categoryCode}</td>
+		                    <td>${result[i].categoryName}</td>
+		                    <td><div class="btn update cate" categoryCode="${result[i].categoryCode}" categoryName="${result[i].categoryName}">수정</div></td>
+		                </tr>
+					
+					`
 				);
 
 			}
-			
 			
 		},
 		
@@ -635,6 +632,8 @@ function getCategoryList(){
 			console.log(c);
 		}
 	});
+	
+	
 }
 
 
@@ -877,6 +876,8 @@ $('.btn.delete.model').on('click', function(){
 */
 $('.sConfirm').on('click', function(){
 
+//	getCategoryList();
+//  getCategoryList가 ajax(비동기)라서 순서대로 실행되지 않음...
 	categoryFilter();
 
 })
@@ -904,27 +905,151 @@ function categoryFilter(){
 		alert('검색 조건을 입력하세요');
 		return;
 	}
+
+	
+	for(var i=0; i<orgin.length; i++){
+		
+		var data = {
+		categoryCode: $(orgin[i]).find('.btn.update.cate').attr('categorycode'),
+		categoryName: $(orgin[i]).find('.btn.update.cate').attr('categoryname')};
+					
+		compared.push(data);
+		
+	}
+
+	
+	if(selected == "categoryName"){
+		result = compared.filter((category, index, target) => {
+			
+			var chk = category.categoryName;	
+			return  chk.includes(condition) });
+		
+	}else{	
+		result = compared.filter((category, index, target) => {
+			
+			var chk = category.categoryCode;
+			return chk.includes(condition) });
+	}
+	
+
+	
+	$('.categoryTbl > tbody').empty();
+			
+	for(var i=0; i < result.length; i++){
+		
+		$('.categoryTbl > tbody').append(
+			`
+				<tr>
+                    <td><input type="checkbox" name="categoryChk" class="chk" categoryCode="${result[i].categoryCode}"></td>
+                    <td>${result[i].categoryCode}</td>
+                    <td>${result[i].categoryName}</td>
+                    <td><div class="btn update cate" categoryCode="${result[i].categoryCode}" categoryName="${result[i].categoryName}">수정</div></td>
+                </tr>
+			
+			`
+		);
+
+	}
+	
+}
+
+
+
+/*
+* 모델 검색
+*/
+$('.mConfirm').on('click', function(){
+	
+//	getModelList();
+//  모델 리스트 갱신
+
+	modelFilter();
+	
+
+})
+
+
+
+
+/*
+* 모델 필터
+*/
+
+function modelFilter(){
+	
+	
+	var orgin = $('.modelTbl > tbody > tr');
+	
+	var selected = $('select[name=modelCon] option:selected').val();
+	var condition = $('input[name=modelCon]').val();
+	
+	var compared = [];
+	var result = [];
+	
+	if(selected=='none' || $('input[name=modelCon]').val() == ''){
+		alert('검색 조건을 입력하세요');
+		return;
+	}
+
 	
 	
 	for(var i=0; i<orgin.length; i++){
 		
 		var data = {
-		categorycode: $(orgin[i]).find('.btn.update.cate').attr('categorycode'),
-		categoryname: $(orgin[i]).find('.btn.update.cate').attr('categoryname')};
-					
+			categoryCode: $(orgin[i]).find('.btn.update.model').attr('categorycode'),
+			modelCode: $(orgin[i]).find('.btn.update.model').attr('modelCode'),
+			modelYear: $(orgin[i]).find('.btn.update.model').attr('modelYear'),
+			modelName: $(orgin[i]).find('.btn.update.model').attr('modelName'),
+			carImagePath: $(orgin[i]).find('img').attr('src')
+			}
+						
 		compared.push(data);
 		
 	}
-			
 	
-	if(selected == "categoryName"){
-		result = compared.filter((category, index, target) => {return category.categoryname.includes(condition)});
+	if(selected == "modelCode"){
+		result = compared.filter((model, index, target) => {
+			
+			var chk = model.modelCode;	
+			return  chk.includes(condition) });
+		
+	}else if(selected == "modelName"){	
+		result = compared.filter((model, index, target) => {
+		
+			var chk = model.modelName;	
+			return  chk.includes(condition) });
 		
 	}else{	
-		result = compared.filter((category, index, target) => {return category.categorycode.includes(condition)});
+		// modelYear
+		result = compared.filter((model, index, target) => {
+		
+			var chk = model.modelYear;	
+			return  chk.includes(condition) });
+		
 	}
 	
 	
-	console.log(result);
+	$('.modelTbl > tbody').empty();
+			
+	for(var i=0; i < result.length; i++){
+		$('.modelTbl > tbody').append(
+				`
+				<tr>
+					<td> <input type="checkbox" name="modelChk" class="chk" modelCode="${result[i].modelCode}" modelYear="${result[i].modelYear}"> </td>
+					<td>${result[i].categoryCode}</td>
+					<td>${result[i].modelCode}</td>
+					<td>${result[i].modelYear}</td>
+					<td>${result[i].modelName}</td>
+					<td><img style="height:100px;" src="${result[i].carImagePath}"></td>
+					<td><div class="btn update model" categoryCode="${result[i].categoryCode}" modelCode="${result[i].modelCode}" modelYear="${result[i].modelYear}" modelName="${result[i].modelName}">수정</div></td>
+				</tr>
+				`
+	)}
+			
+	$('input[type="checkbox"]').on('click', function(){ 
+                        $(this).parents('tr').toggleClass('checkedTr');
+                    });
+	
 	
 }
+

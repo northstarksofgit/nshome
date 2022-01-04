@@ -6,16 +6,15 @@
 
 <div class="contentBox">
 
-        <form action="">
 
-            <select name="categoryCon" class="condition">
-                <option value="none">선택</option>
-                <option value="categoryCode" >카테고리 코드</option>
-                <option value="categoryName">카테고리 이름</option>
-            </select>
-            
-            <input class="search" name="categoryCon" type="text" placeholder="검색조건"> <div class="btn sConfirm">검색</div>
-        </form>
+        <select name="categoryCon" class="condition">
+            <option value="none">선택</option>
+            <option value="categoryCode" >카테고리 코드</option>
+            <option value="categoryName">카테고리 이름</option>
+        </select>
+        
+        <input class="search" name="categoryCon" type="text" placeholder="검색조건"> <div class="btn sConfirm">검색</div>
+        
 
             
         <table  class="categoryTbl">
@@ -48,18 +47,16 @@
 
         <br><br><br>
 
-        <form action="">
 
-            <select name="" class="condition">
-                <option value="">선택</option>
-                <option value="">모델 코드</option>
-                <option value="">모델 이름</option>
-                <option value="">모델 년도</option>
-            </select>
-            
-            <input class="search" type="text" placeholder="검색조건"> <div class="btn">검색</div>
-        </form>
+        <select name="modelCon" class="condition">
+            <option value="none">선택</option>
+            <option value="modelCode">모델 코드</option>
+            <option value="modelName">모델 이름</option>
+            <option value="modelYear">모델 년도</option>
+        </select>
         
+        <input class="search" type="text" name="modelCon" placeholder="검색조건"> <div class="btn mConfirm">검색</div>
+    
         <br>
         카테고리: 
         <sly data-sly-list="${model.categoryList}">

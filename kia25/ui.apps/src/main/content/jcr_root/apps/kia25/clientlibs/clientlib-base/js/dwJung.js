@@ -1099,8 +1099,8 @@ $('.model.regBox > .confirm').on('click',function(){
 			},
 			
 		
-			success : function(result){
-				console.log(result);
+			success : function(result){				
+				getModelList();
 				
 			},
 			

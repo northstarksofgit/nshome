@@ -716,12 +716,12 @@ $('.radioCURD').change( function() {
 $('.cate.regBox > .confirm').on('click',function(){
 
 	
-	if($('input[name=categoryRegCode]').val() == undefined
-	  || $('input[name=categoryRegName]').val() == undefined){
+	if($('input[name=categoryRegCode]').val() == ''
+	  || $('input[name=categoryRegName]').val() == ''){
 		
 		alert('항목을 모두 입력하여주세요');
 		
-		retrun;
+		return;
 	}
 	
 
@@ -1072,15 +1072,15 @@ function modelFilter(){
 $('.model.regBox > .confirm').on('click',function(){
 
 	
-	if($('input[name=modelCateRegCode]').val() == undefined
-	  || $('input[name=modelRegCode]').val() == undefined
-	  || $('input[name=modelRegYear]').val() == undefined
-	  || $('input[name=modelRegName]').val() == undefined
-	  || $('input[name=modelRegImg]').val() == undefined){
+	if($('input[name=modelCateRegCode]').val() == ''
+	  || $('input[name=modelRegCode]').val() == ''
+	  || $('input[name=modelRegYear]').val() == ''
+	  || $('input[name=modelRegName]').val() == ''
+	  || $('input[name=modelRegImg]').val() == ''){
 		
 		alert('항목을 모두 입력하여주세요');
 		
-		retrun;
+		return;
 	}
 	
 

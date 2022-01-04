@@ -611,6 +611,7 @@ function getCategoryList(){
 			}
 			
 			console.log('end');
+
 			
 		},
 		
@@ -624,8 +625,6 @@ function getCategoryList(){
 	
 	
 }
-
-
 
 
 
@@ -751,12 +750,10 @@ $('.btn.delete.cate').on('click', function(){
 * 카테고리 검색 버튼 클릭시 필터 작동
 */
 $('.sConfirm').on('click', function(){
-	
-//	await Promise.all(getCategoryList()).then(function(){
-//		
-//		
-//		
-//	});
+
+	setTimeout(function(){
+		getCategoryList();
+	}, 200)
 	
 	categoryFilter();
 		
@@ -952,7 +949,8 @@ $('.model.regBox > .confirm').on('click',function(){
 			},
 			
 		
-			success : function(result){				
+			success : function(result){
+				alert(result);				
 				getModelList();
 				
 			},
@@ -1022,10 +1020,13 @@ $('.btn.delete.model').on('click', function(){
 */
 $('.mConfirm').on('click', function(){
 	
-//	getModelList();
+	getModelList();
 //  모델 리스트 갱신
 
-	modelFilter();
+	setTimeout(function(){
+		modelFilter();	
+	}, 200)
+
 	
 
 })

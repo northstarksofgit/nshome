@@ -572,28 +572,13 @@ $('.btn.update.cate').on('click', function(){
                                 });
 
 
-/*
-* 라디오 버튼 기본 체크
-*/
-
-if($('.radioCURD').length >0 ){
-	
-	var radio = $('.radioCURD');
-	
-	if($(radio[i]).attr('index') == 1){
-		$(radio[i]).prop('checked', true);
-
-	}
-}
-
-
 
 /*
 * ajax 공통화 필요
 */
 
 /*
-* 카테고리 리스트 갱신
+* 카테고리 리스트 가져오기
 */
 function getCategoryList(){
 	
@@ -640,72 +625,6 @@ function getCategoryList(){
 	
 }
 
-
-
-
-
-
-
-/*
-* model list 갱신
-*/
-function getModelList(){
-	
-	$.ajax({
-		
-		type: "POST", 
-		url:"/services/model/list",
-		dataType: "json",
-				
-		data: {
-			"categoryCode" : $('.radioCURD:checked').val()
-		},
-		
-	
-		success : function(result){
-
-			$('.modelTbl > tbody').empty();
-			
-			for(var i=0; i < result.length; i++){
-				$('.modelTbl > tbody').append(
-												`
-												<tr>
-													<td> <input type="checkbox" name="modelChk" class="chk" modelCode="${result[i].modelCode}" modelYear="${result[i].modelYear}"> </td>
-													<td>${result[i].categoryCode}</td>
-													<td>${result[i].modelCode}</td>
-													<td>${result[i].modelYear}</td>
-													<td>${result[i].modelName}</td>
-													<td><img style="height:100px;" src="${result[i].carImagePath}"></td>
-													<td><div class="btn update model" categoryCode="${result[i].categoryCode}" modelCode="${result[i].modelCode}" modelYear="${result[i].modelYear}" modelName="${result[i].modelName}">수정</div></td>
-												</tr>
-												`
-			)}
-			
-			$('input[type="checkbox"]').on('click', function(){ 
-                                $(this).parents('tr').toggleClass('checkedTr');
-                            });
-			
-			
-		},
-		
-		error : function(a, b, c){
-			console.log(a);
-			console.log(b);
-			console.log(c);
-		}
-	});
-
-}
-
-
-/*
-* 라디오 버튼 on change 이벤트 => categort code에 맞는 model list 출력
-*/
-$('.radioCURD').change( function() {
-	
-	getModelList();
-	
-});
 
 
 
@@ -829,53 +748,6 @@ $('.btn.delete.cate').on('click', function(){
 
 
 /*
-* 모델 삭제 이벤트
-*/
-$('.btn.delete.model').on('click', function(){
-	
-	var box = $('input[name=modelChk]:checked');
-	var chk = [];
-	
-	for(var i=0; i < box.length; i++){
-		var data = {
-					modelCode: $(box[i]).attr('modelCode'),
-					modelYear: $(box[i]).attr('modelYear')}		
-		chk.push(data);
-	}
-	
-	console.log(chk);
-	
-	$.ajax({
-		
-		type: "POST", 
-		url:"/services/model/delete",
-		dataType: "text",
-		
-     	traditional: true,
-		data: {
-			data: JSON.stringify(chk)	
-		},
-		
-		success : function(result){
-			
-			alert(result);
-			getModelList();
-		},
-		
-		error : function(a, b, c){
-			console.log(a);
-			console.log(b);
-			console.log(c);
-		}
-	});
-	
-	
-	
-});
-
-
-
-/*
 * 카테고리 검색 버튼 클릭시 필터 작동
 */
 $('.sConfirm').on('click', function(){
@@ -961,6 +833,187 @@ function categoryFilter(){
 	}
 	
 }
+
+
+
+
+
+
+
+/*
+* 라디오 버튼 기본 체크
+*/
+
+if($('.radioCURD').length >0 ){
+	
+	var radio = $('.radioCURD');
+	
+	if($(radio[i]).attr('index') == 1){
+		$(radio[i]).prop('checked', true);
+
+	}
+}
+
+
+/*
+* 라디오 버튼 on change 이벤트 => categort code에 맞는 model list 출력
+*/
+$('.radioCURD').change( function() {
+	
+	getModelList();
+	
+});
+
+
+/*
+* model list 가져오기
+*/
+function getModelList(){
+	
+	$.ajax({
+		
+		type: "POST", 
+		url:"/services/model/list",
+		dataType: "json",
+				
+		data: {
+			"categoryCode" : $('.radioCURD:checked').val()
+		},
+		
+	
+		success : function(result){
+
+			$('.modelTbl > tbody').empty();
+			
+			for(var i=0; i < result.length; i++){
+				$('.modelTbl > tbody').append(
+												`
+												<tr>
+													<td> <input type="checkbox" name="modelChk" class="chk" modelCode="${result[i].modelCode}" modelYear="${result[i].modelYear}"> </td>
+													<td>${result[i].categoryCode}</td>
+													<td>${result[i].modelCode}</td>
+													<td>${result[i].modelYear}</td>
+													<td>${result[i].modelName}</td>
+													<td><img style="height:100px;" src="${result[i].carImagePath}"></td>
+													<td><div class="btn update model" categoryCode="${result[i].categoryCode}" modelCode="${result[i].modelCode}" modelYear="${result[i].modelYear}" modelName="${result[i].modelName}">수정</div></td>
+												</tr>
+												`
+			)}
+			
+			$('input[type="checkbox"]').on('click', function(){ 
+                                $(this).parents('tr').toggleClass('checkedTr');
+                            });
+			
+			
+		},
+		
+		error : function(a, b, c){
+			console.log(a);
+			console.log(b);
+			console.log(c);
+		}
+	});
+
+}
+
+
+
+
+/*
+* 모델 등록 이벤트
+*/
+$('.model.regBox > .confirm').on('click',function(){
+
+	
+	if($('input[name=modelCateRegCode]').val() == ''
+	  || $('input[name=modelRegCode]').val() == ''
+	  || $('input[name=modelRegYear]').val() == ''
+	  || $('input[name=modelRegName]').val() == ''
+	  || $('input[name=modelRegImg]').val() == ''){
+		
+		alert('항목을 모두 입력하여주세요');
+		
+		return;
+	}
+	
+
+	$.ajax({
+			
+			type: "POST", 
+			url:"/services/model/save",
+			dataType: "text",
+					
+			data: {
+				"categoryCode" : $('input[name=modelCateRegCode]').val(),
+				"modelCode" : $('input[name=modelRegCode]').val(),
+				"modelYear" : $('input[name=modelRegYear]').val(),
+				"modelName" : $('input[name=modelRegName]').val(),
+				"carImagePath" : $('input[name=modelRegImg]').val()
+			},
+			
+		
+			success : function(result){				
+				getModelList();
+				
+			},
+			
+			error : function(a, b, c){
+				console.log(a);
+				console.log(b);
+				console.log(c);
+			}
+		});
+	
+});
+
+
+
+
+
+/*
+* 모델 삭제 이벤트
+*/
+$('.btn.delete.model').on('click', function(){
+	
+	var box = $('input[name=modelChk]:checked');
+	var chk = [];
+	
+	for(var i=0; i < box.length; i++){
+		var data = {
+					modelCode: $(box[i]).attr('modelCode'),
+					modelYear: $(box[i]).attr('modelYear')}		
+		chk.push(data);
+	}
+	
+	console.log(chk);
+	
+	$.ajax({
+		
+		type: "POST", 
+		url:"/services/model/delete",
+		dataType: "text",
+		
+     	traditional: true,
+		data: {
+			data: JSON.stringify(chk)	
+		},
+		
+		success : function(result){
+			
+			alert(result);
+			getModelList();
+		},
+		
+		error : function(a, b, c){
+			console.log(a);
+			console.log(b);
+			console.log(c);
+		}
+	});
+	
+	
+	
+});
 
 
 
@@ -1064,51 +1117,3 @@ function modelFilter(){
 
 
 
-
-
-/*
-* 모델 등록 이벤트
-*/
-$('.model.regBox > .confirm').on('click',function(){
-
-	
-	if($('input[name=modelCateRegCode]').val() == ''
-	  || $('input[name=modelRegCode]').val() == ''
-	  || $('input[name=modelRegYear]').val() == ''
-	  || $('input[name=modelRegName]').val() == ''
-	  || $('input[name=modelRegImg]').val() == ''){
-		
-		alert('항목을 모두 입력하여주세요');
-		
-		return;
-	}
-	
-
-	$.ajax({
-			
-			type: "POST", 
-			url:"/services/model/save",
-			dataType: "text",
-					
-			data: {
-				"categoryCode" : $('input[name=modelCateRegCode]').val(),
-				"modelCode" : $('input[name=modelRegCode]').val(),
-				"modelYear" : $('input[name=modelRegYear]').val(),
-				"modelName" : $('input[name=modelRegName]').val(),
-				"carImagePath" : $('input[name=modelRegImg]').val()
-			},
-			
-		
-			success : function(result){				
-				getModelList();
-				
-			},
-			
-			error : function(a, b, c){
-				console.log(a);
-				console.log(b);
-				console.log(c);
-			}
-		});
-	
-});

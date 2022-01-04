@@ -104,8 +104,7 @@ public class ColorServlet extends SlingAllMethodsServlet {
 
 		LOG.info("param: " + parameter);
 
-		ArrayList<ColorDto> colorList = mapper.readValue(parameter, new TypeReference<ArrayList<ColorDto>>() {
-		});
+		ArrayList<ColorDto> colorList = mapper.readValue(parameter, new TypeReference<ArrayList<ColorDto>>() {});
 
 		for (ColorDto m : colorList) {
 			result = crudService.saveColor(m);
@@ -133,8 +132,7 @@ public class ColorServlet extends SlingAllMethodsServlet {
 
 		LOG.info("param: " + parameter);
 
-		ArrayList<ColorDto> colorList = mapper.readValue(parameter, new TypeReference<ArrayList<ColorDto>>() {
-		});
+		ArrayList<ColorDto> colorList = mapper.readValue(parameter, new TypeReference<ArrayList<ColorDto>>() {});
 
 		for (ColorDto m : colorList) {
 			result = crudService.deleteColor(m);

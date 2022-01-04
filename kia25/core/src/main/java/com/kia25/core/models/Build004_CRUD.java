@@ -44,7 +44,10 @@ public class Build004_CRUD {
 			/**
 			 * get Print Model-Option List 
 			 */
+			OptionDto optDto = new OptionDto();
+			optDto.setTrimCode(request.getParameter("trimCode").toUpperCase());
 //			optionList = service.getOptionListAPI(request.getParameter("trimCode").toUpperCase());
+			optionList = service.getOptionListAPI(optDto);
 
 		
 		} catch(Exception e) {

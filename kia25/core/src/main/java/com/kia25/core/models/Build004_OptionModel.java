@@ -41,6 +41,7 @@ public class Build004_OptionModel {
 	private String trimCode = null;
 	private String extColorCode = null;
 	private String intColorCode = null;
+	private String modelYear = null;
 	
 	private String backToFirst = null;
 	private String backToTrim = null;
@@ -53,7 +54,7 @@ public class Build004_OptionModel {
 		log.info("start Model-Option");
 		
 		ValueMap valueMap = resource.getValueMap();
-		
+		modelYear = request.getParameter("modelYear");
 		try {
 			
 			/**

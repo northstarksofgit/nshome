@@ -350,6 +350,38 @@ public class CrudServiceImpl implements CrudService{
 
 		return null;
 	}
+
+
+	
+	/*
+	 * 모델 등록
+	 */
+	@Override
+	public String saveModel(ModelDto modelDto) {
+		
+		try {
+	        	
+	            ArrayList<NameValuePair> postParameters = new ArrayList<NameValuePair>();
+	            postParameters.add(new BasicNameValuePair("categoryCode", modelDto.getCategoryCode() ));
+	            postParameters.add(new BasicNameValuePair("modelCode", modelDto.getModelCode() ));
+	            postParameters.add(new BasicNameValuePair("modelYear", modelDto.getModelYear() ));
+	            postParameters.add(new BasicNameValuePair("modelName", modelDto.getModelName() ));
+	            postParameters.add(new BasicNameValuePair("carImagePath", modelDto.getCarImagePath() ));
+	        	
+	            String response = service.sendPostRequest("db/model/save", postParameters);
+	            
+	            LOG.debug("postContract: response = '{}'.", response);
+	        
+	            return "OK";
+            
+        } catch (JsonProcessingException e) {
+            LOG.error("Error serializing object to JSON.", e);
+        } catch (IOException e) {
+            LOG.error("Error submitting contract.", e);
+        }
+    
+		return "NO";
+	}
 	
 	
 	

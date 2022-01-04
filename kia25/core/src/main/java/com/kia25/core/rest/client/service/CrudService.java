@@ -84,4 +84,9 @@ public interface CrudService {
 	 */
 	String updateCategory(CategoryDto categoryDto);
 
+	/*
+	 * 모델 등록
+	 */
+	String saveModel(ModelDto modelDto);
+
 }

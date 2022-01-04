@@ -67,6 +67,12 @@ public class ModelServlet extends SlingAllMethodsServlet {
     		 * delete model
     		 */
     		deleteModel(request, response);
+    	}else if(path.equals("save")) {
+    		
+    		/*
+    		 * save model
+    		 */
+    		saveModel(request, response);
     	}
 
 
@@ -81,6 +87,59 @@ public class ModelServlet extends SlingAllMethodsServlet {
     
     
     
+	private void saveModel(SlingHttpServletRequest request, SlingHttpServletResponse response) throws IOException {
+		
+		String redirect = request.getParameter("redirect");
+		
+		
+	    try {
+	        ModelDto modelDto = new ModelDto();
+	        
+	        modelDto.setCategoryCode((String)request.getParameter("categoryCode"));
+	        modelDto.setModelCode((String)request.getParameter("modelCode"));
+	        modelDto.setModelYear((String)request.getParameter("modelYear"));
+	        modelDto.setModelName((String)request.getParameter("modelName"));
+	        modelDto.setCarImagePath((String)request.getParameter("carImagePath"));
+	      
+	        LOG.info("modelDto {}", modelDto.getModelName());
+	        
+	        String result = crudService.saveModel(modelDto);
+	        
+	        LOG.info("response {}", result);
+	        
+	        if (result != null) {
+	            response.setHeader("Location", redirect);
+	            response.setContentType("application/json");
+	            PrintWriter out = response.getWriter();
+	            out.println(result);
+	            return;
+	            
+	        } else {
+	        	response.sendError(HttpServletResponse.SC_BAD_REQUEST);
+	        }
+	        
+	    } catch (IOException e) {
+	        LOG.error("{} ({})", e, e.getMessage());
+	        response.setHeader("Location", redirect);
+	        response.setContentType("application/json");
+	        PrintWriter out = response.getWriter();
+	        out.println(e.getMessage());
+	    }
+		
+		
+		
+		
+	}
+
+
+
+
+
+
+
+
+
+
 	private void deleteModel(SlingHttpServletRequest request, SlingHttpServletResponse response) throws IOException {
 		
 		ObjectMapper mapper = new ObjectMapper();

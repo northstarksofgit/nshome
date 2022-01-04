@@ -605,6 +605,7 @@ function getCategoryList(){
 		
 		success : function(result){
 			
+			console.log('start');
 			
 			$('.categoryTbl > tbody').empty();
 			
@@ -624,7 +625,10 @@ function getCategoryList(){
 
 			}
 			
+			console.log('end');
+			
 		},
+		
 		
 		error : function(a, b, c){
 			console.log(a);
@@ -872,13 +876,18 @@ $('.btn.delete.model').on('click', function(){
 
 
 /*
-* 검색 버튼 클릭시 필터 작동
+* 카테고리 검색 버튼 클릭시 필터 작동
 */
 $('.sConfirm').on('click', function(){
-
-//	getCategoryList();
-//  getCategoryList가 ajax(비동기)라서 순서대로 실행되지 않음...
+	
+//	await Promise.all(getCategoryList()).then(function(){
+//		
+//		
+//		
+//	});
+	
 	categoryFilter();
+		
 
 })
 
@@ -1053,3 +1062,53 @@ function modelFilter(){
 	
 }
 
+
+
+
+
+/*
+* 모델 등록 이벤트
+*/
+$('.model.regBox > .confirm').on('click',function(){
+
+	
+	if($('input[name=modelCateRegCode]').val() == undefined
+	  || $('input[name=modelRegCode]').val() == undefined
+	  || $('input[name=modelRegYear]').val() == undefined
+	  || $('input[name=modelRegName]').val() == undefined
+	  || $('input[name=modelRegImg]').val() == undefined){
+		
+		alert('항목을 모두 입력하여주세요');
+		
+		retrun;
+	}
+	
+
+	$.ajax({
+			
+			type: "POST", 
+			url:"/services/model/save",
+			dataType: "text",
+					
+			data: {
+				"categoryCode" : $('input[name=modelCateRegCode]').val(),
+				"modelCode" : $('input[name=modelRegCode]').val(),
+				"modelYear" : $('input[name=modelRegYear]').val(),
+				"modelName" : $('input[name=modelRegName]').val(),
+				"carImagePath" : $('input[name=modelRegImg]').val()
+			},
+			
+		
+			success : function(result){
+				console.log(result);
+				
+			},
+			
+			error : function(a, b, c){
+				console.log(a);
+				console.log(b);
+				console.log(c);
+			}
+		});
+	
+});

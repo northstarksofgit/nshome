@@ -1,5 +1,5 @@
 
-//$(function() {
+$(function() {
 	const app = new Vue({
 		el: '#vue-test',
 		data: {
@@ -343,7 +343,7 @@
 		}
 		//end Mounted
 	})
-//})
+})
 
 
 

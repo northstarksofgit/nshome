@@ -15,9 +15,6 @@ $(function() {
 			init : function() { //start init()
 				var ref = this;
 				var carOptionCode = $("#soflow option:selected").val();
-				if(!carOptionCode) {
-					carOptionCode = "O";
-				}
 					
 				var data = {
 						"trimCode" : this.trimCode,
@@ -114,7 +111,6 @@ $(function() {
 			
 			bindEvent : function() { //start bingEvent()
 				$('.btn-search').off().on('click', function() {
-//					var ref = this;
 					app.init();
 				})
 				
@@ -134,7 +130,7 @@ $(function() {
 //					var tdList = $(this).parents('tr').children();
 //					var mode = 'E';
 //					dataObj = returnData(tdList , mode);
-			//
+
 //					this.mappingForm(dataObj);
 //					dataObj.trimCode = trimCode;
 //					
@@ -332,14 +328,12 @@ $(function() {
 			this.trimCode = this.urlParams.get('trimCode');
 			this.optionListURL = "/services/option/";
 			this.dataObj = null;
-			
-			this.init();
 		},
 		//end Created
 		
 		//start Mounted
 		mounted() {
-			
+			this.init();
 		}
 		//end Mounted
 	})

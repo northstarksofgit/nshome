@@ -61,7 +61,7 @@ public class OptionServlet extends SlingAllMethodsServlet {
     	
     	Map<String,Object> dataMaps = new HashMap<>();
     	OptionDto[] result = crudService.getOptionListAPI(optionParams);
-    	TrimDto select = crudService.getSelectTrimAPT(optionParams.getTrimCode().toString());
+    	TrimDto select = crudService.getSelectTrimAPI(optionParams.getTrimCode().toString());
     	
 		dataMaps.put("list", result);
 		dataMaps.put("select", select);

@@ -359,7 +359,7 @@ public class CrudServiceImpl implements CrudService{
 
 
 	@Override
-	public TrimDto getSelectTrimAPT(String trimCode) {
+	public TrimDto getSelectTrimAPI(String trimCode) {
 		
 		try {
 			

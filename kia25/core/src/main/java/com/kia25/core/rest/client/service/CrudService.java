@@ -70,7 +70,7 @@ public interface CrudService {
 	 * @param trimCode
 	 * @return
 	 */
-	TrimDto getSelectTrimAPT(String trimCode);
+	TrimDto getSelectTrimAPI(String trimCode);
 	
 	
 	/*

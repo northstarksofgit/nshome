@@ -1,9 +1,9 @@
 <sly data-sly-use.clientLib="/libs/granite/sightly/templates/clientlib.html"  data-sly-call="${clientLib.all @ categories='kia25.base'}"></sly>
 
 <div class="row" id="vue-test">
+	<span class="trim-info" style="float: left !important;"></span>
 	<div class="search-bar">
-		<span class="trim-info" style="float: left !important;"></span>
-		<input type="text" class="search-input" placeholder="옵션명" @keyup="enterkey" style="margin-left: 47%;">
+		<input type="text" class="search-input" placeholder="옵션명" @keyup="enterkey" style="margin-left: 35%;">
 		<select id="soflow">
 			<option data-value="O" value="O" selected>옵션</option>
 			<option data-value="P" value="P" >패키지</option>

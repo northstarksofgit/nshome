@@ -1,11 +1,5 @@
 <sly data-sly-use.clientLib="/libs/granite/sightly/templates/clientlib.html"  data-sly-call="${clientLib.all @ categories='kia25.base'}"></sly>
-<!-- <sly data-sly-use.option="com.kia25.core.models.Build004_CRUD"></sly> -->
 
-<template data-sly-template.formattedPrice="${ @ price}" data-sly-use.priceFormatter="${'com.kia25.core.models.CurrencyFormatterModel' @ value=price}">
-	${priceFormatter.formattedPrice}<em>원</em>
-</template>
-
-<p>${option.optionList.size}</p>
 <div class="row">
 	<div class="search-bar">
 		<span class="trim-info"></span>
@@ -16,7 +10,7 @@
 		</select>
 		<button class="btn-hm btn-search">Search</button>
 	</div>
-	<table id="example-table-1" width="100%" class="table table-bordered table-hover text-center opt-table">
+	<table id="example-table-1" class="table table-bordered table-hover text-center opt-table">
 		<thead>
 			<tr class="opt-tr">
 				<th class="opt-th">옵션 코드</th>
@@ -44,19 +38,19 @@
 	    <div class="wrapper wrapper-form">
 		    <form class="form-area">
 		        <div class="input-box">
-		          <input type="text" class="modal-form" name="optionCode" maxlength="5" onKeyup="this.value=this.value.replace(/[^a-zA-Z0-9]/g,'').toUpperCase();" value="" required="required">
+		          <input type="text" class="modal-form" name="optionCode" maxlength="5" onKeyup="this.value=this.value.replace(/[^a-zA-Z0-9]/g,'').toUpperCase();" required="required">
 		          <label class="label-desc" desc="Option Code" for="optionCode">Option Code</label>
 		        </div>
 		        <div class="input-box">
-		          <input type="text" class="modal-form" name="optionName" value="" required="required">
+		          <input type="text" class="modal-form" name="optionName" required="required">
 		          <label class="label-desc" desc="Option Name" for="optionName">Option Name</label>
 		        </div>
 		        <div class="input-box">
-		          <input type="text" class="modal-form" name="optionPrice" onKeyup="this.value=this.value.replace(/[^0-9]/g,'');" value="" required="required">
+		          <input type="text" class="modal-form" name="optionPrice" onKeyup="this.value=this.value.replace(/[^0-9]/g,'');" required="required">
 		          <label class="label-desc" desc="Option Price" for="optionPrice">Option Price</label>
 		        </div>
 		        <div class="input-box">
-		          <input type="text" class="modal-form" name="bestYn" maxlength="1" onKeyup="this.value=this.value.replace(/[^nNyY]/g,'').toUpperCase();" value="" required="required">
+		          <input type="text" class="modal-form" name="bestYn" maxlength="1" onKeyup="this.value=this.value.replace(/[^nNyY]/g,'').toUpperCase();" required="required">
 		          <label class="label-desc" desc="Best Y/N" for="bestYn">Best Y/N (y 또는 n 값만)</label>
 		        </div>
 		        <div class="input-box">
@@ -64,7 +58,7 @@
 		          <label class="label-desc" desc="Option Image Path" for="optionImagePath">Option Image Path</label>
 		        </div>
 		        <div class="input-box">
-		          <input type="text" class="modal-form" name="carOptionCode" onKeyup="this.value=this.value.replace(/[^oOpP]/g,'').toUpperCase();" maxlength="1" value="" required="required">
+		          <input type="text" class="modal-form" name="carOptionCode" onKeyup="this.value=this.value.replace(/[^oOpP]/g,'').toUpperCase();" maxlength="1" required="required">
 		          <label class="label-desc" desc="Car Option Code" for="carOptionCode">Car Option Code (o 또는 p 값만)</label>
 		        </div>
 	      	</form>

@@ -1,5 +1,5 @@
 
-$(function() {
+//$(function() {
 	const app = new Vue({
 		el: '#vue-test',
 		data: {
@@ -15,6 +15,10 @@ $(function() {
 			init : function() { //start init()
 				var ref = this;
 				var carOptionCode = $("#soflow option:selected").val();
+				if(!carOptionCode) {
+					carOptionCode = "O";
+				}
+					
 				var data = {
 						"trimCode" : this.trimCode,
 						"carOptionCode": carOptionCode
@@ -339,8 +343,7 @@ $(function() {
 		}
 		//end Mounted
 	})
-//	init();	
-})
+//})
 
 
 

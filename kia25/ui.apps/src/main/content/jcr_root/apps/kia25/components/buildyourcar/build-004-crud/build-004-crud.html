@@ -3,7 +3,7 @@
 <div class="row" id="vue-test">
 	<div class="search-bar">
 		<span class="trim-info"></span>
-		<input type="text" class="search-input" placeholder="옵션명" onkeyup="enterkey();">
+		<input type="text" class="search-input" placeholder="옵션명" @keyup="enterkey">
 		<select id="soflow">
 			<option data-value="O" value="O" selected>옵션</option>
 			<option data-value="P" value="P" >패키지</option>

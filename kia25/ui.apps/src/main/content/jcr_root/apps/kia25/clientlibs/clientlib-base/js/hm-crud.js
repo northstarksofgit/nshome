@@ -10,7 +10,11 @@ $(function() {
 	new Vue({
 		el: '#vue-test',
 		data: {
-		    
+			url1 : new URL(window.location.href),
+			urlParams1 : url.searchParams,
+			trimCode1 : urlParams.get('trimCode'),
+			optionListURL1 : "/services/option/",
+			dataObj1 : null
 		},
 		methods: {
 //			init() {
@@ -73,6 +77,14 @@ $(function() {
 		},
 		created() {
 //			this.init();
+		},
+		mounted() {
+			
+			console.log(this.url1)
+			console.log(this.urlParams1)
+			console.log(this.trimCode1)
+			console.log(this.optionListURL1)
+			console.log(this.dataObj1)
 		}
 	})
 	init();	
@@ -130,17 +142,17 @@ function btnConfirm(mode, data) {
 	if(action == "Save") {
 		var formData = $('.form-area').serializeArray();
 		data = convertObject(formData);
-		
 		formValidate(data);
-		
 		data.trimCode = trimCode;
 		url = optionListURL + "save";
 		msg = "옵션 추가";
+		
 	} else if(action == "Delete") {
 		var carOptionCode = $("#soflow option:selected").val();
 		data.carOptionCode = carOptionCode;
 		url = optionListURL + "delete";
 		msg = "옵션 삭제";
+		
 	} else if(action == "List") {
 		url = optionListURL + "list";
 		
@@ -222,7 +234,6 @@ function bindEvent() {
 		dataObj = returnData(tdList , mode);
 		dataObj.trimCode = trimCode;
 		
-		
 		$('.wrapper-form').css('display', 'none');
 		$('.btn-confirm').text("Delete");
 		$('.form-area').css('display', 'none');
@@ -282,51 +293,36 @@ function init() {
 	}
 	
 	data = JSON.stringify(data)
+			
+//	$.post(optionListURL + "list", { data: data }, 
+//		function(result) { 
+//			console.log(result); 
+//			
+//			var dataList = result.list;
+//			var select = result.select;
+//			$('.option-list-table').empty();
+//			
+//			drawTable(dataList, select);
+//			filtering()
+//			bindEvent();
+//		},'json'
+//	);
+	
+	
 	$.ajax({
 		type:"POST",
 		url : optionListURL + "list",
 		data: {
 			data : data
-			},
+		},
 		success:function(result){
-			var data = result.list;
+			var dataList = result.list;
 			var select = result.select;
 			$('.option-list-table').empty();
-			var str = "";
 			
-			if(data.length) {
-				for(var i=0; i<data.length; i++) {
-					str += `
-						<tr class="opt-tr">
-				            <td class="opt-td" data-field="optionCode" data-value="${data[i].optionCode}">${data[i].optionCode}</td>
-							<td class="opt-td" data-field="optionName" data-value="${data[i].optionName}">${data[i].optionName}</td>
-							<td class="opt-td" data-field="optionPrice" data-value="${data[i].optionPrice}">${addComma(data[i].optionPrice)}</td>
-				            <td class="opt-td" data-field="bestYn" data-value="${data[i].bestYn}">${data[i].bestYn}</td>
-				            <td class="opt-td" data-field="optionImagePath" data-value="${data[i].optionImagePath}">${data[i].optionImagePath}</td>
-				            <td class="opt-td" data-field="carOptionCode" data-value="${data[i].carOptionCode != null ? data[i].carOptionCode : 'null'}">${data[i].carOptionCode != null ? data[i].carOptionCode : '-'}</td>
-				            <td class="opt-td" data-field="specificationCode" data-value="${data[i].specificationCode != null ? data[i].specificationCode : 'null'}">${data[i].specificationCode != null ? data[i].specificationCode : '-'}</td>
-				            <td class="opt-td" data-field="optionProductNumber" data-value="${data[i].optionProductNumber != null ? data[i].optionProductNumber : 'null'}">${data[i].optionProductNumber != null ? data[i].optionProductNumber : '-'}</td>
-				            <td class="opt-td" style="text-align: center;">	
-				            	<button class="btn-hm btn-edit">Edit</button>
-				            	<button class="btn-hm btn-delete">Delete</button>
-				            </td>
-						</tr>
-					`;
-				}
-			} else {
-				str += `
-					<tr class="opt-tr">
-			            <td class="opt-td" colspan="9" style="text-align:center; font-weight:bold;">No Data</td>
-					</tr>
-				`;
-			}
-			
-			$('.trim-info').html("트림명 : " + select.trimName + "<br>" + "트림코드 : " + select.trimCode);
-			
-			$('.option-list-table').append(str);
+			drawTable(dataList, select);
 			filtering()
 			bindEvent();
-			
 		},
 	})		
 }
@@ -389,3 +385,41 @@ function enterkey() {
     	init();
     }
 }
+
+
+function drawTable(data, select) {
+	var str = "";
+	if(data.length) {
+		for(var i=0; i<data.length; i++) {
+			str += `
+				<tr class="opt-tr">
+		            <td class="opt-td" data-field="optionCode" data-value="${data[i].optionCode}">${data[i].optionCode}</td>
+					<td class="opt-td" data-field="optionName" data-value="${data[i].optionName}">${data[i].optionName}</td>
+					<td class="opt-td" data-field="optionPrice" data-value="${data[i].optionPrice}">${addComma(data[i].optionPrice)}</td>
+		            <td class="opt-td" data-field="bestYn" data-value="${data[i].bestYn}">${data[i].bestYn}</td>
+		            <td class="opt-td" data-field="optionImagePath" data-value="${data[i].optionImagePath}">${data[i].optionImagePath}</td>
+		            <td class="opt-td" data-field="carOptionCode" data-value="${data[i].carOptionCode != null ? data[i].carOptionCode : 'null'}">${data[i].carOptionCode != null ? data[i].carOptionCode : '-'}</td>
+		            <td class="opt-td" data-field="specificationCode" data-value="${data[i].specificationCode != null ? data[i].specificationCode : 'null'}">${data[i].specificationCode != null ? data[i].specificationCode : '-'}</td>
+		            <td class="opt-td" data-field="optionProductNumber" data-value="${data[i].optionProductNumber != null ? data[i].optionProductNumber : 'null'}">${data[i].optionProductNumber != null ? data[i].optionProductNumber : '-'}</td>
+		            <td class="opt-td" style="text-align: center;">	
+		            	<button class="btn-hm btn-edit">Edit</button>
+		            	<button class="btn-hm btn-delete">Delete</button>
+		            </td>
+				</tr>
+			`;
+		}
+	} else {
+		str += `
+			<tr class="opt-tr">
+	            <td class="opt-td" colspan="9" style="text-align:center; font-weight:bold;">No Data</td>
+			</tr>
+		`;
+	}
+	
+	$('.trim-info').html("트림명 : " + select.trimName + "<br>" + "트림코드 : " + select.trimCode);
+	
+	$('.option-list-table').append(str);
+}
+
+
+

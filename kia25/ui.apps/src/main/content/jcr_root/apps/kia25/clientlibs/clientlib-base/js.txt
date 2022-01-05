@@ -22,9 +22,10 @@
 #js/default_script.min.js
 
 js/hm-script.js
-js/hm-crud.js
+#js/hm-crud.js
 js/how-to-buy.js
 js/dwJung.js
 js/dain.js
 js/ckh.js
 js/vue.js
+js/hm-vue.js

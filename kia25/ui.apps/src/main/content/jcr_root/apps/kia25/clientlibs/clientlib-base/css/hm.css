@@ -1,30 +1,24 @@
-table {
+.opt-table {
   border-collapse: collapse;
 }
- th {
+ .opt-th {
   background: #ccc;
 }
 
-th, td {
+.opt-th, .opt-td {
   border: 1px solid #ccc;
   padding: 8px;
 }
 
-tr:nth-child(even) {
+.opt-tr:nth-child(even) {
   background: #efefef;
 }
 
-/* tr:hover { */
-/*   background: #d1d1d1; */
-/* } */
-
-
-/* The Modal (background) */
 .modal {
   display: none; /* Hidden by default */
   position: fixed; /* Stay in place */
   z-index: 1; /* Sit on top */
-  padding-top: 100px; /* Location of the box */
+  padding-top: 50px; /* Location of the box */
   left: 0;
   top: 0;
   width: 100%; /* Full width */
@@ -34,13 +28,13 @@ tr:nth-child(even) {
   background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
 }
 
-/* Modal Content */
 .modal-content {
   background-color: #fefefe;
   margin: auto;
   padding: 20px;
   border: 1px solid #888;
-  width: 80%;
+  width: 45%;
+  max-height:1000px;
 }
 
 /* The Close Button */
@@ -57,3 +51,217 @@ tr:nth-child(even) {
   text-decoration: none;
   cursor: pointer;
 }
+
+.no-data {
+	text-align: center;
+	font-weight: bold;
+	padding: 40px 10px 40px 10px;
+}
+
+.modal-header{
+	font-weight: bold;
+	font-size: 27px;
+}
+
+.modal-btn {
+	float: right;
+	margin-top: 3px;
+}
+
+.search-input {
+	padding: 2px; !important;
+}
+
+.btn-add {
+	margin-top: 10px;
+}
+
+.trim-info{
+	font-weight:bold;
+}
+
+.btn-hm {
+    background-color: #7db9e8;
+    background: -webkit-linear-gradient(#7db9e8, #51A1E0);
+    background: linear-gradient(#40423cb8, #d0d8df);
+    border: solid 1px #1E5799;
+    border-radius: 3px;
+    box-sizing: border-box;
+    box-shadow: inset 0 0 1px #fff;
+    color: #fff;
+    cursor: pointer;
+    display: inline-block;
+    font: bold 14px/32px'Open Sans', sans-serif;
+    height: 34px;
+    outline: none;
+    padding: 0 10px;
+    text-align: center;
+    text-decoration: none;
+    text-transform: uppercase;
+    text-shadow: 1px 1px 1px #1E5799;
+}
+.btn-hm:hover {
+    background-color: #51A1E0;
+    background: -webkit-linear-gradient(#51A1E0, #2689D7);
+    background: linear-gradient(#51A1E0, #2689D7);
+    border: solid 1px #1A4B84;
+    box-shadow: inset 0 0 2px #fff;
+}
+.btn-hm:active {
+    position: relative;
+    top: 1px;
+}
+.btn-hm:focus {
+    border: solid 1px #000;
+}
+.btn-hm[disabled] {
+    background: #ccc;
+    border: solid 1px #888;
+    color: #999;
+    cursor: default;
+    text-shadow: 1px 1px 1px #fff;
+}
+
+
+.search-bar {
+	float:right;	
+}
+
+select#soflow {
+   -webkit-appearance: button;
+   -webkit-border-radius: 2px;
+   -webkit-box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.1);
+   -webkit-padding-end: 20px;
+   -webkit-padding-start: 2px;
+   -webkit-user-select: none;
+   background-image: url(http://www.ericrasch.com/media/icon-selectbox.png), -webkit-linear-gradient(#FAFAFA, #F4F4F4 40%, #E5E5E5);
+   background-position: 97% center;
+   background-repeat: no-repeat;
+   border: 1px solid #AAA;
+   color: #555;
+   font-size: inherit;
+   margin: 20px;
+   overflow: hidden;
+   padding: 5px 10px;
+   text-overflow: ellipsis;
+   white-space: nowrap;
+   width: 300px;
+}
+
+
+@import url('http://fonts.googleapis.com/css?family=Source+Sans+Pro:400,700');
+
+.form-area {
+  margin:0;
+  padding:0;
+}*/
+
+input,
+select,
+textarea {
+  display:inline-block;
+  vertical-align:middle;
+  width:170px;
+  margin:4px 2px;
+  padding:8px;
+  font:normal normal 16px/normal "Source Sans Pro",Calibri,Arial,Sans-Serif;
+  color:#666;
+  line-height:normal;
+  background-color:white;
+  border:1px solid #ccc;
+  border-top-color:#999;
+  -webkit-box-sizing:border-box;
+  -moz-box-sizing:border-box;
+  box-sizing:border-box;
+  outline:none;
+  outline-offset:-2px;
+  -webkit-border-radius:3px;
+  -moz-border-radius:3px;
+  border-radius:3px;
+  -webkit-box-shadow:inset 0 1px 1px rgba(0,0,0,.1);
+  -moz-box-shadow:inset 0 1px 1px rgba(0,0,0,.1);
+  box-shadow:inset 0 1px 1px rgba(0,0,0,.1);
+  -webkit-transition:all .26s ease-out;
+  -moz-transition:all .26s ease-out;
+  -ms-transition:all .26s ease-out;
+  -o-transition:all .26s ease-out;
+  transition:all .26s ease-out;
+}
+
+
+::-webkit-input-placeholder {color:#888}
+:-ms-input-placeholder {color:#888}
+::-moz-placeholder {color:#888}
+:-moz-placeholder {color:#888}
+:placeholder {color:#888}
+
+:focus::-webkit-input-placeholder {color:#ccc}
+:focus:-ms-input-placeholder {color:#ccc}
+:focus::-moz-placeholder {color:#ccc}
+:focus:-moz-placeholder {color:#ccc}
+:focus:placeholder {color:#ccc}
+
+.input-box {
+  position: relative;
+  margin-bottom: 25px;
+}
+.modal-form{
+  background: none;
+  padding: 15px 40px;
+  font-size: 18px;
+  color: #000000;
+  width: 100%;
+}
+.modal-form:active,
+.modal-form:focus{
+  outline: none;
+}
+.modal-form[type=text],
+.modal-form[type=email],
+.modal-form[type=password]{
+  padding: 15px 0;
+  border: none;
+  border-bottom: 2px solid #919fa0;
+}
+
+.label-desc {
+  position: absolute;
+  left: 0;
+  top: 35%;
+  color: #999;
+  font-style: italic;
+  font-size: 15px;
+  pointer-events: none;
+  -webkit-transition: all .2s ease-in-out;
+    transition: all .2s ease-in-out;
+}
+.modal-form[type=text]:focus + label,
+.modal-form[type=email]:focus + label,
+.modal-form[type=password]:focus + label,
+.float-label + label{
+  top: -25px;
+  color: #B2BEB5;
+  font-size: 18px;
+}
+
+.form-area {
+	margin-top: 20px;
+}
+
+.wrapper {
+  width: 460px;
+  margin: 0 auto;
+  margin-bottom: 20px;
+  box-shadow: 0 0 15px RGBA(0, 0, 0, 0.24);
+  border-radius: 5px;
+  padding: 20px 25px;
+  text-align: center;
+  margin-top: 60px;
+}
+.wrapper h2 {
+    border-bottom: 2px solid #19acb7;
+    color: #19acb7;
+    display: inline-block;
+    margin-bottom: 30px;
+}
+

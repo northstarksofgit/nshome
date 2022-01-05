@@ -7,6 +7,14 @@ var optionListURL = "/services/option/";
 var dataObj;
 
 $(function() {
+	new Vue({
+		el: '#vue-test',
+		data: {
+		    
+		}
+	})
+	
+	
 	
 	init();
 	

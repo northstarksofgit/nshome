@@ -37,10 +37,10 @@ public class CommonRestApiServiceImpl implements CommonRestApiService {
 
 	private static final Logger LOG = LoggerFactory.getLogger(CommonRestApiServiceImpl.class);
 
-    @Property(label = "Service endpoint URL", description = "URL of the API service endpoint, e.g. http://hostname/. Must end with '/'.", value = "http://192.168.31.86:9090/")
+    @Property(label = "Service endpoint URL", description = "URL of the API service endpoint, e.g. http://hostname/. Must end with '/'.", value = "http://kwang.northstar.co.kr/")
     private static final String PROP_ENDPOINT_URL = "endpoint.url";
 	
-	private String endPointUrl = "http://192.168.31.86:9090/";
+	private String endPointUrl = "http://kwang.northstar.co.kr/";
 
     @Activate
     private void activate(ComponentContext ctx) {

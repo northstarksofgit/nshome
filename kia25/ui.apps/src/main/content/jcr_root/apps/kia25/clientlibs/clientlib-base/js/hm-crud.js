@@ -75,19 +75,7 @@ $(function() {
 //			this.init();
 		}
 	})
-	
-	init();
-	
-	
-	$('.wrapper input').focusout(function(){
-        var text_value = $(this).val();
-
-        if (text_value === "") {
-          $(this).removeClass('float-label');
-        }else {
-          $(this).addClass('float-label');
-        }
-      });
+	init();	
 })
 
 
@@ -116,8 +104,8 @@ function returnData(data, mode) {
 	});
 
 	return obj;
-	
 }
+
 
 function mappingForm(dataObj) {
 	var formData = $('.form-area')[0];
@@ -132,6 +120,7 @@ function mappingForm(dataObj) {
 		}
 	}
 }
+
 
 function btnConfirm(mode, data) {
 	var action = mode;
@@ -175,6 +164,7 @@ function btnConfirm(mode, data) {
 	})	
 }
 
+
 function convertObject(data) {
 	var returnArray = {};
     for (var i = 0; i < data.length; i++){
@@ -189,6 +179,9 @@ function convertObject(data) {
 }
 
 
+/*
+ *  제이쿼리 이벤트 모음
+ */
 function bindEvent() {
 	$('.btn-search').off().on('click', function() {
 		init();
@@ -207,18 +200,18 @@ function bindEvent() {
 	$('.btn-edit').off().on('click', function() {
 		alert("아직 준비중...")
 		return false;
-		var tdList = $(this).parents('tr').children();
-		var mode = 'E';
-		dataObj = returnData(tdList , mode);
-
-		mappingForm(dataObj);
-		dataObj.trimCode = trimCode;
-		
-		$('.btn-confirm').text("Edit");
-		$('.form-area').css('display', 'block');
-		$('.modal-header').css('text-align', '');
-		$('.modal-header').text(dataObj.optionName +" | Edit");
-		$('.modal').css('display', 'block');
+//		var tdList = $(this).parents('tr').children();
+//		var mode = 'E';
+//		dataObj = returnData(tdList , mode);
+//
+//		mappingForm(dataObj);
+//		dataObj.trimCode = trimCode;
+//		
+//		$('.btn-confirm').text("Edit");
+//		$('.form-area').css('display', 'block');
+//		$('.modal-header').css('text-align', '');
+//		$('.modal-header').text(dataObj.optionName +" | Edit");
+//		$('.modal').css('display', 'block');
 		
 	})
 
@@ -239,10 +232,12 @@ function bindEvent() {
 		$('.modal-header').text("Are you sure want to delete this option?");
 		$('.modal').css('display', 'block')
 	})
+	
 
 	$('.btn-confirm').off().on('click', function() {
 		btnConfirm($(this)[0].textContent, dataObj);
 	})
+	
 
 	$('.btn-cancel').off().on('click', function() {
 		dataObj = null;
@@ -262,11 +257,22 @@ function bindEvent() {
 	$('#soflow').off().on('change', function(){
 		let id = $(this).find(':selected').data('value');
 	});
+	
+	
+	$('.wrapper input').focusout(function(){
+		var text_value = $(this).val();
+        if (text_value === "") {
+        	$(this).removeClass('float-label');
+        }else {
+        	$(this).addClass('float-label');
+        }
+	});
 }
 
 function addComma(price) {
 	return price.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
 }
+
 
 function init() {
 	var carOptionCode = $("#soflow option:selected").val();
@@ -325,6 +331,7 @@ function init() {
 	})		
 }
 
+
 function filtering() {
 	var input, filter, table, tr, td, i, txtValue;
 	var cnt = 0;
@@ -360,6 +367,7 @@ function filtering() {
 	}
 }
 
+
 function formValidate(params) {
 	var formData = $('.form-area')[0];
 	
@@ -374,6 +382,7 @@ function formValidate(params) {
 		}
 	}
 }
+
 
 function enterkey() {
     if (window.event.keyCode == 13) {

@@ -38,27 +38,27 @@
 	    <div class="wrapper wrapper-form">
 		    <form class="form-area">
 		        <div class="input-box">
-		          <input type="text" class="modal-form" name="optionCode" maxlength="5" onKeyup="this.value=this.value.replace(/[^a-zA-Z0-9]/g,'').toUpperCase();" value="" required="required">
+		          <input type="text" class="modal-form" name="optionCode" maxlength="5" autocomplete='off' onKeyup="this.value=this.value.replace(/[^a-zA-Z0-9]/g,'').toUpperCase();" required="required">
 		          <label class="label-desc" desc="Option Code" for="optionCode">Option Code</label>
 		        </div>
 		        <div class="input-box">
-		          <input type="text" class="modal-form" name="optionName" value="" required="required">
+		          <input type="text" class="modal-form" name="optionName" autocomplete='off' required="required">
 		          <label class="label-desc" desc="Option Name" for="optionName">Option Name</label>
 		        </div>
 		        <div class="input-box">
-		          <input type="text" class="modal-form" name="optionPrice" onKeyup="this.value=this.value.replace(/[^0-9]/g,'');" value="" required="required">
+		          <input type="text" class="modal-form" name="optionPrice" autocomplete='off' onKeyup="this.value=this.value.replace(/[^0-9]/g,'');" required="required">
 		          <label class="label-desc" desc="Option Price" for="optionPrice">Option Price</label>
 		        </div>
 		        <div class="input-box">
-		          <input type="text" class="modal-form" name="bestYn" maxlength="1" onKeyup="this.value=this.value.replace(/[^nNyY]/g,'').toUpperCase();" value="" required="required">
+		          <input type="text" class="modal-form" name="bestYn" autocomplete='off' maxlength="1" onKeyup="this.value=this.value.replace(/[^nNyY]/g,'').toUpperCase();" required="required">
 		          <label class="label-desc" desc="Best Y/N" for="bestYn">Best Y/N (y 또는 n 값만)</label>
 		        </div>
 		        <div class="input-box">
-		          <input type="text" class="modal-form" name="optionImagePath" value="" required="required">
+		          <input type="text" class="modal-form" autocomplete='off' name="optionImagePath" required="required">
 		          <label class="label-desc" desc="Option Image Path" for="optionImagePath">Option Image Path</label>
 		        </div>
 		        <div class="input-box">
-		          <input type="text" class="modal-form" name="carOptionCode" onKeyup="this.value=this.value.replace(/[^oOpP]/g,'').toUpperCase();" maxlength="1" value="" required="required">
+		          <input type="text" class="modal-form" name="carOptionCode" autocomplete='off' onKeyup="this.value=this.value.replace(/[^oOpP]/g,'').toUpperCase();" maxlength="1" required="required">
 		          <label class="label-desc" desc="Car Option Code" for="carOptionCode">Car Option Code (o 또는 p 값만)</label>
 		        </div>
 	      	</form>

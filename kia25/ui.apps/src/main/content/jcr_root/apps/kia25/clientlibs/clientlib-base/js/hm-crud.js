@@ -11,10 +11,70 @@ $(function() {
 		el: '#vue-test',
 		data: {
 		    
+		},
+		methods: {
+//			init() {
+//				var carOptionCode = $("#soflow option:selected").val();
+//				var data = {
+//						"trimCode" : trimCode,
+//						"carOptionCode": carOptionCode
+//				}
+//				
+//				data = JSON.stringify(data)
+//				$.ajax({
+//					type:"POST",
+//					url : optionListURL + "list",
+//					data: {
+//						data : data
+//						},
+//					success:function(result){
+//						console.log(result);
+//						var data = result.list;
+//						var select = result.select;
+//						$('.option-list-table').empty();
+//						var str = "";
+//						
+//						if(data.length) {
+//							for(var i=0; i<data.length; i++) {
+//								str += `
+//									<tr class="opt-tr">
+//							            <td class="opt-td" data-field="optionCode" data-value="${data[i].optionCode}">${data[i].optionCode}</td>
+//										<td class="opt-td" data-field="optionName" data-value="${data[i].optionName}">${data[i].optionName}</td>
+//										<td class="opt-td" data-field="optionPrice" data-value="${data[i].optionPrice}">${addComma(data[i].optionPrice)}</td>
+//							            <td class="opt-td" data-field="bestYn" data-value="${data[i].bestYn}">${data[i].bestYn}</td>
+//							            <td class="opt-td" data-field="optionImagePath" data-value="${data[i].optionImagePath}">${data[i].optionImagePath}</td>
+//							            <td class="opt-td" data-field="carOptionCode" data-value="${data[i].carOptionCode != null ? data[i].carOptionCode : 'null'}">${data[i].carOptionCode != null ? data[i].carOptionCode : '-'}</td>
+//							            <td class="opt-td" data-field="specificationCode" data-value="${data[i].specificationCode != null ? data[i].specificationCode : 'null'}">${data[i].specificationCode != null ? data[i].specificationCode : '-'}</td>
+//							            <td class="opt-td" data-field="optionProductNumber" data-value="${data[i].optionProductNumber != null ? data[i].optionProductNumber : 'null'}">${data[i].optionProductNumber != null ? data[i].optionProductNumber : '-'}</td>
+//							            <td class="opt-td" style="text-align: center;">	
+//							            	<button class="btn-hm btn-edit">Edit</button>
+//							            	<button class="btn-hm btn-delete">Delete</button>
+//							            </td>
+//									</tr>
+//								`;
+//							}
+//						} else {
+//							str += `
+//								<tr class="opt-tr">
+//						            <td class="opt-td" colspan="9" style="text-align:center; font-weight:bold;">No Data</td>
+//								</tr>
+//							`;
+//						}
+//						
+//						$('.trim-info').html("트림명 : " + select.trimName + "<br>" + "트림코드 : " + select.trimCode);
+//						
+//						$('.option-list-table').append(str);
+//						filtering()
+//						bindEvent();
+//						
+//					},
+//				})		
+//			}
+		},
+		created() {
+//			this.init();
 		}
 	})
-	
-	
 	
 	init();
 	

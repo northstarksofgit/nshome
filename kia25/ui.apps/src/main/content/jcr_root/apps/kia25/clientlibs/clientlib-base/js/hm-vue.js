@@ -246,9 +246,11 @@ $(function() {
 						app.init();
 					},
 					beforeSend: function() { //로딩이미지 보여주기
+						$("#modal-wrap-loading").show();
 					    $("#wrap-loading").show();
 					},
 					complete: function() { //로딩이미지 숨기기
+						$("#modal-wrap-loading").hide();
 					    $("#wrap-loading").hide();
 					}
 				})	
@@ -358,9 +360,11 @@ $(function() {
 						app.mappingForm(result);
 					},
 					beforeSend: function() { //로딩이미지 보여주기
+						$("#modal-wrap-loading").show();
 					    $("#wrap-loading").show();
 					},
 					complete: function() { //로딩이미지 숨기기
+						$("#modal-wrap-loading").hide();
 					    $("#wrap-loading").hide();
 					}
 				})	

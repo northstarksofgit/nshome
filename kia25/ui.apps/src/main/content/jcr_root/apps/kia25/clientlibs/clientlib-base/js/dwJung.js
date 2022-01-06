@@ -569,6 +569,8 @@ $('.btn.update.cate').on('click', function(){
 
 									$('.onModal > .categoryCode').text($(this).attr('categoryCode'));
 									$('.onModal > .categoryName').val($(this).attr('categoryName'));
+									$('.onModal > .categoryOrder').val($(this).attr('sortOrder'));
+									$('.onModal > .categoryUseYn').val($(this).attr('useYn'));
                                 });
 
 
@@ -621,7 +623,7 @@ function getCategoryList(){
 		
 		success : function(result){
 			
-			console.log('start');
+			
 			
 			$('.categoryTbl > tbody').empty();
 			
@@ -647,7 +649,22 @@ function getCategoryList(){
 
 			}
 			
-			console.log('end');
+			$('.btn.update.cate').on('click', function(){ 
+									
+									
+                                    $('.modal').css('display', 'block');
+                                    $('.cate.modBox').addClass('onModal');
+
+									$('.onModal').on('click', function(){
+                             	 			return false;
+                           			});
+
+									$('.onModal > .categoryCode').text($(this).attr('categoryCode'));
+									$('.onModal > .categoryName').val($(this).attr('categoryName'));
+									$('.onModal > .categoryOrder').val($(this).attr('sortOrder'));
+									$('.onModal > .categoryUseYn').val($(this).attr('useYn'));
+                                });
+
 
 			
 		},
@@ -715,23 +732,23 @@ $('.cate.regBox > .confirm').on('click',function(){
 
 $('.cate.modBox > .btn.confirm').on('click', function(){
 	
-	/*
-	* 미구현
-	*/
 	
 	$.ajax({
 		
 		type: "POST", 
-		url:"/services/category/update",
+		url:"/services/category/save",
 		dataType: "text",
 				
 		data: {
 			"categoryCode" : $(this).siblings('.categoryCode').text(),
-			"categoryName" : $(this).siblings('.categoryName').val()
+			"categoryName" : $(this).siblings('.categoryName').val(),
+			"sortOrder" : $(this).siblings('.categoryOrder').val(),
+			"useYn" : $(this).siblings('.categoryUseYn').val()
 		},
 		
 		success : function(result){
-			console.log(result);
+			alert(result);
+			getCategoryList();
 			
 		},
 		
@@ -790,9 +807,9 @@ $('.btn.delete.cate').on('click', function(){
 */
 $('.sConfirm').on('click', function(){
 
-	setTimeout(function(){
-		getCategoryList();
-	}, 200)
+//	setTimeout(function(){
+//		getCategoryList();
+//	}, 1000)
 	
 	categoryFilter();
 		
@@ -828,7 +845,9 @@ function categoryFilter(){
 		
 		var data = {
 		categoryCode: $(orgin[i]).find('.btn.update.cate').attr('categorycode'),
-		categoryName: $(orgin[i]).find('.btn.update.cate').attr('categoryname')};
+		categoryName: $(orgin[i]).find('.btn.update.cate').attr('categoryname'),
+		sortOrder: $(orgin[i]).find('.btn.update.cate').attr('sortOrder'),
+		useYn: $(orgin[i]).find('.btn.update.cate').attr('useYn')};
 					
 		compared.push(data);
 		
@@ -860,7 +879,13 @@ function categoryFilter(){
                     <td><input type="checkbox" name="categoryChk" class="chk" categoryCode="${result[i].categoryCode}"></td>
                     <td>${result[i].categoryCode}</td>
                     <td>${result[i].categoryName}</td>
-                    <td><div class="btn update cate" categoryCode="${result[i].categoryCode}" categoryName="${result[i].categoryName}">수정</div></td>
+                    <td>${result[i].sortOrder}</td>
+                    <td>${result[i].useYn}</td>
+                    <td><div class="btn update cate" 
+							 categoryCode="${result[i].categoryCode}" 
+							 categoryName="${result[i].categoryName}"
+							 sortOrder="${result[i].sortOrder}" 
+							 useYn="${result[i].useYn}">수정</div></td>
                 </tr>
 			
 			`

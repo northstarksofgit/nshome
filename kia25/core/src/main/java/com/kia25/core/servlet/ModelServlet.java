@@ -192,12 +192,12 @@ public class ModelServlet extends SlingAllMethodsServlet {
             @Override
             public int compare(ModelDto arg0, ModelDto arg1) {
                    
-                   String age0 = arg0.getModelCode();
-                   String age1 = arg1.getModelCode();
+                   int age0 = arg0.getSortOrder();
+                   int age1 = arg1.getSortOrder();
                    
-                   if (age0.compareTo(age1) == 0)
+                   if (age0 == age1)
                          return 0;
-                   else if (age0.compareTo(age1) > 0)
+                   else if (age0 > age1)
                          return 1;
                    else
                          return -1;

@@ -51,12 +51,12 @@ public class Build001CrudModel {
             @Override
             public int compare(CategoryDto arg0, CategoryDto arg1) {
                    
-                   String age0 = arg0.getCategoryCode();
-                   String age1 = arg1.getCategoryCode();
+                   int age0 = arg0.getSortOrder();
+                   int age1 = arg1.getSortOrder();
                    
-                   if (age0.compareTo(age1) == 0)
+                   if (age0 == age1)
                          return 0;
-                   else if (age0.compareTo(age1) > 0)
+                   else if (age0 > age1 )
                          return 1;
                    else
                          return -1;
@@ -80,19 +80,19 @@ public class Build001CrudModel {
 		
 		modelList.sort(new Comparator<ModelDto>() {
 			
-              @Override
-              public int compare(ModelDto arg0, ModelDto arg1) {
-                    
-                     String age0 = arg0.getModelCode();
-                     String age1 = arg1.getModelCode();
-                     
-                     if (age0.compareTo(age1) == 0)
-                           return 0;
-                     else if (age0.compareTo(age1) > 0)
-                           return 1;
-                     else
-                           return -1;
-              }
+            @Override
+            public int compare(ModelDto arg0, ModelDto arg1) {
+                   
+                   int age0 = arg0.getSortOrder();
+                   int age1 = arg1.getSortOrder();
+                   
+                   if (age0 == age1)
+                         return 0;
+                   else if (age0 > age1)
+                         return 1;
+                   else
+                         return -1;
+            }
        });
 
 

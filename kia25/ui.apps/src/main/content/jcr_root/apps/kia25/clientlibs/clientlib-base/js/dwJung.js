@@ -1195,7 +1195,9 @@ function modelFilter(){
 			modelCode: $(orgin[i]).find('.btn.update.model').attr('modelCode'),
 			modelYear: $(orgin[i]).find('.btn.update.model').attr('modelYear'),
 			modelName: $(orgin[i]).find('.btn.update.model').attr('modelName'),
-			carImagePath: $(orgin[i]).find('img').attr('src')
+			carImagePath: $(orgin[i]).find('img').attr('src'),
+			sortOrder: $(orgin[i]).find('.btn.update.model').attr('sortOrder'),
+			useYn: $(orgin[i]).find('.btn.update.model').attr('useYn'),
 			}
 						
 		compared.push(data);
@@ -1229,15 +1231,24 @@ function modelFilter(){
 	for(var i=0; i < result.length; i++){
 		$('.modelTbl > tbody').append(
 				`
-				<tr>
-					<td> <input type="checkbox" name="modelChk" class="chk" modelCode="${result[i].modelCode}" modelYear="${result[i].modelYear}"> </td>
-					<td>${result[i].categoryCode}</td>
-					<td>${result[i].modelCode}</td>
-					<td>${result[i].modelYear}</td>
-					<td>${result[i].modelName}</td>
-					<td><img style="height:100px;" src="${result[i].carImagePath}"></td>
-					<td><div class="btn update model" categoryCode="${result[i].categoryCode}" modelCode="${result[i].modelCode}" modelYear="${result[i].modelYear}" modelName="${result[i].modelName}">수정</div></td>
-				</tr>
+					<tr>
+						<td> <input type="checkbox" name="modelChk" class="chk" modelCode="${result[i].modelCode}" modelYear="${result[i].modelYear}"> </td>
+						<td>${result[i].categoryCode}</td>
+						<td>${result[i].modelCode}</td>
+						<td>${result[i].modelYear}</td>
+						<td>${result[i].modelName}</td>
+						<td><img style="height:100px;" src="${result[i].carImagePath}"></td>
+						<td>${result[i].sortOrder}</td>
+						<td>${result[i].useYn}</td>
+						<td><div class="btn update model" 
+								 categoryCode="${result[i].categoryCode}" 
+								 modelCode="${result[i].modelCode}" 
+								 modelYear="${result[i].modelYear}" 
+								 modelName="${result[i].modelName}"
+								 carImagePath="${result[i].carImagePath}"
+								 sortOrder="${result[i].sortOrder}"
+	 							 useYn="${result[i].useYn}">수정</div></td>
+					</tr>
 				`
 	)}
 			

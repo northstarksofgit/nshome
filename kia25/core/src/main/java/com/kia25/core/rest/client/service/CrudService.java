@@ -46,10 +46,17 @@ public interface CrudService {
 	
 	/**
 	 * get Option List
-	 * @param trimCode
+	 * @param OptionDto
 	 * @return
 	 */
 	OptionDto[] getOptionListAPI(OptionDto optionParams);
+	
+	/**
+	 * get Option Select
+	 * @param OptionDto
+	 * @return
+	 */
+	OptionDto getOptionSelectAPI(OptionDto optionParams);
 	
 	/**
 	 * Save Option

@@ -230,6 +230,33 @@ public class CrudServiceImpl implements CrudService{
 		
 		return null;
 	}
+	
+	/**
+	 * get Option Select
+	 */
+	@Override
+	public OptionDto getOptionSelectAPI(OptionDto optionParams) {
+		
+		try {
+			
+			ArrayList<NameValuePair> postParameters = new ArrayList<NameValuePair>();
+			postParameters.add(new BasicNameValuePair("trimCode", optionParams.getTrimCode()));
+            postParameters.add(new BasicNameValuePair("carOptionCode", optionParams.getCarOptionCode()));
+            
+			String response = service.sendPostRequest("db/option/list", postParameters);
+
+			ObjectMapper mapper = new ObjectMapper();
+			
+			OptionDto results = mapper.readValue(response,  OptionDto.class);
+            return results;
+            
+		} catch (IOException e) {
+			LOG.error("Error parsing JSON API response.", e);
+			e.printStackTrace();
+		}
+		
+		return null;
+	}
 
 
 	/*

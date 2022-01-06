@@ -37,6 +37,14 @@ $(function() {
 						ref.filtering()
 						ref.bindEvent();
 					},
+					beforeSend: function() { //로딩이미지 보여주기
+						$("#modal-wrap-loading").show();
+					    $("#wrap-loading").show();
+					},
+					complete: function() { //로딩이미지 숨기기
+						$("#modal-wrap-loading").hide();
+					    $("#wrap-loading").hide();
+					}
 				})		
 			}, //end init()
 			
@@ -236,6 +244,14 @@ $(function() {
 						alert(msg + " 완료");
 
 						app.init();
+					},
+					beforeSend: function() { //로딩이미지 보여주기
+						$("#modal-wrap-loading").show();
+					    $("#wrap-loading").show();
+					},
+					complete: function() { //로딩이미지 숨기기
+						$("#modal-wrap-loading").hide();
+					    $("#wrap-loading").hide();
 					}
 				})	
 			}, //end btnConfirm()
@@ -342,6 +358,14 @@ $(function() {
 						result.carOptionCode = $("#soflow option:selected").val();
 
 						app.mappingForm(result);
+					},
+					beforeSend: function() { //로딩이미지 보여주기
+						$("#modal-wrap-loading").show();
+					    $("#wrap-loading").show();
+					},
+					complete: function() { //로딩이미지 숨기기
+						$("#modal-wrap-loading").hide();
+					    $("#wrap-loading").hide();
 					}
 				})	
 				

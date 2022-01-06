@@ -126,11 +126,11 @@ $(function() {
 
 				$('.btn-edit').off().on('click', function() {
 					alert("아직 준비중...")
+					var tdList = $(this).parents('tr').children();
+					var mode = 'E';
+					dataObj = app.returnData(tdList , mode);
+					app.selectData(dataObj);
 					return false;
-//					var tdList = $(this).parents('tr').children();
-//					var mode = 'E';
-//					dataObj = returnData(tdList , mode);
-
 //					this.mappingForm(dataObj);
 //					dataObj.trimCode = trimCode;
 //					
@@ -167,13 +167,8 @@ $(function() {
 
 				$('.btn-cancel').off().on('click', function() {
 					this.dataObj = null;
-					var formData = $('.form-area')[0];
 					
-					for(var i=0; i<formData.length; i++){
-						if(formData[i].name) {
-							formData[i].value = null;
-						}
-					}
+					app.formReset();
 					
 					this.dataObj = null;
 					$('.modal').css('display', 'none');
@@ -233,13 +228,7 @@ $(function() {
 					success:function(data){
 						app.dataObj = null;
 						
-						var formData = $('.form-area')[0];
-						formData.reset()
-						for(var i=0; i<formData.length; i++){
-							if(formData[i].name) {
-								formData[i].value = null;
-							}
-						}
+						ref.formReset();
 						
 						$('.modal').css('display', 'none');
 						alert(msg + " 완료");
@@ -327,6 +316,39 @@ $(function() {
 					}
 				}
 			}, //end formValidate()
+			
+			selectData : function(params) { //start selectData()
+				var url = this.optionListURL + "select";
+				var data = {
+						"trimCode" : this.trimCode,
+						"optionCode" : params.optionCode,
+						"carOptionCode" : $("#soflow option:selected").val()
+				}
+
+				$.ajax({
+					type:"POST",
+					url : url,
+					data : {
+						data: JSON.stringify(data)
+					},
+					success:function(result){
+						result.carOptionCode = $("#soflow option:selected").val();
+						console.log(result)
+						app.mappingForm(result);
+					}
+				})	
+				
+			}, //end selectData()
+			
+			formReset : function() { // start formReset()
+				var formData = $('.form-area')[0];
+				formData.reset()
+				for(var i=0; i<formData.length; i++){
+					if(formData[i].name) {
+						formData[i].value = null;
+					}
+				}
+			}, //end formReset
 		},
 		//end Methods
 		

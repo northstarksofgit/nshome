@@ -28,6 +28,7 @@ import com.kia25.core.rest.client.service.impl.CrudServiceImpl;
 @Component(service = Servlet.class, property = {
 		"sling.servlet.methods=" + HttpConstants.METHOD_POST, 
 		"sling.servlet.paths=" + "/services/option/list",
+		"sling.servlet.paths=" + "/services/option/select",
 		"sling.servlet.paths=" + "/services/option/save",
 		"sling.servlet.paths=" + "/services/option/delete" })
 public class OptionServlet extends SlingAllMethodsServlet {
@@ -50,6 +51,8 @@ public class OptionServlet extends SlingAllMethodsServlet {
     		deleteOption(request, response);
     	} else if(path.equals("save")) {
     		saveOption(request, response);
+    	} else if(path.equals("select")) {
+    		selectOption(request, response);
     	}
     }    
     
@@ -65,8 +68,6 @@ public class OptionServlet extends SlingAllMethodsServlet {
     	
 		dataMaps.put("list", result);
 		dataMaps.put("select", select);
-//		OptionDto[] result = crudService.getOptionListAPI(request.getParameter("trimCode"));
-		
 		
         String json = new Gson().toJson(dataMaps);
 	    
@@ -94,7 +95,6 @@ public class OptionServlet extends SlingAllMethodsServlet {
             response.setHeader("Location", redirect);
             PrintWriter out = response.getWriter();
             out.println(result);
-//            return;
             
         } else {
         	response.sendError(HttpServletResponse.SC_BAD_REQUEST);
@@ -122,7 +122,6 @@ public class OptionServlet extends SlingAllMethodsServlet {
             response.setHeader("Location", redirect);
             PrintWriter out = response.getWriter();
             out.println(result);
-//            return;
             
         } else {
         	response.sendError(HttpServletResponse.SC_BAD_REQUEST);
@@ -130,7 +129,29 @@ public class OptionServlet extends SlingAllMethodsServlet {
 	}
 
 
-
+	private void selectOption(SlingHttpServletRequest request, SlingHttpServletResponse response) throws IOException {
+		ObjectMapper mapper = new ObjectMapper();
+		String redirect = request.getParameter("redirect");
+		String parameter = request.getParameter("data");
+		
+		log.info("params = {}", parameter);
+		
+		OptionDto optionParams = mapper.readValue(parameter, OptionDto.class);
+		
+		OptionDto result = crudService.getOptionSelectAPI(optionParams);
+		
+		String json = new Gson().toJson(result);
+		
+		if (json!= null) {
+            response.setHeader("Location", redirect);
+            response.setContentType("application/json");
+            PrintWriter out = response.getWriter();
+            out.println(json);
+            
+        } else {
+        	response.sendError(HttpServletResponse.SC_BAD_REQUEST);
+        }
+	}
 
 
 	

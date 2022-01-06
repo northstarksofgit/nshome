@@ -72,6 +72,8 @@ public class CrudServiceImpl implements CrudService{
             ArrayList<NameValuePair> postParameters = new ArrayList<NameValuePair>();
             postParameters.add(new BasicNameValuePair("categoryCode", categoryDto.getCategoryCode() ));
             postParameters.add(new BasicNameValuePair("categoryName", categoryDto.getCategoryName() ));
+            postParameters.add(new BasicNameValuePair("sortOrder", Integer.toString(categoryDto.getSortOrder()) ));
+            postParameters.add(new BasicNameValuePair("useYn", categoryDto.getUseYn() ));
         	
             String response = service.sendPostRequest("db/category/save", postParameters);
             

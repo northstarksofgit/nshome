@@ -575,6 +575,38 @@ $('.btn.update.cate').on('click', function(){
 
 
 
+/*
+* ajax 공통화 필요
+*/
+
+function postAjax(url, dataType, data, traditional, func){
+	
+	$.ajax({
+		
+		type: "POST", 
+		url: url,
+		dataType: dataType,
+     	traditional: traditional,
+		data: data,
+		
+		success : function(result){
+			
+			func(result);
+		},
+		
+		error : function(a, b, c){
+			console.log(a);
+			console.log(b);
+			console.log(c);
+		}
+	});
+	
+}
+
+
+
+
+
 
 /*
 * 카테고리 리스트 가져오기
@@ -601,7 +633,13 @@ function getCategoryList(){
 		                    <td><input type="checkbox" name="categoryChk" class="chk" categoryCode="${result[i].categoryCode}"></td>
 		                    <td>${result[i].categoryCode}</td>
 		                    <td>${result[i].categoryName}</td>
-		                    <td><div class="btn update cate" categoryCode="${result[i].categoryCode}" categoryName="${result[i].categoryName}">수정</div></td>
+		                    <td>${result[i].sortOrder}</td>
+		                    <td>${result[i].useYn}</td>
+		                    <td><div class="btn update cate" 
+									 categoryCode="${result[i].categoryCode}" 
+									 categoryName="${result[i].categoryName}"
+									 sortOrder="${result[i].sortOrder}" 
+									 useYn="${result[i].useYn}">수정</div></td>
 		                </tr>
 					
 					`
@@ -650,7 +688,9 @@ $('.cate.regBox > .confirm').on('click',function(){
 					
 			data: {
 				"categoryCode" : $('input[name=categoryRegCode]').val(),
-				"categoryName" : $('input[name=categoryRegName]').val()
+				"categoryName" : $('input[name=categoryRegName]').val(),
+				"sortOrder" : $('input[name=categoryRegOrder]').val(),
+				"useYn" : $('input[name=categoryRegUseYn]').val()
 			},
 			
 		
@@ -861,38 +901,6 @@ $('.radioCURD').change( function() {
 });
 
 
-/*
-* ajax 공통화 필요
-*/
-
-
-
-function postAjax(url, dataType, data, traditional, func){
-	
-	$.ajax({
-		
-		type: "POST", 
-		url: url,
-		dataType: dataType,
-     	traditional: traditional,
-		data: data,
-		
-		success : function(result){
-			
-			func(result);
-		},
-		
-		error : function(a, b, c){
-			console.log(a);
-			console.log(b);
-			console.log(c);
-		}
-	});
-	
-}
-
-
-
 
 
 /*
@@ -934,53 +942,6 @@ function getModelList(){
 	
 	 postAjax(url, dataType, data, traditional, func);
 	
-	/*
-	
-	$.ajax({
-		
-		type: "POST", 
-		url:"/services/model/list",
-		dataType: "json",
-				
-		data: {
-			"categoryCode" : $('.radioCURD:checked').val()
-		},
-		
-	
-		success : function(result){
-
-			$('.modelTbl > tbody').empty();
-			
-			for(var i=0; i < result.length; i++){
-				$('.modelTbl > tbody').append(
-												`
-												<tr>
-													<td> <input type="checkbox" name="modelChk" class="chk" modelCode="${result[i].modelCode}" modelYear="${result[i].modelYear}"> </td>
-													<td>${result[i].categoryCode}</td>
-													<td>${result[i].modelCode}</td>
-													<td>${result[i].modelYear}</td>
-													<td>${result[i].modelName}</td>
-													<td><img style="height:100px;" src="${result[i].carImagePath}"></td>
-													<td><div class="btn update model" categoryCode="${result[i].categoryCode}" modelCode="${result[i].modelCode}" modelYear="${result[i].modelYear}" modelName="${result[i].modelName}">수정</div></td>
-												</tr>
-												`
-			)}
-			
-			$('input[type="checkbox"]').on('click', function(){ 
-                                $(this).parents('tr').toggleClass('checkedTr');
-                            });
-			
-			
-		},
-		
-		error : function(a, b, c){
-			console.log(a);
-			console.log(b);
-			console.log(c);
-		}
-	});
-	
-	*/
 
 }
 
@@ -1004,34 +965,28 @@ $('.model.regBox > .confirm').on('click',function(){
 		return;
 	}
 	
-
-	$.ajax({
-			
-			type: "POST", 
-			url:"/services/model/save",
-			dataType: "text",
-					
-			data: {
+	
+	
+	var url = "/services/model/save";
+	var dataType = "text";
+	
+	var data = {
 				"categoryCode" : $('input[name=modelCateRegCode]').val(),
 				"modelCode" : $('input[name=modelRegCode]').val(),
 				"modelYear" : $('input[name=modelRegYear]').val(),
 				"modelName" : $('input[name=modelRegName]').val(),
 				"carImagePath" : $('input[name=modelRegImg]').val()
-			},
-			
+			};
 		
-			success : function(result){
-				alert(result);				
-				getModelList();
-				
-			},
-			
-			error : function(a, b, c){
-				console.log(a);
-				console.log(b);
-				console.log(c);
-			}
-		});
+	var traditional = false;
+	
+	function func(result){
+		alert(result);				
+		getModelList();
+	}
+	
+	 postAjax(url, dataType, data, traditional, func);
+	
 	
 });
 

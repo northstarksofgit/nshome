@@ -224,6 +224,8 @@ public class CategoryServlet extends SlingAllMethodsServlet {
 	        
 	        categoryDto.setCategoryCode((String)request.getParameter("categoryCode"));
 	        categoryDto.setCategoryName((String)request.getParameter("categoryName"));
+	        categoryDto.setSortOrder(Integer.parseInt(request.getParameter("sortOrder")));
+	        categoryDto.setUseYn((String)request.getParameter("useYn"));
 
 	        LOG.info("category {}", categoryDto.getCategoryCode());
 	        

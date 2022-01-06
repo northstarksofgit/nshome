@@ -14,6 +14,16 @@ public class CategoryDto {
 	 */
 	private String categoryName;
 	
+	/*
+	 * 정렬순서
+	 */
+	private int sortOrder;
+	
+	/*
+	 * 사용 여부
+	 */
+	private String useYn;
+	
 	public String getCategoryCode() {
 		return categoryCode;
 	}
@@ -29,6 +39,25 @@ public class CategoryDto {
 	public void setCategoryName(String categoryName) {
 		this.categoryName = categoryName;
 	}
+
+	public int getSortOrder() {
+		return sortOrder;
+	}
+
+	public void setSortOrder(int sortOrder) {
+		this.sortOrder = sortOrder;
+	}
+
+	public String getUseYn() {
+		return useYn;
+	}
+
+	public void setUseYn(String useYn) {
+		this.useYn = useYn;
+	}
+	
+	
+	
 	
 	
 }

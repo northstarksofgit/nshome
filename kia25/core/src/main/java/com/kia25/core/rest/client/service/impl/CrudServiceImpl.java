@@ -242,8 +242,9 @@ public class CrudServiceImpl implements CrudService{
 			ArrayList<NameValuePair> postParameters = new ArrayList<NameValuePair>();
 			postParameters.add(new BasicNameValuePair("trimCode", optionParams.getTrimCode()));
             postParameters.add(new BasicNameValuePair("carOptionCode", optionParams.getCarOptionCode()));
+            postParameters.add(new BasicNameValuePair("optionCode", optionParams.getOptionCode()));
             
-			String response = service.sendPostRequest("db/option/list", postParameters);
+			String response = service.sendPostRequest("db/option/select", postParameters);
 
 			ObjectMapper mapper = new ObjectMapper();
 			

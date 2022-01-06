@@ -1052,6 +1052,51 @@ $('.model.regBox > .confirm').on('click',function(){
 });
 
 
+/*
+* 모델 수정 이벤트
+*/
+$('.model.modBox > .confirm').on('click',function(){
+
+	
+	if($('input[name=modelCateModCode]').val() == ''
+	  || $('input[name=modelModName]').val() == ''
+	  || $('input[name=modelModImg]').val() == ''
+	  || $('input[name=modelModOrder]').val() == ''
+	  || $('input[name=modelModUseYn]').val() == ''){
+		
+		alert('항목을 모두 입력하여주세요');
+		
+		return;
+	}
+	
+	
+	
+	var url = "/services/model/save";
+	var dataType = "text";
+	
+	var data = {
+				"categoryCode" : $('input[name=modelCateModCode]').val(),
+				"modelCode" : $('.modelCode').text(),
+				"modelYear" : $('.modelYear').text(),
+				"modelName" : $('input[name=modelModName]').val(),
+				"carImagePath" : $('input[name=modelModImg]').val(),
+				"sortOrder" : $('input[name=modelModOrder]').val(),
+				"useYn" : $('input[name=modelModUseYn]').val()
+			};
+		
+	var traditional = false;
+	
+	function func(result){
+		alert(result);				
+		getModelList();
+	}
+	
+	 postAjax(url, dataType, data, traditional, func);
+	
+	
+});
+
+
 
 
 

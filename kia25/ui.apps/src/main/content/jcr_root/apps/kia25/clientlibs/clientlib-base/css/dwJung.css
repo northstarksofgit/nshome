@@ -138,14 +138,14 @@
     transform: translate(-50%, -50%);
 
     width: 500px;
-    height: 500px;
+    height: 554px;
     background-color: rgb(255, 255, 255);
 
 }
 
 .onModal h2{
     text-align: center;
-    margin-top: 50px;
+    margin-top: 20px;
 }
 
 .onModal input{
@@ -155,7 +155,7 @@
     text-align: center;
     font-size: 18px;
     margin-left: 111px;
-    margin-top: 20px;
+    margin-top: 5px;
     border: 1px solid black;
 }
 

@@ -532,20 +532,23 @@ $('.btn.reg.model').on('click', function(){
                                 });
 
 $('.btn.update.model').on('click', function(){ 
-                                    $('.modal').css('display', 'block');
-                                    $('.model.modBox').addClass('onModal');
-									
-									$('.onModal').on('click', function(){
-                             	 			return false;
-                           			});
+                        $('.modal').css('display', 'block');
+                        $('.model.modBox').addClass('onModal');
+						
+						$('.onModal').on('click', function(){
+                 	 			return false;
+               			});
 
 
-									$('.onModal > .categoryCode').val($(this).attr('categoryCode'));
-									$('.onModal > .modelCode').val($(this).attr('modelCode'));
-									$('.onModal > .modelYear').val($(this).attr('modelYear'));
-									$('.onModal > .modelName').val($(this).attr('modelName'));
+						$('.onModal > .categoryCode').val($(this).attr('categoryCode'));
+						$('.onModal > .modelCode').text($(this).attr('modelCode'));
+						$('.onModal > .modelYear').text($(this).attr('modelYear'));
+						$('.onModal > .modelName').val($(this).attr('modelName'));
+						$('.onModal > .modelImg').val($(this).attr('carImagePath'));
+						$('.onModal > .modelOrder').val($(this).attr('sortOrder'));
+						$('.onModal > .modelUseYn').val($(this).attr('useYn'));
 
-                                });
+                    });
 
 $('.btn.reg.cate').on('click', function(){ 
                                             $('.modal').css('display', 'block');
@@ -962,6 +965,7 @@ function getModelList(){
 															 modelCode="${result[i].modelCode}" 
 															 modelYear="${result[i].modelYear}" 
 															 modelName="${result[i].modelName}"
+															 carImagePath="${result[i].carImagePath}"
 															 sortOrder="${result[i].sortOrder}"
 	                    		 							 useYn="${result[i].useYn}">수정</div></td>
 												</tr>
@@ -971,6 +975,28 @@ function getModelList(){
 			$('input[type="checkbox"]').on('click', function(){ 
                                 $(this).parents('tr').toggleClass('checkedTr');
                             });
+
+
+			$('.btn.update.model').on('click', function(){ 
+                                    $('.modal').css('display', 'block');
+                                    $('.model.modBox').addClass('onModal');
+									
+									$('.onModal').on('click', function(){
+                             	 			return false;
+                           			});
+
+
+									$('.onModal > .categoryCode').val($(this).attr('categoryCode'));
+									$('.onModal > .modelCode').text($(this).attr('modelCode'));
+									$('.onModal > .modelYear').text($(this).attr('modelYear'));
+									$('.onModal > .modelName').val($(this).attr('modelName'));
+									$('.onModal > .modelImg').val($(this).attr('carImagePath'));
+									$('.onModal > .modelOrder').val($(this).attr('sortOrder'));
+									$('.onModal > .modelUseYn').val($(this).attr('useYn'));
+
+                                });
+
+
 	}
 	
 	 postAjax(url, dataType, data, traditional, func);

@@ -18,9 +18,8 @@
 				<th class="opt-th">옵션 가격</th>
 				<th class="opt-th">추천 여부</th>
 				<th class="opt-th">옵션 이미지</th>
-				<th class="opt-th">Car Option Code</th>
-				<th class="opt-th">사양코드</th>
-				<th class="opt-th">옵션상품번호</th>
+				<th class="opt-th">정렬 순서</th>
+				<th class="opt-th">사용 여부</th>
 				<th class="opt-th">Action</th>
 			</tr>
 		</thead>
@@ -52,6 +51,14 @@
 		        <div class="input-box">
 		          <input type="text" class="modal-form" name="bestYn" autocomplete='off' maxlength="1" onKeyup="this.value=this.value.replace(/[^nNyY]/g,'').toUpperCase();" required="required">
 		          <label class="label-desc" desc="Best Y/N" for="bestYn">Best Y/N (y 또는 n 값만)</label>
+		        </div>
+		        <div class="input-box">
+		          <input type="text" class="modal-form" name="useYn" autocomplete='off' maxlength="1" onKeyup="this.value=this.value.replace(/[^nNyY]/g,'').toUpperCase();" required="required">
+		          <label class="label-desc" desc="Use Y/N" for="useYn">Use Y/N (y 또는 n 값만)</label>
+		        </div>
+		        <div class="input-box">
+		          <input type="text" class="modal-form" name="sortOrder" autocomplete='off' maxlength="1" onKeyup="this.value=this.value.replace(/[^0-9]/g,'');" required="required">
+		          <label class="label-desc" desc="Sort Order" for="sortOrder">Sort Order</label>
 		        </div>
 		        <div class="input-box">
 		          <input type="text" class="modal-form" autocomplete='off' name="optionImagePath" required="required">

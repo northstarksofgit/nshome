@@ -305,6 +305,8 @@ public class CrudServiceImpl implements CrudService{
             postParameters.add(new BasicNameValuePair("bestYn", optionDto.getBestYn()));
             postParameters.add(new BasicNameValuePair("optionPrice", String.valueOf(optionDto.getOptionPrice())));
             postParameters.add(new BasicNameValuePair("optionImagePath", optionDto.getOptionImagePath()));
+            postParameters.add(new BasicNameValuePair("sortOrder", String.valueOf(optionDto.getSortOrder())));
+            postParameters.add(new BasicNameValuePair("useYn", optionDto.getUseYn()));
 			
 			
 			String response = service.sendPostRequest("db/option/save" , postParameters);

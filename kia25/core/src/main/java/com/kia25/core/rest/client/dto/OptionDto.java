@@ -57,8 +57,20 @@ public class OptionDto {
 	 * 옵션상품번호
 	 */
 	private String optionProductNumber;
-
-
+	
+	
+	/**
+	 * 정렬 순서
+	 */
+	private int sortOrder;
+	
+	
+	/**
+	 * 사용 여부
+	 */
+	private String useYn;
+	
+	
 	public String getTrimCode() {
 		return trimCode;
 	}
@@ -149,9 +161,24 @@ public class OptionDto {
 	}
 
 
-	
-	
-	
-	
+	public int getSortOrder() {
+		return sortOrder;
+	}
+
+
+	public void setSortOrder(int sortOrder) {
+		this.sortOrder = sortOrder;
+	}
+
+
+	public String getUseYn() {
+		return useYn;
+	}
+
+
+	public void setUseYn(String useYn) {
+		this.useYn = useYn;
+	}
+
 	
 }

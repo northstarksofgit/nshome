@@ -51,9 +51,9 @@ $(function() {
 								<td class="opt-td" data-field="optionPrice" data-value="${data[i].optionPrice}">${this.addComma(data[i].optionPrice)}</td>
 					            <td class="opt-td" data-field="bestYn" data-value="${data[i].bestYn}">${data[i].bestYn}</td>
 					            <td class="opt-td" data-field="optionImagePath" data-value="${data[i].optionImagePath}">${data[i].optionImagePath}</td>
-					            <td class="opt-td" data-field="carOptionCode" data-value="${data[i].carOptionCode != null ? data[i].carOptionCode : 'null'}">${data[i].carOptionCode != null ? data[i].carOptionCode : '-'}</td>
-					            <td class="opt-td" data-field="specificationCode" data-value="${data[i].specificationCode != null ? data[i].specificationCode : 'null'}">${data[i].specificationCode != null ? data[i].specificationCode : '-'}</td>
-					            <td class="opt-td" data-field="optionProductNumber" data-value="${data[i].optionProductNumber != null ? data[i].optionProductNumber : 'null'}">${data[i].optionProductNumber != null ? data[i].optionProductNumber : '-'}</td>
+					            <td class="opt-td" data-field="sortOrder" data-value="${data[i].sortOrder}">${data[i].sortOrder}</td>
+					            <td class="opt-td" data-field="useYn" data-value="${data[i].useYn}">${data[i].useYn}</td>
+					            
 					            <td class="opt-td" style="text-align: center;">	
 					            	<button class="btn-hm btn-edit">Edit</button>
 					            	<button class="btn-hm btn-delete">Delete</button>
@@ -232,6 +232,15 @@ $(function() {
 					},
 					success:function(data){
 						app.dataObj = null;
+						
+						var formData = $('.form-area')[0];
+						formData.reset()
+						for(var i=0; i<formData.length; i++){
+							if(formData[i].name) {
+								formData[i].value = null;
+							}
+						}
+						
 						$('.modal').css('display', 'none');
 						alert(msg + " 완료");
 
@@ -243,7 +252,7 @@ $(function() {
 			convertObject : function(data) { //start convertObject()
 				var returnArray = {};
 			    for (var i = 0; i < data.length; i++){
-			    	if(data[i]['name'] == "optionPrice"){
+			    	if(data[i]['name'] == "optionPrice" || data[i]['name'] == "sortOrder"){
 			    		returnArray[data[i]['name']] = parseInt(data[i]['value']);
 			    	} else {    		
 			    		returnArray[data[i]['name']] = data[i]['value'];

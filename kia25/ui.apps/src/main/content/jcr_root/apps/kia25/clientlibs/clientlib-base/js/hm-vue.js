@@ -115,6 +115,11 @@ $(function() {
 				})
 				
 				$('.btn-add').off().on('click', function() {
+					var list = $('.form-area')[0];
+					for(var i=0; i<list.length; i++) {
+						list[i].classList.remove('float-label');
+					}				
+					
 					
 					$('.wrapper-form').css('display', 'block');
 					$('.btn-confirm').text("Save");
@@ -125,21 +130,16 @@ $(function() {
 				})
 
 				$('.btn-edit').off().on('click', function() {
-					alert("아직 준비중...")
 					var tdList = $(this).parents('tr').children();
 					var mode = 'E';
-					dataObj = app.returnData(tdList , mode);
-					app.selectData(dataObj);
-					return false;
-//					this.mappingForm(dataObj);
-//					dataObj.trimCode = trimCode;
-//					
-//					$('.btn-confirm').text("Edit");
-//					$('.form-area').css('display', 'block');
-//					$('.modal-header').css('text-align', '');
-//					$('.modal-header').text(dataObj.optionName +" | Edit");
-//					$('.modal').css('display', 'block');
-					
+					app.dataObj = app.returnData(tdList , mode);
+					app.selectData(app.dataObj);
+
+					$('.btn-confirm').text("Edit");
+					$('.form-area').css('display', 'block');
+					$('.modal-header').css('text-align', '');
+					$('.modal-header').text(dataObj.optionName +" | Edit");
+					$('.modal').css('display', 'block');
 				})
 
 
@@ -196,13 +196,13 @@ $(function() {
 				var url = "";
 				var ref = this;
 				
-				if(action == "Save") {
+				if(action == "Save" || action == "Edit" ) {
 					var formData = $('.form-area').serializeArray();
 					data = ref.convertObject(formData);
 					ref.formValidate(data);
 					data.trimCode = this.trimCode;
 					url = this.optionListURL + "save";
-					msg = "옵션 추가";
+					msg = "옵션 저장";
 					
 				} else if(action == "Delete") {
 					var carOptionCode = $("#soflow option:selected").val();
@@ -214,10 +214,7 @@ $(function() {
 				} else if(action == "List") {
 					url = this.optionListURL + "list";
 					
-				} else if(action == "Edit") {
-					url = this.optionListURL + "edit";
-					msg = "옵션 수정";
-				}
+				} 
 
 				$.ajax({
 					type:"POST",
@@ -318,6 +315,11 @@ $(function() {
 			}, //end formValidate()
 			
 			selectData : function(params) { //start selectData()
+				var list = $('.form-area')[0];
+				for(var i=0; i<list.length; i++) {
+					list[i].classList.add('float-label');
+				}				
+				
 				var url = this.optionListURL + "select";
 				var data = {
 						"trimCode" : this.trimCode,
@@ -333,7 +335,7 @@ $(function() {
 					},
 					success:function(result){
 						result.carOptionCode = $("#soflow option:selected").val();
-						console.log(result)
+
 						app.mappingForm(result);
 					}
 				})	

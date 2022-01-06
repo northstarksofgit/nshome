@@ -100,6 +100,8 @@ public class ModelServlet extends SlingAllMethodsServlet {
 	        modelDto.setModelYear((String)request.getParameter("modelYear"));
 	        modelDto.setModelName((String)request.getParameter("modelName"));
 	        modelDto.setCarImagePath((String)request.getParameter("carImagePath"));
+	        modelDto.setSortOrder(Integer.parseInt(request.getParameter("sortOrder")));
+	        modelDto.setUseYn((String)request.getParameter("useYn"));
 	      
 	        LOG.info("modelDto {}", modelDto.getModelName());
 	        

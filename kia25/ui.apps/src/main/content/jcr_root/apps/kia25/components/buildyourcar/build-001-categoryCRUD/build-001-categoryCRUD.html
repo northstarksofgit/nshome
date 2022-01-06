@@ -81,6 +81,8 @@
                     <td>모델 년도</td>
                     <td>모델 이름</td>
                     <td>모델 이미지</td>
+                    <td>정렬 순서</td>
+                    <td>사용 여부</td>
                     <td></td>
                 </tr>
             </thead>
@@ -94,7 +96,15 @@
 	                    <td>${item.modelYear}</td>
 	                    <td>${item.modelName}</td>
 	                    <td><img style="height:100px;" src="${item.carImagePath}"></td>
-	                    <td><div class="btn update model" categoryCode="${item.categoryCode}" modelCode="${item.modelCode}" modelYear="${item.modelYear}" modelName="${item.modelName}">수정</div></td>
+	                    <td>${item.sortOrder}</td>
+	                    <td>${item.useYn}</td>
+	                    <td><div class="btn update model" 
+	                    		 categoryCode="${item.categoryCode}"
+	                    		 modelCode="${item.modelCode}" 
+	                    		 modelYear="${item.modelYear}" 
+	                    		 modelName="${item.modelName}"
+	                    		 sortOrder="${item.sortOrder}"
+	                    		 useYn="${item.useYn}">수정</div></td>
 	                </tr>
 				</sly>
 
@@ -142,6 +152,8 @@
             <input name="modelRegYear" type="text" placeholder="모델 년도"> 
             <input name="modelRegName" type="text" placeholder="모델 이름"> 
             <p>모델 이미지: </p><input type="text" name="modelRegImg" placeholder="모델 이미지"> 
+            <input name="modelRegOrder" type="text" placeholder="정렬 순서"> 
+            <input name="modelRegUseYn" type="text" placeholder="사용 여부"> 
             <div class="btn confirm">확인</div>
         </div>
     
@@ -153,7 +165,9 @@
            <p>모델 코드: </p><input type="text" class="modelCode"> 
            <p>모델 년도: </p><input type="text" class="modelYear"> 
            <p>모델 이름: </p><input type="text" class="modelName"> 
-           <p>모델 이미지: </p><input type="file"> 
+           <p>모델 이미지: </p><input type="text" class="modelImg"> 
+           <p>정렬 순서: </p><input type="text" class="modelOrder"> 
+           <p>사용 여부: </p><input type="text" class="modelUseYn"> 
            <div class="btn confirm">확인</div>
        </div>
         

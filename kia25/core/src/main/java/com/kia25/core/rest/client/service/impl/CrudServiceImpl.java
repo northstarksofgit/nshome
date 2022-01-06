@@ -416,6 +416,11 @@ public class CrudServiceImpl implements CrudService{
 	@Override
 	public String saveModel(ModelDto modelDto) {
 		
+		LOG.info(modelDto.toString());
+		LOG.info(modelDto.getUseYn());
+		LOG.info(Integer.toString(modelDto.getSortOrder()));
+		
+		
 		try {
 	        	
 	            ArrayList<NameValuePair> postParameters = new ArrayList<NameValuePair>();
@@ -424,6 +429,8 @@ public class CrudServiceImpl implements CrudService{
 	            postParameters.add(new BasicNameValuePair("modelYear", modelDto.getModelYear() ));
 	            postParameters.add(new BasicNameValuePair("modelName", modelDto.getModelName() ));
 	            postParameters.add(new BasicNameValuePair("carImagePath", modelDto.getCarImagePath() ));
+	            postParameters.add(new BasicNameValuePair("sortOrder", Integer.toString(modelDto.getSortOrder()) ));
+	            postParameters.add(new BasicNameValuePair("useYn", modelDto.getUseYn() ));
 	        	
 	            String response = service.sendPostRequest("db/model/save", postParameters);
 	            

@@ -32,7 +32,15 @@ public class ModelDto {
 	 */
 	private String carImagePath;
 	
+	/*
+	 * 정렬 순서
+	 */
+	private int sortOrder;
 	
+	/*
+	 * 사용 여부
+	 */
+	private String useYn;
 	
 	/**
 	 * getter / setter
@@ -80,6 +88,24 @@ public class ModelDto {
 	public void setModelName(String modelName) {
 		this.modelName = modelName;
 	}
+
+	public int getSortOrder() {
+		return sortOrder;
+	}
+
+	public void setSortOrder(int sortOrder) {
+		this.sortOrder = sortOrder;
+	}
+
+	public String getUseYn() {
+		return useYn;
+	}
+
+	public void setUseYn(String useYn) {
+		this.useYn = useYn;
+	}
+	
+	
 
 
 }

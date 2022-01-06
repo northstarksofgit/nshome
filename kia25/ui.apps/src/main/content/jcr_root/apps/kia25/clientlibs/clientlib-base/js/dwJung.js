@@ -930,7 +930,15 @@ function getModelList(){
 													<td>${result[i].modelYear}</td>
 													<td>${result[i].modelName}</td>
 													<td><img style="height:100px;" src="${result[i].carImagePath}"></td>
-													<td><div class="btn update model" categoryCode="${result[i].categoryCode}" modelCode="${result[i].modelCode}" modelYear="${result[i].modelYear}" modelName="${result[i].modelName}">수정</div></td>
+													<td>${result[i].sortOrder}</td>
+													<td>${result[i].useYn}</td>
+													<td><div class="btn update model" 
+															 categoryCode="${result[i].categoryCode}" 
+															 modelCode="${result[i].modelCode}" 
+															 modelYear="${result[i].modelYear}" 
+															 modelName="${result[i].modelName}"
+															 sortOrder="${result[i].sortOrder}"
+	                    		 							 useYn="${result[i].useYn}">수정</div></td>
 												</tr>
 												`
 			)}
@@ -975,7 +983,9 @@ $('.model.regBox > .confirm').on('click',function(){
 				"modelCode" : $('input[name=modelRegCode]').val(),
 				"modelYear" : $('input[name=modelRegYear]').val(),
 				"modelName" : $('input[name=modelRegName]').val(),
-				"carImagePath" : $('input[name=modelRegImg]').val()
+				"carImagePath" : $('input[name=modelRegImg]').val(),
+				"sortOrder" : $('input[name=modelRegOrder]').val(),
+				"useYn" : $('input[name=modelRegUseYn]').val()
 			};
 		
 	var traditional = false;

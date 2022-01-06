@@ -83,13 +83,11 @@ public class BuildYourCarServiceImpl implements BuildYourCarService {
 	@Override
 	public ModelDetailListDtoResults getModelDetailAPI(String modelCode, String modelYear) {
 		
-		String response = null;
-		
 		try {
 			String url = "build-your-car/trim-list";
 			
 			url += "?modelCode=" + modelCode;
-			response = service.getRequest(url);
+			String response = service.getRequest(url);
 			
 			LOG.debug("response={}", response);
 			ObjectMapper mapper = new ObjectMapper();

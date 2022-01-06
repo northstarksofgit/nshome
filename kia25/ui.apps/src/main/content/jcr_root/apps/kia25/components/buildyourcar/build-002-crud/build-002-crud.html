@@ -1,0 +1,110 @@
+
+<sly data-sly-use.detail="com.kia25.core.models.Build002CrudModel"></sly>
+
+<div class="content">
+
+	<!-- carGroup -->
+	<select name="carGroupSel">
+		<option value="carGroupCode">---- 선택 ----</option>
+		<option value="carGroupCode">carGroup 모델 코드</option>
+		<option value="carGroupName">전시 대표 차종명</option>
+	</select>
+
+	
+	<div class="searchDiv">
+		<input type="text" class="carGroupSearch" placeholder="검색어 입력">
+		<button class="searchBtn">검색</button>
+	</div>
+
+	<table class="carGroupTab">
+		<thead>
+			<tr>
+				<th>carGroup 모델 코드</th>
+				<th>전시 대표 차종명</th>
+				<th>모델 대표 이미지</th>
+				<th>정렬 순서</th>
+				<th>사용 유무</th>
+			</tr>		
+		</thead>
+		
+		<tbody>
+			<sly data-sly-list.group="${detail.carGroupList}">
+				<tr>
+					<td>${group.carGroupCode}</td>
+					<td>${group.carGroupName}</td>
+					<td>
+						<img src="${group.carImagePath}" style="height: 200px;">
+					</td>
+					<td>${group.sortOrder}</td>
+					<td>${group.useYn}</td>
+				</tr>
+			</sly>
+		</tbody>
+	
+	</table>
+
+
+
+
+
+
+	<!-- trim -->
+	<select name="trimSel">
+		<option value="carGroupCode">---- 선택 ----</option>
+		<option value="trimCode">트림코드</option>
+		<option value="trimName">트림명</option>
+		<option value="transmission">변속기</option>
+	</select>
+	
+	<div class="searchDiv">
+		<input type="text" class="carGroupSearch" placeholder="검색어 입력">
+		<button class="searchBtn">검색</button>
+	</div>
+
+	<table class="trimTab">
+		<thead>
+			<tr>
+				<th>carGroup 모델 코드</th>
+				<th>변속기 코드</th>
+				<th>트림 코드</th>
+				<th>트림명</th>
+				<th>상품 번호</th>
+				<th>추천 판매 가격</th>
+				<th>추천(베스트) 여부</th>
+				<th>복합 연비</th>
+				<th>바디타입 이름</th>
+				<th>엔진용량 이름</th>
+				<th>정렬 순서</th>
+				<th>사용 유무</th>
+			</tr>		
+		</thead>
+		
+		<tbody>
+			<sly data-sly-list.trim="${detail.trimList}">
+				<tr>
+					<td>${trim.carGroupCode}</td>
+					<td>${trim.transmissionCode}</td>
+					<td>${trim.trimCode}</td>
+					<td>${trim.trimName}</td>
+					<td>${trim.productCode}</td>
+					<td>${trim.sellingPrice}</td>
+					<td>${trim.bestYn}</td>
+					<td>${trim.compoundFuelEconomy}</td>
+					<td>${trim.bodyTypeName}</td>
+					<td>${trim.engineCapacityName}</td>
+					<td>${trim.sortOrder}</td>
+					<td>${trim.useYn}</td>
+				</tr>
+			</sly>
+		</tbody>
+	
+	</table>
+	
+
+
+
+
+
+
+
+</div>

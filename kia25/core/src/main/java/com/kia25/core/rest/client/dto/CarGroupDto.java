@@ -13,7 +13,7 @@ public class CarGroupDto {
 	private String carGroupCode;
 	
 	/**
-	 * 전시 대표차 종명
+	 * 전시 대표 차종명
 	 */
 	private String carGroupName;
 
@@ -21,6 +21,16 @@ public class CarGroupDto {
 	 * 모델 대표 이미지
 	 */
 	private String carImagePath;
+	
+	/**
+	 * 정렬 순서
+	 */
+	private int sortOrder;
+	
+	/**
+	 * 사용 유무
+	 */
+	private String useYn; 
 
 	
 	
@@ -52,7 +62,21 @@ public class CarGroupDto {
 		this.carImagePath = carImagePath;
 	}
 	
+	public int getSortOrder() {
+		return sortOrder;
+	}
 	
+	public void setSortOrder(int sortOrder) {
+		this.sortOrder = sortOrder;
+	}
+	
+	public String getUseYn() {
+		return useYn;
+	}
+	
+	public void setUseYn(String useYn) {
+		this.useYn = useYn;
+	}
 	
 
 }

@@ -2,5 +2,5 @@
 <jcr:root xmlns:cq="http://www.day.com/jcr/cq/1.0" xmlns:jcr="http://www.jcp.org/jcr/1.0"
     jcr:description="Build Your Car | Detail CRUD"
     jcr:primaryType="cq:Component"
-    jcr:title="build 002 CRUD"
+    jcr:title="build-002-CRUD"
     componentGroup="kia 2.5 - Build Your Car"/>

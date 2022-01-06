@@ -65,6 +65,16 @@ public class TrimDto {
 	 */
 	private String engineCapacityName;
 
+	/**
+	 * 정렬 순서
+	 */
+	private int sortOrder;
+	
+	/**
+	 * 사용 유무
+	 */
+	private String useYn; 
+
 
 
 	/**
@@ -150,6 +160,22 @@ public class TrimDto {
 
 	public void setEngineCapacityName(String engineCapacityName) {
 		this.engineCapacityName = engineCapacityName;
+	}
+	
+	public int getSortOrder() {
+		return sortOrder;
+	}
+
+	public void setSortOrder(int sortOrder) {
+		this.sortOrder = sortOrder;
+	}
+
+	public String getUseYn() {
+		return useYn;
+	}
+
+	public void setUseYn(String useYn) {
+		this.useYn = useYn;
 	}
 
 

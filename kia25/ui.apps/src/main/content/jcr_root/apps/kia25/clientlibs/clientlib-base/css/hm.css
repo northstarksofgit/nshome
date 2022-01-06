@@ -147,6 +147,7 @@ select#soflow {
    text-overflow: ellipsis;
    white-space: nowrap;
    width: 300px;
+   text-align: left !important;
 }
 
 
@@ -157,9 +158,8 @@ select#soflow {
   padding:0;
 }*/
 
-input,
-select,
-textarea {
+.modal-form
+select#soflow {
   display:inline-block;
   vertical-align:middle;
   width:170px;

@@ -120,7 +120,8 @@ $(function() {
 						list[i].classList.remove('float-label');
 					}				
 					
-					
+					$('[name=optionCode]').attr('readonly', false);
+					$('[name=carOptionCode]').attr('readonly', false);
 					$('.wrapper-form').css('display', 'block');
 					$('.btn-confirm').text("Save");
 					$('.form-area').css('display', 'block');
@@ -135,10 +136,13 @@ $(function() {
 					app.dataObj = app.returnData(tdList , mode);
 					app.selectData(app.dataObj);
 
+					$('[name=optionCode]').attr('readonly', true);
+					$('[name=carOptionCode]').attr('readonly', true);
+					$('.wrapper-form').css('display', 'block');
 					$('.btn-confirm').text("Edit");
 					$('.form-area').css('display', 'block');
 					$('.modal-header').css('text-align', '');
-					$('.modal-header').text(dataObj.optionName +" | Edit");
+					$('.modal-header').text(app.dataObj.optionName +" | Edit");
 					$('.modal').css('display', 'block');
 				})
 
@@ -199,8 +203,9 @@ $(function() {
 				if(action == "Save" || action == "Edit" ) {
 					var formData = $('.form-area').serializeArray();
 					data = ref.convertObject(formData);
-					ref.formValidate(data);
 					data.trimCode = this.trimCode;
+					
+					ref.formValidate(data);
 					url = this.optionListURL + "save";
 					msg = "옵션 저장";
 					
@@ -277,7 +282,6 @@ $(function() {
 			
 			mappingForm : function(dataObj) { //start mappingForm()
 				var formData = $('.form-area')[0];
-
 				for(var i=0; i<formData.length; i++){
 					if(formData[i].name) {
 						for(var j in dataObj) {
@@ -301,14 +305,15 @@ $(function() {
 			
 			formValidate : function(params) { //start formValidate()
 				var formData = $('.form-area')[0];
-				
 				for(var i=0; i<formData.length; i++) {
 					if(formData[i].attributes.required) {
 						if(!params[formData[i].name]) {
-							var label = $("input[name="+formData[i].name+"]").parent().find('label').attr('desc');
-							alert(label + "은(는) 필수 값 입니다.");
-							$("input[name="+formData[i].name+"]").focus();
-							return false;
+							if(!formData[i].value) {
+								var label = $("input[name="+formData[i].name+"]").parent().find('label').attr('desc');
+								alert(label + "은(는) 필수 값 입니다.");
+								$("input[name="+formData[i].name+"]").focus();
+								return false;
+							}
 						}
 					}
 				}

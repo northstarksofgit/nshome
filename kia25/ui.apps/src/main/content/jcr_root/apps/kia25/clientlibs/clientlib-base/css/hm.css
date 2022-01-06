@@ -266,3 +266,10 @@ textarea {
     margin-bottom: 30px;
 }
 
+
+.key-label {
+	color: #c60000 !important;
+	font-weight: bold;
+}
+
+

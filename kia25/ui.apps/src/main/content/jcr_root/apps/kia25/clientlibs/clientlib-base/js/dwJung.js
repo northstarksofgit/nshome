@@ -505,76 +505,85 @@ function preStep(){
 /*
 * crud page 관련 js
 */
+(function(){
+	bindingEvents();
+})();
 
-
-$('input[type="checkbox"]').on('click', function(){ 
+function bindingEvents(){
+	
+	
+	$('input[type="checkbox"]').on('click', function(){ 
                                 $(this).parents('tr').toggleClass('checkedTr');
                             });
 
-$('.modal').on('click', function(){
-                                $('.modal').css('display', 'none');
-                                $('.modal').find('.onModal').removeClass('onModal');
-								 return false;
-                        });
-
-
-
-
-$('.btn.reg.model').on('click', function(){ 
-                                    $('.modal').css('display', 'block');
-                                    $('.model.regBox').addClass('onModal');
-
-									$('.onModal').on('click', function(){
-                             	 			return false;
-                           			});
-
-
-                                });
-
-$('.btn.update.model').on('click', function(){ 
-                        $('.modal').css('display', 'block');
-                        $('.model.modBox').addClass('onModal');
-						
-						$('.onModal').on('click', function(){
-                 	 			return false;
-               			});
-
-
-						$('.onModal > .categoryCode').val($(this).attr('categoryCode'));
-						$('.onModal > .modelCode').text($(this).attr('modelCode'));
-						$('.onModal > .modelYear').text($(this).attr('modelYear'));
-						$('.onModal > .modelName').val($(this).attr('modelName'));
-						$('.onModal > .modelImg').val($(this).attr('carImagePath'));
-						$('.onModal > .modelOrder').val($(this).attr('sortOrder'));
-						$('.onModal > .modelUseYn').val($(this).attr('useYn'));
-
-                    });
-
-$('.btn.reg.cate').on('click', function(){ 
-                                            $('.modal').css('display', 'block');
-                                            $('.cate.regBox').addClass('onModal');
-
-											$('.onModal').on('click', function(){
+	$('.modal').on('click', function(){
+	                                $('.modal').css('display', 'none');
+	                                $('.modal').find('.onModal').removeClass('onModal');
+									 return false;
+	                        });
+	
+	
+	
+	
+	$('.btn.reg.model').on('click', function(){ 
+	                                    $('.modal').css('display', 'block');
+	                                    $('.model.regBox').addClass('onModal');
+	
+										$('.onModal').on('click', function(){
 	                             	 			return false;
-                           					});
+	                           			});
+	
+	
+	                                });
+	
+	$('.btn.update.model').on('click', function(){ 
+	                        $('.modal').css('display', 'block');
+	                        $('.model.modBox').addClass('onModal');
+							
+							$('.onModal').on('click', function(){
+	                 	 			return false;
+	               			});
+	
+	
+							$('.onModal > .categoryCode').val($(this).attr('categoryCode'));
+							$('.onModal > .modelCode').text($(this).attr('modelCode'));
+							$('.onModal > .modelYear').text($(this).attr('modelYear'));
+							$('.onModal > .modelName').val($(this).attr('modelName'));
+							$('.onModal > .modelImg').val($(this).attr('carImagePath'));
+							$('.onModal > .modelOrder').val($(this).attr('sortOrder'));
+							$('.onModal > .modelUseYn').val($(this).attr('useYn'));
+	
+	                    });
+	
+	$('.btn.reg.cate').on('click', function(){ 
+	                                            $('.modal').css('display', 'block');
+	                                            $('.cate.regBox').addClass('onModal');
+	
+												$('.onModal').on('click', function(){
+		                             	 			return false;
+	                           					});
+	
+	                                        });
+	
+	$('.btn.update.cate').on('click', function(){ 
+										
+										
+	                                    $('.modal').css('display', 'block');
+	                                    $('.cate.modBox').addClass('onModal');
+	
+										$('.onModal').on('click', function(){
+	                             	 			return false;
+	                           			});
+	
+										$('.onModal > .categoryCode').text($(this).attr('categoryCode'));
+										$('.onModal > .categoryName').val($(this).attr('categoryName'));
+										$('.onModal > .categoryOrder').val($(this).attr('sortOrder'));
+										$('.onModal > .categoryUseYn').val($(this).attr('useYn'));
+	                                });
 
-                                        });
+}
 
-$('.btn.update.cate').on('click', function(){ 
-									
-									
-                                    $('.modal').css('display', 'block');
-                                    $('.cate.modBox').addClass('onModal');
 
-									$('.onModal').on('click', function(){
-                             	 			return false;
-                           			});
-
-									$('.onModal > .categoryCode').text($(this).attr('categoryCode'));
-									$('.onModal > .categoryName').val($(this).attr('categoryName'));
-									$('.onModal > .categoryOrder').val($(this).attr('sortOrder'));
-									$('.onModal > .categoryUseYn').val($(this).attr('useYn'));
-                                });
 
 
 
@@ -652,21 +661,7 @@ function getCategoryList(){
 
 			}
 			
-			$('.btn.update.cate').on('click', function(){ 
-									
-									
-                                    $('.modal').css('display', 'block');
-                                    $('.cate.modBox').addClass('onModal');
-
-									$('.onModal').on('click', function(){
-                             	 			return false;
-                           			});
-
-									$('.onModal > .categoryCode').text($(this).attr('categoryCode'));
-									$('.onModal > .categoryName').val($(this).attr('categoryName'));
-									$('.onModal > .categoryOrder').val($(this).attr('sortOrder'));
-									$('.onModal > .categoryUseYn').val($(this).attr('useYn'));
-                                });
+			bindingEvents();
 
 
 			
@@ -815,7 +810,7 @@ $('.sConfirm').on('click', function(){
 //	}, 1000)
 	
 	categoryFilter();
-		
+	bindingEvents();
 
 })
 
@@ -972,29 +967,7 @@ function getModelList(){
 												`
 			)}
 			
-			$('input[type="checkbox"]').on('click', function(){ 
-                                $(this).parents('tr').toggleClass('checkedTr');
-                            });
-
-
-			$('.btn.update.model').on('click', function(){ 
-                                    $('.modal').css('display', 'block');
-                                    $('.model.modBox').addClass('onModal');
-									
-									$('.onModal').on('click', function(){
-                             	 			return false;
-                           			});
-
-
-									$('.onModal > .categoryCode').val($(this).attr('categoryCode'));
-									$('.onModal > .modelCode').text($(this).attr('modelCode'));
-									$('.onModal > .modelYear').text($(this).attr('modelYear'));
-									$('.onModal > .modelName').val($(this).attr('modelName'));
-									$('.onModal > .modelImg').val($(this).attr('carImagePath'));
-									$('.onModal > .modelOrder').val($(this).attr('sortOrder'));
-									$('.onModal > .modelUseYn').val($(this).attr('useYn'));
-
-                                });
+			bindingEvents();
 
 
 	}
@@ -1156,7 +1129,8 @@ $('.mConfirm').on('click', function(){
 //  모델 리스트 갱신
 
 	setTimeout(function(){
-		modelFilter();	
+		modelFilter();
+		bindingEvents();	
 	}, 200)
 
 	
@@ -1251,11 +1225,7 @@ function modelFilter(){
 					</tr>
 				`
 	)}
-			
-	$('input[type="checkbox"]').on('click', function(){ 
-                        $(this).parents('tr').toggleClass('checkedTr');
-                    });
-	
+
 	
 }
 

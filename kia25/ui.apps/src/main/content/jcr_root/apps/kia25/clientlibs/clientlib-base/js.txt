@@ -16,18 +16,22 @@
 
 #base=/apps/kia25/clientlibs/clientlib-base
 
-#js/lib.js
-#js/clientlib.min.js
-#js/common.js
-#js/default_script.min.js
-
-js/lib/jquery.js
-js/hm-script.js
-#js/hm-crud.js
-js/how-to-buy.js
-js/dwJung.js
-js/dain.js
+## ckh js ##
 js/ckh.js
-js/vue.js
+
+### dwJung js ###
+js/dwJung.js
+
+###dain js ###
+js/dain.js
+
+### hm ###
 js/hm-vue.js
+js/hm-script.js
+js/how-to-buy.js
+#js/hm-crud.js
+
+
+### library js ###
+js/lib/vue.js
 js/lib/datatables.min.js

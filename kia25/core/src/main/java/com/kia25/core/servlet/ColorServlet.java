@@ -4,7 +4,9 @@ import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.ArrayList;
 import java.util.Comparator;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import javax.servlet.Servlet;
 import javax.servlet.ServletException;
@@ -26,6 +28,9 @@ import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.google.gson.Gson;
 import com.kia25.core.rest.client.dto.ColorDto;
+import com.kia25.core.rest.client.dto.ModelDto;
+import com.kia25.core.rest.client.dto.OptionDto;
+import com.kia25.core.rest.client.dto.TrimDto;
 import com.kia25.core.rest.client.service.CrudService;
 import com.kia25.core.rest.client.service.impl.CrudServiceImpl;
 
@@ -52,62 +57,46 @@ public class ColorServlet extends SlingAllMethodsServlet {
 
 		LOG.info("###### ColorServlet doPost started #####");
 
-		/*
-		 * URL path별로 사용할 API분기 처리
-		 */
 		String path = request.getRequestURI();
 		path = path.substring(path.lastIndexOf("/") + 1);
 
 		if (path.equals("list")) {
-
-			/*
-			 * save model
-			 */
 			
-			listColor();
-			
+			listColor(request, response);
 
 		} else if (path.equals("save")) {
 
-			/*
-			 * save model
-			 */
-			
 			saveColor(request, response);
-			
 			
 		} else if (path.equals("delete")) {
 
-			/*
-			 * delete model
-			 */
-			
 			deleteColor(request, response);
 			
 		}
 
 	}
 
-	private void listColor() throws IOException {
+	public List<ColorDto> listColor(SlingHttpServletRequest request, SlingHttpServletResponse response) throws IOException {
+		
+		ObjectMapper mapper = new ObjectMapper();
+    	String parameter = request.getParameter("data");
 
-		try {
+    	ColorDto colorParams = mapper.readValue(parameter, ColorDto.class);
 
-			String modelCode = request.getParameter("modelCode")==null ? "" : request.getParameter("modelCode");
-			String trimCode = request.getParameter("trimCode")==null ? "" : request.getParameter("trimCode");
-			String carOptionCode = request.getParameter("carOptionCode")==null ? "" : request.getParameter("carOptionCode");
-			String modelYear = request.getParameter("modelYear")==null ? "" : request.getParameter("modelYear");
-			String searchWord = request.getParameter("searchWord")==null ? "" : request.getParameter("searchWord");
-
-		 	colorList = (crudService.searchColorListAPI(modelCode, trimCode, carOptionCode, modelYear, searchWord));
-		 	
-		 	LOG.info("###### List started #####");
-			System.out.println("listColor message");
-			
-		} catch (Exception ex) {
-			ex.printStackTrace();
-			System.out.println("error Msg ***" + ex.getMessage());
-		}
-
+    	
+		Map<String,Object> dataMaps = new HashMap<>();
+		List<ColorDto> result = crudService.listColor(colorParams);
+    	TrimDto select = crudService.getSelectTrimAPI(colorParams.getTrimCode().toString());
+    	
+		dataMaps.put("list", result);
+		dataMaps.put("select", select);
+		
+        String json = new Gson().toJson(dataMaps);
+	    
+        response.setContentType("application/json");
+        PrintWriter out = response.getWriter();
+        out.println(json);
+        return result;
 	}
 
 	private void saveColor(SlingHttpServletRequest request, SlingHttpServletResponse response) throws IOException {
@@ -117,46 +106,12 @@ public class ColorServlet extends SlingAllMethodsServlet {
 		String result = "";
 		String redirect = request.getParameter("redirect");
 		String parameter = request.getParameter("data");
+		
+		
+		ColorDto optionParams = mapper.readValue(parameter, ColorDto.class);
 
-		LOG.info("param: " + parameter);
-		LOG.info("###### Save started #####");
-		System.out.println("saveColor message");
-
-		ArrayList<ColorDto> colorList = mapper.readValue(parameter, new TypeReference<ArrayList<ColorDto>>() {});
-
-		for (ColorDto m : colorList) {
-			result = crudService.saveColor(m);
-		}
-
-		if (result != null) {
-			response.setHeader("Location", redirect);
-			PrintWriter out = response.getWriter();
-			out.println(result);
-			return;
-
-		} else {
-			response.sendError(HttpServletResponse.SC_BAD_REQUEST);
-		}
-
-	}
-
-	private void deleteColor(SlingHttpServletRequest request, SlingHttpServletResponse response) throws IOException {
-
-		ObjectMapper mapper = new ObjectMapper();
-
-		String result = "";
-		String redirect = request.getParameter("redirect");
-		String parameter = request.getParameter("data");
-
-		LOG.info("param: " + parameter);
-		LOG.info("###### Delete started #####");
-		System.out.println("deleteColor message");
-
-		ArrayList<ColorDto> colorList = mapper.readValue(parameter, new TypeReference<ArrayList<ColorDto>>() {});
-
-		for (ColorDto m : colorList) {
-			result = crudService.deleteColor(m);
-		}
+		result = crudService.saveColor(optionParams);
+		
 
 		if (result != null) {
 			response.setHeader("Location", redirect);
@@ -170,8 +125,33 @@ public class ColorServlet extends SlingAllMethodsServlet {
 
 	}
 	
-	public List<ColorDto> getColorList() {
-		return colorList;
-	}
+	private void deleteColor(SlingHttpServletRequest request, SlingHttpServletResponse response) throws IOException {
 
+		ObjectMapper mapper = new ObjectMapper();
+
+		String result = "";
+		String redirect = request.getParameter("redirect");
+		String parameter = request.getParameter("data");
+
+		ColorDto colorParams = mapper.readValue(parameter, ColorDto.class);
+		result = crudService.deleteColor(colorParams);
+		
+//		ArrayList<ColorDto> colorList = mapper.readValue(parameter, new TypeReference<ArrayList<ColorDto>>() {});
+//
+//		for (ColorDto m : colorList) {
+//			result = crudService.deleteColor(m);
+//		}
+
+		if (result != null) {
+			response.setHeader("Location", redirect);
+			PrintWriter out = response.getWriter();
+			out.println(result);
+			return;
+
+		} else {
+			response.sendError(HttpServletResponse.SC_BAD_REQUEST);
+		}
+
+	}
+	
 }

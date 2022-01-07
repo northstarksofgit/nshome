@@ -1,14 +1,53 @@
 <sly data-sly-use.color="com.kia25.core.models.Build003CrudModel"></sly>
 <style>
-body,html{margin:0;font-size:1pc;font-family:Helvetica Neue,Helvetica,Arial,sans-serif;line-height:1.5;color:#202020;background:#ececec;}@media(prefers-color-scheme:dark){body,html{color:#dfdfdf;background: #ffffff;}}a{color:#2020e0}@media(prefers-color-scheme:dark){a{color:#dfdf1f}}button,input,optgroup,select,textarea{font:inherit}.cmp-helloworld__item-label{margin-bottom:0}.cmp-helloworld__item-output{margin-top:0}.cmp-navigation__item--level-0:hover>.cmp-navigation__group{background:#ececec}main.container{padding:.5em 1em}footer.experiencefragment{padding:.5em 1em;border-top:1px solid #202020}@media(prefers-color-scheme:dark){footer.experiencefragment{border-color:#dfdfdf}}footer.experiencefragment .cmp-separator__horizontal-rule{margin:0;border:0}header.experiencefragment{padding:.5em 1em;border-bottom:1px solid #202020}@media(prefers-color-scheme:dark){header.experiencefragment{border-bottom-color:#dfdfdf}}header.experiencefragment a{color:#202020;text-decoration:none}@media(prefers-color-scheme:dark){header.experiencefragment a{color:#dfdfdf}}header.experiencefragment a:focus,header.experiencefragment a:hover{color:#2020e0;text-decoration:underline}@media(prefers-color-scheme:dark){header.experiencefragment a:focus,header.experiencefragment a:hover{color:#dfdf1f}}header.experiencefragment .cmp-container{display:grid;grid-template-columns:4fr 1fr 1fr}header.experiencefragment .cmp-navigation__group{margin:0;padding:0;list-style:none}header.experiencefragment .cmp-navigation__item--level-0{display:grid;grid-template-columns:1fr 3fr}header.experiencefragment .cmp-navigation__item--level-0>.cmp-navigation__group{display:grid;grid-template-columns:repeat(3,1fr)}header.experiencefragment .cmp-navigation__item-link{display:block}header.experiencefragment .cmp-navigation__item--active>.cmp-navigation__item-link{font-weight:700}header.experiencefragment .cmp-languagenavigation{position:relative}header.experiencefragment .cmp-languagenavigation:before{content:" ";display:block;height:1.5em;background-image:url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path fill="rgb(32,32,32)" d="M12.1,0.2h-0.1c-3.1,0-6.1,1.3-8.3,3.5C1.4,6,0.2,8.9,0.2,12.1c0,3.1,1.3,6.1,3.5,8.3c2.2,2.2,5.1,3.4,8.3,3.4 c0,0,0,0,0.1,0c6.5,0,11.7-5.3,11.7-11.8C23.7,5.5,18.5,0.3,12.1,0.2z M18.3,11.5c-0.1-1.4-0.3-2.8-0.7-4.1C18.5,7,19.4,6.5,20.3,6 c1.1,1.6,1.9,3.5,2,5.5H18.3z M22.2,12.5c-0.1,2.1-0.8,4-2,5.5c-0.8-0.6-1.7-1-2.6-1.4c0.3-1.1,0.6-2.2,0.7-3.3c0-0.3,0-0.5,0-0.8 H22.2z M19.6,5.2c-0.8,0.5-1.6,0.9-2.4,1.3c-0.6-1.4-1.4-2.7-2.3-3.8c-0.2-0.2-0.4-0.4-0.6-0.6C16.4,2.5,18.3,3.7,19.6,5.2z M12.8,22.2c-0.1,0-0.2,0-0.3,0v-5.7c1.3,0,2.6,0.3,3.8,0.7C15.6,19.1,14.3,20.8,12.8,22.2z M9.9,20.8c-0.9-1.1-1.7-2.3-2.2-3.6 c1.2-0.4,2.5-0.6,3.8-0.7v5.7c-0.1,0-0.2,0-0.3,0C10.7,21.8,10.3,21.3,9.9,20.8z M11.4,1.8c0,0,0.1,0,0.1,0v5.7 c-1.3,0-2.6-0.3-3.8-0.7C8.5,4.9,9.7,3.2,11.4,1.8z M14.1,3.3c0.9,1.1,1.6,2.3,2.2,3.5c-1.2,0.4-2.5,0.6-3.8,0.7V1.8 c0.1,0,0.1,0,0.2,0C13.2,2.2,13.7,2.7,14.1,3.3z M16.7,7.7c0.4,1.2,0.6,2.5,0.7,3.8h-4.8V8.4C13.9,8.4,15.3,8.2,16.7,7.7z M11.5,8.4 v3.1H6.7C6.7,10.2,7,9,7.4,7.7C8.7,8.2,10.1,8.4,11.5,8.4z M11.5,12.5v3.1c-1.4,0-2.8,0.3-4.2,0.7c-0.4-1.2-0.6-2.5-0.7-3.8H11.5z M12.5,15.6v-3.1h4.8c0,0.2,0,0.5,0,0.7c-0.1,1.1-0.3,2.1-0.6,3.1C15.3,15.8,13.9,15.6,12.5,15.6z M9.6,2C8.4,3.3,7.4,4.8,6.8,6.5 C5.9,6.1,5.1,5.7,4.4,5.2c0.1-0.1,0.2-0.3,0.4-0.4C6.1,3.4,7.8,2.5,9.6,2z M5.7,11.5H1.8c0.1-2,0.8-3.9,1.9-5.5 C4.6,6.5,5.5,7,6.4,7.4C6,8.7,5.7,10.1,5.7,11.5z M6.4,16.6C5.5,17,4.6,17.5,3.7,18c-1.2-1.6-1.9-3.5-1.9-5.5h3.9 C5.7,13.9,5.9,15.3,6.4,16.6z M4.4,18.8c0.8-0.5,1.5-0.9,2.4-1.3c0.6,1.4,1.4,2.7,2.4,3.9c0.1,0.2,0.3,0.3,0.4,0.5 c-1.8-0.4-3.4-1.3-4.7-2.7C4.6,19.1,4.5,19,4.4,18.8z M14.5,21.9c1.2-1.3,2.1-2.8,2.8-4.4c0.8,0.3,1.6,0.8,2.4,1.2 C18.3,20.3,16.5,21.4,14.5,21.9z"/></svg>');background-repeat:no-repeat}@media(prefers-color-scheme:dark){header.experiencefragment .cmp-languagenavigation:before{background-image:url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path fill="rgb(223,223,223)" d="M12.1,0.2h-0.1c-3.1,0-6.1,1.3-8.3,3.5C1.4,6,0.2,8.9,0.2,12.1c0,3.1,1.3,6.1,3.5,8.3c2.2,2.2,5.1,3.4,8.3,3.4 c0,0,0,0,0.1,0c6.5,0,11.7-5.3,11.7-11.8C23.7,5.5,18.5,0.3,12.1,0.2z M18.3,11.5c-0.1-1.4-0.3-2.8-0.7-4.1C18.5,7,19.4,6.5,20.3,6 c1.1,1.6,1.9,3.5,2,5.5H18.3z M22.2,12.5c-0.1,2.1-0.8,4-2,5.5c-0.8-0.6-1.7-1-2.6-1.4c0.3-1.1,0.6-2.2,0.7-3.3c0-0.3,0-0.5,0-0.8 H22.2z M19.6,5.2c-0.8,0.5-1.6,0.9-2.4,1.3c-0.6-1.4-1.4-2.7-2.3-3.8c-0.2-0.2-0.4-0.4-0.6-0.6C16.4,2.5,18.3,3.7,19.6,5.2z M12.8,22.2c-0.1,0-0.2,0-0.3,0v-5.7c1.3,0,2.6,0.3,3.8,0.7C15.6,19.1,14.3,20.8,12.8,22.2z M9.9,20.8c-0.9-1.1-1.7-2.3-2.2-3.6 c1.2-0.4,2.5-0.6,3.8-0.7v5.7c-0.1,0-0.2,0-0.3,0C10.7,21.8,10.3,21.3,9.9,20.8z M11.4,1.8c0,0,0.1,0,0.1,0v5.7 c-1.3,0-2.6-0.3-3.8-0.7C8.5,4.9,9.7,3.2,11.4,1.8z M14.1,3.3c0.9,1.1,1.6,2.3,2.2,3.5c-1.2,0.4-2.5,0.6-3.8,0.7V1.8 c0.1,0,0.1,0,0.2,0C13.2,2.2,13.7,2.7,14.1,3.3z M16.7,7.7c0.4,1.2,0.6,2.5,0.7,3.8h-4.8V8.4C13.9,8.4,15.3,8.2,16.7,7.7z M11.5,8.4 v3.1H6.7C6.7,10.2,7,9,7.4,7.7C8.7,8.2,10.1,8.4,11.5,8.4z M11.5,12.5v3.1c-1.4,0-2.8,0.3-4.2,0.7c-0.4-1.2-0.6-2.5-0.7-3.8H11.5z M12.5,15.6v-3.1h4.8c0,0.2,0,0.5,0,0.7c-0.1,1.1-0.3,2.1-0.6,3.1C15.3,15.8,13.9,15.6,12.5,15.6z M9.6,2C8.4,3.3,7.4,4.8,6.8,6.5 C5.9,6.1,5.1,5.7,4.4,5.2c0.1-0.1,0.2-0.3,0.4-0.4C6.1,3.4,7.8,2.5,9.6,2z M5.7,11.5H1.8c0.1-2,0.8-3.9,1.9-5.5 C4.6,6.5,5.5,7,6.4,7.4C6,8.7,5.7,10.1,5.7,11.5z M6.4,16.6C5.5,17,4.6,17.5,3.7,18c-1.2-1.6-1.9-3.5-1.9-5.5h3.9 C5.7,13.9,5.9,15.3,6.4,16.6z M4.4,18.8c0.8-0.5,1.5-0.9,2.4-1.3c0.6,1.4,1.4,2.7,2.4,3.9c0.1,0.2,0.3,0.3,0.4,0.5 c-1.8-0.4-3.4-1.3-4.7-2.7C4.6,19.1,4.5,19,4.4,18.8z M14.5,21.9c1.2-1.3,2.1-2.8,2.8-4.4c0.8,0.3,1.6,0.8,2.4,1.2 C18.3,20.3,16.5,21.4,14.5,21.9z"/></svg>')}}header.experiencefragment .cmp-languagenavigation>.cmp-languagenavigation__group{visibility:hidden;-webkit-transition-delay:.5s;transition-delay:.5s;position:absolute;top:34px;width:20em;padding:0 8px;border:1px solid #202020;border-top:0;background:#ececec}@media(prefers-color-scheme:dark){header.experiencefragment .cmp-languagenavigation>.cmp-languagenavigation__group{border-color:#dfdfdf;background:#131313}}header.experiencefragment .cmp-languagenavigation:hover>.cmp-languagenavigation__group{visibility:visible;-webkit-transition-delay:0s;transition-delay:0s}header.experiencefragment .cmp-languagenavigation__group{margin:0;padding:0;list-style:none}header.experiencefragment .cmp-languagenavigation__item-title{font-size:x-small;text-transform:uppercase}header.experiencefragment .cmp-languagenavigation__item--level-0{margin-bottom:.5em}header.experiencefragment .cmp-languagenavigation__item--level-1{display:inline}header.experiencefragment .cmp-languagenavigation__item--level-1:not(:first-child):before{content:" | "}header.experiencefragment .cmp-languagenavigation__item--active>.cmp-languagenavigation__item-link{font-weight:700}header.experiencefragment .cmp-search__field{display:-webkit-box;display:-ms-flexbox;display:flex;margin:-3px 0}header.experiencefragment .cmp-search__input{height:26px}
+ body, html, input {
+    background:#efefef;
+    color: #000000;
+    background: #efefef;
+}
+table.type07 {
+  border-collapse: collapse;
+  text-align: left;
+  line-height: 1.5;
+  border: 1px solid #ccc;
+  margin: 20px 10px;
+}
+table.type07 thead {
+  border-right: 1px solid #ccc;
+  border-left: 1px solid #ccc;
+  background: #BDBDBD;
+}
+table.type07 thead th {
+  padding: 10px;
+  font-weight: bold;
+  text-align: center;
+  vertical-align: top;
+  color: #000000;
+}
+table.type07 tbody th {
+  width: 150px;
+  padding: 10px;
+  font-weight: bold;
+  vertical-align: top;
+  border-bottom: 1px solid #ccc;
+  background: #efefef;
+}
+table.type07 td {
+  width: 350px;
+  padding: 10px;
+  vertical-align: top;
+  border-bottom: 1px solid #ccc;
+}
 </style>
 
 <!-- http://localhost:4502/content/kia25/us/en/page03_crud.html?modelCode=EV6&trimCode=LRA&carOptionCode=E&modelYear=2021 -->
-
 <div class="row">
-	<form name="FrmSearch" method="post">  
+	<form name="FrmSearch">  
 	  <input type="hidden" name="trimCode" id="trimCode"  value="">
-		<table id="example-table-1" width="100%">
+	  <input type="hidden" name="modelCode" id="modelCode"  value="">
+	  
+	  <span class="trim-info"></span>
+		<table class="type07">
 	        <thead>
 	            <tr>
 	            <td>검 색</td>
@@ -25,7 +64,7 @@ body,html{margin:0;font-size:1pc;font-family:Helvetica Neue,Helvetica,Arial,sans
 	    </table>
 	</form>
     
-    <table id="example-table-1" width="100%">
+    <table  id="resultList" class="type07" width="100%" border="1">
         <thead>
             <tr>
                 <th>순서</th>
@@ -39,33 +78,11 @@ body,html{margin:0;font-size:1pc;font-family:Helvetica Neue,Helvetica,Arial,sans
             </tr>
         </thead>
         <tbody>
-            <sly data-sly-list.colorinlist="${color.colorList @ begin=0, end=10}">
-                <tr>
-                    <td align="center">${colorinlistList.count}</td>
-                    <td align="center"><img src="${colorinlist.carImagePath}" width="80"></td>
-                    <td align="center">${colorinlist.colorCode}</td>
-                    <td>${colorinlist.colorName} </td>
-                    <td align="right">${'###,###' @ format=colorinlist.colorPrice, type='number'} </td>                    
-                    <td align="center"><img src="${colorinlist.colorImagePath != null ? colorinlist.colorImagePath : ''}" width="80"></td>                    
-                    <td align="center">${colorinlist.bestYn}</td>
-                    <td style="text-align: center;">
-                        <button class="btn btn-edit" id="button">Edit</button>
-                    </td>
-                </tr>
-                <input type="hidden" id="trimCodeList" name="trimCodeList" value="${colorinlist.trimCode}">
-                <input type="hidden" id="carImagePathList"  name="carImagePathList" value="${colorinlist.carImagePath}">
-                <input type="hidden" id="carOptionCodeList"  name="carOptionCodeList" value="${colorinlist.carOptionCode}">
-                <input type="hidden" id="colorCodeList" name="colorCodeList" value="${colorinlist.colorCode}">
-                <input type="hidden" id="colorNameList" name="colorNameList" value="${colorinlist.colorName}">
-                <input type="hidden" id="colorPriceList" name="colorPriceList" value="${colorinlist.colorPrice}">
-                <input type="hidden" id="colorImagePathList" name="colorImagePathList" value="${colorinlist.colorImagePath}">
-                <input type="hidden" id="bestYnList" name="bestYnList" value="${colorinlist.bestYn}">
-                <input type="hidden" id="countList" name="countList" value="${colorinlistList.count}">
-            </sly>
+             
         </tbody>
     </table>
     
-    <form name="Frm" method="post">        
+    <form name="Frm">        
     <table id="example-table-1" width="100%">
         <thead>
             <tr>
@@ -104,12 +121,11 @@ body,html{margin:0;font-size:1pc;font-family:Helvetica Neue,Helvetica,Arial,sans
 
 <script type="text/javascript">
  
-$("button").click(function() {
-  var getCount = $("button").index(this)-2;
-  var Count = (getCount).toString();
-  areaCopy(Count);
-  
+$(document).ready(function() {
+	topSearch();
 });
+
+ 
 
 function areaCopy(Count){
 	var f = document.Frm;
@@ -137,6 +153,10 @@ function areaCopy(Count){
 	return false;
 }
 
+function refreshMemList(){
+	location.reload();
+}
+
 function areaSave(){
 	var f = document.Frm;
 	if (f.colorCode.value.trim() == ""){ 
@@ -144,12 +164,46 @@ function areaSave(){
 		f.colorCode.focus(); 
 		return false;
 	}
-
-	f.action = "http://192.168.31.86:9090/db/color/save";
-	f.target = "hiddenZone";	
-	f.submit();
 	
-	window.parent.location.reload();
+	var search = location.search
+	var params = new URLSearchParams(search);
+	var gettrimCode = params.get('trimCode');
+	var getcarOptionCode = params.get('carOptionCode');
+	var colorCode = $("#colorCode").val();
+	
+	var carImagePath = $("#carImagePath").val();
+	var colorName = $("#colorName").val();
+	var colorPrice = $("#colorPrice").val();
+	var bestYn = $("#bestYn").val();
+	var colorImagePath = $("#colorImagePath").val();
+	
+	var data = {
+	   		  "trimCode"    		: gettrimCode
+	   		, "carOptionCode"       : getcarOptionCode
+	   		, "colorCode"       	: colorCode
+	   		, "carImagePath"       	: carImagePath
+	   		, "colorName"       	: colorName
+	   		, "colorPrice"       	: colorPrice
+	   		, "bestYn"       		: bestYn
+	   		, "colorImagePath"      : colorImagePath
+	   }
+		data = JSON.stringify(data)
+		
+		$.ajax({
+			type:"POST",
+			url : "/services/color/save",
+			data: {
+				data : data
+			},
+			success:function(data){
+				
+			},
+			complete : function() {
+				refreshMemList();
+		    }
+ 
+		});
+	
 }
 
 function areaDel(){
@@ -164,11 +218,41 @@ function areaDel(){
 		return false;
 	}
 	
-	f.action = "http://192.168.31.86:9090/db/color/delete";
-	f.target = "hiddenZone";
-	f.submit();
+	var search = location.search
+	var params = new URLSearchParams(search);
+	var gettrimCode = params.get('trimCode');
+	var getcarOptionCode = params.get('carOptionCode');
+	var colorCodeList = $("#colorCodeList").val();
 	
-	window.parent.location.reload();
+	
+	var data = {
+	   		  "trimCode"    		: gettrimCode
+	   		, "colorCode"       	: colorCodeList
+	   		, "carOptionCode"       : getcarOptionCode
+	   }
+		data = JSON.stringify(data)
+		
+	  $.ajax({
+					type:"POST",
+					url : "/services/color/delete",
+					data: {
+						data : data
+					},
+					success:function(result){
+						
+					},
+					complete : function() {
+						refreshMemList();
+				    }
+				});	
+	
+//	f.method ="post";
+//	f.action = "/services/color/delete";
+//	f.action = "http://kwang.northstar.co.kr/db/color/delete";
+//	f.target = "hiddenZone";
+//	f.submit();
+	
+//	window.parent.location.reload();
 }
 
 function topSearch(){
@@ -177,59 +261,70 @@ function topSearch(){
 	var search = location.search
 	var params = new URLSearchParams(search);
 	var gettrimCode = params.get('trimCode');
+	var getmodelCode = params.get('modelCode');
 	
 	f.trimCode.value = gettrimCode;
+	f.modelCode.value = getmodelCode;
 	
-	if (f.searchWord.value.trim() == ""){ 
+	/* if (f.searchWord.value.trim() == ""){ 
 		alert("searchWord - 입력"); 
 		return false;
-	}
-	
-	/* if (!confirm("진짜해?")){
-		return false;
-	}
-	
-	if (!confirm("다시 생각해바!!")){
-		return false;
-	}
-	
-	alert("궁서체로 입력되지 않아 \n시스템이 정중히 거부하였습니다.");
-	return false; */
-	
-	f.action = "http://192.168.31.86:9090/db/color/list";
-	//f.target = "hiddenZone";
-	f.submit();
-	
-	//window.parent.location.reload();
+	} */
+ 
+	var search = location.search
+	var params = new URLSearchParams(search);
+	var gettrimCode = params.get('trimCode');
+	var getmodelCode = params.get('modelCode');
+	var getcarOptionCode = $("#carOptionCode").val();
+	var getsearchWord = params.get('searchWord');
+
+	var data = {
+	   		  "trimCode"    		: gettrimCode
+	   		, "modelCode"       	: getmodelCode
+	   		, "carOptionCode"       : getcarOptionCode
+	   		, "searchWord"       	: getsearchWord
+	   }
+		data = JSON.stringify(data)
+		
+	  $.ajax({
+					type:"POST",
+					url : "/services/color/list",
+					 async: false,
+					data: {
+						data : data
+					},
+					success:function(data){
+						 var resultHtml = "";
+						 var imgsize ="80";
+						 $("#resultList tbody").empty();
+						 
+				            for(var i = 0; i < data.list.length; i++) {
+				            	j = i+1;
+				                resultHtml += "<tr>";
+				                resultHtml += '<td>'+ j +'</td>';
+				                resultHtml += '<td><img src="'+ data.list[i].carImagePath +'" width="'+imgsize+'"></td>';
+				                resultHtml += '<td>'+data.list[i].colorCode+'</td>';
+				                resultHtml += '<td>'+data.list[i].colorName+'</td>';
+				                resultHtml += '<td>'+parseInt(data.list[i].colorPrice).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',')+'</td>';
+				                resultHtml += '<td><img src="'+data.list[i].colorImagePath+'" width="'+imgsize+'"></td>';
+				                resultHtml += '<td>'+data.list[i].bestYn+'</td>';
+				                resultHtml += '<td><button class=btn btn-edit id=button onClick="areaCopy('+i+')">Edit</button></td>';
+				                resultHtml += '</tr>';
+				                
+				                resultHtml += '<input type="hidden" id="trimCodeList" name="trimCodeList" value="'+gettrimCode+'"> ';
+				                resultHtml += '<input type="hidden" id="carImagePathList"  name="carImagePathList" value="'+data.list[i].carImagePath+'">';
+				                resultHtml += '<input type="hidden" id="carOptionCodeList"  name="carOptionCodeList" value="'+getcarOptionCode+'">';
+				                resultHtml += '<input type="hidden" id="colorCodeList" name="colorCodeList" value="'+data.list[i].colorCode+'">';
+				                resultHtml += '<input type="hidden" id="colorNameList" name="colorNameList" value="'+data.list[i].colorName+'">';
+				                resultHtml += '<input type="hidden" id="colorPriceList" name="colorPriceList" value="'+data.list[i].colorPrice+'">';
+				                resultHtml += '<input type="hidden" id="colorImagePathList" name="colorImagePathList" value="'+data.list[i].colorImagePath+'">';
+				                resultHtml += '<input type="hidden" id="bestYnList" name="bestYnList" value="'+data.list[i].bestYn+'">';
+				                resultHtml += '<input type="hidden" id="countList" name="countList" value="'+ i +'">';
+				            }
+				            $("#resultList tbody").html(resultHtml);
+					}
+					 
+				});
 }
 
-</script>
-
- 
-<script>
-/*     $("#requestDel").click(function(){
- 			
-    	 if (!confirm('삭제하시겠습니까?')) {
-    	        return false;
-    	    }
-    	 
-             var params = {
-            		  trimCode     		: $("#trimCodeList").val()
-            		, colorCode      	: $("#colorCodeList").val()
-            		, carOptionCode     : $("#carOptionCodeList").val()
-            }
-                
-            $.ajax({
-                type : "POST",
-                url : "http://192.168.31.86:9090/db/model/delete",
-                data : params,
-                success : function(res){
-                    alert(res.code);
-                },
-                error : function(XMLHttpRequest, textStatus, errorThrown){ 
-                    alert("err.")
-                }
-            }); 
-        }); */
-            
 </script>

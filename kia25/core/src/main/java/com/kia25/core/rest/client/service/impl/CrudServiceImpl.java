@@ -191,18 +191,25 @@ public class CrudServiceImpl implements CrudService{
 	
 	
 	/**
-	 * List Color
+	 *  color List
 	 */
-	public List<ColorDto> getColorListAPI(String modelCode, String trimCode, String carOptionCode, String modelYear) {
+	@Override
+	public List<ColorDto> listColor(ColorDto colorDto) {
 		
 		try {
 			
-			String response = service.getRequest("db/color/list?modelCode"+modelCode+"&trimCode="+trimCode+"&carOptionCode="+carOptionCode+"&modelYear="+modelYear);
-			LOG.debug("response={}", response);
+			ArrayList<NameValuePair> postParameters = new ArrayList<NameValuePair>();
+			postParameters.add(new BasicNameValuePair("trimCode", colorDto.getTrimCode()));
+            postParameters.add(new BasicNameValuePair("carOptionCode", colorDto.getCarOptionCode()));
+            postParameters.add(new BasicNameValuePair("searchWord", colorDto.getSearchWord()));
+            
+			String response = service.sendPostRequest("db/color/list", postParameters);
 			ObjectMapper mapper = new ObjectMapper();
 			
 			List<ColorDto> results = mapper.readValue(response, new TypeReference<List<ColorDto>>(){});
             return results;
+
+			
             
 		} catch (IOException e) {
 			LOG.error("Error parsing JSON API response.", e);
@@ -261,28 +268,6 @@ public class CrudServiceImpl implements CrudService{
 		return null;
 	}
 	
-	/**
-	 * Search Color
-	 */
-	public List<ColorDto> searchColorListAPI(String modelCode, String trimCode, String carOptionCode, String modelYear, String searchWord) {
-		
-		try {
-			
-			String response = service.getRequest("db/color/list?modelCode"+modelCode+"&trimCode="+trimCode+"&carOptionCode="+carOptionCode+"&modelYear="+modelYear+"&searchWord="+searchWord);
-			LOG.debug("response={}", response);
-			ObjectMapper mapper = new ObjectMapper();
-			
-			List<ColorDto> results = mapper.readValue(response, new TypeReference<List<ColorDto>>(){});
-            return results;
-            
-		} catch (IOException e) {
-			LOG.error("Error parsing JSON API response.", e);
-			e.printStackTrace();
-		}
-		
-		return null;
-	}
-
 	/**
 	 * get Option List
 	 */

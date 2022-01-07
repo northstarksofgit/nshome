@@ -60,7 +60,7 @@ public interface CrudService {
 	/**
 	 * build003 / colorlist 목록 불러오기
 	 */
-	List<ColorDto> getColorListAPI(String modelCode, String trimCode, String carOptionCode, String modelYear);
+	  List<ColorDto> listColor(ColorDto colorDto);
 	
 	/**
 	 * build003 / colorlist 입력 저장
@@ -72,11 +72,6 @@ public interface CrudService {
 	 * build003 / colorlist 삭제
 	 */
 	String deleteColor(ColorDto colorDto);
-	
-	/**
-	 * build003 / searchcolorlist 목록 불러오기
-	 */
-	List<ColorDto> searchColorListAPI(String modelCode, String trimCode, String carOptionCode, String modelYear, String searchWord);
 	
 	/**
 	 * get Option List

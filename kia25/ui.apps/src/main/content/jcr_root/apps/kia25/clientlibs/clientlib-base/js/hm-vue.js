@@ -8,6 +8,7 @@ $(function() {
 			trimCode : null,
 			optionListURL : null,
 			dataObj : null,
+//			table: null,
 		},
 		
 		//start Methods
@@ -29,6 +30,7 @@ $(function() {
 						data : data
 					},
 					success:function(result){
+						console.log(result);
 						var dataList = result.list;
 						var select = result.select;
 						$('.option-list-table').empty();
@@ -117,7 +119,7 @@ $(function() {
 				}
 			}, //end filtering()
 			
-			bindEvent : function() { //start bingEvent()
+			bindEvent : function() { //start bindEvent()
 				$('.btn-search').off().on('click', function() {
 					app.init();
 				})
@@ -390,6 +392,17 @@ $(function() {
 			this.trimCode = this.urlParams.get('trimCode');
 			this.optionListURL = "/services/option/";
 			this.dataObj = null;
+			
+//			this.table = $('#sort-test').DataTable({
+//				rowReorder: {
+//					update: false
+//				},
+//				"columns": [
+//					{ "data": "seq" },
+//					{ "data": "name" },
+//					{ "data": "age" },
+//				]
+//			})
 		},
 		//end Created
 		

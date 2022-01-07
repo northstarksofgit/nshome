@@ -21,3 +21,4 @@ css/estimate_online.css
 css/dwJung.css
 css/hm.css
 css/dain.css
+css/datatables.min.css

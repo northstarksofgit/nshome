@@ -21,7 +21,7 @@
 #js/common.js
 #js/default_script.min.js
 
-js/jquery.js
+js/lib/jquery.js
 js/hm-script.js
 #js/hm-crud.js
 js/how-to-buy.js
@@ -30,4 +30,4 @@ js/dain.js
 js/ckh.js
 js/vue.js
 js/hm-vue.js
-js/datatables.min.js
+js/lib/datatables.min.js

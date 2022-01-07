@@ -24,6 +24,7 @@
 				<th>모델 대표 이미지</th>
 				<th>정렬 순서</th>
 				<th>사용 유무</th>
+				<th></th>
 			</tr>		
 		</thead>
 		
@@ -37,16 +38,59 @@
 					</td>
 					<td>${group.sortOrder}</td>
 					<td>${group.useYn}</td>
+					<td>
+						<button type="button" class="carUpBtn" data-toggle="modal" data-target="#carUpdateModal">수정</button>
+					</td>
 				</tr>
 			</sly>
 		</tbody>
-	
 	</table>
+	
+	<button type="button" class="carAddBtn">등록</button>
+	<button type="button" class="carDelBtn">삭제</button>
+	
+	
+	
+	
+	<!-- carGroup 관련 modal -->
+	
+	<div class="modal">
+		<!-- '수정' 클릭시 modal -->
+	    <div class="carUpdateModal" id="carUpdateModal">
+		    <div class="modal-header">
+		       <h4>carGroup 수정</h4>
+		    </div>   
+		    
+		    <div class="modal-body">
+				<p>carGroup 모델 코드</p>          
+				<p>전시 대표 차종명</p>          
+				<p>모델 대표 이미지</p>          
+				<p>정렬 순서</p>          
+				<p>사용 유무</p>          
+	        </div>   
+	           
+	        <div class="modal-footer">
+	          	 <button type="submit" class="btn btn-success" id="carUpMoBtn">수정</button>
+	             <button id="cancleBtn" data-dismiss="modal" class="btn btn-secondary">닫기</button>
+	        </div> 
+	    </div>
+		
+	 		
+	 		
+	
+		<!-- '추가' 클릭시 modal -->
+			
+			
+		<!-- '삭제' 클릭시 modal -->
+		
 
 
 
-
-
+	</div>
+	
+	
+	<br><br>
+	
 
 	<!-- trim -->
 	<select name="trimSel">
@@ -57,7 +101,7 @@
 	</select>
 	
 	<div class="searchDiv">
-		<input type="text" class="carGroupSearch" placeholder="검색어 입력">
+		<input type="text" class="trimSearch" placeholder="검색어 입력">
 		<button class="searchBtn">검색</button>
 	</div>
 
@@ -76,6 +120,7 @@
 				<th>엔진용량 이름</th>
 				<th>정렬 순서</th>
 				<th>사용 유무</th>
+				<th></th>
 			</tr>		
 		</thead>
 		
@@ -94,17 +139,24 @@
 					<td>${trim.engineCapacityName}</td>
 					<td>${trim.sortOrder}</td>
 					<td>${trim.useYn}</td>
+					<td>
+						<button type="button" class="trimUpBtn">수정</button>
+					</td>
 				</tr>
 			</sly>
 		</tbody>
-	
 	</table>
 	
-
-
-
-
-
+	<button type="button" class="trimAddBtn">등록</button>
+	<button type="button" class="trimDelBtn">삭제</button>
+	
+	
+	<!-- trim 관련 modal -->
+	
+	
+	
+	
+	
 
 
 </div>

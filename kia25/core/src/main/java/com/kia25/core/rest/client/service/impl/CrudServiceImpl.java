@@ -13,6 +13,7 @@ import org.slf4j.LoggerFactory;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import com.kia25.core.rest.client.dto.CarGroupDto;
 import com.kia25.core.rest.client.dto.CategoryDto;
 import com.kia25.core.rest.client.dto.CategoryListDtoResults;
 import com.kia25.core.rest.client.dto.ColorDto;
@@ -112,6 +113,82 @@ public class CrudServiceImpl implements CrudService{
 		
 		return null;
 	}
+	
+	
+	/**
+	 * build002 / carGroupList 불러오기
+	 */
+	@Override
+	public List<CarGroupDto> getCarGroupListAPI(String modelCode, String modelYear) {
+		
+		try {
+
+			String response = service.getRequest("db/car-group/list?modelCode=" + modelCode + "&modelYear=" + modelYear);
+			LOG.debug("carGroup response={}", response);
+			
+			ObjectMapper mapper = new ObjectMapper();
+			
+			List<CarGroupDto> results = mapper.readValue(response, new TypeReference<List<CarGroupDto>>(){});
+            
+			return results;
+			
+		} catch(Exception e) {
+			
+			LOG.error("Error parsing JSON API response.", e);
+			e.printStackTrace();
+		}
+		
+		return null;
+	}
+
+	/**
+	 * build002 / carGroup 추가
+	 */
+	@Override
+	public String saveCarGroup(CarGroupDto carGroupDto) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	/**
+	 * build002 / carGroup 삭제
+	 */
+	@Override
+	public String deleteCarGroup(CarGroupDto carGroupDto) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+
+	/**
+	 * build002 / trimList 불러오기
+	 */
+	@Override
+	public List<TrimDto> getTrimListAPI(String modelCode, String modelYear) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+	
+	/**
+	 * build002 / trim 추가
+	 */
+	@Override
+	public String saveTrim(TrimDto trimDto) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	/**
+	 * build002 / trim 삭제
+	 */
+	@Override
+	public String deleteTrim(TrimDto trimDto) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+
+	
 	
 	/**
 	 * List Color
@@ -446,7 +523,8 @@ public class CrudServiceImpl implements CrudService{
     
 		return "NO";
 	}
-	
+
+
 	
 	
 }

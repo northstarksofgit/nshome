@@ -1,8 +1,8 @@
 package com.kia25.core.rest.client.service;
 
-import java.util.ArrayList;
 import java.util.List;
 
+import com.kia25.core.rest.client.dto.CarGroupDto;
 import com.kia25.core.rest.client.dto.CategoryDto;
 import com.kia25.core.rest.client.dto.ColorDto;
 import com.kia25.core.rest.client.dto.ModelDto;
@@ -22,6 +22,40 @@ public interface CrudService {
 	 * build 001 / modelList 불러오기
 	 */
 	List<ModelDto> getModelListAPI(String categoryCode);
+	
+	
+	
+	/**
+	 * build002 / carGroupList 조회
+	 */
+	List<CarGroupDto> getCarGroupListAPI(String modelCode, String modelYear);
+	
+	/**
+	 * build002 / carGroup 추가
+	 */
+	String saveCarGroup(CarGroupDto carGroupDto);
+	
+	/**
+	 * build002 / carGroup 삭제
+	 */
+	String deleteCarGroup(CarGroupDto carGroupDto);
+	
+	/**
+	 * build002 / trimList 조회
+	 */
+	List<TrimDto> getTrimListAPI(String modelCode, String modelYear);
+	
+	/**
+	 * build002 / trim 추가
+	 */
+	String saveTrim(TrimDto trimDto);
+	
+	/**
+	 * build002 / trim 삭제
+	 */
+	String deleteTrim(TrimDto trimDto);
+	
+	
 	
 	/**
 	 * build003 / colorlist 목록 불러오기

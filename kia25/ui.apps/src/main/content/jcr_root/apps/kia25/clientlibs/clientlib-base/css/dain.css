@@ -18,14 +18,6 @@ select {
 	display: inline-block;
 }
 
-.carGroupSearch {
-	width: 200px;
-	font-size: 15px;
-	padding: 3px;
-	text-align: left;
-	border: 0;
-}
-
 .searchBtn {
 	width: 50px;
 	height: 30px;
@@ -37,9 +29,22 @@ select {
 
 
 
+
+
+
+
+
 /*
 *	build002 carGroup 관련 css
 */
+
+.carGroupSearch {
+	width: 200px;
+	font-size: 15px;
+	padding: 3px;
+	text-align: left;
+	border: 0;
+}
 
 
 
@@ -48,3 +53,21 @@ select {
 /*
 *	build002 trim 관련 css
 */
+
+.trimSearch {
+	width: 200px;
+	font-size: 15px;
+	padding: 3px;
+	text-align: left;
+	border: 0;
+}
+
+
+
+
+
+
+
+
+
+

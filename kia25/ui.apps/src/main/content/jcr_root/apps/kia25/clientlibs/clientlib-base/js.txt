@@ -16,6 +16,10 @@
 
 #base=/apps/kia25/clientlibs/clientlib-base
 
+### library js ###
+js/lib/vue.js
+js/lib/datatables.min.js
+
 ## ckh js ##
 js/ckh.js
 
@@ -31,7 +35,3 @@ js/hm-script.js
 js/how-to-buy.js
 #js/hm-crud.js
 
-
-### library js ###
-js/lib/vue.js
-js/lib/datatables.min.js

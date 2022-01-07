@@ -1,5 +1,8 @@
 
 $(function() {
+	if(!(document.getElementById("vue-test")))
+		return false;
+	
 	const app = new Vue({
 		el: '#vue-test',
 		data: {

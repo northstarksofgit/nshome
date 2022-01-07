@@ -234,6 +234,8 @@ public class CrudServiceImpl implements CrudService{
             postParameters.add(new BasicNameValuePair("colorPrice", colorDto.getColorPrice() ));
             postParameters.add(new BasicNameValuePair("colorImagePath", colorDto.getColorImagePath() ));
             postParameters.add(new BasicNameValuePair("carImagePath", colorDto.getCarImagePath() ));
+            postParameters.add(new BasicNameValuePair("SortOrder", colorDto.getSortOrder() ));
+            postParameters.add(new BasicNameValuePair("useYn", colorDto.getUseYn() ));
 			
 			String response = service.sendPostRequest("db/color/save" , postParameters);
             

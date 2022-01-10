@@ -46,20 +46,32 @@
 -->
 
 
-
-
+<v-card>
+	<v-card-title>
+      {{ trimName }} &nbsp;&nbsp;
+      <v-spacer></v-spacer>
+      <v-text-field
+        v-model="search"
+        append-icon="mdi-magnify"
+        label="Search"
+        single-line
+        hide-details
+        cols="4"
+      ></v-text-field>
+    </v-card-title>
 	<v-data-table 
 		data-app
+		:search="search"
     	:headers="headers"
-    	:items="desserts"
+    	:items="optionList"
     	sort-by="calories"
     	class="elevation-1"
   	>
-    <template v-slot:top>
+    
     	<v-toolbar
         	flat
       	>
-        <v-toolbar-title>My CRUD</v-toolbar-title>
+        <v-toolbar-title>{{ trimName }} &nbsp;&nbsp;</v-toolbar-title>
         <v-divider
         	class="mx-4"
           	inset
@@ -70,15 +82,15 @@
           	v-model="dialog"
           	max-width="500px"
         >
+        
           <template v-slot:activator="{ on, attrs }">
           	<v-btn
             	color="primary"
              	dark
               	class="mb-2"
-              	v-bind="attrs"
-              	v-on="on"
+				@click="init"
             >
-            	New Item
+            	Search
             </v-btn>
           </template>
           <v-card>
@@ -91,52 +103,74 @@
                 <v-row>
                   <v-col
                     cols="12"
-                    sm="6"
-                    md="4"
+                    sm="12"
+                    md="12"
                   >
                     <v-text-field
-                      v-model="editedItem.name"
-                      label="Dessert name"
+                      v-model="editedItem.optionCode"
+                      label="Option Code"
                     ></v-text-field>
                   </v-col>
                   <v-col
                     cols="12"
-                    sm="6"
-                    md="4"
+                    sm="12"
+                    md="12"
                   >
                     <v-text-field
-                      v-model="editedItem.calories"
-                      label="Calories"
+                      v-model="editedItem.optionName"
+                      label="Option Name"
                     ></v-text-field>
                   </v-col>
                   <v-col
                     cols="12"
-                    sm="6"
-                    md="4"
+                    sm="12"
+                    md="12"
                   >
                     <v-text-field
-                      v-model="editedItem.fat"
-                      label="Fat (g)"
+                      v-model="editedItem.optionPrice"
+                      label="Option Price"
+                      type="number"
                     ></v-text-field>
                   </v-col>
                   <v-col
                     cols="12"
-                    sm="6"
-                    md="4"
+                    sm="12"
+                    md="12"
                   >
                     <v-text-field
-                      v-model="editedItem.carbs"
-                      label="Carbs (g)"
+                      v-model="editedItem.bestYn"
+                      label="Best Y/N"
                     ></v-text-field>
                   </v-col>
                   <v-col
                     cols="12"
-                    sm="6"
-                    md="4"
+                    sm="12"
+                    md="12"
                   >
                     <v-text-field
-                      v-model="editedItem.protein"
-                      label="Protein (g)"
+                      v-model="editedItem.optionImagePath"
+                      label="Option Image Path"
+                    ></v-text-field>
+                  </v-col>
+                  <v-col
+                    cols="12"
+                    sm="12"
+                    md="12"
+                  >
+                    <v-text-field
+                      v-model="editedItem.sortOrder"
+                      label="Sort Order"
+                      type="number"
+                    ></v-text-field>
+                  </v-col>
+                  <v-col
+                    cols="12"
+                    sm="12"
+                    md="12"
+                  >
+                    <v-text-field
+                      v-model="editedItem.useYn"
+                      label="Use Y/N"
                     ></v-text-field>
                   </v-col>
                 </v-row>
@@ -178,7 +212,7 @@
       </v-toolbar>
     </template>
     
-    <template v-slot:item.actions="{ item }" style="text-align:center">
+    <template v-slot:item.actions="{ item }">
       <v-icon
         small
         class="mr-2"
@@ -196,14 +230,17 @@
     <template v-slot:no-data>
       <v-btn
         color="primary"
-        @click="initialize"
       >
-        Reset
+<!--       <v-btn -->
+<!--         color="primary" -->
+<!--         @click="initialize" -->
+<!--       > -->
+        No Data
       </v-btn>
     </template>
   </v-data-table>
 	
-	
+	</v-card>
 	
   </div>
   
@@ -215,190 +252,151 @@
       vuetify: new Vuetify(),
       data: {
 //         reRender: 0,
-//         dragNdrop: [],
-//         headers: [
-//         	{
-// 	          text: "Name",
-// 	          align: "left",
-// 	          sortable: false,
-// 	          value: "name"
-// 	        },
-// 	        {
-// 	          text: "Score",
-// 	          align: "left",
-// 	          sortable: false,
-// 	          value: "score"
-// 	        },
-//         ],
-//         formItems: [
-//         	{
-// 	          name: "John",
-// 	          score: 20
-// 	        },
-// 	        {
-// 	          name: "Dan",
-// 	          score: 70
-// 	        },
-// 	        {
-// 	          name: "Maria",
-// 	          score: 50
-// 	        },
-// 	        {
-// 	            name: "test1",
-// 	            score: 10
-// 	        },
-// 	        {
-// 	            name: "teset2",
-// 	            score: 220
-// 	        },
-// 	        {
-// 	            name: "test44",
-// 	            score: 555
-// 	        },
-//         ],
+        dragNdrop: [],
+		url : null,
+		urlParams : null,
+		trimCode : null,
+		trimName : null,
+		optionListURL : null,
+		dataObj : null,
+		carOptionCode : null,
+        
+		select: null,
+        items: null,
         
         
+        search: '',
         
         dialog: false,
         dialogDelete: false,
         headers: [
           {
-            text: 'Dessert (100g serving)',
+            text: '옵션 코드',
             align: 'start',
             sortable: false,
-            value: 'name',
+            value: 'optionCode',
+            filterable: false
           },
-          { text: 'Calories', value: 'calories' },
-          { text: 'Fat (g)', value: 'fat' },
-          { text: 'Carbs (g)', value: 'carbs' },
-          { text: 'Protein (g)', value: 'protein' },
-          { text: 'Actions', value: 'actions', sortable: false },
+          { text: '옵션 명', value: 'optionName' },
+          { text: '옵션 가격', value: 'optionPrice', filterable: false },
+          { text: '추천 여부', value: 'bestYn', filterable: false },
+          { text: '옵션 이미지', value: 'optionImagePath', filterable: false },
+          { text: '정렬 순서', value: 'sortOrder', filterable: false },
+          { text: '사용 여부', value: 'useYn', filterable: false },
+          { text: 'Actions', value: 'actions', sortable: false, filterable: false },
         ],
-        desserts: [],
+        optionList: [],
         editedIndex: -1,
         editedItem: {
-          name: '',
-          calories: 0,
-          fat: 0,
-          carbs: 0,
-          protein: 0,
+        	optionCode: '',
+        	optionName: '',
+        	optionPrice: null,
+        	bestYn: '',
+        	optionImagePath: '',
+        	sortOrder: null,
+        	useYn: ''
         },
         defaultItem: {
-          name: '',
-          calories: 0,
-          fat: 0,
-          carbs: 0,
-          protein: 0,
+        	optionCode: '',
+        	optionName: '',
+        	optionPrice: null,
+        	bestYn: '',
+        	optionImagePath: '',
+        	sortOrder: null,
+        	useYn: ''
         },
       },
       methods: {
+    	    changeSelect(value) {
+    	    	console.log(value);
+// 	    		return value;
+			},
+    	  
 			initSortable() {
           		let table = document.querySelector("tbody");
           		const _self = this;
           		// this way we avoid data binding
-          		_self.dragNdrop = JSON.parse(JSON.stringify(_self.desserts));
+          		
 
           		Sortable.create(table, {
             		onEnd({newIndex, oldIndex}) {
+            			console.log(newIndex, oldIndex);
+            			
+          				_self.dragNdrop = JSON.parse(JSON.stringify(_self.optionList));
+          				
 						_self.dragNdrop.splice(newIndex, 0, ..._self.dragNdrop.splice(oldIndex, 1));
-            	
-	           			console.log(newIndex , oldIndex)
-            			console.log(_self.dragNdrop);
+						
+						console.log(_self.dragNdrop);
             		}
           		});
         	},
 
-        	
+        	init : function() { //start init()
+				var ref = this;
+				var carOptionCode = $("#soflow option:selected").val();
+				
+// 				var data = {
+// 						"trimCode" : this.trimCode,
+// 						"carOptionCode": carOptionCode
+// 				}
+
+				var data = {
+						"trimCode" : this.trimCode,
+						"carOptionCode": this.carOptionCode
+				}
+				
+				data = JSON.stringify(data)
+				$.ajax({
+					type:"POST",
+					url : this.optionListURL + "list",
+					data: {
+						data : data
+					},
+					success:function(result){
+						console.log(result);		
+						var dataList = result.list;
+						var select = result.select;
+						$('.option-list-table').empty();
+						
+						for(var i=0; i<dataList.length; i++) {
+							dataList[i].optionPrice = dataList[i].optionPrice.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")
+						}
+						
+						ref.trimName = select.trimName;
+						
+						ref.optionList = dataList;
+// 						ref.drawTable(dataList, select);
+// 						ref.filtering()
+// 						ref.bindEvent();
+					},
+					beforeSend: function() { //로딩이미지 보여주기
+						$("#modal-wrap-loading").show();
+					    $("#wrap-loading").show();
+					},
+					complete: function() { //로딩이미지 숨기기
+						$("#modal-wrap-loading").hide();
+					    $("#wrap-loading").hide();
+					}
+				})		
+			}, //end init()
         		
-        	initialize () {
-                this.desserts = [
-                  {
-                    name: 'Frozen Yogurt',
-                    calories: 159,
-                    fat: 6.0,
-                    carbs: 24,
-                    protein: 4.0,
-                  },
-                  {
-                    name: 'Ice cream sandwich',
-                    calories: 237,
-                    fat: 9.0,
-                    carbs: 37,
-                    protein: 4.3,
-                  },
-                  {
-                    name: 'Eclair',
-                    calories: 262,
-                    fat: 16.0,
-                    carbs: 23,
-                    protein: 6.0,
-                  },
-                  {
-                    name: 'Cupcake',
-                    calories: 305,
-                    fat: 3.7,
-                    carbs: 67,
-                    protein: 4.3,
-                  },
-                  {
-                    name: 'Gingerbread',
-                    calories: 356,
-                    fat: 16.0,
-                    carbs: 49,
-                    protein: 3.9,
-                  },
-                  {
-                    name: 'Jelly bean',
-                    calories: 375,
-                    fat: 0.0,
-                    carbs: 94,
-                    protein: 0.0,
-                  },
-                  {
-                    name: 'Lollipop',
-                    calories: 392,
-                    fat: 0.2,
-                    carbs: 98,
-                    protein: 0,
-                  },
-                  {
-                    name: 'Honeycomb',
-                    calories: 408,
-                    fat: 3.2,
-                    carbs: 87,
-                    protein: 6.5,
-                  },
-                  {
-                    name: 'Donut',
-                    calories: 452,
-                    fat: 25.0,
-                    carbs: 51,
-                    protein: 4.9,
-                  },
-                  {
-                    name: 'KitKat',
-                    calories: 518,
-                    fat: 26.0,
-                    carbs: 65,
-                    protein: 7,
-                  },
-                ]
-              },
 
               editItem (item) {
-                this.editedIndex = this.desserts.indexOf(item)
+				item.optionPrice = parseInt(item.optionPrice.replaceAll(',','')); 
+				
+                this.editedIndex = this.optionList.indexOf(item)
                 this.editedItem = Object.assign({}, item)
                 this.dialog = true
               },
 
               deleteItem (item) {
-                this.editedIndex = this.desserts.indexOf(item)
+                this.editedIndex = this.optionList.indexOf(item)
                 this.editedItem = Object.assign({}, item)
                 this.dialogDelete = true
               },
 
               deleteItemConfirm () {
-                this.desserts.splice(this.editedIndex, 1)
+                this.optionList.splice(this.editedIndex, 1)
                 this.closeDelete()
               },
 
@@ -420,16 +418,15 @@
 
               save () {
                 if (this.editedIndex > -1) {
-                  Object.assign(this.desserts[this.editedIndex], this.editedItem)
+                  Object.assign(this.optionList[this.editedIndex], this.editedItem)
                 } else {
-                  this.desserts.push(this.editedItem)
+                  this.optionList.push(this.editedItem)
                 }
                 this.close()
               }
       },
       mounted() {
-        console.log("mounted");
-        this.initialize()
+        this.init();
         this.initSortable();
       },
       computed: {
@@ -446,6 +443,19 @@
           val || this.closeDelete()
         },
       },
+      created() {
+   	  	this.url = new URL(window.location.href);
+		this.urlParams = this.url.searchParams;
+		this.trimCode = this.urlParams.get('trimCode');
+		this.optionListURL = "/services/option/";
+		this.dataObj = null;
+		this.select = { state: '옵션', carOptionCode: 'O' },
+        this.items = [
+          { state: '옵션', carOptionCode: 'O' },
+          { state: '패키지', carOptionCode: 'P' },
+        ]
+		this.carOptionCode = this.select.carOptionCode;
+      }
     })
    })
   </script>

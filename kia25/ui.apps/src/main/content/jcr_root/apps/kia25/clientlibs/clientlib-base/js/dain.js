@@ -24,6 +24,7 @@ $(function() {
 	
 	// 기본 trim 정의하는 함수
 	carGroupTrim();
+
 	
 })
 
@@ -164,8 +165,53 @@ $(function() {
 	})
 
 
+	/**
+		trimList 화폐 단위
+	 */
+	var price = $('.sellingPrice').html();
+
+	function priceToString(price){
+		return price.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',');	
+	}
 
 
+
+	/**
+		get carGroup List	
+	 */
+	function getCarGroupList(){
+		
+		$.ajax({
+			type: "POST",
+			url: "/services/car-group/list",
+			dataType: "json",
+			success : function(result){
+				
+				console.log(result);
+				
+				$('.carGroupTab > tbody').empty();
+				
+				for(var i=0; i < result.length; i++){
+					
+					$('.carGroupTab > tbody').append(
+						
+						
+						
+					);
+					
+				}
+				
+			},
+			error : function(){
+				console.log("carGroup List 조회 실패");
+			}
+			
+
+		})
+		
+		
+		
+	}
 
 
 

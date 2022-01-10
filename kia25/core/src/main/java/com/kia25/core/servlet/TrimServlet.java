@@ -2,7 +2,6 @@ package com.kia25.core.servlet;
 
 import java.io.IOException;
 import java.io.PrintWriter;
-import java.util.ArrayList;
 import java.util.List;
 
 import javax.servlet.Servlet;
@@ -19,21 +18,19 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
-import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.JsonMappingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.google.gson.Gson;
-import com.kia25.core.rest.client.dto.CarGroupDto;
-import com.kia25.core.rest.client.dto.ModelDto;
+import com.kia25.core.rest.client.dto.TrimDto;
 import com.kia25.core.rest.client.service.CrudService;
 import com.kia25.core.rest.client.service.impl.CrudServiceImpl;
 
 @Component(service = Servlet.class, property= {
 		"sling.servlet.methods=" + HttpConstants.METHOD_POST, 
-		"sling.servlet.paths=" + "/services/car-group/list",
-		"sling.servlet.paths=" + "/services/car-group/save",
-		"sling.servlet.paths=" + "/services/car-group/delete"})
-public class CarGroupServlet extends SlingAllMethodsServlet {
+		"sling.servlet.paths=" + "/services/trim/list",
+		"sling.servlet.paths=" + "/services/trim/save",
+		"sling.servlet.paths=" + "/services/trim/delete"})
+public class TrimServlet  extends SlingAllMethodsServlet {
 	
 	private static final Logger log = LoggerFactory.getLogger(CarGroupServlet.class);
 	
@@ -48,29 +45,29 @@ public class CarGroupServlet extends SlingAllMethodsServlet {
 		 * url에 따라서 불러올 api 나눠주기
 		 */
 		String path = request.getRequestURI();
-		path = path.substring(path.lastIndexOf("/")+1);
+		path = path.substring(path.indexOf("/")+1);
 		
 		if(path.equals("list")) {
 			
-			// get carGroup List
-			getCargroupList(request, response);
+			// get trim List
+			getTrimList(request, response);
 			
 		} else if (path.equals("save")) {
 			
-			// add new carGroup
-			saveCarGroup(request, response);
+			// add new trim
+			saveTrim(request, response);
 			
 		} else if (path.equals("delete")) {
 			
-			// delete carGroup
-			deleteCarGroup(request, response);
+			// delete trim
+			deleteTrim(request, response);
 			
 		}
 	}
+
 	
-	
-	// get carGroup List
-	private void getCargroupList(SlingHttpServletRequest request, SlingHttpServletResponse response) throws IOException {
+	// get trim List
+	private void getTrimList(SlingHttpServletRequest request, SlingHttpServletResponse response) throws IOException {
 		
 		ObjectMapper mapper = new ObjectMapper();
 		
@@ -79,58 +76,56 @@ public class CarGroupServlet extends SlingAllMethodsServlet {
 		String modelCode = request.getParameter("modelCode");
 		String modelYear = request.getParameter("modelYear");
 		
-		CarGroupDto carGroupParams = mapper.readValue(parameter, CarGroupDto.class);
+		TrimDto trimPrams = mapper.readValue(parameter, TrimDto.class);
 		
-		List<CarGroupDto> result = crudService.getCarGroupListAPI(modelCode, modelYear);
+		List<TrimDto> result = crudService.getTrimListAPI(modelCode, modelYear);
 		
 		String json = new Gson().toJson(result);
 		
 		response.setContentType("application/json");
 		PrintWriter out = response.getWriter();
-		out.print(json);
+		out.println(json);
 		
 	}
+
 	
 	
-	// add new carGroup
-	private void saveCarGroup (SlingHttpServletRequest request, SlingHttpServletResponse response) throws IOException {
-	
+	// add new trim
+	private void saveTrim(SlingHttpServletRequest request, SlingHttpServletResponse response) throws IOException {
+		
 		ObjectMapper mapper = new ObjectMapper();
 		
 		String redirect = request.getParameter("redirect");
 		String parameter = request.getParameter("data");
 		
-		CarGroupDto carGroupParams = mapper.readValue(parameter, CarGroupDto.class);
+		TrimDto trimParams = mapper.readValue(parameter, TrimDto.class);
 		
-		String result = crudService.saveCarGroup(carGroupParams);
+		String result = crudService.saveTrim(trimParams);
 		
-		
-		if(result != null) {
+		if (result != null) {
 			
 			response.setHeader("Location", redirect);
 			response.setContentType("application/json");
 			PrintWriter out = response.getWriter();
-			out.print(result);
+			out.println(result);
 			
 		} else {
-		
 			response.sendError(HttpServletResponse.SC_BAD_REQUEST);
-			
 		}
 		
 	}
 	
 	
-	// delete carGroup
-	private void deleteCarGroup (SlingHttpServletRequest request, SlingHttpServletResponse response) throws IOException {
+	// delete trim
+	private void deleteTrim(SlingHttpServletRequest request, SlingHttpServletResponse response) throws IOException {
 		
 		ObjectMapper mapper = new ObjectMapper();
 		
 		String redirect = request.getParameter("redirect");
 		String parameter = request.getParameter("data");
-
-		CarGroupDto carGroupParams = mapper.readValue(parameter, CarGroupDto.class);
-		String result = crudService.deleteCarGroup(carGroupParams);
+		
+		TrimDto trimDtoParams = mapper.readValue(parameter, TrimDto.class);
+		String result = crudService.deleteTrim(trimDtoParams);
 		
 		if(result != null) {
 			
@@ -141,7 +136,9 @@ public class CarGroupServlet extends SlingAllMethodsServlet {
 		} else {
 			response.sendError(HttpServletResponse.SC_BAD_REQUEST);
 		}
+		
 	}
+	
 	
 
 }

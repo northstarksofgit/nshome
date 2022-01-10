@@ -10,6 +10,17 @@ select {
 	text-align: center;
 }
 
+th, td {
+	padding: 5px;
+	text-align: center;
+}
+
+table, th, tr, td {
+	border: 1px solid black;
+	margin-top: 10px;
+	margin-bottom: 10px;
+}
+
 .searchDiv  {
 	height: 30px;
 	width: 280px;
@@ -41,7 +52,16 @@ select {
 
 
 
-/* 등록, 삭제 버튼 css */
+/* 수정, 등록, 삭제 버튼 css */
+
+.carUpBtn , .trimUpBtn {
+	width: 50px;
+	height: 30px;
+	text-align: center;
+	background: rgb(0, 185, 185);
+	color: white;
+}
+
 .carAddBtn, .trimAddBtn {
 	width: 50px;
 	height: 30px;

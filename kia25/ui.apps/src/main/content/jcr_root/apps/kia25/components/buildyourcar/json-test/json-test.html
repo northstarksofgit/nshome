@@ -17,72 +17,39 @@
 
 <body>
   <div id="app">
-<!-- 
-	<v-container>
-      <h1 class="text-xs-center mt-3">Drag n Drop</h1>
-      <p style="margin-top: 1em;">마우스로 드래그&드롭하여 순서를 바꿀 수 있습니다.</p>
-      <v-layout style="margin-top: 3em;" mt-5 justify-center>
-        <v-flex sm8>
-          <v-data-table :key="reRender" :headers="headers" :items="formItems" class="elevation-1">
-            <template slot="items" slot-scope="props">
-              <td class="text-xs-left">{{ props.item.name }}</td>
-              <td class="text-xs-left">{{ props.item.score }}</td>
-            </template>
-          </v-data-table>
-        </v-flex>
-      </v-layout>
 
-      <v-layout style="margin-top: 5em;">
-
-        <v-flex sm12>
-          <h2>The items in the "dragNdrop" array</h2>
-          <p>
-            {{JSON.stringify(dragNdrop, null,'\n')}}
-          </p>
-        </v-flex>
-      </v-layout>
-
-    </v-container>
--->
-
-
-<v-card>
-	<v-card-title>
-      {{ trimName }} &nbsp;&nbsp;
-      <v-spacer></v-spacer>
-      <v-text-field
-        v-model="search"
-        append-icon="mdi-magnify"
-        label="Search"
-        single-line
-        hide-details
-        cols="4"
-      ></v-text-field>
-    </v-card-title>
 	<v-data-table 
 		data-app
-		:search="search"
     	:headers="headers"
     	:items="optionList"
     	sort-by="calories"
     	class="elevation-1"
+    	:search="search"
   	>
+    <template v-slot:top>
     
-    	<v-toolbar
-        	flat
-      	>
-        <v-toolbar-title>{{ trimName }} &nbsp;&nbsp;</v-toolbar-title>
+    	<v-toolbar-title>{{ trimName }} &nbsp;&nbsp;</v-toolbar-title>
         <v-divider
         	class="mx-4"
           	inset
           	vertical
         ></v-divider>
+    		
+    	<v-text-field
+          v-model="search"
+          label="옵션명 검색"
+          class="mx-4"
+        ></v-text-field>
+    	<v-toolbar
+        	flat
+      	>
+        
         <v-spacer></v-spacer>
         <v-dialog
           	v-model="dialog"
           	max-width="500px"
         >
-        
+        	
           <template v-slot:activator="{ on, attrs }">
           	<v-btn
             	color="primary"
@@ -229,19 +196,14 @@
     </template>
     <template v-slot:no-data>
       <v-btn
-        color="primary"
+        color="#4d4a4acc"
+        style="color: #fff"
       >
-<!--       <v-btn -->
-<!--         color="primary" -->
-<!--         @click="initialize" -->
-<!--       > -->
         No Data
       </v-btn>
     </template>
   </v-data-table>
-	
-	</v-card>
-	
+  
   </div>
   
   
@@ -264,9 +226,7 @@
 		select: null,
         items: null,
         
-        
         search: '',
-        
         dialog: false,
         dialogDelete: false,
         headers: [
@@ -275,15 +235,15 @@
             align: 'start',
             sortable: false,
             value: 'optionCode',
-            filterable: false
+            filterable:false
           },
           { text: '옵션 명', value: 'optionName' },
-          { text: '옵션 가격', value: 'optionPrice', filterable: false },
-          { text: '추천 여부', value: 'bestYn', filterable: false },
-          { text: '옵션 이미지', value: 'optionImagePath', filterable: false },
-          { text: '정렬 순서', value: 'sortOrder', filterable: false },
-          { text: '사용 여부', value: 'useYn', filterable: false },
-          { text: 'Actions', value: 'actions', sortable: false, filterable: false },
+          { text: '옵션 가격', value: 'optionPrice', filterable:false },
+          { text: '추천 여부', value: 'bestYn', filterable:false  },
+          { text: '옵션 이미지', value: 'optionImagePath', filterable:false  },
+          { text: '정렬 순서', value: 'sortOrder', filterable:false  },
+          { text: '사용 여부', value: 'useYn', filterable:false  },
+          { text: 'Actions', value: 'actions', sortable: false, filterable:false  },
         ],
         optionList: [],
         editedIndex: -1,
@@ -382,7 +342,8 @@
         		
 
               editItem (item) {
-				item.optionPrice = parseInt(item.optionPrice.replaceAll(',','')); 
+				console.log(item);
+// 				item.optionPrice = parseInt(item.optionPrice.replaceAll(',','')); 
 				
                 this.editedIndex = this.optionList.indexOf(item)
                 this.editedItem = Object.assign({}, item)

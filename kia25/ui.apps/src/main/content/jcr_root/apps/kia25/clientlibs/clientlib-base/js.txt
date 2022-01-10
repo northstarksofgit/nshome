@@ -27,6 +27,7 @@ js/ckh.js
 
 ### dwJung js ###
 js/dwJung.js
+js/dw-vue.js
 
 ###dain js ###
 js/dain.js

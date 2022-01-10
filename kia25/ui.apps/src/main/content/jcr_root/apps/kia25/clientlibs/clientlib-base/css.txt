@@ -19,7 +19,7 @@
 ### kia css ###
 css/clientlib.min.css
 css/estimate_online.css
-css/vuetify.min.css
+
 
 ### dwJung css ###
 css/dwJung.css
@@ -33,3 +33,4 @@ css/hm.css
 
 ### library css ###
 css/lib/datatables.min.css
+css/lib/vuetify.min.css

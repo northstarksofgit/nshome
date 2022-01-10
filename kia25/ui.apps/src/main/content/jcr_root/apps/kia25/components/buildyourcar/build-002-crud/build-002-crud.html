@@ -5,7 +5,7 @@
 
 	<!-- carGroup -->
 	<select name="carGroupSel">
-		<option value="carGroupCode">---- 선택 ----</option>
+		<option value="none">---- 선택 ----</option>
 		<option value="carGroupCode">carGroup 모델 코드</option>
 		<option value="carGroupName">전시 대표 차종명</option>
 	</select>
@@ -18,7 +18,7 @@
 
 	<table class="carGroupTab">
 		<thead>
-			<tr>
+			<tr class="carGroupTh">
 				<th>carGroup 모델 코드</th>
 				<th>전시 대표 차종명</th>
 				<th>모델 대표 이미지</th>
@@ -30,7 +30,7 @@
 		
 		<tbody>
 			<sly data-sly-list.group="${detail.carGroupList}">
-				<tr>
+				<tr class="carGroupTb">
 					<td>${group.carGroupCode}</td>
 					<td>${group.carGroupName}</td>
 					<td>
@@ -53,8 +53,8 @@
 	
 	
 	<!-- carGroup 관련 modal -->
+	<div class="carGroup modal">
 	
-	<div class="modal">
 		<!-- '수정' 클릭시 modal -->
 	    <div class="carUpdateModal" id="carUpdateModal">
 		    <div class="modal-header">
@@ -74,15 +74,27 @@
 	             <button id="cancleBtn" data-dismiss="modal" class="btn btn-secondary">닫기</button>
 	        </div> 
 	    </div>
-		
-	 		
-	 		
+
 	
 		<!-- '추가' 클릭시 modal -->
-			
-			
-		<!-- '삭제' 클릭시 modal -->
-		
+		<div class="carAddModal" id="carAddModal">
+		    <div class="modal-header">
+		       <h4>carGroup 추가</h4>
+		    </div>   
+		    
+		    <div class="modal-body">
+		    	<input type="text" name="" placeholder="carGroup 모델 코드">
+		    	<input type="text" name="" placeholder="전시 대표 차종명">
+		    	<input type="text" name="" placeholder="모델 대표 이미지">
+		    	<input type="text" name="" placeholder="정렬 순서">
+		    	<input type="text" name="" placeholder="사용 유무">
+	        </div>   
+	           
+	        <div class="modal-footer">
+	          	 <button type="submit" class="btn btn-success" id="carAddMoBtn">추가</button>
+	             <button id="cancleBtn" data-dismiss="modal" class="btn btn-secondary">닫기</button>
+	        </div> 
+	    </div>
 
 
 
@@ -94,7 +106,7 @@
 
 	<!-- trim -->
 	<select name="trimSel">
-		<option value="carGroupCode">---- 선택 ----</option>
+		<option value="none">---- 선택 ----</option>
 		<option value="trimCode">트림코드</option>
 		<option value="trimName">트림명</option>
 		<option value="transmission">변속기</option>
@@ -107,7 +119,7 @@
 
 	<table class="trimTab">
 		<thead>
-			<tr>
+			<tr class="trimTh">
 				<th>carGroup 모델 코드</th>
 				<th>변속기 코드</th>
 				<th>트림 코드</th>
@@ -126,7 +138,7 @@
 		
 		<tbody>
 			<sly data-sly-list.trim="${detail.trimList}">
-				<tr>
+				<tr class="trimTd">
 					<td>${trim.carGroupCode}</td>
 					<td>${trim.transmissionCode}</td>
 					<td>${trim.trimCode}</td>
@@ -152,7 +164,14 @@
 	
 	
 	<!-- trim 관련 modal -->
+	<div class="trim modal">
 	
+	
+	
+	
+	
+	
+	</div>
 	
 	
 	

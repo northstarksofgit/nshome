@@ -6,16 +6,20 @@
 select {
 	height: 30px;
 	width: 150px;
-	border: 1px solid rgb(27, 90, 194);
+	border: 1px solid black;
 	text-align: center;
 }
 
-th, td {
-	padding: 5px;
+.carGroupTb td, .carGroupTh th, .trimTd td, .trimTh th {
+	padding: 10px;
 	text-align: center;
 }
 
-table, th, tr, td {
+ .carGroupTh th, .trimTh th {
+ 	font-weight: bold;
+ }
+
+.carGroupTab, .trimTab , .carGroupTb td, .carGroupTh th, .trimTd td, .trimTh th {
 	border: 1px solid black;
 	margin-top: 10px;
 	margin-bottom: 10px;

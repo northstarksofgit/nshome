@@ -32,8 +32,8 @@ $(()=>{
 			el: '#vue-app-navi',
 			
 			mounted: function(){
-				const vm = this;
 				
+				const vm = this;
 				$(".build_car").length && vm.naviBarInit();
 				 vm.naviBar();
 			},
@@ -70,8 +70,6 @@ $(()=>{
 */
 
 if($(".category").length>0){
-
-	console.log('category check');
 
 	var category = $(".category").offset().top;
 	var carTab = $(".estimate_online_wrap > .inner > div");
@@ -126,7 +124,7 @@ const cateogryScroll = () =>{
 * navi 관련 js
 */
 
-const naviBarInit = ()=> {
+const naviBarInit = () => {
     var g = $(".build_car")
       , f = g.find(".byoTotal")
       , l = f.find(".totalBar \x3e a")
@@ -219,6 +217,7 @@ const naviBar = () => {
     })
 
 };
+
 
 
 

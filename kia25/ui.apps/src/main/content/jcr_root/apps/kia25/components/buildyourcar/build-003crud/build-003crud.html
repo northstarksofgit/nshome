@@ -47,7 +47,12 @@ table.type07 td {
 	  <input type="hidden" name="modelCode" id="modelCode"  value="">
 	  
 	  <span class="trim-info"></span>
-		<table class="type07">
+		<table class="type07" border=1>
+		<colgroup>
+	    <col width="10%"/>
+	    <col width="70%"/>
+	    <col width="20%"/>
+	  </colgroup>
 	        <thead>
 	            <tr>
 	            <td>검 색</td>
@@ -56,9 +61,14 @@ table.type07 td {
 		            <option value="E">외장재</option>
 		            <option value="I">내장재</option>
 		            </select>
-	            	<input type="text" id="searchWord" name="searchWord" style="width:80%;">
+	            	<input type="text" id="searchWord" name="searchWord" style="width:70%;">
+	            	<select name="useYn" id="useYn">
+	            	<option value="">ALL</option>
+		            <option value="Y">USE</option>
+		            <option value="N">DISUSE</option>
+		            </select>
 	            </td>
-	            <td><button class="btn btn-edit" style="width:30%;" value="search" onclick="topSearch(); return false;" >search</button></td>
+	            <td><button class="btn btn-edit" style="width:50%;" value="search" onclick="topSearch(); return false;" >search</button></td>
 	            </tr>
 	        </thead>
 	    </table>
@@ -74,6 +84,7 @@ table.type07 td {
                 <th>컬러 가격</th>                
                 <th>컬러 이미지</th>
                 <th>추천 여부</th>
+                <th>사용 여부</th>
                 <th>Action</th>
             </tr>
         </thead>
@@ -86,23 +97,27 @@ table.type07 td {
     <table id="example-table-1" width="100%">
         <thead>
             <tr>
+                <th>순서</th>
                 <th>차량 이미지</th>
                 <th>컬러 코드</th>
                 <th>컬러 명</th>
                 <th>컬러 가격</th>
+                <th>컬러 이미지</th>
                 <th>추천 여부</th>
-                <th>컬러 이미지 경로</th>
+                <th>사용 여부</th>
                 <th>Action</th>
             </tr>
         </thead>
         <tbody>
                 <tr>
+                    <td><input type="text" name="sortOrder" id="sortOrder" style="width:100%;"></td>
                     <td><input type="text" name="carImagePath" id="carImagePath" style="width:100%;"></td>
                     <td><input type="text" name="colorCode" id="colorCode" style="width:100%;"></td>
                     <td><input type="text" name="colorName" id="colorName" style="width:100%;"></td>
                     <td><input type="text" name="colorPrice" id="colorPrice" style="width:100%;"></td>
-                    <td><input type="text" name="bestYn" id="bestYn" style="width:100%;"></td>
                     <td><input type="text" name="colorImagePath" id="colorImagePath" style="width:100%;"></td>
+                    <td><input type="text" name="bestYn" id="bestYn" style="width:100%;"></td>
+                    <td><input type="text" name="useYn" id="useYn" style="width:100%;"></td>
                     <td style="text-align: center;" >
                         <button class="btn btn-edit" onclick="areaSave(); return false;">Save</button>
                         <button class="btn btn-delete" onClick="areaDel(); return false;">Delete</button>
@@ -135,6 +150,8 @@ function areaCopy(Count){
 	var colorPriceList = document.getElementsByName("colorPriceList")[Count];
 	var colorImagePathList = document.getElementsByName("colorImagePathList")[Count];
 	var bestYnList = document.getElementsByName("bestYnList")[Count];
+	var sortOrderList = document.getElementsByName("sortOrderList")[Count];
+	var useYnList = document.getElementsByName("useYnList")[Count];
 
 	f.carImagePath.value = carImagePathList.value;
 	f.colorCode.value = colorCodeList.value;	
@@ -142,6 +159,8 @@ function areaCopy(Count){
 	f.colorPrice.value = colorPriceList.value;
 	f.bestYn.value = bestYnList.value;
 	f.colorImagePath.value = colorImagePathList.value;
+	f.sortOrder.value = sortOrderList.value;
+	f.useYn.value = useYnList.value;
 	
 	var search = location.search
 	var params = new URLSearchParams(search);
@@ -176,6 +195,8 @@ function areaSave(){
 	var colorPrice = $("#colorPrice").val();
 	var bestYn = $("#bestYn").val();
 	var colorImagePath = $("#colorImagePath").val();
+	var useYn = $("#useYn").val();
+	var sortOrder = $("#sortOrder").val();
 	
 	var data = {
 	   		  "trimCode"    		: gettrimCode
@@ -186,6 +207,8 @@ function areaSave(){
 	   		, "colorPrice"       	: colorPrice
 	   		, "bestYn"       		: bestYn
 	   		, "colorImagePath"      : colorImagePath
+	   		, "useYn"      			: useYn
+	   		, "sortOrder"      		: sortOrder
 	   }
 		data = JSON.stringify(data)
 		
@@ -257,6 +280,7 @@ function areaDel(){
 
 function topSearch(){
 	var f = document.FrmSearch;
+	var f2 = document.Frm;
 	
 	var search = location.search
 	var params = new URLSearchParams(search);
@@ -265,6 +289,13 @@ function topSearch(){
 	
 	f.trimCode.value = gettrimCode;
 	f.modelCode.value = getmodelCode;
+	
+	f2.carImagePath.value = "";
+	f2.colorCode.value = "";	
+	f2.colorName.value = "";
+	f2.colorPrice.value = "";
+	f2.bestYn.value = "";
+	f2.colorImagePath.value = "";
 	
 	/* if (f.searchWord.value.trim() == ""){ 
 		alert("searchWord - 입력"); 
@@ -276,13 +307,16 @@ function topSearch(){
 	var gettrimCode = params.get('trimCode');
 	var getmodelCode = params.get('modelCode');
 	var getcarOptionCode = $("#carOptionCode").val();
-	var getsearchWord = params.get('searchWord');
+	var getuseYn = $("#useYn").val();
+	var getsearchWord = $("#searchWord").val();
+	// var getsearchWord = params.get('searchWord');
 
 	var data = {
 	   		  "trimCode"    		: gettrimCode
 	   		, "modelCode"       	: getmodelCode
 	   		, "carOptionCode"       : getcarOptionCode
-	   		, "searchWord"       	: getsearchWord
+	   		, "useYn"       		: getuseYn
+	   		, "searchWord"       	: getsearchWord.toUpperCase()
 	   }
 		data = JSON.stringify(data)
 		
@@ -296,29 +330,33 @@ function topSearch(){
 					success:function(data){
 						 var resultHtml = "";
 						 var imgsize ="80";
+						 
 						 $("#resultList tbody").empty();
 						 
 				            for(var i = 0; i < data.list.length; i++) {
 				            	j = i+1;
 				                resultHtml += "<tr>";
-				                resultHtml += '<td>'+ j +'</td>';
+				                resultHtml += '<td>'+data.list[i].sortOrder+'</td>';
 				                resultHtml += '<td><img src="'+ data.list[i].carImagePath +'" width="'+imgsize+'"></td>';
 				                resultHtml += '<td>'+data.list[i].colorCode+'</td>';
 				                resultHtml += '<td>'+data.list[i].colorName+'</td>';
 				                resultHtml += '<td>'+parseInt(data.list[i].colorPrice).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',')+'</td>';
 				                resultHtml += '<td><img src="'+data.list[i].colorImagePath+'" width="'+imgsize+'"></td>';
 				                resultHtml += '<td>'+data.list[i].bestYn+'</td>';
-				                resultHtml += '<td><button class=btn btn-edit id=button onClick="areaCopy('+i+')">Edit</button></td>';
+				                resultHtml += '<td>'+data.list[i].useYn+'</td>';
+				                resultHtml += '<td><button class="btn btn-edit" id="button" style="width:50%" onClick="areaCopy('+i+')">Edit</button></td>';
 				                resultHtml += '</tr>';
 				                
 				                resultHtml += '<input type="hidden" id="trimCodeList" name="trimCodeList" value="'+gettrimCode+'"> ';
-				                resultHtml += '<input type="hidden" id="carImagePathList"  name="carImagePathList" value="'+data.list[i].carImagePath+'">';
 				                resultHtml += '<input type="hidden" id="carOptionCodeList"  name="carOptionCodeList" value="'+getcarOptionCode+'">';
+				                resultHtml += '<input type="hidden" id="sortOrderList" name="sortOrderList" value="'+data.list[i].sortOrder+'">';
+				                resultHtml += '<input type="hidden" id="carImagePathList"  name="carImagePathList" value="'+data.list[i].carImagePath+'">';
 				                resultHtml += '<input type="hidden" id="colorCodeList" name="colorCodeList" value="'+data.list[i].colorCode+'">';
 				                resultHtml += '<input type="hidden" id="colorNameList" name="colorNameList" value="'+data.list[i].colorName+'">';
 				                resultHtml += '<input type="hidden" id="colorPriceList" name="colorPriceList" value="'+data.list[i].colorPrice+'">';
 				                resultHtml += '<input type="hidden" id="colorImagePathList" name="colorImagePathList" value="'+data.list[i].colorImagePath+'">';
 				                resultHtml += '<input type="hidden" id="bestYnList" name="bestYnList" value="'+data.list[i].bestYn+'">';
+				                resultHtml += '<input type="hidden" id="useYnList" name="useYnList" value="'+data.list[i].useYn+'">';
 				                resultHtml += '<input type="hidden" id="countList" name="countList" value="'+ i +'">';
 				            }
 				            $("#resultList tbody").html(resultHtml);

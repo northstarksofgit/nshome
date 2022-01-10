@@ -1,6 +1,9 @@
 package com.kia25.core.models;
 
+import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
+import java.util.stream.Collectors;
 
 import javax.annotation.PostConstruct;
 
@@ -41,17 +44,6 @@ public class Build003CrudModel {
 			clrDto.setCarOptionCode(request.getParameter("carOptionCode"));
 			clrDto.setSearchWord(request.getParameter("searchWord"));
 			colorList = service.listColor(clrDto);
-			
-//			List<String> getList = colorList.stream().map(ColorDto::getColorCode).collect(Collectors.toList());
-//
-//			List<ColorDto> colorList2 = new ArrayList<>(colorList.size());
-//			
-//			for(String ColorCode : getList) {
-//				if(getList.indexOf(ColorCode) == getList.lastIndexOf(request.getParameter("searchWord"))) {
-//					Collections.copy(colorList2, colorList);
-//				}
-//						
-//			}
 			
 		} catch (Exception ex) {
 			ex.printStackTrace();

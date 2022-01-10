@@ -28,6 +28,10 @@ public class ColorDto {
 	private String trimName;
 
 	private String searchWord;
+	
+	private String useYn;
+	
+	private String sortOrder;
 
 	public String getColorCode() {
 		return colorCode;
@@ -125,4 +129,20 @@ public class ColorDto {
 		this.searchWord = searchWord;
 	}
 
+	public String getUseYn() {
+		return useYn;
+	}
+
+	public String getSortOrder() {
+		return sortOrder;
+	}
+
+	public void setUseYn(String useYn) {
+		this.useYn = useYn;
+	}
+
+	public void setSortOrder(String sortOrder) {
+		this.sortOrder = sortOrder;
+	}
+	
 }

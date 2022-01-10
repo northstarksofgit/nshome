@@ -44,8 +44,6 @@ public class Build002CrudModel {
 			modelCode = request.getParameter("modelCode");
 			modelYear = request.getParameter("modelYear");
 			
-			log.info("modelYear" + modelYear);
-			
 			carGroupList = service.getCarGroupListAPI(modelCode, modelYear);
 			trimList = service.getTrimListAPI(modelCode, modelYear);
 			

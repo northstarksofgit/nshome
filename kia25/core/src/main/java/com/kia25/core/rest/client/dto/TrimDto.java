@@ -46,8 +46,14 @@ public class TrimDto {
 	 * 추천(베스트)여부
 	 */
 	private String bestYn;
-
 	
+
+	/**
+	 * 변속기 이름
+	 */
+	private String gearboxName;
+	
+
 	/**
 	 * 복합연비
 	 */
@@ -65,10 +71,12 @@ public class TrimDto {
 	 */
 	private String engineCapacityName;
 
+	
 	/**
 	 * 정렬 순서
 	 */
 	private int sortOrder;
+	
 	
 	/**
 	 * 사용 유무
@@ -136,6 +144,14 @@ public class TrimDto {
 
 	public void setBestYn(String bestYn) {
 		this.bestYn = bestYn;
+	}
+	
+	public String getGearboxName() {
+		return gearboxName;
+	}
+
+	public void setGearboxName(String gearboxName) {
+		this.gearboxName = gearboxName;
 	}
 
 	public String getCompoundFuelEconomy() {

@@ -146,7 +146,24 @@ public class CrudServiceImpl implements CrudService{
 	 */
 	@Override
 	public String saveCarGroup(CarGroupDto carGroupDto) {
-		// TODO Auto-generated method stub
+		
+		try {
+
+			ArrayList<NameValuePair> postParameters = new ArrayList<NameValuePair>();
+			postParameters.add(new BasicNameValuePair("carGroupCode", carGroupDto.getCarGroupCode()));
+			postParameters.add(new BasicNameValuePair("carGroupName", carGroupDto.getCarGroupName()));
+			postParameters.add(new BasicNameValuePair("carImagePath", carGroupDto.getCarImagePath()));
+			postParameters.add(new BasicNameValuePair("sortOrder", Integer.toString(carGroupDto.getSortOrder())));
+			postParameters.add(new BasicNameValuePair("useYn", carGroupDto.getUseYn()));
+			
+			String response = service.sendPostRequest("db/car-group/save", postParameters);
+			
+		} catch(Exception e) {
+			
+			LOG.error("Error parsing JSON API carGroup save", e);
+			e.printStackTrace();
+		}
+		
 		return null;
 	}
 
@@ -155,7 +172,20 @@ public class CrudServiceImpl implements CrudService{
 	 */
 	@Override
 	public String deleteCarGroup(CarGroupDto carGroupDto) {
-		// TODO Auto-generated method stub
+		
+		try {
+
+			ArrayList<NameValuePair> postParameters = new ArrayList<NameValuePair>();
+			postParameters.add(new BasicNameValuePair("carGroupCode", carGroupDto.getCarGroupCode()));
+			
+			String response = service.sendPostRequest("db/car-group/delete", postParameters);
+			
+		} catch(Exception e) {
+			
+			LOG.error("Error parsing JSON API carGroup delete", e);
+			e.printStackTrace();
+		}
+		
 		return null;
 	}
 
@@ -165,7 +195,26 @@ public class CrudServiceImpl implements CrudService{
 	 */
 	@Override
 	public List<TrimDto> getTrimListAPI(String modelCode, String modelYear) {
-		// TODO Auto-generated method stub
+
+		try {
+			
+			String response = service.getRequest("db/trim/list?modelCode=" + modelCode + "&modelYear=" + modelYear);
+			LOG.debug("trim response={}", response);
+			
+			ObjectMapper mapper = new ObjectMapper();
+			
+			List<TrimDto> results = mapper.readValue(response, new TypeReference<List<TrimDto>>(){});
+			
+			return results;	
+			
+			
+		} catch (Exception e) {
+			
+			LOG.error("Error parsing JSON API response.", e);
+			e.printStackTrace();
+			
+		}
+		
 		return null;
 	}
 	
@@ -174,8 +223,34 @@ public class CrudServiceImpl implements CrudService{
 	 */
 	@Override
 	public String saveTrim(TrimDto trimDto) {
-		// TODO Auto-generated method stub
+
+		try {
+
+			ArrayList<NameValuePair> postParameters = new ArrayList<NameValuePair>();
+			postParameters.add(new BasicNameValuePair("carGroupCode", trimDto.getCarGroupCode()));
+			postParameters.add(new BasicNameValuePair("transmissionCode", trimDto.getTransmissionCode()));
+			postParameters.add(new BasicNameValuePair("trimCode", trimDto.getTrimCode()));
+			postParameters.add(new BasicNameValuePair("trimName", trimDto.getTrimName()));
+			postParameters.add(new BasicNameValuePair("productCode", trimDto.getProductCode()));
+			postParameters.add(new BasicNameValuePair("sellingPrice", Integer.toString(trimDto.getSellingPrice())));
+			postParameters.add(new BasicNameValuePair("bestYn", trimDto.getBestYn()));
+			postParameters.add(new BasicNameValuePair("gearboxName", trimDto.getGearboxName()));
+			postParameters.add(new BasicNameValuePair("compoundFuelEconomy", trimDto.getCompoundFuelEconomy()));
+			postParameters.add(new BasicNameValuePair("bodyTypeName", trimDto.getBodyTypeName()));
+			postParameters.add(new BasicNameValuePair("engineCapacityName", trimDto.getEngineCapacityName()));
+			postParameters.add(new BasicNameValuePair("sortOrder", Integer.toString(trimDto.getSortOrder())));
+			postParameters.add(new BasicNameValuePair("useYn", trimDto.getUseYn()));
+			
+			String response = service.sendPostRequest("db/trim/save", postParameters);
+			
+		} catch(Exception e) {
+			
+			LOG.error("Error parsing JSON API trim save", e);
+			e.printStackTrace();
+		}
+		
 		return null;
+		
 	}
 
 	/**
@@ -183,7 +258,21 @@ public class CrudServiceImpl implements CrudService{
 	 */
 	@Override
 	public String deleteTrim(TrimDto trimDto) {
-		// TODO Auto-generated method stub
+		
+		try {
+
+			ArrayList<NameValuePair> postParameters = new ArrayList<NameValuePair>();
+			postParameters.add(new BasicNameValuePair("carGroupCode", trimDto.getCarGroupCode()));
+			postParameters.add(new BasicNameValuePair("trimCode", trimDto.getTrimCode()));
+			
+			String response = service.sendPostRequest("db/trim/delete", postParameters);
+			
+		} catch(Exception e) {
+			
+			LOG.error("Error parsing JSON API trim delete", e);
+			e.printStackTrace();
+		}
+		
 		return null;
 	}
 

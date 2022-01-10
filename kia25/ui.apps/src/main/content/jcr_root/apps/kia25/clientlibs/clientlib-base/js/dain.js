@@ -37,9 +37,60 @@ $(function() {
 		var carImgPath = $(this).data('carimage');
 		$('.carGroupImg').attr("src", carImgPath);
 		
+		// carGroup에 따른 trimlist 조회하는 함수
 		carGroupTrim();
 	})
 	
+
+	// transmission 클릭 이벤트 
+	$('.form_chk.transmission').on('click', function(){
+		selectedTrans = $(this)[0].dataset.transcode;
+		$('.trans-radio').removeClass('on');
+		$(this).find('label').addClass('on');	
+		
+		// transmission에 따른 trimlist를 조회하는 함수
+		transTrim();
+	})
+
+
+	// trim 클릭 이벤트 
+	$('.trim-list').on('click', function(e){
+		e.preventDefault();
+		
+		selectedTrim = $(this)[0].dataset.trim;
+		$('.trim_click').removeClass('on');
+		$(this).find('li').addClass('on');
+		
+		addTrimToNavi();
+		naviTrimCode = selectedTrim;
+	})
+	
+	
+	// 페이지 로딩시 기본 carGroupCode 선택
+	function defaultOnCarGroup(){
+		var carGroup = $('.form_chk.carGroup');
+	
+		for(var i = 0; i< carGroup.length; i++ ){
+			if($(carGroup[i]).find('label').hasClass('on')){
+				
+				selectedCarGroup = $(carGroup)[i].dataset.cargroupcode;
+			} 
+		}
+	}
+	
+
+	// 페이지 로딩시 기본 transmission 선택
+	function defaultOnTrans (){
+		var trans = $('.form_chk.transmission');
+	
+		for(var i = 0; i < trans.length; i++){
+			if($(trans[i]).find('label').hasClass('on')){
+				
+				selectedTrans = $(trans)[i].dataset.transcode;
+			}
+		}
+	}	
+
 	
 	// carGroup에 따른 trimlist 조회하는 함수
 	function carGroupTrim (){
@@ -55,7 +106,6 @@ $(function() {
 				
 				if(onFlag){
 					$(trimCarGroup[i]).find('.trim_click').addClass('on');
-					
 					onFlag = false;
 				}
 				
@@ -64,23 +114,12 @@ $(function() {
 			}
 		}
 		
+		// transmission에 따른 trimlist 조회하는 함수
 		transTrim();
-//		addTrimToNavi();
 	}
 	
 
-	
-	// 변속기 클릭 이벤트 
-	$('.form_chk.transmission').on('click', function(){
-		selectedTrans = $(this)[0].dataset.transcode;
-		$('.trans-radio').removeClass('on');
-		$(this).find('label').addClass('on');	
-		
-		transTrim();
-	})
-
-	
-	// 변속기에 따른 trimlist를 조회하는 함수
+	// transmission에 따른 trimlist를 조회하는 함수
 	function transTrim(){
 		$('.trim_click').removeClass('on');
 		
@@ -108,43 +147,27 @@ $(function() {
 	}
 	
 	
-	// trim 클릭 이벤트 
-	$('.trim-list').on('click', function(e){
-		e.preventDefault();
+	
+	/**
+		=====================================================================
 		
-		selectedTrim = $(this)[0].dataset.trim;
-		$('.trim_click').removeClass('on');
-		$(this).find('li').addClass('on');
+		build002 CRUD용 js
 		
-		addTrimToNavi();
-		naviTrimCode = selectedTrim;
-	})
-	
-	
-	// 기본값 carGroupCode 
-	function defaultOnCarGroup(){
-		var carGroup = $('.form_chk.carGroup');
-	
-		for(var i = 0; i< carGroup.length; i++ ){
-			if($(carGroup[i]).find('label').hasClass('on')){
-				
-				selectedCarGroup = $(carGroup)[i].dataset.cargroupcode;
-			} 
-		}
-	}
-	
+		=====================================================================
+	 */
 
-	// 기본값 transmission 
-	function defaultOnTrans (){
-		var trans = $('.form_chk.transmission');
-	
-		for(var i = 0; i < trans.length; i++){
-			if($(trans[i]).find('label').hasClass('on')){
-				
-				selectedTrans = $(trans)[i].dataset.transcode;
-			}
-		}
-	}	
+
+	$('.modal').on('click', function(){
+		
+		$('.modal').css('display','none');
+		
+	})
+
+
+
+
+
+
 
 
 

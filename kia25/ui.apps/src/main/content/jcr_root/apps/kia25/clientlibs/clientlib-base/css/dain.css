@@ -6,7 +6,7 @@
 select {
 	height: 30px;
 	width: 150px;
-	border: 1px solid #1b5ac2;
+	border: 1px solid rgb(27, 90, 194);
 	text-align: center;
 }
 
@@ -16,6 +16,15 @@ select {
 	border: 1px solid #1b5ac2;
 	background: white;
 	display: inline-block;
+}
+
+/* 검색창 input요소 css */
+.carGroupSearch, .trimSearch  {
+	width: 150px;
+	font-size: 15px;
+	padding: 3px;
+	text-align: left;
+	border: 0;
 }
 
 .searchBtn {
@@ -32,19 +41,37 @@ select {
 
 
 
+/* 등록, 삭제 버튼 css */
+.carAddBtn, .trimAddBtn {
+	width: 50px;
+	height: 30px;
+	text-align: center;
+	background: rgb(147, 230, 253);
+	color: white;
+}
+
+.carDelBtn, .trimDelBtn {
+	width: 50px;
+	height: 30px;
+	text-align: center;
+	background: rgb(255, 128, 128);
+	color: white;
+}
+
+
+
 
 
 /*
 *	build002 carGroup 관련 css
 */
 
-.carGroupSearch {
-	width: 200px;
-	font-size: 15px;
-	padding: 3px;
-	text-align: left;
-	border: 0;
-}
+
+
+
+
+
+
 
 
 
@@ -54,13 +81,6 @@ select {
 *	build002 trim 관련 css
 */
 
-.trimSearch {
-	width: 200px;
-	font-size: 15px;
-	padding: 3px;
-	text-align: left;
-	border: 0;
-}
 
 
 

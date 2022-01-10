@@ -1,63 +1,136 @@
-<sly data-sly-use.option="com.kia25.core.models.Build004_CRUD"></sly>
+<!DOCTYPE html>
+<html>
 
-<p>${option.optionList.size}</p>
-<hr>
-<div>
-	<sly data-sly-test="${option.optionList}">
-        <ul data-sly-list.opt="${option.optionList}" >
-            	<li> 시 코드 : ${opt.trimCode}</li>
-            	<li> 시 이름 : ${opt.optionCode}</li>
-        </ul>
-    </sly>
-</div>
+<head>
+  <title>Welcome to Vue</title>
+  <link href="https://fonts.googleapis.com/css?family=Roboto:100,300,400,500,700,900" rel="stylesheet">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, minimal-ui">
 
 
+  <link href="https://cdn.jsdelivr.net/npm/@mdi/font@5.x/css/materialdesignicons.min.css" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/vuetify@2.x/dist/vuetify.min.css" rel="stylesheet">
+  <script src="https://cdn.jsdelivr.net/npm/vue@2.x/dist/vue.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/vuetify@2.x/dist/vuetify.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/sortablejs@1.8.1/Sortable.min.js"></script>
+
+  <style>
+    tr {
+      cursor: grab;
+    }
+  </style>
+</head>
+
+<body>
+  <div id="app">
+    <v-container>
+      <h1 class="text-xs-center mt-3">Drag n Drop</h1>
+      <p style="margin-top: 1em;">This is a demo making a data table in vuetify 2.x draggable, feel free to explore :)</p>
+<!--       <v-layout style="margin-top: 3em;" mt-5 justify-center> -->
+<!--         <v-flex sm8> -->
+          <v-data-table :key="reRender" :headers="headers" :items="formItems" class="elevation-1">
+            <template slot="items" slot-scope="props">
+              <td class="text-xs-left">{{ props.item.name }}</td>
+              <td class="text-xs-left">{{ props.item.score }}</td>
+            </template>
+          </v-data-table>
+<!--         </v-flex> -->
+<!--       </v-layout> -->
+
+      <v-layout style="margin-top: 5em;">
+
+        <v-flex sm12>
+          <h2>The items in the "dragNdrop" array</h2>
+          <p>
+            {{JSON.stringify(dragNdrop, null,'\n')}}
+          </p>
+        </v-flex>
+      </v-layout>
+
+    </v-container>
 
 
+  </div>
+  
+  
+   <script>
+    var app = new Vue({
+      el: '#app',
+      vuetify: new Vuetify(),
+      data: {
+        reRender: 0,
+        dragNdrop: [],
+        headers: [
+        	{
+	          text: "Name",
+	          align: "left",
+	          sortable: false,
+	          value: "name"
+	        },
+	        {
+	          text: "Score",
+	          align: "left",
+	          sortable: false,
+	          value: "score"
+	        },
+	        ],
+	        formItems: [{
+	          name: "John",
+	          score: 20
+	        },
+	        {
+	          name: "Dan",
+	          score: 70
+	        },
+	        {
+	          name: "Maria",
+	          score: 50
+	        },
+	        {
+	            name: "test1",
+	            score: 10
+	        },
+	        {
+	            name: "teset2",
+	            score: 220
+	        },
+	        {
+	            name: "test44",
+	            score: 555
+	        },
+        ]
+      },
+      methods: {
+        initSortable() {
+          let table = document.querySelector("tbody");
+          const _self = this;
+          // this way we avoid data binding
+          _self.dragNdrop = JSON.parse(JSON.stringify(_self.formItems));
 
+          Sortable.create(table, {
+            onEnd({
+              newIndex,
+              oldIndex
+            }) {
+            	
+              _self.dragNdrop.splice(
+                newIndex,
+                0,
+                ..._self.dragNdrop.splice(oldIndex, 1)
+              );
+            	
+	           	console.log(newIndex , oldIndex)
+            	console.log(_self.dragNdrop);
+            }
+          });
+        },
 
+      },
+      mounted() {
+        console.log("mounted");
+        this.initSortable();
+      }
+    })
+  </script>
+</body>
 
-
-
-
-<!--<sly data-sly-use.option="com.kia25.core.models.Build004_OptionModel"></sly>-->
-
-<!--
-<p>Model component</p>
-<hr>
-<div>
-	<p>리스트 ${option.optionList.size}</p>
-    <p>모델이미지경로 ${option.matchModel.carImage}</p>
-    <hr>
-	<sly data-sly-test="${option.optionList}">
-        <ul data-sly-list.optList="${option.optionList}" >
-            	<li> category Code : ${optList.trimCode}</li>
-            	<li> category Name : ${optList.optionCode}</li>
-        </ul>
-    </sly>
-</div>
--->
-
-<!-- 
-
-<sly data-sly-use.car="com.kia25.core.models.Build002Model">
-
-
-<p>car component</p>
-<hr>
-<div>
-	<p>리스트 ${car.carGroupList.size}</p>
-    <p>모델이미지경로 ${car.carData.carImagePath}</p>
-    <p>모델이미지경로 ${car.test.size}</p>
-    <hr>
-	<sly data-sly-test="${car.test}">
-        <ul data-sly-list.list="${car.test}" >
-        		<li> category Code : ${list.carGroupCode}</li>
-            	<li> category Code : ${list.trimCode}</li>
-            	<li> category Name : ${list.trimName}</li>
-            	<li> category Name : ${list.sellingPrice}</li>
-            	<hr>
-        </ul>
-    </sly>
-</div>
--->
+</html>

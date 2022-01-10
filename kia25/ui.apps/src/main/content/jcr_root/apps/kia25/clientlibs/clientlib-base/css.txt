@@ -19,6 +19,7 @@
 ### kia css ###
 css/clientlib.min.css
 css/estimate_online.css
+css/vuetify.min.css
 
 ### dwJung css ###
 css/dwJung.css

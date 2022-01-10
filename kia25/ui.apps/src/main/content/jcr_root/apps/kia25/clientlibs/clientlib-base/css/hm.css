@@ -64,7 +64,9 @@
 }
 
 .modal-btn {
-	float: right;
+/* 	float: right; */
+	width: 100%;
+	text-align: right;
 	margin-top: 3px;
 }
 
@@ -271,5 +273,4 @@ select#soflow {
 	color: #c60000 !important;
 	font-weight: bold;
 }
-
 

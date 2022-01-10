@@ -85,41 +85,53 @@ public class ColorServlet extends SlingAllMethodsServlet {
 		List<ColorDto> result = crudService.listColor(colorParams);
     	TrimDto select = crudService.getSelectTrimAPI(colorParams.getTrimCode().toString());
     	
-    	
-    	
-    	
-    	
-    	
 		/* 검색어가 있다면 검색함 */
     	if(!colorParams.getSearchWord().toString().equals("")) {
 	    	List<ColorDto> cloList = new ArrayList<ColorDto>();
 	    	
 	    	List<String> searchWrd = result.stream().map(ColorDto::getColorCode).collect(Collectors.toList());
+	    	List<String> useYn = result.stream().map(ColorDto::getUseYn).collect(Collectors.toList());
 	
 	    	Iterator<ColorDto> it = result.iterator();
 	
 	    	while(it.hasNext()) {
 	    		ColorDto strNxt = it.next();
 				
-	    		/* 컬러코드만 검색 */
-	    		if(searchWrd.indexOf(strNxt.getColorCode().toString()) ==  searchWrd.lastIndexOf(colorParams.getSearchWord().toString())) {
-	    			cloList.add(strNxt);
-				}
+	    		String setcolorCode = strNxt.getColorCode().toString();
+	    		String getsearchWord = colorParams.getSearchWord().toString();
+	    		String setuseYN = strNxt.getUseYn().toString();
+	    		String getuseYN = colorParams.getUseYn().toString();
+	    		
+				/* 이 부분에서는 키워드가 존재하며 사용여부까지 ((((모두)))) 체크하여 알맞은 검색을 진행한다 (조건이 추가되면 추가 삽입)*/ 
+	    		if((setuseYN).equals(getuseYN)) {
+	    			if(searchWrd.indexOf(setcolorCode) ==  searchWrd.lastIndexOf(getsearchWord)) {
+		    			cloList.add(strNxt);
+					}
+    			} else if ("".contentEquals(getuseYN)) {
+    				if(searchWrd.indexOf(setcolorCode) ==  searchWrd.lastIndexOf(getsearchWord)) {
+		    			cloList.add(strNxt);
+					}
+    			}
 	    	}
 	    	
 	    	dataMaps.put("list", cloList);
 	    	dataMaps.put("select", select);
     	
     	} else if(!colorParams.getUseYn().toString().equals("")) {
-    		/* 사용여부 판단 */
+    		/* 검색어는 상관없이 사용여부만 체크함 검색 
+    		 * 조건이 늘어날 수록  조건문이 증가되어 한 통제가 필요하다 
+    		 * */
         	List<ColorDto> ynList = new ArrayList<ColorDto>();
         	List<String> useYn = result.stream().map(ColorDto::getUseYn).collect(Collectors.toList());
         	Iterator<ColorDto> uyn = result.iterator();
         	
         	while(uyn.hasNext()) {
         		ColorDto strNxt = uyn.next();
+        		
+        		String setuseYN = strNxt.getUseYn().toString();
+        		String getuseYN = colorParams.getUseYn().toString();
     			
-        		if(useYn.indexOf(strNxt.getUseYn().toString()) ==  useYn.lastIndexOf(colorParams.getSearchWord().toString())) {
+        		if((setuseYN).equals(getuseYN)) {
         			ynList.add(strNxt);
     			}
         	 }
@@ -149,9 +161,9 @@ public class ColorServlet extends SlingAllMethodsServlet {
 		String parameter = request.getParameter("data");
 		
 		
-		ColorDto optionParams = mapper.readValue(parameter, ColorDto.class);
+		ColorDto colorParams = mapper.readValue(parameter, ColorDto.class);
 
-		result = crudService.saveColor(optionParams);
+		result = crudService.saveColor(colorParams);
 		
 
 		if (result == null) {

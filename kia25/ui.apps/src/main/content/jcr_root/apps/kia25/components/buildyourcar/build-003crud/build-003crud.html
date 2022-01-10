@@ -62,7 +62,7 @@ table.type07 td {
 		            <option value="I">내장재</option>
 		            </select>
 	            	<input type="text" id="searchWord" name="searchWord" style="width:70%;">
-	            	<select name="useYn" id="useYn">
+	            	<select name="searuseYn" id="searuseYn">
 	            	<option value="">ALL</option>
 		            <option value="Y">USE</option>
 		            <option value="N">DISUSE</option>
@@ -307,7 +307,7 @@ function topSearch(){
 	var gettrimCode = params.get('trimCode');
 	var getmodelCode = params.get('modelCode');
 	var getcarOptionCode = $("#carOptionCode").val();
-	var getuseYn = $("#useYn").val();
+	var getuseYn = $("#searuseYn").val();
 	var getsearchWord = $("#searchWord").val();
 	// var getsearchWord = params.get('searchWord');
 

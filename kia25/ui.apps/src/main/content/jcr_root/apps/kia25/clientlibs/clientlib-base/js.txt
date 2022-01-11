@@ -21,6 +21,8 @@ js/lib/vue.js
 js/lib/vuetify.js
 js/lib/datatables.min.js
 js/lib/Sortable.min.js
+js/lib/axios.min.js
+
 
 ## ckh js ##
 js/ckh.js

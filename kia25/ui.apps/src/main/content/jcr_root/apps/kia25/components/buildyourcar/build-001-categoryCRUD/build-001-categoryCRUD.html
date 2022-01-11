@@ -4,7 +4,7 @@
 
 
 
-<div class="contentBox" id="vue-app">
+<div class="contentBox" id="vue-app-crud">
 
 
         <select name="categoryCon" class="condition">
@@ -68,7 +68,8 @@
         <br>
         카테고리: 
         <sly data-sly-list="${model.categoryList}">
-        	<input class="radioCURD" type="radio" name="cateSort" index="${itemList.count}" value="${item.categoryCode}" >${item.categoryName}
+        	<input class="radioCURD" type="radio" @change="getModelList"
+        	name="cateSort" index="${itemList.count}" value="${item.categoryCode}" >${item.categoryName}
         </sly>
         
 

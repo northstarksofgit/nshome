@@ -136,71 +136,41 @@ function radioChk(){
 */
 
 function getModelList(){
-	
-	console.log("chk"+$('.radioCURD:checked').val());
-	
-	
-	
-	axios.post("/services/model/list", null, {params :{
-         categoryCode : $('.radioCURD:checked').val()
-    }})
-    .then(response => {
-         console.log(response); 
-    }).catch(error => {
-        // 오류발생시 실행
-    }).then(() => {
-        // 항상 실행
-    });
-	
-	
-	
-	/*
-	$.ajax({
-		
-		type: "POST", 
-		url:"/services/model/list",
-		dataType: "json",
-				
-		data: {
-			"categoryCode" : $('.radioCURD:checked').val()
-		},
-		
-	
-		success : function(result){
 
+	axios.post("/services/model/list", 
+				null, 
+				{ params :{ categoryCode : $('.radioCURD:checked').val() }			
+						
+	}).then(result => {
+			
+			result = result.data;
+			
 			$('.modelTbl > tbody').empty();
 			
 			for(var i=0; i < result.length; i++){
+
 				$('.modelTbl > tbody').append(
-												`
-												<tr>
-													<td> <input type="checkbox" name="modelChk" class="chk" modelCode="${result[i].modelCode}" modelYear="${result[i].modelYear}"> </td>
-													<td>${result[i].categoryCode}</td>
-													<td>${result[i].modelCode}</td>
-													<td>${result[i].modelYear}</td>
-													<td>${result[i].modelName}</td>
-													<td><img style="height:100px;" src="${result[i].carImagePath}"></td>
-													<td><div class="btn update model" categoryCode="${result[i].categoryCode}" modelCode="${result[i].modelCode}" modelYear="${result[i].modelYear}" modelName="${result[i].modelName}">수정</div></td>
-												</tr>
-												`
+						`
+						<tr>
+							<td> <input type="checkbox" name="modelChk" class="chk" modelCode="${result[i].modelCode}" modelYear="${result[i].modelYear}"> </td>
+							<td>${result[i].categoryCode}</td>
+							<td>${result[i].modelCode}</td>
+							<td>${result[i].modelYear}</td>
+							<td>${result[i].modelName}</td>
+							<td><img style="height:100px;" src="${result[i].carImagePath}"></td>
+							<td><div class="btn update model" categoryCode="${result[i].categoryCode}" modelCode="${result[i].modelCode}" modelYear="${result[i].modelYear}" modelName="${result[i].modelName}">수정</div></td>
+						</tr>
+						`
 			)}
 			
 			$('input[type="checkbox"]').on('click', function(){ 
                                 $(this).parents('tr').toggleClass('checkedTr');
                             });
-			
-			
-		},
-		
-		error : function(a, b, c){
-			console.log(a);
-			console.log(b);
-			console.log(c);
-		}
-	});
-	
-	*/
 
+    }).catch(error => {
+        console.log("error: "+error);
+    })
+	
 }
 
 

@@ -185,6 +185,8 @@ public class ModelServlet extends SlingAllMethodsServlet {
 	private void getModelList(SlingHttpServletRequest request, SlingHttpServletResponse response) throws IOException {
 		
 		
+		LOG.info("categoryCode "+ request.getParameter("categoryCode"));
+		
 		List<ModelDto> result = crudService.getModelListAPI(request.getParameter("categoryCode"));
 
 		result.sort(new Comparator<ModelDto>() {
@@ -206,6 +208,8 @@ public class ModelServlet extends SlingAllMethodsServlet {
 		
 		
 		String json = new Gson().toJson(result);
+		
+		LOG.info("response: "+json);
 	    
         response.setContentType("application/json");
         PrintWriter out = response.getWriter();

@@ -137,6 +137,24 @@ function radioChk(){
 
 function getModelList(){
 	
+	console.log("chk"+$('.radioCURD:checked').val());
+	
+	
+	
+	axios.post("/services/model/list", null, {params :{
+         categoryCode : $('.radioCURD:checked').val()
+    }})
+    .then(response => {
+         console.log(response); 
+    }).catch(error => {
+        // 오류발생시 실행
+    }).then(() => {
+        // 항상 실행
+    });
+	
+	
+	
+	/*
 	$.ajax({
 		
 		type: "POST", 
@@ -180,6 +198,8 @@ function getModelList(){
 			console.log(c);
 		}
 	});
+	
+	*/
 
 }
 

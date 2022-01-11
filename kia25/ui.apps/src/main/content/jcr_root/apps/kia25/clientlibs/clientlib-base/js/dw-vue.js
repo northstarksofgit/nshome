@@ -50,12 +50,6 @@ $(()=>{
 	
 	};//vue-app-navi check 닫기
 	
-	
-	
-	
-
-	
-	
 }); //ready function닫기
 
 
@@ -80,8 +74,8 @@ if($(".category").length>0){
 };
 	
 	
-const cateogryScroll = () => {
-		
+function cateogryScroll (){
+	
   	var windowTop = $(document).scrollTop();
 	var carMenu = $(".category .inbox a");
 
@@ -126,7 +120,7 @@ const cateogryScroll = () => {
 * navi 관련 js
 */
 
-const naviBarInit = () => {
+function naviBarInit(){
     var g = $(".build_car")
       , f = g.find(".byoTotal")
       , l = f.find(".totalBar \x3e a")
@@ -175,7 +169,7 @@ const naviBarInit = () => {
 
 
 
-const naviBar = () => {
+function naviBar(){
 	
     function c() {
 	
@@ -234,7 +228,7 @@ const naviBar = () => {
 * navi의 다음> 클릭시 다음 step으로 넘어가는 함수
 * 필요한 파라미터: step, modelCode, trimCode, int, ext, option
 */
-const nextStep = () => {
+function nextStep (){
 	
 	/*
 	* step = 2 --> trim Page
@@ -294,7 +288,7 @@ const nextStep = () => {
 * navi의 <이전 클릭시 이전 step으로 넘어가는 함수
 * 필요한 파라미터: step, modelCode, trimCode, int, ext, option
 */
-const preStep = () => {
+function preStep(){
 	
 	const previStep = parseInt($('.naviDia').attr('currentStep'))-1;
 	var prePath = $('.naviDia').attr('prePath');

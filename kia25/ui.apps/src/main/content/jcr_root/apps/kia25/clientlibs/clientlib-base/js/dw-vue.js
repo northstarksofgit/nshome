@@ -40,7 +40,9 @@ $(()=>{
 			
 			methods:{
 				naviBarInit,
-				naviBar
+				naviBar,
+				nextStep,
+				preStep
 				
 			} //method 닫기
 			
@@ -78,7 +80,7 @@ if($(".category").length>0){
 };
 	
 	
-const cateogryScroll = () =>{
+const cateogryScroll = () => {
 		
   	var windowTop = $(document).scrollTop();
 	var carMenu = $(".category .inbox a");
@@ -222,6 +224,111 @@ const naviBar = () => {
 
 
 
+
+
+/*
+* navi 관련 js
+*/
+
+/*
+* navi의 다음> 클릭시 다음 step으로 넘어가는 함수
+* 필요한 파라미터: step, modelCode, trimCode, int, ext, option
+*/
+const nextStep = () => {
+	
+	/*
+	* step = 2 --> trim Page
+	* step = 3 --> color Page
+	* step = 4 --> option page
+	* step = 5 --> how to buy page
+	*/
+	
+	/*
+	* dialog한 data
+	*/
+	
+	const nextStep = parseInt($('.naviDia').attr('currentStep'))+1;
+	var nextPath = $('.naviDia').attr('nextPath');
+	const modelCode = $('.naviDia').attr('modelCode');
+	const modelYear = $('.naviDia').attr('modelYear');
+	const trimCode = $('.naviDia').attr('trimCode');
+	const intCode = $('.naviDia').attr('intCode');
+	const extCode = $('.naviDia').attr('extCode');
+	const optionCode = $('.naviDia').attr('optionCode');
+	
+	
+	if(nextStep == "3"){
+		
+		nextPath += ".html?modelCode="+modelCode+"&modelYear="+modelYear;
+		nextPath += "&trimCode="+naviTrimCode;
+		
+	}else if(nextStep == "4"){
+		
+		nextPath += ".html?modelCode="+modelCode+"&modelYear="+modelYear;
+		nextPath += "&trimCode="+trimCode;
+		nextPath += "&extColorCode="+$('input[name=ext]').val()+"&intColorCode="+$('input[name=int]').val();
+		nextPath = nextPath.replace('#', '');
+		
+	}else if(nextStep == "5"){
+		
+		nextPath += ".html?modelCode="+modelCode+"&modelYear="+modelYear;
+		nextPath += "&trimCode="+trimCode;
+		nextPath += "&extColorCode="+extCode+"&intColorCode="+intCode;
+		nextPath += "&option="+selectedOptList.toString();
+	}else{
+		
+		nextPath += ".html?modelCode="+modelCode+"&modelYear="+modelYear;
+		nextPath += "&trimCode="+trimCode;
+		nextPath += "&extColorCode="+extCode+"&intColorCode="+intCode;
+		nextPath += "&option="+optionCode;
+	}
+	
+	
+	location.href = nextPath;
+	
+};
+
+
+
+/*
+* navi의 <이전 클릭시 이전 step으로 넘어가는 함수
+* 필요한 파라미터: step, modelCode, trimCode, int, ext, option
+*/
+const preStep = () => {
+	
+	const previStep = parseInt($('.naviDia').attr('currentStep'))-1;
+	var prePath = $('.naviDia').attr('prePath');
+	const modelCode = $('.naviDia').attr('modelCode');
+	const modelYear = $('.naviDia').attr('modelYear');
+	const trimCode = $('.naviDia').attr('trimCode');
+	const intCode = $('.naviDia').attr('intCode');
+	const extCode = $('.naviDia').attr('extCode');
+
+	
+	if(previStep == "1"){
+		
+		prePath += ".html";
+		
+	}else if(previStep == "2"){
+		
+		prePath += ".html?modelCode="+modelCode+"&modelYear="+modelYear;
+		
+	}else if(previStep == "3"){
+		
+		prePath += ".html?modelCode="+modelCode+"&modelYear="+modelYear;
+		prePath += "&trimCode="+trimCode;
+	}else{
+		
+		prePath += ".html?modelCode="+modelCode+"&modelYear="+modelYear;
+		prePath += "&trimCode="+trimCode;
+		prePath += "&extColorCode="+extCode+"&intColorCode="+intCode;
+	}
+	
+	
+	location.href = prePath;
+
+
+}
 
 
 

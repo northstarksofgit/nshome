@@ -26,6 +26,10 @@
 }
 
 
+.ico_prev, .ico_next{
+	cursor: pointer;
+}
+
 
 /*
 * CRUD 관련 CSS

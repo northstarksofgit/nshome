@@ -28,6 +28,7 @@ js/ckh.js
 ### dwJung js ###
 js/dwJung.js
 js/dw-vue.js
+js/dw-vue-crud.js
 js/navi-common.js
 
 ###dain js ###

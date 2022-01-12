@@ -59,3 +59,6 @@ public class GetRepository_static {
 	public static ResourceResolver resResolver = null;
 
 }
+
+// static 정리 
+

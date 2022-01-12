@@ -67,6 +67,8 @@ public class GetRepository {
 	}
 }
 
+// 간단한 테스트 파일용도 
+
 //System.out.println(repository.getDescriptor(Repository.SPEC_VERSION_DESC));
 //System.out.println(repository.getDescriptor(Repository.REP_VERSION_DESC));
 //System.out.println(repository.getDescriptor(Repository.REP_NAME_DESC));

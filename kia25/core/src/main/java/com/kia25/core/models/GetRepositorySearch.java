@@ -3,6 +3,8 @@ package com.kia25.core.models;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 import javax.jcr.AccessDeniedException;
 import javax.jcr.InvalidItemStateException;
@@ -68,6 +70,8 @@ public class GetRepositorySearch extends GetRepository_static {
 	public static void getNodeHierarchyData(List<Node> folderNdList, Session session) throws RepositoryException {
 		String nodeType = null;
 		NodeIterator nodeItr = null;
+		
+		String searchWrod = "property";
 
 		List<Node> currfolderNdsList = new ArrayList<Node>();
 		try {
@@ -82,15 +86,20 @@ public class GetRepositorySearch extends GetRepository_static {
 
 					if (nodeType.equalsIgnoreCase(IS_COMPNT)) {
 						System.out.println(sbNode.getName() + " ---> is a COMPONENT");
+						
 						String dialogStr = sbNode.getPath() + IS_DIALOG;
 						Node contentNode = session.getNode(dialogStr);
-
+						
 						if (contentNode.hasProperty(JCR_TITILE)) {
 							String titleStr = contentNode.getProperty(JCR_TITILE).getString();
 							System.out.println(titleStr + " ---> is a DIALOG TITLE");
+							
+							if (dialogStr.matches(".*"+searchWrod+"*."))  //IS_DIALOG
+								currfolderNdsList.add(sbNode);
+							
+							if (titleStr.matches(".*"+searchWrod+"*."))   //JCR_TITILE
+								currfolderNdsList.add(sbNode);
 						}
-
-						currfolderNdsList.add(sbNode);
 					}
 
 					if (nodeType.equalsIgnoreCase(IS_FOLDER)) {
@@ -111,14 +120,17 @@ public class GetRepositorySearch extends GetRepository_static {
 
 					}
 				}
-				System.out.println("*** TRAVERSING OF NODE **** : " + currentNode.getName() + " ***COMPLETE***");
+				System.out.println("*** Find getPath **** : " + currentNode.getPath() + " *** String is : " + searchWrod );
 				System.out.println("=================================================================================");
 			}
 			/**
 			 * if current folder has folders then traverse those, else stop job.
+			 * 검색 기능을 추가해야 할 부분
 			 */
-			if (currfolderNdsList.size() > 0) {
-				getNodeHierarchyData(currfolderNdsList, session);
+			
+
+			if (currfolderNdsList.size() > 0) {				 
+			 	getNodeHierarchyData(currfolderNdsList, session);
 			} else {
 				return;
 			}
@@ -128,7 +140,17 @@ public class GetRepositorySearch extends GetRepository_static {
 		
 	}
 
+	public static boolean findWrod(String searchWrod) {
+
+		String regex = "^[0-9a-zA-Z]+^[가-힣]*$";  // 숫자, 영문(대소), 한글 패턴
+				Pattern p = Pattern.compile(regex);
+				Matcher m = p.matcher(searchWrod);
+		return m.matches();
+	}
+
 }
+
+
 
 //if(assetNode.hasProperty(JCR_LASTMODIFIEDDATE)){ String jcrCreatedDate =
 //assetNode.getProperty(JCR_LASTMODIFIEDDATE).getString();
